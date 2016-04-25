@@ -3,6 +3,8 @@ require $_SERVER['DOCUMENT_ROOT']."/lib/functions.php";
 require "lib/functions_admin.php";
 require "access.php";
 
+header("X-XSS-Protection: 0");
+
 include_once("htmleditor/fckeditor.php") ;
 $saveHTML = ($_POST['action'] == "saveHTML");
 if ($saveHTML) {
