@@ -1,0 +1,1 @@
+inner template contents (index page - lib_site/templates/index.php)
