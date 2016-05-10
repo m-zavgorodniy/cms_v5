@@ -37,9 +37,7 @@
         <div class="body-inner">
             <?=$__CMS__INNER_TEMPLATE_CONTENTS?>
         </div>
-        <aside>
-            side contents
-        </aside>
+        <?=out_aside()?>
     </div>
     <footer>
         page footer

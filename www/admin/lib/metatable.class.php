@@ -433,8 +433,10 @@ class MetaTable {
 		$this->is_list = $is_list;
 		$this->sql_filter = $sql_filter;
 		
-		// !! hardcode for moscowkey
+/*		// !! hardcode
 		// !! TODO - filtering of lists in viewlist.php
+		
+		// this is a working example
 		if ($this instanceof TableRows and 'listing' == $this->table) {
 			$this->sql_filter .= ($this->sql_filter?' AND ':'');
 			if ($_GET['import']) {
@@ -445,7 +447,7 @@ class MetaTable {
 			if (ADMIN_LOGIN != $_SESSION['admin']) {
 				$this->sql_filter .= ' AND listing.user_id = ' . $_SESSION['admin_id'];
 			}
-		}
+		}*/
 
 		$this->master_id = $master_id;
 		$this->master_table = $master_table;

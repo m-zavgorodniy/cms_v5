@@ -40,7 +40,7 @@ RewriteRule ^(.*)$ /$1/ [L,R=301]
 
 # domain-mode (each domain specified)
 #RewriteCond %{REQUEST_URI} !^/admin/
-#RewriteCond %{HTTP_HOST} ^(www\.)?moscowkey$
+#RewriteCond %{HTTP_HOST} ^(www\.)?domain-name$
 #RewriteCond %{REQUEST_URI} !^/site/
 #RewriteRule ^(.*)$ site/$1
 

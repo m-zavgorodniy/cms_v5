@@ -51,21 +51,14 @@
 			mysql_free_result($rs); 
 			mysql_close($conn); ?>
         </div>
-		<a href="doclist.php?type=listing_type" target="tree" onClick="setFrame()"><img src="images/icons/application_view_list.png" alt="">Недвижимость</a>
-    <?	// ! hardcode for moscowkey
-		if (ADMIN_LOGIN == $_SESSION['admin']) { ?>
 		<a href="doclist.php?type=container&mode=sitetree" target="tree" onClick="setFrame()"><img src="images/icons/sitemap.png" alt="">Разделы</a>
 		<a href="doclist.php?type=banner_type" target="tree" onClick="setFrame()"><img src="images/icons/application_view_gallery.png" alt="">Баннеры</a>
 		<a href="extras.php" target="tree" onClick="setFrame()"><img src="images/icons/wrench.png" alt="">Настройки и справочники</a>
 <!--		<a href="mailing.php" target="tree" onClick="setFrame()"><img src="images/icons/email.png" alt="">Рассылки</a> -->
 	    <a href="site.php?view=metatable" target="tree" onClick="setFrame()"><img src="images/icons/gear_big.png" alt="">Сайт</a>
-    <?	} ?>
 	    <div class="cm-panel-right">
 <!--			<div class="cm-panel-separator"></div> -->
-    <?	// ! hardcode for moscowkey
-		if (ADMIN_LOGIN == $_SESSION['admin']) { ?>
 			<a href="doclist.php?type=users_group" target="tree" onClick="setFrame()"><img src="images/icons/user.png" alt="">Пользователи</a>
-    <?	} ?>
             <a href="view.php?type=user&id=<?=$_SESSION['admin_id']?>" target="content"><img src="images/icons/user_suit.png" alt=""><?=$_SESSION['admin']?></a>
         	<a href="login.php?logout" target="_top" class="last"><img src="images/icons/door_in.png" alt="">Выход</a>
 	    </div>

@@ -4,7 +4,7 @@ $config['DEBUG_ENABLED'] = false; // error reporting
 $config['DB_SERVER'] = 'localhost';
 $config['DB_USER'] = 'root';
 $config['DB_PASSWORD'] = '';
-$config['DB_DATABASE'] = 'moscowkey';
+$config['DB_DATABASE'] = 'cms_v5';
 $config['DB_TABLE_PREFIX'] = '';
 $config['DB_DEFAULT_UTF8'] = true;
 
@@ -47,15 +47,15 @@ $config['GALLERY_THUMBNAIL_CROP_METHOD'] = 'wh'; // w = width | h = height | c =
 $config['GALLERY_THUMBNAIL_WIDTH'] = 450;
 $config['GALLERY_THUMBNAIL_HEIGHT'] = 300;
 
-$config['MAIL_FROM_NAME'] = 'МСК Ключ';
-$config['MAIL_FROM_EMAIL'] = 'no-replay@mskkey.ru';
+$config['MAIL_FROM_NAME'] = 'Eclipse';
+$config['MAIL_FROM_EMAIL'] = 'no-replay@e-i.com.ru';
 $config['MAIL_SMTP_HOST'] = 'localhost';
 $config['MAIL_SMTP_PORT'] = 25;
 $config['MAIL_SMTP_AUTH'] = false;
 $config['MAIL_SMTP_USERNAME'] = 'free';
 $config['MAIL_SMTP_PASSWORD'] = 'pass';
 
-$config['MAIL_CONTENT_HTTP_HOST'] = 'http://www.mskkey.ru';
+$config['MAIL_CONTENT_HTTP_HOST'] = 'http://e-i.com.ru';
 $config['MAIL_CONTENT_EMAIL_PARAM_NAME'] = 'email';
 $config['MAIL_CONTENT_EMBED_IMAGES'] = false;
 

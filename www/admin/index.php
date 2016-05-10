@@ -40,7 +40,7 @@
                 marginheight="0"
                 marginwidth="0">
             <frame
-                src="doclist.php?type=listing_type"
+                src="doclist.php?type=container&mode=sitetree"
                 name="tree"
                 topmargin="0"
                 leftmargin="0"

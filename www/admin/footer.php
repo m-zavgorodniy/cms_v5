@@ -18,10 +18,7 @@
 </head>
 <body>
 	<div class="cm-panel">
-    <?	// ! hardcode for moscowkey
-		if (ADMIN_LOGIN == $_SESSION['admin']) { ?>
         <a href="cms.php?view=metatable" target="tree" onClick="setFrame()"><img src="images/icons/gear_big.png" alt="">CMS</a>
-    <?	} ?>
 	    <div class="cm-panel-right">
 			Designed by <a href="http://e-i.com.ru/" target="_blank">Eclipse</a>
 	    </div>
