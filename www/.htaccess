@@ -18,6 +18,10 @@ php_value error_reporting 7
 #php_value session.save_path z:\\home\\cms\\tmp
 
 RewriteEngine on
+
+# SCSS: styles.scss (file) -> /scss.php/styles.scss (processing) -> styles.css (browser)
+RewriteRule ^scss\/(.*)\.css$ /scss.php/$1.scss [L]
+
 #RewriteBase /
 
 #RewriteCond %{HTTP_HOST} !^www\.

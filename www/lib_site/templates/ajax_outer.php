@@ -1,10 +1,10 @@
 <?
 if (!$_GET['ajax_inner']) { ?>
 <div class="ajax-window">
-    <?= $INNER_CONTENT ?>
+    <?= $__CMS__INNER_TEMPLATE_CONTENTS ?>
 </div>
 <?
 } else {
-	echo $INNER_CONTENT;
+	echo $__CMS__INNER_TEMPLATE_CONTENTS;
 }
 ?>

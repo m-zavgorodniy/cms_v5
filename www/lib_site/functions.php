@@ -1,11 +1,6 @@
 <?
-function out_aside() {
-	global $_SITE, $_DATA, $__; ?>
-    <aside>
-		side contents
-    </aside>
-<?
-}
+// this file is auto-included in all the php templates
+// the functions you add here are available to use in the templates
 
 function out_paginator($page, $items_on_page, $count, $prev_text = '<', $next_text = '>') {
 	global $__;
@@ -32,23 +27,7 @@ function out_paginator($page, $items_on_page, $count, $prev_text = '<', $next_te
 }
 
 function out_sharing() { ?>
-	<div class="sharing">
-    	<!-- sharing code -->
-    </div>
+   	<!-- code for sharing -->
 <?
-}
-
-// forms
-function set_checked_attr($value, $param, $is_select = false) {
-	if (is_array($param)) {
-		if(in_array($value, $param)) {
-			$res = true;
-		}
-	} else {
-		if ($value === $param) {
-			$res = true;
-		}
-	}
-	echo $res?($is_select?' selected=""':' checked=""'):'';
 }
 ?>
