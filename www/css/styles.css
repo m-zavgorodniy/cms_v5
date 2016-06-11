@@ -59,8 +59,18 @@ h2 {font-size: 29px; margin-bottom: .8em; line-height: 1.5; font-weight: 700; co
 .header-menu li:first-child {margin-left: 0;}
 .header-menu a {color: #262626;}
 
-.header-path {font-size: 14px; color: #666;}
-.header-path li {float: left; padding-right: 1em; border-right: 1px solid #838383; margin-right: 1em;}
+.header-path {margin-top: 38px; font-size: 13px; color: #666;}
+.header-path li {display: inline-block;}
+.header-path li + li:before {display: inline-block;	vertical-align: baseline; content: ""; padding-left: 1em; margin-right: 1em; border-right: 1px solid #838383; height: .7em;}
+
+/* inner */
+.inner {background: url(/images/svg/group.svg) repeat-x top;}
+.page-index .inner {background: none;}
+
+/* sticky footer */
+.body-wrap {min-height: 100%; margin-bottom: -380px;}
+.body-wrap:after {content: ""; display: block;}
+.footer, .body-wrap:after {height: 380px;}
 
 /* footer */
 .footer {background: url(/images/svg/group.svg) repeat-x top;}
