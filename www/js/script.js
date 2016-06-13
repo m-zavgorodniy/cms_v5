@@ -176,8 +176,11 @@ jQuery(document).ready(function() {
 		minDate: 0,
 		dateFormat: "dd.mm.yy",
 		monthNames: [ "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" ],
-		dayNamesMin: [ "ВС", "ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ" ]
+		dayNamesMin: [ "вс", "пн", "вт", "ср", "чт", "пт", "сб" ]
 	});
+	
+	$.extend($.datepicker,{_checkOffset:function(inst,offset,isFixed){return { left: offset.left, top: offset.top+12 }}});
+	
 });
 
 $(function() {
