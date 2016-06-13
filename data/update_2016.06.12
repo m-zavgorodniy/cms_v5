@@ -302,3 +302,6 @@ UPDATE  `meta_table_field` SET  `title` =  'Картинка большая',
 `type_extra` =  'image_big',
 sort_num = 19 WHERE  `meta_table_field`.`id` =3191;
 UPDATE  `meta_table_field` SET  `title` =  'Картинка в списке (585x280)' WHERE  `meta_table_field`.`id` =3192;
+
+INSERT INTO `meta_table2section_type` (`id`, `meta_table_id`, `section_type_id`, `is_in_site_tree`) VALUES
+(34, 'service_group', 'office_centers', 0);
