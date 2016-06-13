@@ -1,0 +1,304 @@
+INSERT INTO `meta_table` (`id`, `table_name`, `depends_on_site`, `filter_data_by_meta_table`, `title`, `sortable`, `editable`, `deletable`, `searchable`, `multi_lang`, `is_in_site_tree`, `is_in_extras`, `is_many2many`, `sql_filter`, `title_list`, `title_addnew`, `title_in_delete_confirm`, `is_system`, `frontend_passthrough`, `frontend_onpage_num`, `frontend_act_param_name`, `frontend_id_param_name`, `frontend_on_all_pages`, `frontend_sql_filter`, `frontend_sql_order`) VALUES
+('metro', 'metro', 0, 0, 'Метро', 1, 1, 1, 0, 0, 0, 0, 0, NULL, 'Метро', 'Новая станция метро', 'станцию метро', 0, 0, NULL, NULL, NULL, 0, NULL, NULL),
+('metro_line', 'metro_line', 0, 0, 'Линия метро', 1, 1, 1, 0, 0, 0, 0, 0, NULL, 'Линии метро', 'Новая линия', 'линию', 0, 0, NULL, NULL, NULL, 0, NULL, NULL);
+
+INSERT INTO `meta_table2table` (`meta_table_id`, `detail_meta_table_id`, `many2many_meta_table_id`, `sort_num`, `title_subquery`, `title_addnew`, `is_bookmark`, `locked`, `condition_field`, `condition_value`) VALUES
+('metro_line', 'metro', NULL, 10, 'Станции метро', 'Новая станция метро', 0, 0, NULL, NULL);
+
+INSERT INTO `meta_table_field` (`id`, `field`, `meta_table_id`, `title`, `title_en`, `meta_table_field_group_id`, `type`, `type_extra`, `nullable`, `lookup_external_meta_table_id`, `lookup_meta_table_field_id`, `lookup_multi`, `lookup_filter`, `lookup_quick_add`, `required`, `sort_num`, `comment`, `comment_en`, `default_value`, `unit_id`, `published`, `readonly`, `is_title`, `is_in_subquery`, `in_subquery_wide`, `default_order_num`, `in_subquery_colnum`, `in_subquery_title`, `locked`, `editable`, `multi_lang`, `sql_value`) VALUES
+(3629, 'title', 'metro_line', 'Наименование', '', '', 'varchar(255)', NULL, 0, NULL, NULL, 0, NULL, 0, 1, 40, NULL, NULL, NULL, NULL, 1, 0, 1, 1, 0, 2, 10, NULL, 0, 0, 0, NULL),
+(3630, 'sort_num', 'metro_line', 'Порядок', '', '', 'int(5)', 'sort', 0, NULL, NULL, 0, NULL, 0, 1, 100, NULL, NULL, '10', NULL, 1, 0, 0, 1, 0, 1, 1, NULL, 0, 0, 0, NULL),
+(3631, 'published', 'metro_line', 'Публиковать', '', '', 'int(1)', 'boolean', 0, NULL, NULL, 0, '', 0, 1, 110, NULL, NULL, NULL, NULL, 1, 0, 0, 1, 0, NULL, 1, 'Публ.', 0, 0, 0, ''),
+(3632, 'city_id', 'metro_line', 'Город', '', '', 'int(5)', 'lookup', 0, NULL, 3508, 0, '', 0, 1, 20, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 0, ''),
+(3633, 'color', 'metro_line', 'Цвет', '', '', 'varchar(40)', NULL, 1, NULL, NULL, 0, NULL, 0, 0, 50, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 0, NULL);
+
+INSERT INTO `meta_table_field` (`id`, `field`, `meta_table_id`, `title`, `title_en`, `meta_table_field_group_id`, `type`, `type_extra`, `nullable`, `lookup_external_meta_table_id`, `lookup_meta_table_field_id`, `lookup_multi`, `lookup_filter`, `lookup_quick_add`, `required`, `sort_num`, `comment`, `comment_en`, `default_value`, `unit_id`, `published`, `readonly`, `is_title`, `is_in_subquery`, `in_subquery_wide`, `default_order_num`, `in_subquery_colnum`, `in_subquery_title`, `locked`, `editable`, `multi_lang`, `sql_value`) VALUES
+(3634, 'title', 'metro', 'Наименование', '', '', 'varchar(255)', NULL, 0, NULL, NULL, 0, NULL, 0, 1, 20, NULL, NULL, NULL, NULL, 1, 0, 1, 1, 0, 2, 10, NULL, 0, 0, 0, NULL),
+(3635, 'sort_num', 'metro', 'Порядок', '', '', 'int(5)', 'sort', 0, NULL, NULL, 0, NULL, 0, 1, 40, NULL, NULL, '10', NULL, 1, 0, 0, 1, 0, 1, 1, NULL, 0, 0, 0, NULL),
+(3636, 'published', 'metro', 'Публиковать', '', '', 'int(1)', 'boolean', 0, NULL, NULL, 0, '', 0, 1, 50, NULL, NULL, NULL, NULL, 1, 0, 0, 1, 0, NULL, 1, 'Публ.', 0, 0, 0, ''),
+(3637, 'city_id', 'metro', 'Город', '', '', 'int(5)', 'lookup', 0, NULL, 3508, 0, '', 0, 1, 10, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 0, ''),
+(3638, 'metro_line_id', 'metro', 'Линия метро', '', '', 'int(5)', 'lookup', 0, NULL, 3629, 1, NULL, 0, 1, 30, NULL, NULL, NULL, NULL, 1, 0, 0, 1, 0, NULL, 20, NULL, 0, 0, 0, NULL);
+
+INSERT INTO `meta_table2table` (`meta_table_id`, `detail_meta_table_id`, `many2many_meta_table_id`, `sort_num`, `title_subquery`, `title_addnew`, `is_bookmark`, `locked`, `condition_field`, `condition_value`) VALUES
+('city', 'metro_line', NULL, 40, 'Линии метро', 'Новая линия метро', 1, 0, NULL, NULL),
+('city', 'metro', NULL, 50, 'Станции метро', 'Новая станция метро', 1, 0, NULL, NULL);
+
+ALTER TABLE  `office_center` ADD  `metro_id` INT( 5 ) NULL AFTER  `city_id`;
+
+INSERT INTO `meta_table_field` (`id`, `field`, `meta_table_id`, `title`, `title_en`, `meta_table_field_group_id`, `type`, `type_extra`, `nullable`, `lookup_external_meta_table_id`, `lookup_meta_table_field_id`, `lookup_multi`, `lookup_filter`, `lookup_quick_add`, `required`, `sort_num`, `comment`, `comment_en`, `default_value`, `unit_id`, `published`, `readonly`, `is_title`, `is_in_subquery`, `in_subquery_wide`, `default_order_num`, `in_subquery_colnum`, `in_subquery_title`, `locked`, `editable`, `multi_lang`, `sql_value`) VALUES
+(3870, 'metro_id', 'office_center', 'Метро', '', '', 'int(5)', 'lookup', 1, NULL, 3634, 0, NULL, 0, 0, 15, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 0, NULL);
+INSERT INTO `meta_table_field` (`id`, `field`, `meta_table_id`, `title`, `title_en`, `meta_table_field_group_id`, `type`, `type_extra`, `nullable`, `lookup_external_meta_table_id`, `lookup_meta_table_field_id`, `lookup_multi`, `lookup_filter`, `lookup_quick_add`, `required`, `sort_num`, `comment`, `comment_en`, `default_value`, `unit_id`, `published`, `readonly`, `is_title`, `is_in_subquery`, `in_subquery_wide`, `default_order_num`, `in_subquery_colnum`, `in_subquery_title`, `locked`, `editable`, `multi_lang`, `sql_value`) VALUES
+(3871, 'metro_color', 'office_center', 'Цвет ветки метро', '', '', 'varchar(255)', 'calc_view', 0, NULL, NULL, 0, NULL, 0, 0, 16, NULL, NULL, NULL, NULL, 1, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 0, 'SELECT color FROM metro_line WHERE id = metro.metro_line_id');
+
+CREATE TABLE IF NOT EXISTS `metro` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `city_id` int(5) NOT NULL,
+  `metro_line_id` varchar(40) NOT NULL DEFAULT '',
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `title_en` varchar(255) NOT NULL DEFAULT '',
+  `sort_num` int(5) NOT NULL DEFAULT '0',
+  `published` tinyint(1) NOT NULL DEFAULT '0',
+  `cian_id` int(11) DEFAULT NULL,
+  `title_seo` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `title` (`title`),
+  UNIQUE KEY `cian_id` (`cian_id`),
+  UNIQUE KEY `title_seo` (`title_seo`),
+  KEY `city_id` (`city_id`),
+  KEY `metro_line_id` (`metro_line_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=610 ;
+
+
+ALTER TABLE `office_center`
+  ADD FOREIGN KEY (`metro_id`) REFERENCES `metro` (`id`) ON UPDATE CASCADE;
+
+--
+-- Дамп данных таблицы `metro`
+--
+
+INSERT INTO `metro` (`id`, `city_id`, `metro_line_id`, `title`, `title_en`, `sort_num`, `published`, `cian_id`, `title_seo`) VALUES
+(1, 1, '1', 'Бульвар Рокоссовского', 'Bulvar Rokossovskogo', 10, 1, 40, 'bulvar-rokossovskogo'),
+(2, 1, '1', 'Черкизовская', 'Cherkizovskaya', 20, 1, 39, 'cherkizovskaya'),
+(3, 1, '1', 'Преображенская площадь', 'Preobrazhenskaya Ploshchad', 30, 1, 38, 'preobrazhenskaya-ploschad'),
+(4, 1, '1', 'Сокольники', 'Sokolniki', 40, 1, 37, 'sokolniki'),
+(5, 1, '1', 'Красносельская', 'Krasnoselskaya', 50, 1, 36, 'krasnoselskaya'),
+(6, 1, '1,5', 'Комсомольская', 'Komsomolskaya', 60, 1, 35, 'komsomolskaya'),
+(7, 1, '1', 'Красные ворота', 'Krasnye Vorota', 70, 1, 34, 'krasnye-vorota'),
+(8, 1, '1', 'Чистые пруды', 'Chistye Prudy', 80, 1, 33, 'chistye-prudy'),
+(9, 1, '1', 'Лубянка', 'Lubyanka', 90, 1, 32, 'lubyanka'),
+(10, 1, '1', 'Охотный ряд', 'Okhotny Ryad', 100, 1, 31, 'ohotnyy-ryad'),
+(11, 1, '1', 'Библиотека имени Ленина', 'Biblioteka Imeni Lenina', 110, 1, 30, 'biblioteka-imeni-lenina'),
+(12, 1, '1', 'Кропоткинская', 'Kropotkinskaya', 120, 1, 29, 'kropotkinskaya'),
+(13, 1, '1,5', 'Парк культуры', 'Park Kultury', 130, 1, 28, 'park-kultury'),
+(14, 1, '1', 'Фрунзенская', 'Frunzenskaya', 140, 1, 27, 'frunzenskaya'),
+(15, 1, '1', 'Спортивная', 'Sportivnaya', 150, 1, 26, 'sportivnaya'),
+(16, 1, '1', 'Воробьёвы горы', 'Vorobyovy Gory', 160, 1, 157, 'vorobevy-gory'),
+(17, 1, '1', 'Университет', 'Universitet', 170, 1, 25, 'universitet'),
+(18, 1, '1', 'Проспект Вернадского', 'Prospekt Vernadskogo', 180, 1, 24, 'prospekt-vernadskogo'),
+(19, 1, '1', 'Юго-Западная', 'Yugo-Zapadnaya', 190, 1, 23, 'yugo-zapadnaya'),
+(20, 1, '1', 'Тропарёво', 'Troparyovo', 200, 1, 225, 'troparevo'),
+(21, 1, '7', 'Планерная', 'Planernaya', 10, 1, 63, 'planernaya'),
+(434, 1, '2', 'Речной вокзал', 'Rechnoy Vokzal', 10, 1, 1, 'rechnoy-vokzal'),
+(435, 1, '2', 'Водный стадион', 'Vodny Stadion', 20, 1, 2, 'vodnyy-stadion'),
+(436, 1, '2', 'Войковская', 'Voykovskaya', 30, 1, 3, 'voykovskaya'),
+(437, 1, '2', 'Сокол', 'Sokol', 40, 1, 4, 'sokol'),
+(438, 1, '2', 'Аэропорт', 'Aeroport', 50, 1, 5, 'aeroport'),
+(439, 1, '2', 'Динамо', 'Dinamo', 60, 1, 6, 'dinamo'),
+(440, 1, '2,5', 'Белорусская', 'Belorusskaya', 70, 1, 7, 'belorusskaya'),
+(441, 1, '2', 'Маяковская', 'Mayakovskaya', 80, 1, 8, 'mayakovskaya'),
+(442, 1, '2', 'Тверская', 'Tverskaya', 90, 1, 9, 'tverskaya'),
+(443, 1, '2', 'Театральная', 'Teatralnaya', 100, 1, 10, 'teatralnaya'),
+(444, 1, '2', 'Новокузнецкая', 'Novokuznetskaya', 110, 1, 11, 'novokuznetskaya'),
+(445, 1, '2,5', 'Павелецкая', 'Paveletskaya', 120, 1, 12, 'paveletskaya'),
+(446, 1, '2', 'Автозаводская', 'Avtozavodskaya', 130, 1, 13, 'avtozavodskaya'),
+(447, 1, '2', 'Коломенская', 'Kolomenskaya', 140, 1, 14, 'kolomenskaya'),
+(448, 1, '2,11', 'Каширская', 'Kashirskaya', 150, 1, 15, 'kashirskaya'),
+(449, 1, '2', 'Кантемировская', 'Kantemirovskaya', 160, 1, 18, 'kantemirovskaya'),
+(450, 1, '2', 'Царицыно', 'Tsaritsyno', 170, 1, 19, 'tsaritsyno'),
+(451, 1, '2', 'Орехово', 'Orekhovo', 180, 1, 20, 'orehovo'),
+(452, 1, '2', 'Домодедовская', 'Domodedovskaya', 190, 1, 21, 'domodedovskaya'),
+(453, 1, '2', 'Красногвардейская', 'Krasnogvardeyskaya', 200, 1, 22, 'krasnogvardeyskaya'),
+(454, 1, '2', 'Алма-Атинская', 'Alma-Atinskaya', 210, 1, 213, 'alma-atinskaya'),
+(455, 1, '3', 'Пятницкое шоссе', 'Pyatnitskoye Shosse', 10, 1, 214, 'pyatnitskoe-shosse'),
+(456, 1, '3', 'Митино', 'Mitino', 20, 1, 196, 'mitino'),
+(457, 1, '3', 'Волоколамская', 'Volokolamskaya', 30, 1, 203, 'volokolamskaya'),
+(458, 1, '3', 'Мякинино', 'Myakinino', 40, 1, 202, 'myakinino'),
+(459, 1, '3', 'Строгино', 'Strogino', 50, 1, 200, 'strogino'),
+(460, 1, '3', 'Крылатское', 'Krylatskoye', 60, 1, 62, 'krylatskoe'),
+(461, 1, '3', 'Молодёжная', 'Molodyozhnaya', 70, 1, 61, 'molodezhnaya'),
+(462, 1, '3,4', 'Кунцевская', 'Kuntsevskaya', 10, 1, 60, 'kuntsevskaya'),
+(463, 1, '3', 'Славянский бульвар', 'Slavyansky Bulvar', 90, 1, 201, 'slavyanskiy-bulvar'),
+(464, 1, '3,8', 'Парк Победы', 'Park Pobedy', 100, 1, 165, 'park-pobedy'),
+(465, 1, '3,4,5', 'Киевская', 'Kiyevskaya', 100, 1, 52, 'kievskaya'),
+(466, 1, '3,4', 'Смоленская', 'Smolenskaya', 110, 1, 51, 'smolenskaya'),
+(467, 1, '3,4', 'Арбатская', 'Arbatskaya', 120, 1, 50, 'arbatskaya'),
+(468, 1, '3', 'Площадь Революции', 'Ploshchad Revolyutsii', 140, 1, 49, 'ploschad-revolyutsii'),
+(469, 1, '3,5', 'Курская', 'Kurskaya', 150, 1, 48, 'kurskaya'),
+(470, 1, '3', 'Бауманская', 'Baumanskaya', 160, 1, 47, 'baumanskaya'),
+(471, 1, '3', 'Электрозаводская', 'Elektrozavodskaya', 170, 1, 46, 'elektrozavodskaya'),
+(472, 1, '3', 'Семёновская', 'Semyonovskaya', 180, 1, 45, 'semenovskaya'),
+(473, 1, '3', 'Партизанская', 'Partizanskaya', 190, 1, 44, 'partizanskaya'),
+(474, 1, '3', 'Измайловская', 'Izmaylovskaya', 200, 1, 43, 'izmaylovskaya'),
+(475, 1, '3', 'Первомайская', 'Pervomayskaya', 210, 1, 42, 'pervomayskaya'),
+(476, 1, '3', 'Щёлковская', 'Shchyolkovskaya', 220, 1, 41, 'schelkovskaya'),
+(478, 1, '4', 'Пионерская', 'Pionerskaya', 20, 1, 59, 'pionerskaya'),
+(479, 1, '4', 'Филёвский парк', 'Filyovsky Park', 30, 1, 58, 'filevskiy-park'),
+(480, 1, '4', 'Багратионовская', 'Bagrationovskaya', 40, 1, 57, 'bagrationovskaya'),
+(481, 1, '4', 'Фили', 'Fili', 50, 1, 56, 'fili'),
+(482, 1, '4', 'Кутузовская', 'Kutuzovskaya', 60, 1, 55, 'kutuzovskaya'),
+(483, 1, '4', 'Студенческая', 'Studencheskaya', 70, 1, 54, 'studencheskaya'),
+(484, 1, '4', 'Международная', 'Mezhdunarodnaya', 80, 1, 197, 'mezhdunarodnaya'),
+(485, 1, '4', 'Выставочная', 'Vystavochnaya', 90, 1, 198, 'vystavochnaya'),
+(489, 1, '4', 'Александровский сад', 'Aleksandrovsky Sad', 130, 1, 53, 'aleksandrovskiy-sad'),
+(491, 1, '5', 'Краснопресненская', 'Krasnopresnenskaya', 20, 1, 133, 'krasnopresnenskaya'),
+(493, 1, '5', 'Новослободская', 'Novoslobodskaya', 40, 1, 134, 'novoslobodskaya'),
+(494, 1, '5,6', 'Проспект Мира', 'Prospekt Mira', 50, 1, 136, 'prospekt-mira'),
+(497, 1, '5,7', 'Таганская', 'Taganskaya', 80, 1, 75, 'taganskaya'),
+(499, 1, '5', 'Добрынинская', 'Dobryninskaya', 100, 1, 132, 'dobryninskaya'),
+(500, 1, '5,6', 'Октябрьская', 'Oktyabrskaya', 110, 1, 100, 'oktyabrskaya'),
+(502, 1, '6', 'Медведково', 'Medvedkovo', 10, 1, 110, 'medvedkovo'),
+(503, 1, '6', 'Бабушкинская', 'Babushkinskaya', 20, 1, 109, 'babushkinskaya'),
+(504, 1, '6', 'Свиблово', 'Sviblovo', 30, 1, 108, 'sviblovo'),
+(505, 1, '6', 'Ботанический сад', 'Botanichesky Sad', 40, 1, 107, 'botanicheskiy-sad'),
+(506, 1, '6', 'ВДНХ', 'VDNKh', 50, 1, 106, 'vdnh'),
+(507, 1, '6', 'Алексеевская', 'Alekseyevskaya', 60, 1, 105, 'alekseevskaya'),
+(508, 1, '6', 'Рижская', 'Rizhskaya', 70, 1, 104, 'rizhskaya'),
+(510, 1, '6', 'Сухаревская', 'Sukharevskaya', 90, 1, 102, 'suharevskaya'),
+(511, 1, '6', 'Тургеневская', 'Turgenevskaya', 100, 1, 103, 'turgenevskaya'),
+(512, 1, '6,7', 'Китай-город', 'Kitay-gorod', 110, 1, 74, 'kitay-gorod'),
+(513, 1, '6,8', 'Третьяковская', 'Tretyakovskaya', 120, 1, 88, 'tretyakovskaya'),
+(515, 1, '6', 'Шаболовская', 'Shabolovskaya', 140, 1, 99, 'shabolovskaya'),
+(516, 1, '6', 'Ленинский проспект', 'Leninsky Prospekt', 150, 1, 98, 'leninskiy-prospekt'),
+(517, 1, '6', 'Академическая', 'Akademicheskaya', 160, 1, 97, 'akademicheskaya'),
+(518, 1, '6', 'Профсоюзная', 'Profsoyuznaya', 170, 1, 96, 'profsoyuznaya'),
+(519, 1, '6', 'Новые Черёмушки', 'Novye Cheryomushki', 180, 1, 95, 'novye-cheremushki'),
+(520, 1, '6', 'Калужская', 'Kaluzhskaya', 190, 1, 94, 'kaluzhskaya'),
+(521, 1, '6', 'Беляево', 'Belyayevo', 200, 1, 93, 'belyaevo'),
+(522, 1, '6', 'Коньково', 'Konkovo', 210, 1, 92, 'konkovo'),
+(523, 1, '6', 'Тёплый Стан', 'Tyoply Stan', 220, 1, 91, 'teplyy-stan'),
+(524, 1, '6', 'Ясенево', 'Yasenevo', 230, 1, 90, 'yasenevo'),
+(525, 1, '6', 'Новоясеневская', 'Novoyasenevskaya', 240, 1, 89, 'novoyasenevskaya'),
+(527, 1, '7', 'Сходненская', 'Skhodnenskaya', 20, 1, 64, 'shodnenskaya'),
+(528, 1, '7', 'Тушинская', 'Tushinskaya', 30, 1, 65, 'tushinskaya'),
+(529, 1, '7', 'Спартак', 'Spartak', 40, 1, 224, 'spartak'),
+(530, 1, '7', 'Щукинская', 'Shchukinskaya', 50, 1, 66, 'schukinskaya'),
+(531, 1, '7', 'Октябрьское поле', 'Oktyabrskoye Pole', 60, 1, 67, 'oktyabrskoe-pole'),
+(532, 1, '7', 'Полежаевская', 'Polezhayevskaya', 70, 1, 68, 'polezhaevskaya'),
+(533, 1, '7', 'Беговая', 'Begovaya', 80, 1, 69, 'begovaya'),
+(534, 1, '7', 'Улица 1905 года', 'Ulitsa 1905 Goda', 90, 1, 70, 'ulitsa-1905-goda'),
+(535, 1, '7', 'Баррикадная', 'Barrikadnaya', 100, 1, 71, 'barrikadnaya'),
+(536, 1, '7', 'Пушкинская', 'Pushkinskaya', 110, 1, 72, 'pushkinskaya'),
+(537, 1, '7', 'Кузнецкий мост', 'Kuznetsky Most', 120, 1, 73, 'kuznetskiy-most'),
+(540, 1, '7', 'Пролетарская', 'Proletarskaya', 150, 1, 76, 'proletarskaya'),
+(541, 1, '7', 'Волгоградский проспект', 'Volgogradsky Prospekt', 160, 1, 77, 'volgogradskiy-prospekt'),
+(542, 1, '7', 'Текстильщики', 'Tekstilshchiki', 170, 1, 78, 'tekstilschiki'),
+(543, 1, '7', 'Кузьминки', 'Kuzminki', 180, 1, 79, 'kuzminki'),
+(544, 1, '7', 'Рязанский проспект', 'Ryazansky Prospekt', 190, 1, 80, 'ryazanskiy-prospekt'),
+(545, 1, '7', 'Выхино', 'Vykhino', 200, 1, 81, 'vyhino'),
+(546, 1, '7', 'Лермонтовский проспект', 'Lermontovsky Prospekt', 210, 1, 215, 'lermontovskiy-prospekt'),
+(547, 1, '7', 'Жулебино', 'Zhulebino', 220, 1, 216, 'zhulebino'),
+(549, 1, '8', 'Деловой центр', 'Delovoy Tsentr', 20, 1, 217, 'delovoy-tsentr'),
+(551, 1, '8', 'Марксистская', 'Marksistskaya', 40, 1, 87, 'marksistskaya'),
+(552, 1, '8', 'Площадь Ильича', 'Ploshchad Ilyicha', 50, 1, 86, 'ploschad-ilicha'),
+(553, 1, '8', 'Авиамоторная', 'Aviamotornaya', 60, 1, 85, 'aviamotornaya'),
+(554, 1, '8', 'Шоссе Энтузиастов', 'Shosse Entuziastov', 70, 1, 84, 'shosse-entuziastov'),
+(555, 1, '8', 'Перово', 'Perovo', 80, 1, 83, 'perovo'),
+(556, 1, '8', 'Новогиреево', 'Novogireyevo', 90, 1, 82, 'novogireevo'),
+(557, 1, '8', 'Новокосино', 'Novokosino', 100, 1, 210, 'novokosino'),
+(558, 1, '9', 'Алтуфьево', 'Altufyevo', 10, 1, 135, 'altufevo'),
+(559, 1, '9', 'Бибирево', 'Bibirevo', 20, 1, 131, 'bibirevo'),
+(560, 1, '9', 'Отрадное', 'Otradnoye', 30, 1, 111, 'otradnoe'),
+(561, 1, '9', 'Владыкино', 'Vladykino', 40, 1, 112, 'vladykino'),
+(562, 1, '9', 'Петровско-Разумовская', 'Petrovsko-Razumovskaya', 50, 1, 113, 'petrovsko-razumovskaya'),
+(563, 1, '9', 'Тимирязевская', 'Timiryazevskaya', 60, 1, 114, 'timiryazevskaya'),
+(564, 1, '9', 'Дмитровская', 'Dmitrovskaya', 70, 1, 115, 'dmitrovskaya'),
+(565, 1, '9', 'Савёловская', 'Savyolovskaya', 80, 1, 116, 'savelovskaya'),
+(566, 1, '9', 'Менделеевская', 'Mendeleyevskaya', 90, 1, 117, 'mendeleevskaya'),
+(567, 1, '9', 'Цветной бульвар', 'Tsvetnoy Bulvar', 100, 1, 118, 'tsvetnoy-bulvar'),
+(568, 1, '9', 'Чеховская', 'Chekhovskaya', 110, 1, 119, 'chehovskaya'),
+(569, 1, '9', 'Боровицкая', 'Borovitskaya', 120, 1, 120, 'borovitskaya'),
+(570, 1, '9', 'Полянка', 'Polyanka', 130, 1, 121, 'polyanka'),
+(571, 1, '9', 'Серпуховская', 'Serpukhovskaya', 140, 1, 122, 'serpuhovskaya'),
+(572, 1, '9', 'Тульская', 'Tulskaya', 150, 1, 123, 'tulskaya'),
+(573, 1, '9', 'Нагатинская', 'Nagatinskaya', 160, 1, 124, 'nagatinskaya'),
+(574, 1, '9', 'Нагорная', 'Nagornaya', 170, 1, 125, 'nagornaya'),
+(575, 1, '9', 'Нахимовский проспект', 'Nakhimovsky Prospekt', 180, 1, 126, 'nahimovskiy-prospekt'),
+(576, 1, '9', 'Севастопольская', 'Sevastopolskaya', 190, 1, 127, 'sevastopolskaya'),
+(577, 1, '9', 'Чертановская', 'Chertanovskaya', 200, 1, 128, 'chertanovskaya'),
+(578, 1, '9', 'Южная', 'Yuzhnaya', 210, 1, 129, 'yuzhnaya'),
+(579, 1, '9', 'Пражская', 'Prazhskaya', 220, 1, 130, 'prazhskaya'),
+(580, 1, '9', 'Улица академика Янгеля', 'Ulitsa Akademika Yangelya', 230, 1, 155, 'ulitsa-akademika-yangelya'),
+(581, 1, '9', 'Аннино', 'Annino', 240, 1, 156, 'annino'),
+(582, 1, '9', 'Бульвар Дмитрия Донского', 'Bulvar Dmitriya Donskogo', 250, 1, 164, 'bulvar-dmitriya-donskogo'),
+(583, 1, '10', 'Марьина Роща', 'Maryina Roshcha', 10, 1, 204, 'marina-roscha'),
+(584, 1, '10', 'Достоевская', 'Dostoyevskaya', 20, 1, 205, 'dostoevskaya'),
+(585, 1, '10', 'Трубная', 'Trubnaya', 30, 1, 199, 'trubnaya'),
+(586, 1, '10', 'Сретенский бульвар', 'Sretensky Bulvar', 40, 1, 206, 'sretenskiy-bulvar'),
+(587, 1, '10', 'Чкаловская', 'Chkalovskaya', 50, 1, 137, 'chkalovskaya'),
+(588, 1, '10', 'Римская', 'Rimskaya', 60, 1, 138, 'rimskaya'),
+(589, 1, '10', 'Крестьянская застава', 'Krestyanskaya Zastava', 70, 1, 139, 'krestyanskaya-zastava'),
+(590, 1, '10', 'Дубровка', 'Dubrovka', 80, 1, 140, 'dubrovka'),
+(591, 1, '10', 'Кожуховская', 'Kozhukhovskaya', 90, 1, 144, 'kozhuhovskaya'),
+(592, 1, '10', 'Печатники', 'Pechatniki', 100, 1, 141, 'pechatniki'),
+(593, 1, '10', 'Волжская', 'Volzhskaya', 110, 1, 142, 'volzhskaya'),
+(594, 1, '10', 'Люблино', 'Lyublino', 120, 1, 143, 'lyublino'),
+(595, 1, '10', 'Братиславская', 'Bratislavskaya', 130, 1, 145, 'bratislavskaya'),
+(596, 1, '10', 'Марьино', 'Maryino', 140, 1, 146, 'marino'),
+(597, 1, '10', 'Борисово', 'Borisovo', 150, 1, 207, 'borisovo'),
+(598, 1, '10', 'Шипиловская', 'Shipilovskaya', 160, 1, 208, 'shipilovskaya'),
+(599, 1, '10', 'Зябликово', 'Zyablikovo', 170, 1, 209, 'zyablikovo'),
+(601, 1, '11', 'Варшавская', 'Varshavskaya', 20, 1, 16, 'varshavskaya'),
+(602, 1, '11', 'Каховская', 'Kakhovskaya', 30, 1, 17, 'kahovskaya'),
+(603, 1, '12', 'Битцевский парк', 'Bittsevsky Park', 10, 1, 222, 'bittsevskiy-park'),
+(604, 1, '12', 'Лесопарковая', 'Lesoparkovaya', 20, 1, 223, 'lesoparkovaya'),
+(605, 1, '12', 'Улица Старокачаловская', 'Ulitsa Starokachalovskaya', 30, 1, 212, 'ulitsa-starokachalovskaya'),
+(606, 1, '12', 'Улица Скобелевская', 'Ulitsa Skobelevskaya', 40, 1, 192, 'ulitsa-skobelevskaya'),
+(607, 1, '12', 'Бульвар Адмирала Ушакова', 'Bulvar Admirala Ushakova', 50, 1, 193, 'bulvar-admirala-ushakova'),
+(608, 1, '12', 'Улица Горчакова', 'Ulitsa Gorchakova', 60, 1, 194, 'ulitsa-gorchakova'),
+(609, 1, '12', 'Бунинская аллея', 'Buninskaya Alleya', 70, 1, 195, 'buninskaya-alleya');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `metro_line`
+--
+
+CREATE TABLE IF NOT EXISTS `metro_line` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `city_id` int(5) NOT NULL,
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `title_en` varchar(255) NOT NULL DEFAULT '',
+  `color` varchar(40) DEFAULT NULL,
+  `sort_num` int(5) NOT NULL DEFAULT '0',
+  `published` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `title` (`title`),
+  KEY `city_id` (`city_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+
+--
+-- Дамп данных таблицы `metro_line`
+--
+
+INSERT INTO `metro_line` (`id`, `city_id`, `title`, `title_en`, `color`, `sort_num`, `published`) VALUES
+(1, 1, 'Сокольническая', 'Sokolnicheskaya', '#ed1b35', 10, 1),
+(2, 1, 'Замоскворецкая', 'Zamoskvoretskaya', '#44b85c', 20, 1),
+(3, 1, 'Арбатско-Покровская', 'Arbatsko-Pokrovskaya', '#0078bf', 30, 1),
+(4, 1, 'Филёвская', 'Filyovskaya', '#19c1f3', 40, 1),
+(5, 1, 'Кольцевая', 'Koltsevaya', '#894e35', 50, 1),
+(6, 1, 'Калужско-Рижская', 'Kaluzhsko-Rizhskaya', '#f58631', 60, 1),
+(7, 1, 'Таганско-Краснопресненская', 'Tagansko-Krasnopresnenskaya', '#8e479c', 70, 1),
+(8, 1, 'Калининско-Солнцевская', 'Kalininsko-Solntsevskaya', '#ffcb31', 80, 1),
+(9, 1, 'Серпуховско-Тимирязевская', 'Serpukhovsko-Timiryazevskaya', '#a1a2a3', 90, 1),
+(10, 1, 'Люблинско-Дмитровская', 'Lyublinsko-Dmitrovskaya', '#b3d445', 100, 1),
+(11, 1, 'Каховская', 'Kakhovskaya', '#79cdcd', 110, 1),
+(12, 1, 'Бутовская', 'Butovskaya', '#acbfe1', 120, 1);
+
+--
+-- Ограничения внешнего ключа сохраненных таблиц
+--
+
+--
+-- Ограничения внешнего ключа таблицы `metro`
+--
+ALTER TABLE `metro`
+  ADD CONSTRAINT `metro_ibfk_1` FOREIGN KEY (`city_id`) REFERENCES `city` (`id`);
+
+--
+-- Ограничения внешнего ключа таблицы `metro_line`
+--
+ALTER TABLE `metro_line`
+  ADD CONSTRAINT `metro_line_ibfk_1` FOREIGN KEY (`city_id`) REFERENCES `city` (`id`);
+
+
+UPDATE `meta_table` SET  `is_in_extras` =  '1' WHERE  `meta_table`.`id` =  'city';
+
+UPDATE  `meta_table_field` SET  `published` =  '0' WHERE  `meta_table_field`.`id` =3635;
+UPDATE  `meta_table_field` SET  `published` =  '0' WHERE  `meta_table_field`.`id` =3630;
+UPDATE  `meta_table_field` SET  `published` =  '0' WHERE  `meta_table_field`.`id` =3204;
+UPDATE  `meta_table_field` SET  `published` =  '0' WHERE  `meta_table_field`.`id` =3205;
+
+UPDATE  `meta_table_field` SET  `title` =  'Картинка большая',
+`type_extra` =  'image_big',
+sort_num = 19 WHERE  `meta_table_field`.`id` =3191;
+UPDATE  `meta_table_field` SET  `title` =  'Картинка в списке (585x280)' WHERE  `meta_table_field`.`id` =3192;
