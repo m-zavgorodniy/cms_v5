@@ -1552,6 +1552,19 @@
 .ui-datepicker.ui-widget.ui-widget-content {
 	width: 250px;
 	background-color: #ffffff;
+	padding: 0;
+	border: 1px solid #ababc6;
+    border-radius: 1px;
+}
+
+.ui-datepicker.ui-widget.ui-widget-content:before {
+	content: '';
+	width: 16px;
+	height: 8px;
+	background-image: url('../images/date_select_arrow.png');
+	top: -8px;
+    left: 16px;
+    position: absolute;
 }
 
 .ui-datepicker.ui-widget.ui-widget-content .ui-datepicker-header.ui-widget-header {
@@ -1604,6 +1617,75 @@
 .ui-datepicker.ui-widget.ui-widget-content .ui-datepicker-header.ui-widget-header .ui-state-hover {
 	border: none !important;
 	background-color: #ffffff !important;
+}
+
+.ui-datepicker.ui-widget.ui-widget-content .ui-datepicker-calendar {
+	border-collapse: separate !important;
+	border-spacing: 0px !important;
+	margin-bottom: 0px;
+    border-bottom: 3px solid #ababc6;
+}
+
+.ui-datepicker.ui-widget.ui-widget-content .ui-datepicker-calendar thead tr th {
+	border-top: none;
+	border-bottom: 1px solid #ababc6;
+}
+
+.ui-datepicker.ui-widget.ui-widget-content .ui-datepicker-calendar tbody tr td {
+	border-top: 1px solid #f0f0f5;
+	border-bottom: 1px solid #f0f0f5;
+}
+
+.ui-datepicker.ui-widget.ui-widget-content .ui-datepicker-calendar tbody tr:first-child td {
+	border-top: none;
+	border-bottom: 1px solid #f0f0f5;
+}
+
+.ui-datepicker.ui-widget.ui-widget-content .ui-datepicker-calendar tr td {
+	border-right: 2px solid #f0f0f5;
+}
+
+.ui-datepicker.ui-widget.ui-widget-content .ui-datepicker-calendar tr td:last-child {
+	border-right: none;
+}
+
+
+.ui-datepicker.ui-widget.ui-widget-content .ui-datepicker-calendar th.col {
+/* 	font-family: Lato-Light; */
+	font-size: 14px;
+	color: #000000;
+}
+
+.ui-datepicker.ui-widget.ui-widget-content .ui-datepicker-calendar td span {
+	border: none;
+	background-color: #ffffff;
+/* 	font-family: Lato-Regular; */
+	font-size: 16px;
+	line-height: 31px;
+	color: #4a4a4a;
+    height: 31px;
+    text-align: center;
+    padding: 0;	
+}
+
+.ui-datepicker.ui-widget.ui-widget-content .ui-datepicker-calendar td a {
+	border: none;
+	background-color: #ffffff;
+/* 	font-family: Lato-Regular; */
+	font-size: 16px;
+	line-height: 31px;
+	color: #4a4a4a;
+    height: 31px;
+    text-align: center;
+    padding: 0;	
+}
+
+.ui-datepicker.ui-widget.ui-widget-content .ui-datepicker-calendar td.ui-state-disabled {
+	opacity: 1;
+}
+
+.ui-datepicker.ui-widget.ui-widget-content .ui-datepicker-calendar td.ui-state-disabled span {
+	color: #c7cbcc;
 }
 
 .vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-submit {
