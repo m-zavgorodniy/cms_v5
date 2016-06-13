@@ -16,9 +16,9 @@ define('MOBILE_MEDIA', 'screen and (max-width:' . MOBILE_BREAKPOINT_PX . 'px)');
 	<meta name="format-detection" content="telephone=no" />
 	<link rel="stylesheet" type="text/css" href="/css/styles.css" />
 	<link rel="stylesheet" type="text/css" href="/css/content.css" />
-	<link rel="stylesheet" type="text/css" href="/css/mobile.css>" media="<?=MOBILE_MEDIA?>" />
+	<link rel="stylesheet" type="text/css" href="/css/mobile.css" media="<?=MOBILE_MEDIA?>" />
     <!--[if lte IE 9]><script src="/respond.min.js"></script><![endif]-->
-    <script type="text/javascript" src="/js/jquery/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-1.12.3.min.js"></script>
     <script type="text/javascript" src="/js/script.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
