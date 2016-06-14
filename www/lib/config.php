@@ -4,17 +4,20 @@ $config['DEBUG_ENABLED'] = false; // error reporting
 $config['DB_SERVER'] = 'localhost';
 $config['DB_USER'] = 'root';
 $config['DB_PASSWORD'] = '';
-$config['DB_DATABASE'] = 'cms_v5';
+$config['DB_DATABASE'] = 'delovoy2';
 $config['DB_TABLE_PREFIX'] = '';
 $config['DB_DEFAULT_UTF8'] = true;
 
-$config['CACHE_ENABLED'] = false;
+/*$config['CACHE_ENABLED'] = false;*/
 
 $config['TEMPLATE_OUTER_FILE_NAME'] = 'common_outer.php';
 $config['TEMPLATE_OUTER_AJAX_FILE_NAME'] = 'ajax_outer.php';
 $config['TEMPLATE_404_FILE_NAME'] = '404.php';
 
+// css-file to be applyed to the content from the HTML-editor (for instance, HTML of an article)
+// this file is to be linked by both the back-end (for HTML preview) and the front-end
 $config['CONTENT_CSS_FILE_PATH'] = '/css/content.css';
+// wrap the HTML with a container of this class
 $config['CONTENT_CSS_CLASS_NAME'] = 'text-content';
 
 $config['LANG_ENABLED'] = true;

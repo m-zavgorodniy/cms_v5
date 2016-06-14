@@ -1,28 +1,24 @@
-.text-content {line-height: 1.8em;}
-.text-content p, .text-content ul {margin-bottom: 1.4em;}
-.text-content ul li {margin-left: 1.5em;}
-.text-content ul li:before {content: "\f00c"; font-family: 'FontAwesome'; padding-right: .75em; color: #108843;}
-.text-content ol {list-style: decimal outside;}
-.text-content ol li {margin-left: 2em;}
-.text-content td, .text-content th {border: none !important;}
+table, td, th {border-collapse: collapse; border-spacing: 0;}
 
-.text-content b, .text-content strong {font-weight: bold;}
-.text-content u {text-decoration: underline;}
-.text-content s {text-decoration: line-through;}
-.text-content i {font-style: italic;}
+.text-content h1 {font-size: 32px; margin-bottom: 30px; color: #242021; line-height: normal; text-transform: uppercase;}
+.text-content h2 {font-size: 21px; margin-bottom: 15px; color: #242021; line-height: normal; text-transform: uppercase;}
+.text-content h3, .text-content h4, .text-content h5, .text-content h6 {font-size: 100%; font-size: 16px; margin-bottom: 15px; color: #242021; line-height: 1.3em;}
 
-.text-cut-control {margin-bottom: 1em;}
-.text-cut-content {display: none;}
+.text-content sup {font-size: 0.6em;}
 
-.g-striped, .g-striped td, .g-striped th {border: none !important;}
-.g-stripe {background-color: #e9eef2;}
+.text-content {line-height: 1.5em;}
+.text-content p, .text-content ul {margin-bottom: 1em;}
+.text-content ul li {margin-left: 1.6em;}
+.text-content ol li {margin-left: 1.9em;}
+.text-content ul {list-style: outside;}
 
-/* comes from FCK Editor */
+.text-content table.g-bordered, .text-content table.g-bordered td {border-width: 1px 0 1px; border-style: solid; border-color: #666666;}
+.text-content table.g-bordered td, .text-content table.g-bordered th {padding: 3px 5px 5px;}
+
+/* from FCK Editor */
 big {font-size: 16px; line-height: 1.3em;} 
 small {font-size: 11px; line-height: 1.4em;}
-.editor-red {color: red;}
-.editor-dark-blue {color: #0e589e;}
-.editor-title {font-size: 18px; color: #a02384;}
+.editor-red, .editor-red a {color: #cf004c;}
 .editor-indent1 {margin-left: 40px;}
 .editor-indent2 {margin-left: 80px;}
 .editor-indent3 {margin-left: 120px;}
@@ -33,25 +29,10 @@ small {font-size: 11px; line-height: 1.4em;}
 .editor-align-justify {text-align: justify;}
 
 /* from html content filter */
-.g-content-left {float: left; margin: 0 10px 15px 0;}
-.g-content-right {float: right; margin: 0 0 15px 10px;}
-/*img.g-content-left {margin: 0 20px 15px 0;}
-img.g-content-right {margin: 0 0 15px 20px;}*/
-/*.g-noborder, .g-noborder td, .g-noborder th {border: none !important;}*/
+.g-content-left {float: left;}
+.g-content-right {float: right;}
+img.g-content-left {margin: 0 20px 15px 0;}
+img.g-content-right {margin: 0 0 15px 20px;}
 
-/* text content table */
-.text-content table.g-bordered {border: 1px solid #e5e5e5;}
-.text-content table.g-bordered td, .text-content table.g-bordered th {padding: 3px; border: 1px solid #dadada;}
-.text-content table caption {padding-bottom: 5px; font-size: 1.1em; font-weight: bold; color: #2d3b5b; text-align: left;}
-.text-content table th {background-color: #eef0f8;}
-
-.text-content .block {margin-bottom: 14px;}
-.text-content .block-title {margin-bottom: 7px; font-weight: bold;}
-.text-content .block-title a {border-bottom: 1px dotted #1b5be0; text-decoration: none;}
-.text-content .block-open .block-title a {border-bottom-style: solid;}
-
-/* foto gallery plugin */
-.fotoset-item {display: block; float: left; margin-right: 5px; margin-bottom: 5px;}
-.fotoset-item img {border: 1px solid #e5e5e5;}
-a.fotoset-item, a.fotoset-item:hover {border: 0;}
-.fotoset-single .fotoset-item {margin-right: 0;}
+/* fotoset */
+.fotoset-item {display: inline-block; margin: 0 10px 15px 0;}

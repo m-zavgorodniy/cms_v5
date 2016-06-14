@@ -68,7 +68,8 @@
 	define('TEMPLATES_DIR', SITE_LIB_PATH . '/templates/'); //$_SERVER['DOCUMENT_ROOT'] . ($site->custom_templates ? SITE_PATH : '') .
 	define('OUTER_TEMPLATE', $http_error?'404.php':(IS_AJAX_REQUEST?'ajax_outer.php':'common_outer.php')); // 
 
-	if ($do_cache = ($config['CACHE_ENABLED'] and $_SERVER['REQUEST_METHOD'] != 'POST')) {
+//	if ($do_cache = ($config['CACHE_ENABLED'] and $_SERVER['REQUEST_METHOD'] != 'POST')) {
+	if ($do_cache = (false and $_SERVER['REQUEST_METHOD'] != 'POST')) {
 		define('CACHE_DIR', SITE_LIB_PATH . '/cache/');
 		$tpl = new CachedTemplate(TEMPLATES_DIR . OUTER_TEMPLATE); // this is the outer template
 	} else {
