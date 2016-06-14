@@ -18,6 +18,7 @@ body, input, textarea {color: #010101;}
 
 a {color: #0085ff; text-decoration: none; transition: all 0.1s linear 0s;}
 
+h1 {font-size: 59px;}
 h2 {font-size: 29px; margin-bottom: .8em; line-height: 1.5; font-weight: 700; color: #000;}
 
 /* globals */
