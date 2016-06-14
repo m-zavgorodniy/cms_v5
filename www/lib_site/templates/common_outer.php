@@ -18,10 +18,10 @@ define('MOBILE_MEDIA', 'screen and (max-width:' . MOBILE_BREAKPOINT_PX . 'px)');
 	<link rel="stylesheet" type="text/css" href="/css/content.css" />
 	<link rel="stylesheet" type="text/css" href="/css/delovoy_styles.css" />
 	<link rel="stylesheet" type="text/css" href="/css/jquery-ui.min.css" />
-	<link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=2.1.5" />
+	<link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=2.1.5" />	
 	<link rel="stylesheet" type="text/css" href="/css/mobile.css" media="<?=MOBILE_MEDIA?>" />
     <!--[if lte IE 9]><script src="/respond.min.js"></script><![endif]-->
-    <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-1.12.3.min.js"></script>
     <script type="text/javascript" src="/js/script.js"></script>
 	<script type="text/javascript" src="/js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="/js/infobubble.js"></script>
@@ -29,41 +29,42 @@ define('MOBILE_MEDIA', 'screen and (max-width:' . MOBILE_BREAKPOINT_PX . 'px)');
     <script type="text/javascript" src="/js/jquery.cycle2.min.js"></script>
     <script type="text/javascript" src="/js/jquery.cycle2.carousel.min.js"></script>
 	<script type="text/javascript" src="/js/jquery.fancybox.js?v=2.1.5"></script>
+	<script type="text/javascript" src="/js/jquery.mask.min.js"></script>    
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
-<body>
-	<div class="body page-<?=$_SITE['section_type']?>">
-    	<header class="header">
-        	<div class="header-top">
-            	<div class="header-top-left"><span>ГОРНЫЙ ДЕЛОВОЙ ЦЕНТР</span> в Роза Хутор. Работа и учеба в горах.</div>
+<body class="page-<?=$_SITE['section_type']?>">
+    <div class="body-wrap">
+        <header class="header">
+            <div class="header-top">
+                <div class="header-top-left"><span>ГОРНЫЙ ДЕЛОВОЙ ЦЕНТР</span> в Роза Хутор. Работа и учеба в горах.</div>
                 <div class="header-top-right"><a href="#">УЗНАТЬ БОЛЬШЕ</a></div>
             </div>
-        	<div class="g-container"><div class="g-container-row">
-            	<div class="header-nav g-clearfix">
-            		<div class="header-nav-logo">
-	            	<a<?=!$_SITE['is_index_page']?' href="/"':''?>>
-    	                <img src="/images/svg/logo_ru.svg" alt="Деловой - сеть офисных центров">
-        	        </a>
-                	</div>
-                	<div class="header-nav-right">
-                		<div class="header-phone g-clearfix">
-                        	<div class="header-phone-number">
-                        		+7 495 988-07-36
+            <div class="g-container"><div class="g-container-row">
+                <div class="header-nav g-clearfix">
+                    <div class="header-nav-logo">
+                    <a<?=!$_SITE['is_index_page']?' href="/"':''?>>
+                        <img src="/images/svg/logo_ru.svg" alt="Деловой - сеть офисных центров">
+                    </a>
+                    </div>
+                    <div class="header-nav-right">
+                        <div class="header-phone g-clearfix">
+                            <div class="header-phone-number">
+                                +7 495 988-07-36
                             </div>
                             <a href="#" class="header-phone-button g-button">позвоните мне</a>
                         </div>
                         <?	if ($_SITE['menu']['main']) { ?>
-                    		<nav class="header-menu">
-                            	<ul>
+                            <nav class="header-menu">
+                                <ul>
                                 <?	foreach ($_SITE['menu']['main'] as $id => &$menu_item) { ?>
-                                	<li<?=$_SITE['crumbs'][$id]?' class="menu-active"':''?>><a<?=!$_SITE['crumbs'][$id]['is_current']?' href="' . $menu_item['url'] . '"':''?><?=$menu_item['target_blank']?' target="_blank"':''?>><?=$menu_item['title']?></a></li>
+                                    <li<?=$_SITE['crumbs'][$id]?' class="menu-active"':''?>><a<?=!$_SITE['crumbs'][$id]['is_current']?' href="' . $menu_item['url'] . '"':''?><?=$menu_item['target_blank']?' target="_blank"':''?>><?=$menu_item['title']?></a></li>
                                 <?	} ?>
                                 </ul>                            
-                        	</nav>
-	                    <?	} ?>
-                	</div>
+                            </nav>
+                        <?	} ?>
+                    </div>
                 </div>
-			<?	if (!$_SITE['is_index_page'] and !$_SITE['http_error']) { ?>
+            <?	if (!$_SITE['is_index_page'] and !$_SITE['http_error']) { ?>
                 <nav class="header-path">
                     <ul>
                         <li><a href="/"><?=current(explode(' ', $_SITE['section_paths']['index']['title']))?></a></li>
@@ -74,66 +75,66 @@ define('MOBILE_MEDIA', 'screen and (max-width:' . MOBILE_BREAKPOINT_PX . 'px)');
              </div></div>
         </header>
         <div class="inner">
-        	<?=$__CMS__INNER_TEMPLATE_CONTENTS?>
+            <?=$__CMS__INNER_TEMPLATE_CONTENTS?>
         </div>
-        <footer class="footer">
-        	<div class="footer-main g-container"><div class="g-container-row">
-            	<div class="footer-main-left">
-                	<div class="footer-main-left-col">
-                    	<div class="footer-main-title">
-                        	О компании
-                        </div>
-                        <ul>
-                        	<li><a href="#">Клиенты</a><li>
-							<li><a href="#">Агентам</a><li>
-							<li><a href="#">Блог</a><li>
-							<li><a href="#">Контакты</a></li>
-                        </ul>
-                    </div>
-                 	<div class="footer-main-left-col">
-                    	<div class="footer-main-title">
-                        	Услуги
-                        </div>
-                        <ul>
-                        	<li><a href="#">Офисы и рабочие места</a><li>
-							<li><a href="#">Переговорная</a><li>
-							<li><a href="#">Виртуальный офис</a><li>
-							<li><a href="#">Коворкинг</a></li>
-                        </ul>
-                    </div>
-                  	<div class="footer-main-left-col">
-                    	<div class="footer-main-title">
-                        	Еще
-                        </div>
-                        <ul>
-                        	<li><a href="#">Бизнес-центры в Москве</a><li>
-							<li><a href="#">Горный деловой центр в Роза Хутор</a><li>
-                            <li><a href="#" class="g-button">ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ</a></li>
-                        </ul>
-                    </div>              
-                </div>
-                <div class="footer-main-right">
-                    <div class="footer-main-title">
-                        Подпишитесь
-                    </div>
-                    <div class="footer-main-right-text">
-                    	на рассылку спецпредложений наших офисных центров и обновления блога
-                    </div>
-                    <div class="footer-subscribe g-clearfix">
-                        <form>
-                            <input type="text" placeholder="@ Введите свой e-mail">
-                            <button type="submit"></button>
-                        </form>
-                    </div>
-               </div>
-            </div></div>
-            <div class="footer-bottom">
-            	<div class="g-container"><div class="g-container-row">
-            		© 2016 КЦ «Деловой». Аренда офисов без посредников.
-                </div></div>
-            </div>
-        </footer>
     </div>
+    <footer class="footer">
+        <div class="footer-main g-container"><div class="g-container-row">
+            <div class="footer-main-left">
+                <div class="footer-main-left-col">
+                    <div class="footer-main-title">
+                        О компании
+                    </div>
+                    <ul>
+                        <li><a href="#">Клиенты</a><li>
+                        <li><a href="#">Агентам</a><li>
+                        <li><a href="#">Блог</a><li>
+                        <li><a href="#">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-main-left-col">
+                    <div class="footer-main-title">
+                        Услуги
+                    </div>
+                    <ul>
+                        <li><a href="#">Офисы и рабочие места</a><li>
+                        <li><a href="#">Переговорная</a><li>
+                        <li><a href="#">Виртуальный офис</a><li>
+                        <li><a href="#">Коворкинг</a></li>
+                    </ul>
+                </div>
+                <div class="footer-main-left-col">
+                    <div class="footer-main-title">
+                        Еще
+                    </div>
+                    <ul>
+                        <li><a href="#">Бизнес-центры в Москве</a><li>
+                        <li><a href="#">Горный деловой центр в Роза Хутор</a><li>
+                        <li><a href="#" class="g-button">ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ</a></li>
+                    </ul>
+                </div>              
+            </div>
+            <div class="footer-main-right">
+                <div class="footer-main-title">
+                    Подпишитесь
+                </div>
+                <div class="footer-main-right-text">
+                    на рассылку спецпредложений наших офисных центров и обновления блога
+                </div>
+                <div class="footer-subscribe g-clearfix">
+                    <form>
+                        <input type="text" placeholder="@ Введите свой e-mail">
+                        <button type="submit"></button>
+                    </form>
+                </div>
+           </div>
+        </div></div>
+        <div class="footer-bottom">
+            <div class="g-container"><div class="g-container-row">
+                © 2016 КЦ «Деловой». Аренда офисов без посредников.
+            </div></div>
+        </div>
+    </footer>
     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
 </body>
 </html>

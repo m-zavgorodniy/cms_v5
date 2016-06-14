@@ -20,6 +20,15 @@
 		$single_office_center_city_label = $single_office_center['city_id_lookup'];
 		$single_office_center_city_id = $single_office_center['city_id'];
 		
+		$single_office_center_metro_id = $single_office_center['metro_id'];
+		
+		$single_office_center_metro_label = $single_office_center['metro_id_lookup'];
+		$single_office_center_metro_color = $single_office_center['metro_color'];
+		
+		if ($single_office_center_metro_color == NULL) {
+			$single_office_center_metro_color = '#000000';
+		}
+		
 		$single_office_center_img_int = $single_office_center['int_img_src'];
 		$single_office_center_img_ext = $single_office_center['ext_img_src'];
 		
@@ -256,6 +265,7 @@
 				</div>
 			</div>
 			<input type="hidden" class="vd_singleofficewrapper-content-contacts-coordinates" value="<? echo $single_office_center_coordinates; ?>" />
+			<input type="hidden" class="vd_singleofficewrapper-content-contacts-color" value="<? echo $single_office_center_metro_color; ?>" />
 		</div>
 		<div class="vd_mapwrapper">
 			<div id="vd_mapwrapper-map"></div>
@@ -410,6 +420,15 @@
 		$single_office_center_city_label = $single_office_center['city_id_lookup'];
 		$single_office_center_city_id = $single_office_center['city_id'];
 		
+		$single_office_center_metro_id = $single_office_center['metro_id'];
+		
+		$single_office_center_metro_label = $single_office_center['metro_id_lookup'];
+		$single_office_center_metro_color = $single_office_center['metro_color'];
+		
+		if ($single_office_center_metro_color == NULL) {
+			$single_office_center_metro_color = '#000000';
+		}
+		
 		$single_office_center_img_int = $single_office_center['int_img_src'];
 		$single_office_center_img_ext = $single_office_center['ext_img_src'];
 		
@@ -436,6 +455,8 @@
 			echo '<div class="vd_officelistwrapper-office">';
 			
 				echo '<input type="hidden" class="vd_officelistwrapper-office-coordinates" value="' . $single_office_center_coordinates . '">';
+					
+				echo '<input type="hidden" class="vd_officelistwrapper-office-color" value="' . $single_office_center_metro_color . '">';
 			
 				echo '<a href="?center=' . $single_office_center_id . '">';
 			
@@ -463,7 +484,21 @@
 					
 				echo '</a>';
 				
-				echo '<div class="vd_officelistwrapper-office-place">' . $single_office_center_city_label . '</div>';
+				if ($single_office_center_metro_id != NULL) {
+					
+					echo '<div class="vd_officelistwrapper-office-place">';
+					
+					echo '<div class="vd_officelistwrapper-office-place-marker" style="background-color: ' . $single_office_center_metro_color . ';"></div>';
+					
+					echo $single_office_center_metro_label;
+					
+					echo '</div>';
+					
+				} else {
+					
+					echo '<div class="vd_officelistwrapper-office-place">' . $single_office_center_city_label . '</div>';
+					
+				}
 				
 				echo '<div class="vd_officelistwrapper-office-text">' . $single_office_center_annotation . '</div>';
 			
