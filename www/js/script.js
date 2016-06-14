@@ -82,16 +82,18 @@ function initMap() {
 		for (i = 0; i < officecenter_number; i++) {
 			
 			var coordinates = jQuery('.vd_officelistwrapper-office-coordinates', jQuery('.vd_officelistwrapper-office')[i]).val();
+			var color = jQuery('.vd_officelistwrapper-office-color', jQuery('.vd_officelistwrapper-office')[i]).val();
+			console.log(color);
 			var coordinates_array = coordinates.split(', ');
 			var marker = new google.maps.Marker({
 				position: {lat: parseFloat(coordinates_array[0]), lng: parseFloat(coordinates_array[1])},
 				title: 'xynta',
-				icon: vd_get_pin()
+				icon: vd_get_pin(color)
 			});
 			
 			markers.push(marker);
 			
-			var content_string = '<div class="vd_officeinfowindow-header" style="background-color: #000000;"><p>' + jQuery('.vd_officelistwrapper-office-name', jQuery('.vd_officelistwrapper-office')[i]).text() + '</p></div>'+ jQuery('.vd_officelistwrapper-office-services', jQuery('.vd_officelistwrapper-office')[i]).outerHTML();
+			var content_string = '<div class="vd_officeinfowindow-header" style="background-color: ' + color + ';"><p>' + jQuery('.vd_officelistwrapper-office-name', jQuery('.vd_officelistwrapper-office')[i]).text() + '</p></div>'+ jQuery('.vd_officelistwrapper-office-services', jQuery('.vd_officelistwrapper-office')[i]).outerHTML();
 			
 			content_list[i] = content_string;
 			
@@ -121,6 +123,8 @@ function initMap() {
 		map.setZoom(17);
 
 		var coordinates = jQuery('.vd_singleofficewrapper-content-contacts-coordinates').val();
+		
+		var color = jQuery('.vd_singleofficewrapper-content-contacts-color').val();
 
 		var coordinates_array = coordinates.split(', ');
 
@@ -129,7 +133,7 @@ function initMap() {
 		var marker = new google.maps.Marker({
 			position: {lat: parseFloat(coordinates_array[0]), lng: parseFloat(coordinates_array[1])},
 			title: 'xynta',
-			icon: vd_get_pin(),
+			icon: vd_get_pin(color),
 			map: map
 		});
 
@@ -165,7 +169,20 @@ jQuery(document).on('click', '.vd_serviceincenter_wrapper-layout-image-zoom', fu
 
 jQuery(document).on('click', '.vd_serviceincenter_wrapper-freeoffices-list-element-header-price .reserve', function() {
 	jQuery(this).parents('.vd_serviceincenter_wrapper-freeoffices-list-element').toggleClass('open');
-// 	jQuery('.vd_serviceincenter_wrapper-freeoffices-list-element-menu', jQuery(this).parents('.vd_serviceincenter_wrapper-freeoffices-list-element')).slideToggle();
+});
+
+jQuery(document).on('click', '.vd_specialoffer-offers-list-element-header-place .reserve', function() {
+	jQuery(this).parents('.vd_specialoffer-offers-list-element').toggleClass('open');
+});
+
+jQuery(document).on('change', '.preview', function() {
+	if (jQuery(this).is(":checked")) {
+		jQuery('.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-submit').removeClass('disabled');
+		jQuery('.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right button').addClass('disabled');
+	} else {
+		jQuery('.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-submit').addClass('disabled');
+		jQuery('.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right button').removeClass('disabled');
+	}
 });
 
 jQuery(document).ready(function() {
@@ -174,12 +191,14 @@ jQuery(document).ready(function() {
 	});
 	jQuery('.date').datepicker({
 		minDate: 0,
+		firstDay: 1,
 		dateFormat: "dd.mm.yy",
 		monthNames: [ "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" ],
 		dayNamesMin: [ "вс", "пн", "вт", "ср", "чт", "пт", "сб" ]
 	});
 	
 	$.extend($.datepicker,{_checkOffset:function(inst,offset,isFixed){return { left: offset.left, top: offset.top+12 }}});
+	jQuery('.phone').mask('+7 (999) 999-99-99', {placeholder: "+7 (___) ___-__-__"})
 	
 });
 
