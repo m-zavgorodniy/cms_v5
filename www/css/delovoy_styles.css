@@ -3,7 +3,7 @@
 }
 
 .vd_officelistwrapper-map {
-	width: 1440px;
+	width: 100%;
     overflow: visible;
     margin: 0 auto;
 	position: relative;
@@ -22,7 +22,7 @@
 	content: '';
 	background: url(/images/svg/group.svg) repeat-x top;
 	height: 10px;
-	width: 1440px;
+	width: 100%;
 	position: absolute;
 	bottom: -10px;
 }
@@ -215,9 +215,15 @@
     padding-top: 8px;
 }
 
+.vd_office_markerinfowindow .vd_officelistwrapper-office-services-service {
+	float: left;
+	margin-right: 15px;
+	margin-left: 0px;
+}
+
 .vd_singleofficewrapper {
 	position: relative;
-	width: 1440px;
+	width: 100%;
 	margin: 0 auto;
 }
 
@@ -225,14 +231,14 @@
 	content: '';
 	background: url(/images/svg/group.svg) repeat-x top;
 	height: 10px;
-	width: 1440px;
+	width: 100%;
 	position: absolute;
 	top: -10px;
 }
  
 .vd_singleofficewrapper-header {
 	height: 446px;
-	width: 1440px;
+	width: 100%;
 	margin: 0 auto;
 	background-color: lime;
 	overflow: auto;
@@ -266,7 +272,7 @@
 }
 
 .vd_singleofficewrapper-menu {
-	width: 1440px;
+	width: 100%;
 	height: 70px;
 	overflow: auto;
     margin: 0 auto;
@@ -278,7 +284,7 @@
 	content: '';
 	background: url(/images/svg/group.svg) repeat-x top;
 	height: 10px;
-	width: 1440px;
+	width: 100%;
 	position: absolute;
 }
 
@@ -302,7 +308,7 @@
 }
 
 .vd_singleofficewrapper-content {
-	width: 1440px;
+	width: 100%;
 	overflow: auto;
 	margin: 0 auto;
 /*
@@ -358,7 +364,7 @@
 }
 
 .vd_singleofficewrapper-content-gallery {
-	width: 1440px;
+	width: 100%;
 	overflow: auto;
 	margin: 40px auto 20px auto;
 }
@@ -828,8 +834,8 @@
 .vd_singleofficewrapper-footer {
 	width: 1440px;
     overflow: auto;
-	padding: 60px 120px 80px 120px;s
-    margin: 100px auto 0px auto;
+	padding: 60px 120px 80px 120px;
+	margin: 100px auto 0px auto;
 	background-color: #f7f8f9;
 }
 
@@ -843,7 +849,7 @@
 /* services in center styles */
 
 .vd_serviceincenter_wrapper {
-	width: 1440px;
+	width: 100%;
     overflow: visible;
     margin: 0 auto;
     position: relative;
@@ -861,7 +867,7 @@
 	content: '';
 	background: url(/images/svg/group.svg) repeat-x top;
 	height: 10px;
-	width: 1440px;
+	width: 100%;
 	position: absolute;
 	top: -10px;
 	left: 0;
@@ -933,7 +939,7 @@
 }
 
 .vd_serviceincenter_wrapper-menu {
-	width: 1440px;
+	width: 100%;
 	height: 70px;
 	overflow: auto;
     margin: 0 auto;
@@ -945,7 +951,7 @@
 	content: '';
 	background: url(/images/svg/group.svg) repeat-x top;
 	height: 10px;
-	width: 1440px;
+	width: 100%;
 	position: absolute;
 }
 
@@ -1059,8 +1065,9 @@
 
 .vd_serviceincenter_wrapper-gallery {
 	margin: 80px auto 0px auto;
-    width: 1440px;
-    padding: 0px 120px;
+    width: 100%;
+	/* padding: 0px 120px; */
+	padding: 0;
     overflow: auto;
 }
 

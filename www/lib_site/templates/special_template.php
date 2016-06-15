@@ -1,6 +1,6 @@
 <style type="text/css">
 	.vd_specialoffer {
-		width: 1440px;
+		width: 100%;
 		margin: 0 auto;
 	}
 	.vd_specialoffer-header {
