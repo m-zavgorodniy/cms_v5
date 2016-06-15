@@ -10,6 +10,7 @@ function initMap() {
 	map = new google.maps.Map(document.getElementById('vd_mapwrapper-map'), {
 		center: {lat: 51.000, lng: 45.496},
 		zoom: 5,
+		scrollwheel: false,
 		styles: [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"saturation":-100},{"lightness":51},{"visibility":"simplified"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}]
 	});
 
@@ -84,6 +85,8 @@ function initMap() {
 			var coordinates = jQuery('.vd_officelistwrapper-office-coordinates', jQuery('.vd_officelistwrapper-office')[i]).val();
 			var color = jQuery('.vd_officelistwrapper-office-color', jQuery('.vd_officelistwrapper-office')[i]).val();
 			
+			var link = jQuery('a', jQuery('.vd_officelistwrapper-office')[i]).attr('href');
+			
 			var coordinates_array = coordinates.split(', ');
 			var marker = new google.maps.Marker({
 				position: {lat: parseFloat(coordinates_array[0]), lng: parseFloat(coordinates_array[1])},
@@ -93,7 +96,7 @@ function initMap() {
 			
 			markers.push(marker);
 			
-			var content_string = '<div class="vd_officeinfowindow-header" style="background-color: ' + color + ';"><p>' + jQuery('.vd_officelistwrapper-office-name', jQuery('.vd_officelistwrapper-office')[i]).text() + '</p></div>'+ jQuery('.vd_officelistwrapper-office-services', jQuery('.vd_officelistwrapper-office')[i]).outerHTML();
+			var content_string = '<a href="' + link + '"><div class="vd_officeinfowindow-header" style="background-color: ' + color + ';"><p>' + jQuery('.vd_officelistwrapper-office-name', jQuery('.vd_officelistwrapper-office')[i]).text() + '</p></div>' + jQuery('.vd_officelistwrapper-office-services', jQuery('.vd_officelistwrapper-office')[i]).outerHTML() + '</a>';
 			
 			content_list[i] = content_string;
 			

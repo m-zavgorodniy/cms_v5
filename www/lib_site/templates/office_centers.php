@@ -1,7 +1,5 @@
 <?
 	
-	var_dump($_DATA); die;
-	
 	/* for development purposes only, remove when moving to the correct templates */
 
 	if ($_GET['display_service']) {
