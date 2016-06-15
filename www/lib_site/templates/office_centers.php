@@ -1,5 +1,11 @@
 <?
 	
+	if ($_GET['azaza'] == 'true') {
+		
+		var_dump($_DATA); die;
+		
+	}
+	
 	/* for development purposes only, remove when moving to the correct templates */
 
 	if ($_GET['display_service']) {
@@ -138,10 +144,30 @@
 			<table class="vd_singleofficewrapper-content-services-table">
 				<tr>
 					<th class="service_header_label_block">Основные услуги</th>
-					<th class="service_header_content_block office"><span>Офисы</span></th>
-					<th class="service_header_content_block coworking"><span>Коворкинг</span></th>
-					<th class="service_header_content_block negotiating"><span>Переговорные</span></th>
-					<th class="service_header_content_block virtual"><span>Виртуальный офис</span></th>
+				<?
+				
+					foreach ($_DATA['office_center2service_group']['items'] as $vd_office_center_service_group) {
+						
+						$vd_office_center_service_group_id = $vd_office_center_service_group['id'];
+						$vd_office_center_service_group_title = $vd_office_center_service_group['title'];
+						$vd_office_center_service_group_price = $vd_office_center_service_group['price'];
+						$vd_office_center_service_group_published = $vd_office_center_service_group['published'];
+						$vd_service_group_id = $vd_office_center_service_group['service_group_id'];
+						$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_service_group_id]['css_signature'];
+						$vd_service_group_id_pricing_term = $_DATA['service_group']['items'][$vd_service_group_id]['pricing_term'];
+						$vd_service_group_id_title = $_DATA['service_group']['items'][$vd_service_group_id]['title'];
+						
+						if ($vd_office_center_service_group['published'] == '1') {
+							
+							echo '<th class="service_header_content_block ' . $vd_service_group_id_css . '"><span>' . $vd_service_group_id_title . '</span></th>';
+							
+						}
+						
+					}
+						
+				?>
+					
+
 				</tr>
 				<tr>
 					<td class="service_header_label_block">Стоимость услуг</td>
@@ -152,90 +178,461 @@
 				</tr>
 				<tr>
 					<td></td>
-					<td class="detailed_block office"><a href=""><span>Подробнее</span></a></td>
-					<td class="detailed_block coworking"><a href=""><span>Подробнее</span></a></td>
-					<td class="detailed_block negotiating"><a href=""><span>Подробнее</span></a></td>
-					<td class="detailed_block virtual"><a href=""><span>Подробнее</span></a></td>
+				<?
+				
+					foreach ($_DATA['office_center2service_group']['items'] as $vd_office_center_service_group) {
+						
+						$vd_office_center_service_group_id = $vd_office_center_service_group['id'];
+						$vd_office_center_service_group_title = $vd_office_center_service_group['title'];
+						$vd_office_center_service_group_price = $vd_office_center_service_group['price'];
+						$vd_office_center_service_group_published = $vd_office_center_service_group['published'];
+						$vd_service_group_id = $vd_office_center_service_group['service_group_id'];
+						$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_service_group_id]['css_signature'];
+						$vd_service_group_id_pricing_term = $_DATA['service_group']['items'][$vd_service_group_id]['pricing_term'];
+						$vd_service_group_id_title = $_DATA['service_group']['items'][$vd_service_group_id]['title'];
+						$vd_office_center_service_group_center_id = $vd_office_center_service_group['office_center_id'];
+						
+						if ($vd_office_center_service_group['published'] == '1') {
+							
+							echo '<td class="detailed_block ' . $vd_service_group_id_css . '"><a href="?center=' . $vd_office_center_service_group_center_id . '&service=' . $vd_office_center_service_group_id . '"><span>Подробнее</span></a></td>';
+							
+						}
+						
+					}
+						
+				?>
 				</tr>
 				<tr>
 					<td colspan="5" class="services_subtitle">Дополнительные сервисы, входящие в услуги</td>
 				</tr>
 				<tr>
 					<td class="service_label_block"><span>Секретарь</span></td>
-					<td class="office_block"><div class="included"></div></td>
-					<td class="coworking_block"><div class="included"></div></td>
-					<td class="negotiating_block"><div class="included"></div></td>
-					<td class="virtual_block"><div class="included"></div></td>
+				<?
+				
+					foreach ($_DATA['office_center2service_group']['items'] as $vd_office_center_service_group) {
+						
+						$vd_office_center_service_group_id = $vd_office_center_service_group['id'];
+						$vd_office_center_service_group_title = $vd_office_center_service_group['title'];
+						$vd_office_center_service_group_price = $vd_office_center_service_group['price'];
+						$vd_office_center_service_group_published = $vd_office_center_service_group['published'];
+						$vd_service_group_id = $vd_office_center_service_group['service_group_id'];
+						$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_service_group_id]['css_signature'];
+						$vd_service_group_id_pricing_term = $_DATA['service_group']['items'][$vd_service_group_id]['pricing_term'];
+						$vd_service_group_id_title = $_DATA['service_group']['items'][$vd_service_group_id]['title'];
+						
+						/* since we currently don't have any real data in the DB, randomize some for output */
+						
+						$vd_random_css_list = array('included',
+						'not_included',
+						'payed');
+						
+						$vd_random_value = rand(0,2);
+						
+						$vd_random_css = $vd_random_css_list[$vd_random_value];
+						
+						if ($vd_office_center_service_group['published'] == '1') {
+							
+							echo '<td class="' . $vd_service_group_id_css . '_block">';
+							
+							echo '<div class="' . $vd_random_css . '"></div>';
+							
+							echo '</td>';
+							
+						}
+						
+					}
+						
+				?>
 				</tr>
 				<tr>
 					<td class="service_label_block"><span>Мебель</span></td>
-					<td class="office_block"><div class="included"></div></td>
-					<td class="coworking_block"><div class="included"></div></td>
-					<td class="negotiating_block"><div class="included"></div></td>
-					<td class="virtual_block"><div class="not_included"></div></td>
+				<?
+				
+					foreach ($_DATA['office_center2service_group']['items'] as $vd_office_center_service_group) {
+						
+						$vd_office_center_service_group_id = $vd_office_center_service_group['id'];
+						$vd_office_center_service_group_title = $vd_office_center_service_group['title'];
+						$vd_office_center_service_group_price = $vd_office_center_service_group['price'];
+						$vd_office_center_service_group_published = $vd_office_center_service_group['published'];
+						$vd_service_group_id = $vd_office_center_service_group['service_group_id'];
+						$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_service_group_id]['css_signature'];
+						$vd_service_group_id_pricing_term = $_DATA['service_group']['items'][$vd_service_group_id]['pricing_term'];
+						$vd_service_group_id_title = $_DATA['service_group']['items'][$vd_service_group_id]['title'];
+						
+						/* since we currently don't have any real data in the DB, randomize some for output */
+						
+						$vd_random_css_list = array('included',
+						'not_included',
+						'payed');
+						
+						$vd_random_value = rand(0,2);
+						
+						$vd_random_css = $vd_random_css_list[$vd_random_value];
+						
+						if ($vd_office_center_service_group['published'] == '1') {
+							
+							echo '<td class="' . $vd_service_group_id_css . '_block">';
+							
+							echo '<div class="' . $vd_random_css . '"></div>';
+							
+							echo '</td>';
+							
+						}
+						
+					}
+						
+				?>
 				</tr>
 				<tr>
 					<td class="service_label_block"><span>Интернет</span></td>
-					<td class="office_block"><div class="included"></div></td>
-					<td class="coworking_block"><div class="included"></div></td>
-					<td class="negotiating_block"><div class="included"></div></td>
-					<td class="virtual_block"><div class="not_included"></div></td>
+				<?
+				
+					foreach ($_DATA['office_center2service_group']['items'] as $vd_office_center_service_group) {
+						
+						$vd_office_center_service_group_id = $vd_office_center_service_group['id'];
+						$vd_office_center_service_group_title = $vd_office_center_service_group['title'];
+						$vd_office_center_service_group_price = $vd_office_center_service_group['price'];
+						$vd_office_center_service_group_published = $vd_office_center_service_group['published'];
+						$vd_service_group_id = $vd_office_center_service_group['service_group_id'];
+						$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_service_group_id]['css_signature'];
+						$vd_service_group_id_pricing_term = $_DATA['service_group']['items'][$vd_service_group_id]['pricing_term'];
+						$vd_service_group_id_title = $_DATA['service_group']['items'][$vd_service_group_id]['title'];
+						
+						/* since we currently don't have any real data in the DB, randomize some for output */
+						
+						$vd_random_css_list = array('included',
+						'not_included',
+						'payed');
+						
+						$vd_random_value = rand(0,2);
+						
+						$vd_random_css = $vd_random_css_list[$vd_random_value];
+						
+						if ($vd_office_center_service_group['published'] == '1') {
+							
+							echo '<td class="' . $vd_service_group_id_css . '_block">';
+							
+							echo '<div class="' . $vd_random_css . '"></div>';
+							
+							echo '</td>';
+							
+						}
+						
+					}
+						
+				?>
 				</tr>
 				<tr>
 					<td class="service_label_block"><span>Почтовый адрес</span></td>
-					<td class="office_block"><div class="included"></div></td>
-					<td class="coworking_block"><div class="included"></div></td>
-					<td class="negotiating_block"><div class="not_included"></div></td>
-					<td class="virtual_block"><div class="payed"></div></td>
+				<?
+				
+					foreach ($_DATA['office_center2service_group']['items'] as $vd_office_center_service_group) {
+						
+						$vd_office_center_service_group_id = $vd_office_center_service_group['id'];
+						$vd_office_center_service_group_title = $vd_office_center_service_group['title'];
+						$vd_office_center_service_group_price = $vd_office_center_service_group['price'];
+						$vd_office_center_service_group_published = $vd_office_center_service_group['published'];
+						$vd_service_group_id = $vd_office_center_service_group['service_group_id'];
+						$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_service_group_id]['css_signature'];
+						$vd_service_group_id_pricing_term = $_DATA['service_group']['items'][$vd_service_group_id]['pricing_term'];
+						$vd_service_group_id_title = $_DATA['service_group']['items'][$vd_service_group_id]['title'];
+						
+						/* since we currently don't have any real data in the DB, randomize some for output */
+						
+						$vd_random_css_list = array('included',
+						'not_included',
+						'payed');
+						
+						$vd_random_value = rand(0,2);
+						
+						$vd_random_css = $vd_random_css_list[$vd_random_value];
+						
+						if ($vd_office_center_service_group['published'] == '1') {
+							
+							echo '<td class="' . $vd_service_group_id_css . '_block">';
+							
+							echo '<div class="' . $vd_random_css . '"></div>';
+							
+							echo '</td>';
+							
+						}
+						
+					}
+						
+				?>
 				</tr>
 				<tr>
 					<td class="service_label_block"><span>Телефония</span></td>
-					<td class="office_block"><div class="payed"></div></td>
-					<td class="coworking_block"><div class="payed"></div></td>
-					<td class="negotiating_block"><div class="payed"></div></td>
-					<td class="virtual_block"><div class="payed"></div></td>
+				<?
+				
+					foreach ($_DATA['office_center2service_group']['items'] as $vd_office_center_service_group) {
+						
+						$vd_office_center_service_group_id = $vd_office_center_service_group['id'];
+						$vd_office_center_service_group_title = $vd_office_center_service_group['title'];
+						$vd_office_center_service_group_price = $vd_office_center_service_group['price'];
+						$vd_office_center_service_group_published = $vd_office_center_service_group['published'];
+						$vd_service_group_id = $vd_office_center_service_group['service_group_id'];
+						$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_service_group_id]['css_signature'];
+						$vd_service_group_id_pricing_term = $_DATA['service_group']['items'][$vd_service_group_id]['pricing_term'];
+						$vd_service_group_id_title = $_DATA['service_group']['items'][$vd_service_group_id]['title'];
+						
+						/* since we currently don't have any real data in the DB, randomize some for output */
+						
+						$vd_random_css_list = array('included',
+						'not_included',
+						'payed');
+						
+						$vd_random_value = rand(0,2);
+						
+						$vd_random_css = $vd_random_css_list[$vd_random_value];
+						
+						if ($vd_office_center_service_group['published'] == '1') {
+							
+							echo '<td class="' . $vd_service_group_id_css . '_block">';
+							
+							echo '<div class="' . $vd_random_css . '"></div>';
+							
+							echo '</td>';
+							
+						}
+						
+					}
+						
+				?>
 				</tr>
 				<tr>
 					<td class="service_label_block"><span>Курьер</span></td>
-					<td class="office_block"><div class="payed"></div></td>
-					<td class="coworking_block"><div class="payed"></div></td>
-					<td class="negotiating_block"><div class="payed"></div></td>
-					<td class="virtual_block"><div class="payed"></div></td>
+				<?
+				
+					foreach ($_DATA['office_center2service_group']['items'] as $vd_office_center_service_group) {
+						
+						$vd_office_center_service_group_id = $vd_office_center_service_group['id'];
+						$vd_office_center_service_group_title = $vd_office_center_service_group['title'];
+						$vd_office_center_service_group_price = $vd_office_center_service_group['price'];
+						$vd_office_center_service_group_published = $vd_office_center_service_group['published'];
+						$vd_service_group_id = $vd_office_center_service_group['service_group_id'];
+						$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_service_group_id]['css_signature'];
+						$vd_service_group_id_pricing_term = $_DATA['service_group']['items'][$vd_service_group_id]['pricing_term'];
+						$vd_service_group_id_title = $_DATA['service_group']['items'][$vd_service_group_id]['title'];
+						
+						/* since we currently don't have any real data in the DB, randomize some for output */
+						
+						$vd_random_css_list = array('included',
+						'not_included',
+						'payed');
+						
+						$vd_random_value = rand(0,2);
+						
+						$vd_random_css = $vd_random_css_list[$vd_random_value];
+						
+						if ($vd_office_center_service_group['published'] == '1') {
+							
+							echo '<td class="' . $vd_service_group_id_css . '_block">';
+							
+							echo '<div class="' . $vd_random_css . '"></div>';
+							
+							echo '</td>';
+							
+						}
+						
+					}
+						
+				?>
 				</tr>
 				<tr>
 					<td class="service_label_block"><span>IT поддержка</span></td>
-					<td class="office_block"><div class="payed"></div></td>
-					<td class="coworking_block"><div class="payed"></div></td>
-					<td class="negotiating_block"><div class="payed"></div></td>
-					<td class="virtual_block"><div class="payed"></div></td>
+				<?
+				
+					foreach ($_DATA['office_center2service_group']['items'] as $vd_office_center_service_group) {
+						
+						$vd_office_center_service_group_id = $vd_office_center_service_group['id'];
+						$vd_office_center_service_group_title = $vd_office_center_service_group['title'];
+						$vd_office_center_service_group_price = $vd_office_center_service_group['price'];
+						$vd_office_center_service_group_published = $vd_office_center_service_group['published'];
+						$vd_service_group_id = $vd_office_center_service_group['service_group_id'];
+						$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_service_group_id]['css_signature'];
+						$vd_service_group_id_pricing_term = $_DATA['service_group']['items'][$vd_service_group_id]['pricing_term'];
+						$vd_service_group_id_title = $_DATA['service_group']['items'][$vd_service_group_id]['title'];
+						
+						/* since we currently don't have any real data in the DB, randomize some for output */
+						
+						$vd_random_css_list = array('included',
+						'not_included',
+						'payed');
+						
+						$vd_random_value = rand(0,2);
+						
+						$vd_random_css = $vd_random_css_list[$vd_random_value];
+						
+						if ($vd_office_center_service_group['published'] == '1') {
+							
+							echo '<td class="' . $vd_service_group_id_css . '_block">';
+							
+							echo '<div class="' . $vd_random_css . '"></div>';
+							
+							echo '</td>';
+							
+						}
+						
+					}
+						
+				?>
 				</tr>
 				<tr>
 					<td class="service_label_block"><span>Поиск персонала</span></td>
-					<td class="office_block"><div class="payed"></div></td>
-					<td class="coworking_block"><div class="payed"></div></td>
-					<td class="negotiating_block"><div class="payed"></div></td>
-					<td class="virtual_block"><div class="payed"></div></td>
+				<?
+				
+					foreach ($_DATA['office_center2service_group']['items'] as $vd_office_center_service_group) {
+						
+						$vd_office_center_service_group_id = $vd_office_center_service_group['id'];
+						$vd_office_center_service_group_title = $vd_office_center_service_group['title'];
+						$vd_office_center_service_group_price = $vd_office_center_service_group['price'];
+						$vd_office_center_service_group_published = $vd_office_center_service_group['published'];
+						$vd_service_group_id = $vd_office_center_service_group['service_group_id'];
+						$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_service_group_id]['css_signature'];
+						$vd_service_group_id_pricing_term = $_DATA['service_group']['items'][$vd_service_group_id]['pricing_term'];
+						$vd_service_group_id_title = $_DATA['service_group']['items'][$vd_service_group_id]['title'];
+						
+						/* since we currently don't have any real data in the DB, randomize some for output */
+						
+						$vd_random_css_list = array('included',
+						'not_included',
+						'payed');
+						
+						$vd_random_value = rand(0,2);
+						
+						$vd_random_css = $vd_random_css_list[$vd_random_value];
+						
+						if ($vd_office_center_service_group['published'] == '1') {
+							
+							echo '<td class="' . $vd_service_group_id_css . '_block">';
+							
+							echo '<div class="' . $vd_random_css . '"></div>';
+							
+							echo '</td>';
+							
+						}
+						
+					}
+						
+				?>
 				</tr>
 				<tr>
 					<td class="service_label_block"><span>Юрист</span></td>
-					<td class="office_block"><div class="payed"></div></td>
-					<td class="coworking_block"><div class="payed"></div></td>
-					<td class="negotiating_block"><div class="payed"></div></td>
-					<td class="virtual_block"><div class="payed"></div></td>
+				<?
+				
+					foreach ($_DATA['office_center2service_group']['items'] as $vd_office_center_service_group) {
+						
+						$vd_office_center_service_group_id = $vd_office_center_service_group['id'];
+						$vd_office_center_service_group_title = $vd_office_center_service_group['title'];
+						$vd_office_center_service_group_price = $vd_office_center_service_group['price'];
+						$vd_office_center_service_group_published = $vd_office_center_service_group['published'];
+						$vd_service_group_id = $vd_office_center_service_group['service_group_id'];
+						$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_service_group_id]['css_signature'];
+						$vd_service_group_id_pricing_term = $_DATA['service_group']['items'][$vd_service_group_id]['pricing_term'];
+						$vd_service_group_id_title = $_DATA['service_group']['items'][$vd_service_group_id]['title'];
+						
+						/* since we currently don't have any real data in the DB, randomize some for output */
+						
+						$vd_random_css_list = array('included',
+						'not_included',
+						'payed');
+						
+						$vd_random_value = rand(0,2);
+						
+						$vd_random_css = $vd_random_css_list[$vd_random_value];
+						
+						if ($vd_office_center_service_group['published'] == '1') {
+							
+							echo '<td class="' . $vd_service_group_id_css . '_block">';
+							
+							echo '<div class="' . $vd_random_css . '"></div>';
+							
+							echo '</td>';
+							
+						}
+						
+					}
+						
+				?>
 				</tr>
 				<tr>
 					<td class="service_label_block"><span>Юридический адрес</span></td>
-					<td class="office_block"><div class="payed"></div></td>
-					<td class="coworking_block"><div class="payed"></div></td>
-					<td class="negotiating_block"><div class="payed"></div></td>
-					<td class="virtual_block"><div class="payed"></div></td>
+				<?
+				
+					foreach ($_DATA['office_center2service_group']['items'] as $vd_office_center_service_group) {
+						
+						$vd_office_center_service_group_id = $vd_office_center_service_group['id'];
+						$vd_office_center_service_group_title = $vd_office_center_service_group['title'];
+						$vd_office_center_service_group_price = $vd_office_center_service_group['price'];
+						$vd_office_center_service_group_published = $vd_office_center_service_group['published'];
+						$vd_service_group_id = $vd_office_center_service_group['service_group_id'];
+						$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_service_group_id]['css_signature'];
+						$vd_service_group_id_pricing_term = $_DATA['service_group']['items'][$vd_service_group_id]['pricing_term'];
+						$vd_service_group_id_title = $_DATA['service_group']['items'][$vd_service_group_id]['title'];
+						
+						/* since we currently don't have any real data in the DB, randomize some for output */
+						
+						$vd_random_css_list = array('included',
+						'not_included',
+						'payed');
+						
+						$vd_random_value = rand(0,2);
+						
+						$vd_random_css = $vd_random_css_list[$vd_random_value];
+						
+						if ($vd_office_center_service_group['published'] == '1') {
+							
+							echo '<td class="' . $vd_service_group_id_css . '_block">';
+							
+							echo '<div class="' . $vd_random_css . '"></div>';
+							
+							echo '</td>';
+							
+						}
+						
+					}
+						
+				?>
 				</tr>
 				<tr>
 					<td class="service_label_block"><span>Видео конференция</span></td>
-					<td class="office_block last_block"><div class="not_included"></div></td>
-					<td class="coworking_block last_block"><div class="not_included"></div></td>
-					<td class="negotiating_block last_block"><div class="payed"></div></td>
-					<td class="virtual_block last_block"><div class="not_included"></div></td>
+				<?
+				
+					foreach ($_DATA['office_center2service_group']['items'] as $vd_office_center_service_group) {
+						
+						$vd_office_center_service_group_id = $vd_office_center_service_group['id'];
+						$vd_office_center_service_group_title = $vd_office_center_service_group['title'];
+						$vd_office_center_service_group_price = $vd_office_center_service_group['price'];
+						$vd_office_center_service_group_published = $vd_office_center_service_group['published'];
+						$vd_service_group_id = $vd_office_center_service_group['service_group_id'];
+						$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_service_group_id]['css_signature'];
+						$vd_service_group_id_pricing_term = $_DATA['service_group']['items'][$vd_service_group_id]['pricing_term'];
+						$vd_service_group_id_title = $_DATA['service_group']['items'][$vd_service_group_id]['title'];
+						
+						/* since we currently don't have any real data in the DB, randomize some for output */
+						
+						$vd_random_css_list = array('included',
+						'not_included',
+						'payed');
+						
+						$vd_random_value = rand(0,2);
+						
+						$vd_random_css = $vd_random_css_list[$vd_random_value];
+						
+						if ($vd_office_center_service_group['published'] == '1') {
+							
+							echo '<td class="' . $vd_service_group_id_css . '_block last_block">';
+							
+							echo '<div class="' . $vd_random_css . '"></div>';
+							
+							echo '</td>';
+							
+						}
+						
+					}
+						
+				?>
 				</tr>
 			</table>
 		</div>
