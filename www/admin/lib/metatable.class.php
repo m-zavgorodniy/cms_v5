@@ -94,37 +94,37 @@ class MetaTable {
 						}
 						$lookup_join .= " LEFT JOIN `" . $row['lookup_meta_table'] . "` ";
 		
-//						$lookup_meta_table_alias = "m" . $alias_counter++;
-//						$lookup_join .= $lookup_meta_table_alias;
+						$lookup_meta_table_alias = "m" . $alias_counter++;
+						$lookup_join .= $lookup_meta_table_alias;
 		
 						if (!$row['lookup_multi'] and $row['type_extra'] != 'lookup_external') {
-							$lookup_join .= " ON `" . $this->table_meta['table_name'] . "`.`" . $field . "` = `" . $row['lookup_meta_table'] . "`.id";
-							$res .= "`" . $row['lookup_meta_table'] . "`.`" . $row['lookup_meta_table_field'] . (($this->front_lang_id and $row['lookup_multi_lang'])?'_'.$this->front_lang_id:"") . "` `" . $field . "_lookup`,";
+							$lookup_join .= " ON `" . $this->table_meta['table_name'] . "`.`" . $field . "` = `" . $lookup_meta_table_alias . "`.id";
+							$res .= "`" . $lookup_meta_table_alias . "`.`" . $row['lookup_meta_table_field'] . (($this->front_lang_id and $row['lookup_multi_lang'])?'_'.$this->front_lang_id:"") . "` `" . $field . "_lookup`,";
 						} else {
 							$is_lookup_multi = true;
 							$lookup_join .= " ON ";
 							if ($row['type_extra'] != 'lookup_external') {
 								if ($row['type_extra'] == 'lookup_custom') {
-									$lookup_join .= " `" . $row['lookup_meta_table'] . "`.meta_table_field_id = " . $row['field_id'] . " AND ";
+									$lookup_join .= " `" . $lookup_meta_table_alias . "`.meta_table_field_id = " . $row['field_id'] . " AND ";
 								}
-								$lookup_join .= "FIND_IN_SET(`" . $row['lookup_meta_table'] . "`.id, `" . $this->table_meta['table_name'] . "`.`" . $field . "`)";
+								$lookup_join .= "FIND_IN_SET(`" . $lookup_meta_table_alias . "`.id, `" . $this->table_meta['table_name'] . "`.`" . $field . "`)";
 							} else {
-								$lookup_join .= "`" . $row['lookup_meta_table'] . "`.id = `" . $row['lookup_external_table'] . "`.`" . $row['lookup_meta_table'] . "_id` AND " . ($row['lookup_filter']?preg_replace("/(^|\s)" . $row['lookup_meta_table'] . "\./", "\\1" . $row['lookup_meta_table'] . ".", $row['lookup_filter']):"1");
+								$lookup_join .= "`" . $lookup_meta_table_alias . "`.id = `" . $row['lookup_external_table'] . "`.`" . $row['lookup_meta_table'] . "_id` AND " . ($row['lookup_filter']?preg_replace("/(^|\s)" . $row['lookup_meta_table'] . "\./", "\\1" . $lookup_meta_table_alias . ".", $row['lookup_filter']):"1");
 							}
 							if ($this->front_lang_id and $row['lookup_multi_lang']) {
 								$lang_postfix = '_' . $this->front_lang_id;
 							} else {
 								$lang_postfix = '';
 							}
-							$res .= "GROUP_CONCAT(DISTINCT `" . $row['lookup_meta_table'] . "`.`" . $row['lookup_meta_table_field'] . $lang_postfix . "` ORDER BY `" . $row['lookup_meta_table'] . "`.`" . $row['lookup_meta_table_field'] . $lang_postfix . "` SEPARATOR ', ') `" . $field . "_lookup`,";
+							$res .= "GROUP_CONCAT(DISTINCT `" . $lookup_meta_table_alias . "`.`" . $row['lookup_meta_table_field'] . $lang_postfix . "` ORDER BY `" . $lookup_meta_table_alias . "`.`" . $row['lookup_meta_table_field'] . $lang_postfix . "` SEPARATOR ', ') `" . $field . "_lookup`,";
 						}
 						if ($row['type_extra'] != 'lookup_external') {
 							$res .= "`" . $this->table_meta['table_name'] . "`.`" . $field . "`";
 						} else {
-							$res .= "GROUP_CONCAT(DISTINCT `" . $row['lookup_meta_table'] . "`.id ORDER BY `" . $row['lookup_meta_table'] . "`.`" . $row['lookup_meta_table_field'] . "` SEPARATOR ',') `" . $field . "`"; // nb! no space after comma in ','
+							$res .= "GROUP_CONCAT(DISTINCT `" . $lookup_meta_table_alias . "`.id ORDER BY `" . $lookup_meta_table_alias . "`.`" . $row['lookup_meta_table_field'] . "` SEPARATOR ',') `" . $field . "`"; // nb! no space after comma in ','
 						}
 						
-//						$lookup_meta_table_alias = false;
+						$lookup_meta_table_alias = false;
 					} else if ($row['type_extra'] == 'datetime' or $row['type_extra'] == 'date') {
 						$res .= "IF (YEAR(`" . $this->table_meta['table_name'] . "`.`" . $field . "`) = '0000', NULL, DATE_FORMAT(`" . $this->table_meta['table_name'] . "`.`" . $field . "`, '" . ($this->is_front?'%Y-%m-%d':get_date_format()) . ($row['type_extra'] == 'datetime'?' %H:%i':'') . "')) `" . $field . "`";
 					} else if ($row['type_extra'] == 'calc' or $row['type_extra'] == 'calc_boolean' or $row['type_extra'] == 'calc_view') {
