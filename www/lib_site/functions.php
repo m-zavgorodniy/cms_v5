@@ -30,4 +30,10 @@ function out_sharing() { ?>
    	<!-- code for sharing -->
 <?
 }
+
+function gallery_html2array($str) {
+    preg_match_all('/<a\s.*?href="([^"]*)".*?<img\s.*?src="([^"]*)"/is', $str, &$matches, PREG_SET_ORDER);
+    return $matches;
+}
+
 ?>
