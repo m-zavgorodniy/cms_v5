@@ -17,11 +17,19 @@
 		include('special_template.php'); 
 
 	} else {
-
-	/* single office center template */
-	if ($_DATA['office_center']['is_single'] == true) {
+	
+	/* single service in office center */
+		
+	if ($_DATA['office_center']['is_single'] && $_DATA['service_group']['is_single']) {
+		
+		include('service_template.php');
+	
+	/* single office center */	
+		
+	} elseif ($_DATA['office_center']['is_single'] == true) {
 		
 		$single_office_center = $_DATA['office_center']["items"][$_GET['center']];
+		
 		
 		$single_office_center_city_label = $single_office_center['city_id_lookup'];
 		$single_office_center_city_id = $single_office_center['city_id'];
@@ -35,10 +43,17 @@
 			$single_office_center_metro_color = '#000000';
 		}
 		
+		$single_office_center_color = $single_office_center['color'];
+		
+		if ($single_office_center_color == NULL) {
+			$single_office_center_color = '#000000';
+		}
+		
 		$single_office_center_img_int = $single_office_center['int_img_src'];
 		$single_office_center_img_ext = $single_office_center['ext_img_src'];
 		
 		$single_office_center_annotation = $single_office_center['annotation'];
+		
 		$single_office_center_body = $single_office_center['body'];
 		
 		$single_office_center_service_labels = $single_office_center['service_group_lookup'];
@@ -65,7 +80,7 @@
 			<? echo $single_office_center_title; ?>
 		</div>
 		<div class="vd_singleofficewrapper-header-body">
-			<? echo $single_office_center_body; ?>
+			<? echo $single_office_center_annotation; ?>
 		</div>
 	</div>
 	<div class="vd_singleofficewrapper-menu">
@@ -80,67 +95,66 @@
 	<div class="vd_singleofficewrapper-content">
 		<div class="vd_singleofficewrapper-content-about">
 			<a name="about"></a>
-			<div class="vd_singleofficewrapper-content-about-title">
-				О бизнес-центре
-			</div>
+			<h2 class="g-section-title">О бизнес-центре</h2>
+			<?
+			
+			foreach ($_DATA['office_center_detail']['items'] as $office_center_detail) {
+				
+				if ($office_center_detail['office_center_detail_type_id'] == 'text') {
+					
+					?>
+					
 			<div class="vd_singleofficewrapper-content-about-block">
 				<div class="vd_singleofficewrapper-content-about-block-image">
 					
 				</div>
 				<div class="vd_singleofficewrapper-content-about-block-text">
-					Деловая инфраструктура района предельно развита, более того, поблизости находятся значимые объекты культуры и архитектуры — Курский вокзал, музей геодезии и картографии, музей уникальных кукол, множество храмов и церквей.
+					<? echo $office_center_detail['body']; ?>
 				</div>
-			</div>
-			<div class="vd_singleofficewrapper-content-about-block">
-				<div class="vd_singleofficewrapper-content-about-block-image">
+			</div>		
 					
-				</div>
-				<div class="vd_singleofficewrapper-content-about-block-text">
-					К тому же, в каждое предложение входит ряд других услуг, которые помогут вам полностью сконцентрироваться на деловых вопросах и не отвлекаться на организационные и хозяйственные проблемы. Мы предлагаем аренду офиса от собственника без посредников, аренда офиса с ОЦ «Деловой», поэтому не стоит волноваться о дополнительных расходах.
-Все помещения отличаются современным оснащением, поэтому можете быть уверены, что никаких проблем с техническими средствами не возникнет. Все, что требуется, — снять офис и приступить к работе!
-				</div>
-			</div>
-			<div class="vd_singleofficewrapper-content-about-block">
-				<div class="vd_singleofficewrapper-content-about-block-image">
+					<?
 					
-				</div>
-				<div class="vd_singleofficewrapper-content-about-block-text">
-					Аренда офиса на Курской, в столь привлекательном районе Москвы, является, безусловно, выгоднейшим вложением в бизнес. А учитывая наши выгодные тарифы, снять офис на Курской стало абсолютно реальным.
-				</div>
-			</div>
-			<div class="vd_singleofficewrapper-content-about-block">
-				<div class="vd_singleofficewrapper-content-about-block-image">
-					
-				</div>
-				<div class="vd_singleofficewrapper-content-about-block-text">
-					Все помещения отличаются современным оснащением, поэтому можете быть уверены, что никаких проблем с техническими средствами не возникнет. Все, что требуется, — снять офис и приступить к работе!
-				</div>
-			</div>
+				}
+				
+			}	
+				
+			?>
 		</div>
 		<div class="vd_singleofficewrapper-content-gallery">
 			<a name="gallery"></a>
-			<div class="vd_singleofficewrapper-content-gallery-title">
-				Галерея
-			</div>
+			<h2 class="g-section-title">Галерея</h2>
 			<div class="cycle-slideshow"
 				data-cycle-timeout="0"
 				data-cycle-fx="carousel"
 				data-cycle-carousel-visible="3"
 				data-cycle-carousel-fluid="true"
+				data-cycle-slides="> a"
 			>
 			    <div class="cycle-prev"></div>
 				<div class="cycle-next"></div>
-				<img src="http://malsup.github.io/images/beach3.jpg">
-				<img src="http://malsup.github.io/images/beach4.jpg">
-				<img src="http://malsup.github.io/images/beach1.jpg">
-				<img src="http://malsup.github.io/images/beach2.jpg">
+			<?
+			
+			foreach ($_DATA['office_center_detail']['items'] as $office_center_detail) {
+				
+				if ($office_center_detail['office_center_detail_type_id'] == 'gallery') {
+					
+					$office_center_detail_body = $office_center_detail['body'];
+					
+					preg_match('/<a.*\/a>/', $office_center_detail_body, $office_center_gallery);
+					
+					echo $office_center_gallery[0];
+					
+				}
+				
+			}	
+				
+			?>
 			</div>
 		</div>
 		<div class="vd_singleofficewrapper-content-services">
 			<a name="services"></a>
-			<div class="vd_singleofficewrapper-content-services-title">
-				Услуги
-			</div>
+			<h2 class="g-section-title">Услуги</h2>
 			<table class="vd_singleofficewrapper-content-services-table">
 				<tr>
 					<th class="service_header_label_block">Основные услуги</th>
@@ -171,10 +185,23 @@
 				</tr>
 				<tr>
 					<td class="service_header_label_block">Стоимость услуг</td>
-					<td class="service_price">от <span>13 490</span> руб./мес</td>
-					<td class="service_price">от <span>12 490</span> руб./мес</td>
-					<td class="service_price">от <span>520</span> руб./час</td>
-					<td class="service_price">от <span>3 500</span> руб./мес</td>
+				<?
+				
+					foreach ($_DATA['office_center2service_group']['items'] as $vd_office_center_service_group) {
+						
+						$vd_office_center_service_group_price = $vd_office_center_service_group['price'];
+						
+						$vd_office_center_service_group_price = preg_replace('/( |&nbsp;)(.*)( |&nbsp;)/', ' <span>$2</span> ', $vd_office_center_service_group_price);
+						
+						if ($vd_office_center_service_group['published'] == '1') {
+							
+							echo '<td class="service_price ' . $vd_service_group_id_css . '">' . $vd_office_center_service_group_price . '</td>';
+							
+						}
+						
+					}
+						
+				?>
 				</tr>
 				<tr>
 					<td></td>
@@ -194,7 +221,7 @@
 						
 						if ($vd_office_center_service_group['published'] == '1') {
 							
-							echo '<td class="detailed_block ' . $vd_service_group_id_css . '"><a href="?center=' . $vd_office_center_service_group_center_id . '&service=' . $vd_office_center_service_group_id . '"><span>Подробнее</span></a></td>';
+							echo '<td class="detailed_block ' . $vd_service_group_id_css . '"><a href="?center=' . $vd_office_center_service_group_center_id . '&service=' . $vd_service_group_id . '"><span>Подробнее</span></a></td>';
 							
 						}
 						
@@ -638,9 +665,7 @@
 		</div>
 		<div class="vd_singleofficewrapper-content-contacts">
 			<a name="contacts"></a>
-			<div class="vd_singleofficewrapper-content-contacts-title">
-				Контакты
-			</div>
+			<h2 class="g-section-title">Контакты</h2>
 			<div class="vd_singleofficewrapper-content-contacts-details">
 				<div class="vd_singleofficewrapper-content-contacts-details-left">
 					Москва, Нижний Сусальный переулок, 5, стр. 19, 3 этаж
@@ -662,16 +687,14 @@
 				</div>
 			</div>
 			<input type="hidden" class="vd_singleofficewrapper-content-contacts-coordinates" value="<? echo $single_office_center_coordinates; ?>" />
-			<input type="hidden" class="vd_singleofficewrapper-content-contacts-color" value="<? echo $single_office_center_metro_color; ?>" />
+			<input type="hidden" class="vd_singleofficewrapper-content-contacts-color" value="<? echo $single_office_center_color; ?>" />
 		</div>
 		<div class="vd_mapwrapper">
 			<div id="vd_mapwrapper-map"></div>
 		</div>
 		<div class="vd_singleofficewrapper-content-special">
 			<a name="special"></a>
-			<div class="vd_singleofficewrapper-content-special-title">
-				Cпецпредложения
-			</div>
+			<h2 class="g-section-title">Cпецпредложения</h2>
 			<div class="vd_singleofficewrapper-content-special-list">
 				<div class="vd_singleofficewrapper-content-special-list-item office">
 					<div class="vd_singleofficewrapper-content-special-list-item-text"><!--
@@ -710,9 +733,7 @@
 		</div>
 	</div>
 	<div class="vd_singleofficewrapper-other">
-		<div class="vd_singleofficewrapper-other-title">
-			Другие бизнес-центры
-		</div>
+		<h2 class="g-section-title">Другие бизнес-центры</h2>
 		<div class="vd_singleofficewrapper-other-list">
 			<div class="vd_officelistwrapper-office">
 				<a href="?center=1">
@@ -826,6 +847,12 @@
 			$single_office_center_metro_color = '#000000';
 		}
 		
+		$single_office_center_color = $single_office_center['color'];
+		
+		if ($single_office_center_color == NULL) {
+			$single_office_center_color = '#000000';
+		}
+		
 		$single_office_center_img_int = $single_office_center['int_img_src'];
 		$single_office_center_img_ext = $single_office_center['ext_img_src'];
 		
@@ -853,7 +880,7 @@
 			
 				echo '<input type="hidden" class="vd_officelistwrapper-office-coordinates" value="' . $single_office_center_coordinates . '">';
 					
-				echo '<input type="hidden" class="vd_officelistwrapper-office-color" value="' . $single_office_center_metro_color . '">';
+				echo '<input type="hidden" class="vd_officelistwrapper-office-color" value="' . $single_office_center_color . '">';
 			
 				echo '<a href="?center=' . $single_office_center_id . '">';
 			

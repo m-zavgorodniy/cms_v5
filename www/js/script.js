@@ -87,7 +87,7 @@ function initMap() {
 			
 			var link = jQuery('a', jQuery('.vd_officelistwrapper-office')[i]).attr('href');
 			
-			var coordinates_array = coordinates.split(', ');
+			var coordinates_array = coordinates.split(',');
 			var marker = new google.maps.Marker({
 				position: {lat: parseFloat(coordinates_array[0]), lng: parseFloat(coordinates_array[1])},
 				title: 'xynta',
@@ -129,7 +129,7 @@ function initMap() {
 		
 		var color = jQuery('.vd_singleofficewrapper-content-contacts-color').val();
 
-		var coordinates_array = coordinates.split(', ');
+		var coordinates_array = coordinates.split(',');
 
 		map.setCenter({lat: parseFloat(coordinates_array[0]), lng: parseFloat(coordinates_array[1])});
 
