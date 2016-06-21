@@ -203,7 +203,27 @@ jQuery(document).ready(function() {
 	$.extend($.datepicker,{_checkOffset:function(inst,offset,isFixed){return { left: offset.left, top: offset.top+12 }}});
 	jQuery('.phone').mask('+7 (999) 999-99-99', {placeholder: "+7 (___) ___-__-__"})
 	
+	jQuery(".fancybox-thumb").fancybox({
+		margin		: [25, 0, 60, 0],
+		prevEffect	: 'none',
+		nextEffect	: 'none',
+		helpers	: {
+			title	: {
+				type: 'outside'
+			},
+			thumbs	: {
+				width	: 50,
+				height	: 50
+			},
+			overlay: {
+				locked: false
+    		}
+		}
+	});
+	
 });
+
+
 
 $(function() {
 	// your javascript here

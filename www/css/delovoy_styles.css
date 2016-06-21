@@ -65,11 +65,45 @@
 	overflow: hidden;
 	margin-bottom: 30px;
 	box-shadow:0px 0px 0px 1px gray inset;
+	position: relative;
 }
 
 .vd_officelistwrapper-office-photo img {
 	min-height: 100%;
 	width: auto;
+}
+
+.vd_officelistwrapper-office-price {
+	width: 235px;
+	height: 60px;
+	color: #ffffff;
+	position: absolute;
+	left: 0px;
+	bottom: 30px;
+/* 	font-family: Lato-Regular; */
+	font-size: 20px;	
+	padding-left: 30px;
+	padding-top: 10px;
+}
+
+.vd_officelistwrapper-office-price span {
+	font-weight: bold;
+}
+
+.vd_officelistwrapper-office-price.office {
+	background-color: #e62e66;
+}
+
+.vd_officelistwrapper-office-price.coworking {
+	background-color: #009cdf;
+}
+
+.vd_officelistwrapper-office-price.meeting {
+	background-color: #91c73e;
+}
+
+.vd_officelistwrapper-office-price.virtual {
+	background-color: #8c278f;
 }
 
 .vd_officelistwrapper-office-services {
@@ -142,7 +176,7 @@
 .vd_officelistdata {
 	background-color: #f6f7f8;
     width: 100%;
-	padding: 60px 105px;
+	padding: 60px 0px;
 	margin: 0 auto;
     overflow: auto;
 }
@@ -289,7 +323,8 @@
 }
 
 .vd_singleofficewrapper-menu ul {
-	text-align: center;
+	text-align: justify;
+    height: 70px;
 }
 
 .vd_singleofficewrapper-menu ul li {
@@ -297,10 +332,15 @@
 	font-size: 20px;
 	letter-spacing: 0.6px;
 	color: #262626;	
-	display: inline;
-	padding-left: 45px;
-	padding-right: 45px;
+	display: inline-block;
     line-height: 70px;
+}
+
+.vd_singleofficewrapper-menu ul li.helper {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 0;	
 }
 
 .vd_singleofficewrapper-menu ul li a {
@@ -379,8 +419,23 @@
 	margin-bottom: 30px;
 }
 
-.vd_singleofficewrapper-content-gallery .cycle-slideshow {
-	
+.cycle-slideshow {
+	height: 320px;
+}
+
+.cycle-carousel-wrap {
+	height: 320px;
+}
+
+.cycle-carousel-wrap a {
+	display: inline-block;
+	height: 100% !important;
+	width: auto !important;
+}
+
+.cycle-carousel-wrap img {
+	height: 100% !important;
+	width: auto !important;
 }
 
 .cycle-prev {
@@ -1049,6 +1104,7 @@
 .vd_serviceincenter_wrapper-about-list-block {
 	float: left;
 	margin-bottom: 25px;
+    width: 100%;
 }
 
 .vd_serviceincenter_wrapper-about-list-block-image {
@@ -1975,28 +2031,34 @@
 }
 
 .vd_services_list {
-	text-align: justify;
-	margin-bottom: 20px;
+	text-align: center;
+	margin-bottom: 60px;
 }
 
 .vd_services_list-item {
 	display: inline-block;
-    height: 264px;
-    width: 264px;
-    padding-top: 264px;
+	position: relative;
+    height: 150px;
+    width: 150px;
+    padding-top: 150px;
     text-align: center;
+    margin-left: 45px;
+    margin-right: 45px;
+/* 	font-family: Lato-Black; */
+	font-size: 20px;
+	line-height: 1.5;
+	color: #000000;
 }
-
 .vd_services_list-item.office {
 	background-image: url('../images/svg/icon-office.svg');
-	background-size: 70%;
+	background-size: 55%;
     background-repeat: no-repeat;
 	background-position: 50%;
 }
 
 .vd_services_list-item.coworking {
 	background-image: url('../images/svg/icon-coworking.svg');
-	background-size: 80%;
+	background-size: 55%;
     background-repeat: no-repeat;
 	background-position: 50%;	
 }
@@ -2010,7 +2072,7 @@
 
 .vd_services_list-item.virtual {
 	background-image: url('../images/svg/icon-virtual.svg');
-	background-size: 70%;
+	background-size: 55%;
     background-repeat: no-repeat;
 	background-position: 50%;	
 }
@@ -2020,4 +2082,259 @@
     height: 0;
     visibility: hidden;
     padding-top: 0px;
+}
+
+.vd_services_list-item-title {
+	display: block;
+	position: absolute;
+	width: 100%;
+}
+
+.vd_services_text table p {
+/* 	font-family: Lato-Regular; */
+	font-size: 20px;
+	line-height: 1.5;
+	color: #000000;
+	padding: 20px 0px;
+}
+
+.vd_services_text p.editor-align-center {
+	margin-top: 60px;
+}
+
+.vd_services_text p.editor-align-center big {
+/* 	font-family: Lato-Semibold; */
+	font-size: 30px;
+	line-height: 1.3;
+	text-align: center;
+	color: #1a1a1a;	
+}
+
+.vd_services2 {
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+
+.vd_services2_subtitle {
+/* 	font-family: Lato-Regular; */
+	font-size: 20px;
+	line-height: 1.5;
+	color: #000000;
+	text-align: center;
+}
+
+.vd_services2_list {
+	text-align: center;
+}
+
+.vd_services2_list-item {
+	display: inline-block;
+	margin: 30px 55px;
+}
+
+.vd_service2_list-item-image {
+	display: block;
+    margin: 10px auto;	
+	height: 52px;
+	width: 52px;
+}
+
+.vd_service2_list-item-title {
+/* 	font-family: Lato-Regular; */
+	font-size: 20px;
+	line-height: 1.5;
+	color: #000000;
+	display: inline-block;
+	border-bottom: 1px solid #000000;
+}
+
+/* service single styles */
+
+.vd_service_single_wrapper-header {
+    height: 160px;
+    color: #ffffff;
+    overflow: visible;
+    position: relative;	
+}
+
+.vd_service_single_wrapper-header.office {
+	background-color: #e0547f;
+}
+
+.vd_service_single_wrapper-header.coworking {
+	background-color: #009cdf;
+}
+
+.vd_service_single_wrapper-header.meeting {
+	background-color: #91c73e;
+}
+
+.vd_service_single_wrapper-header.virtual {
+    background-color: #8c278f;	
+}
+
+.vd_service_single_wrapper-header-logo {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    float: left;
+    margin-right: 20px;
+}
+
+.office .vd_service_single_wrapper-header-logo {
+    background-image: url('../images/svg/icon-office-white.svg');
+    width: 78px;
+    height: 78px;
+    margin-top: 41px;
+    margin-bottom: 41px;	
+}
+
+.coworking .vd_service_single_wrapper-header-logo {
+    background-image: url('../images/svg/icon-coworking-white.svg');
+    width: 78px;
+    height: 78px;
+    margin-top: 41px;
+    margin-bottom: 41px;	
+}
+
+.meeting .vd_service_single_wrapper-header-logo {
+    background-image: url('../images/svg/icon-meeting-white.svg');
+    width: 115px;
+    height: 78px;
+    margin-top: 41px;
+    margin-bottom: 41px;	
+}
+
+.virtual .vd_service_single_wrapper-header-logo {
+	background-image: url('../images/svg/icon-virtual-white.svg');
+    width: 66px;
+    height: 78px;
+    margin-top: 41px;
+    margin-bottom: 41px;
+}
+
+.vd_service_single_wrapper-header-servicename {
+    float: left;
+    /* font-family: Lato-Black; */
+    font-size: 30px;
+    color: #ffffff;
+    width: 800px;
+    height: 40px;
+    margin-top: 44px;
+}
+
+.vd_service_single_wrapper-menu {
+    width: 100%;
+    height: 70px;
+    overflow: auto;
+    margin: 0 auto;
+    position: relative;
+    overflow: visible;
+}
+
+.vd_service_single_wrapper-menu:after {
+    content: '';
+    background: url(/images/svg/group.svg) repeat-x top;
+    height: 10px;
+    width: 100%;
+    position: absolute;
+}
+
+.vd_service_single_wrapper-menu ul {
+    text-align: justify;
+    height: 70px;
+}
+
+.vd_service_single_wrapper-menu ul li {
+    /* font-family: Lato-Black; */
+    font-size: 20px;
+    letter-spacing: 0.6px;
+    color: #262626;
+    display: inline-block;
+    line-height: 70px;
+}
+
+.vd_service_single_wrapper-menu ul li.helper {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 0;
+}
+
+.vd_service_single_wrapper-menu ul li a {
+    color: #262626;
+}
+
+.vd_service_single_wrapper-about {
+	margin-top: 90px;
+}
+
+.vd_service_single_wrapper-about-list {
+	float: left;
+    margin-top: 40px;
+}
+
+.vd_service_single_wrapper-about-list-sublist {
+	width: 570px;
+    float: left;
+}
+
+.vd_service_single_wrapper-about-list-sublist.payed {
+	margin-left: 30px;
+}
+
+.included .vd_service_single_wrapper-about-list-sublist-header {
+    background-image: url('../images/svg/check.svg');
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    padding-left: 50px;
+    float: left;
+    margin-bottom: 50px;
+    /* font-family: Lato-Black; */
+    font-size: 20px;
+    line-height: 1.5;
+    color: #000000;	
+}
+
+.payed .vd_service_single_wrapper-about-list-sublist-header {
+    background-image: url('../images/svg/ruble.svg');
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    padding-left: 40px;
+    float: left;
+    margin-bottom: 50px;
+    /* font-family: Lato-Black; */
+    font-size: 20px;
+    line-height: 1.5;
+    color: #000000;
+}
+
+.vd_service_single_wrapper-about-list-block {
+	float: left;
+    margin-bottom: 25px;
+	width: 100%;
+}
+
+.vd_service_single_wrapper-about-list-block-image {
+	width: 70px;
+	height: 70px;
+	border: 1px solid #000000;
+	border-radius: 50%;
+	float: left;
+	background-size: cover;
+}
+
+.vd_service_single_wrapper-about-list-block-title {
+	padding-left: 100px;
+    /* font-family: Lato-Regular; */
+    font-size: 20px;
+    line-height: 1.5;
+    color: #000000;
+}
+
+.vd_service_single_wrapper-about-list-block-desc {
+    padding-left: 100px;
+    /* font-family: Lato-Regular; */
+    font-size: 16px;
+    line-height: 1.5;
+    color: #010101;	
 }

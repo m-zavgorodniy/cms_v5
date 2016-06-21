@@ -69,66 +69,65 @@
 				<div class="vd_serviceincenter_wrapper-about-list-sublist-header">
 					В услугу входит
 				</div>
-				<div class="vd_serviceincenter_wrapper-about-list-block">
-					<div class="vd_serviceincenter_wrapper-about-list-block-image"></div>
-					<div class="vd_serviceincenter_wrapper-about-list-block-title"><span>Секретарь</span></div>
-					<div class="vd_serviceincenter_wrapper-about-list-block-desc">Встреча гостей, организация кофе-брейков, заказ товаров, вызов курьера, работа с корреспонденцией</div>
-				</div>
-				<div class="vd_serviceincenter_wrapper-about-list-block">
-					<div class="vd_serviceincenter_wrapper-about-list-block-image"></div>
-					<div class="vd_serviceincenter_wrapper-about-list-block-title"><span>Мебель</span></div>
-					<div class="vd_serviceincenter_wrapper-about-list-block-desc">Встреча гостей, организация кофе-брейков, заказ товаров, вызов курьера, работа с корреспонденцией</div>
-				</div>
-				<div class="vd_serviceincenter_wrapper-about-list-block">
-					<div class="vd_serviceincenter_wrapper-about-list-block-image"></div>
-					<div class="vd_serviceincenter_wrapper-about-list-block-title"><span>Интернет</span></div>
-					<div class="vd_serviceincenter_wrapper-about-list-block-desc">Встреча гостей, организация кофе-брейков, заказ товаров, вызов курьера, работа с корреспонденцией</div>
-				</div>
-				<div class="vd_serviceincenter_wrapper-about-list-block">
-					<div class="vd_serviceincenter_wrapper-about-list-block-image"></div>
-					<div class="vd_serviceincenter_wrapper-about-list-block-title"><span>Секретарь</span></div>
-					<div class="vd_serviceincenter_wrapper-about-list-block-desc">Встреча гостей, организация кофе-брейков, заказ товаров, вызов курьера, работа с корреспонденцией</div>
-				</div>
-				<div class="vd_serviceincenter_wrapper-about-list-block">
-					<div class="vd_serviceincenter_wrapper-about-list-block-image"></div>
-					<div class="vd_serviceincenter_wrapper-about-list-block-title"><span>Почтовый адрес</span></div>
-					<div class="vd_serviceincenter_wrapper-about-list-block-desc">Встреча гостей, организация кофе-брейков, заказ товаров, вызов курьера, работа с корреспонденцией</div>
-				</div>
+				<?
+						
+				foreach ($_DATA['service2service_group']['items'] as $service2service_group_item) {
+					
+					if ($service2service_group_item['is_inclusive'] === '1') {
+						
+						$service2service_group_item_service_id = $service2service_group_item['service_id'];
+						$service2service_group_item_title = $service2service_group_item['service_id_lookup'];
+						$service2service_group_item_desc = $_DATA['service']['items'][$service2service_group_item_service_id]['headline'];
+						
+						?>
+						<div class="vd_serviceincenter_wrapper-about-list-block">
+							<div class="vd_serviceincenter_wrapper-about-list-block-image"></div>
+							<div class="vd_serviceincenter_wrapper-about-list-block-title">
+								<span><? echo $service2service_group_item_title; ?></span>
+							</div>
+							<div class="vd_serviceincenter_wrapper-about-list-block-desc">
+								<?echo $service2service_group_item_desc; ?>
+							</div>
+						</div>
+						<?
+						
+					}
+					
+				}		
+				
+				?>
 			</div>
 			<div class="vd_serviceincenter_wrapper-about-list-sublist payed">
 				<div class="vd_serviceincenter_wrapper-about-list-sublist-header">
 					За дополнительную плату
 				</div>
-				<div class="vd_serviceincenter_wrapper-about-list-block">
-					<div class="vd_serviceincenter_wrapper-about-list-block-image"></div>
-					<div class="vd_serviceincenter_wrapper-about-list-block-title"><span>Курьер</span></div>
-					<div class="vd_serviceincenter_wrapper-about-list-block-desc">Встреча гостей, организация кофе-брейков, заказ товаров, вызов курьера, работа с корреспонденцией</div>
-				</div>
-				<div class="vd_serviceincenter_wrapper-about-list-block">
-					<div class="vd_serviceincenter_wrapper-about-list-block-image"></div>
-					<div class="vd_serviceincenter_wrapper-about-list-block-title"><span>Поиск персонала</span></div>
-					<div class="vd_serviceincenter_wrapper-about-list-block-desc">Встреча гостей, организация кофе-брейков, заказ товаров, вызов курьера, работа с корреспонденцией</div>
-				</div>
-				<div class="vd_serviceincenter_wrapper-about-list-block">
-					<div class="vd_serviceincenter_wrapper-about-list-block-image"></div>
-					<div class="vd_serviceincenter_wrapper-about-list-block-title"><span>Юрист</span></div>
-					<div class="vd_serviceincenter_wrapper-about-list-block-desc">Встреча гостей, организация кофе-брейков, заказ товаров, вызов курьера, работа с корреспонденцией</div>
-				</div>
-				<div class="vd_serviceincenter_wrapper-about-list-block">
-					<div class="vd_serviceincenter_wrapper-about-list-block-image"></div>
-					<div class="vd_serviceincenter_wrapper-about-list-block-title"><span>Телефония</span></div>
-					<div class="vd_serviceincenter_wrapper-about-list-block-desc">Встреча гостей, организация кофе-брейков, заказ товаров, вызов курьера, работа с корреспонденцией</div>
-				</div>
-				<div class="vd_serviceincenter_wrapper-about-list-block">
-					<div class="vd_serviceincenter_wrapper-about-list-block-image"></div>
-					<div class="vd_serviceincenter_wrapper-about-list-block-title"><span>IT-поддержка</span></div>
-					<div class="vd_serviceincenter_wrapper-about-list-block-desc">Встреча гостей, организация кофе-брейков, заказ товаров, вызов курьера, работа с корреспонденцией</div>
-				</div>
-				<div class="vd_serviceincenter_wrapper-about-list-block">
-					<div class="vd_serviceincenter_wrapper-about-list-block-image"></div>
-					<div class="vd_serviceincenter_wrapper-about-list-block-title"><span>Юридическая поддержка</span></div>
-					<div class="vd_serviceincenter_wrapper-about-list-block-desc">Встреча гостей, организация кофе-брейков, заказ товаров, вызов курьера, работа с корреспонденцией</div>
-				</div>
+				<?
+						
+				foreach ($_DATA['service2service_group']['items'] as $service2service_group_item) {
+					
+					if ($service2service_group_item['is_inclusive'] === '0') {
+						
+						$service2service_group_item_service_id = $service2service_group_item['service_id'];
+						$service2service_group_item_title = $service2service_group_item['service_id_lookup'];
+						$service2service_group_item_desc = $_DATA['service']['items'][$service2service_group_item_service_id]['headline'];
+						
+						?>
+						<div class="vd_serviceincenter_wrapper-about-list-block">
+							<div class="vd_serviceincenter_wrapper-about-list-block-image"></div>
+							<div class="vd_serviceincenter_wrapper-about-list-block-title">
+								<span><? echo $service2service_group_item_title; ?></span>
+							</div>
+							<div class="vd_serviceincenter_wrapper-about-list-block-desc">
+								<?echo $service2service_group_item_desc; ?>
+							</div>
+						</div>
+						<?
+						
+					}
+					
+				}		
+				
+				?>
 			</div>
 		</div>
 	</div>
@@ -137,16 +136,34 @@
 		<h2 class="g-section-title">Галерея</h2>
 		<div class="cycle-slideshow"
 			data-cycle-timeout="0"
+			data-cycle-allow-wrap="false"	
 			data-cycle-fx="carousel"
-			data-cycle-carousel-visible="3"
-			data-cycle-carousel-fluid="true"
+			data-cycle-carousel-fluid="false"
+			data-cycle-slides="> a"
 		>
 		    <div class="cycle-prev"></div>
 			<div class="cycle-next"></div>
-			<img src="http://malsup.github.io/images/beach3.jpg">
-			<img src="http://malsup.github.io/images/beach4.jpg">
-			<img src="http://malsup.github.io/images/beach1.jpg">
-			<img src="http://malsup.github.io/images/beach2.jpg">
+			<?
+			
+			foreach ($_DATA['office_center_detail']['items'] as $office_center_detail) {
+				
+				if ($office_center_detail['office_center_detail_type_id'] == 'gallery') {
+					
+					$office_center_detail_body = $office_center_detail['body'];
+					
+					$office_center_detail_gallery = gallery_html2array($office_center_detail_body);
+					
+					foreach ($office_center_detail_gallery as $office_center_detail_gallery_item) {
+						
+						echo '<a href="' . $office_center_detail_gallery_item[1] . '" class="fancybox-thumb" rel="fancybox-thumb"><img src="' . $office_center_detail_gallery_item[2] . '" data-original-src="' . $office_center_detail_gallery_item[1] . '" /></a>';
+						
+					}
+					
+				}
+				
+			}	
+				
+			?>
 		</div>
 	</div>
 	<div class="vd_serviceincenter_wrapper-layout">

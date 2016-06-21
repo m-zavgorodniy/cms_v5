@@ -84,13 +84,18 @@
 		</div>
 	</div>
 	<div class="vd_singleofficewrapper-menu">
+		<div class="g-container">
+		<div class="g-container-row">	
 		<ul>
 			<li><a href="#about">О бизнес-центре</a></li>
 			<li><a href="#gallery">Галерея</a></li>
 			<li><a href="#services">Услуги бизнес-центра</a></li>
 			<li><a href="#special">Спецпредложения центра</a></li>
 			<li><a href="#contacts">Контакты</a></li>
+			<li class="helper"></li>
 		</ul>
+		</div>
+		</div>
 	</div>
 	<div class="vd_singleofficewrapper-content">
 		<div class="vd_singleofficewrapper-content-about">
@@ -126,9 +131,9 @@
 			<h2 class="g-section-title">Галерея</h2>
 			<div class="cycle-slideshow"
 				data-cycle-timeout="0"
+				data-cycle-allow-wrap="false"	
 				data-cycle-fx="carousel"
-				data-cycle-carousel-visible="3"
-				data-cycle-carousel-fluid="true"
+				data-cycle-carousel-fluid="false"
 				data-cycle-slides="> a"
 			>
 			    <div class="cycle-prev"></div>
@@ -141,9 +146,13 @@
 					
 					$office_center_detail_body = $office_center_detail['body'];
 					
-					preg_match('/<a.*\/a>/', $office_center_detail_body, $office_center_gallery);
+					$office_center_detail_gallery = gallery_html2array($office_center_detail_body);
 					
-					echo $office_center_gallery[0];
+					foreach ($office_center_detail_gallery as $office_center_detail_gallery_item) {
+						
+						echo '<a href="' . $office_center_detail_gallery_item[1] . '" class="fancybox-thumb" rel="fancybox-thumb"><img src="' . $office_center_detail_gallery_item[2] . '" data-original-src="' . $office_center_detail_gallery_item[1] . '" /></a>';
+						
+					}
 					
 				}
 				
@@ -160,20 +169,18 @@
 					<th class="service_header_label_block">Основные услуги</th>
 				<?
 				
+					/* outputing the service table header, using the service group title and css signature */
+					
 					foreach ($_DATA['office_center2service_group']['items'] as $vd_office_center_service_group) {
 						
-						$vd_office_center_service_group_id = $vd_office_center_service_group['id'];
-						$vd_office_center_service_group_title = $vd_office_center_service_group['title'];
-						$vd_office_center_service_group_price = $vd_office_center_service_group['price'];
+						$vd_office_center_service_group_id = $vd_office_center_service_group['service_group_id'];
+						$vd_office_center_service_group_title = $vd_office_center_service_group['service_group_id_lookup'];
 						$vd_office_center_service_group_published = $vd_office_center_service_group['published'];
-						$vd_service_group_id = $vd_office_center_service_group['service_group_id'];
-						$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_service_group_id]['css_signature'];
-						$vd_service_group_id_pricing_term = $_DATA['service_group']['items'][$vd_service_group_id]['pricing_term'];
-						$vd_service_group_id_title = $_DATA['service_group']['items'][$vd_service_group_id]['title'];
+						$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_office_center_service_group_id]['css_signature'];
 						
-						if ($vd_office_center_service_group['published'] == '1') {
+						if ($vd_office_center_service_group_published === '1') {
 							
-							echo '<th class="service_header_content_block ' . $vd_service_group_id_css . '"><span>' . $vd_service_group_id_title . '</span></th>';
+							echo '<th class="service_header_content_block ' . $vd_service_group_id_css . '"><span>' . $vd_office_center_service_group_title . '</span></th>';
 							
 						}
 						
@@ -186,6 +193,8 @@
 				<tr>
 					<td class="service_header_label_block">Стоимость услуг</td>
 				<?
+					
+					/* outputing the service price cells, styling the price to bolden the digits */
 				
 					foreach ($_DATA['office_center2service_group']['items'] as $vd_office_center_service_group) {
 						
@@ -206,22 +215,18 @@
 				<tr>
 					<td></td>
 				<?
+					/* outputing the service detail links, using the service group ids and office center ids */
 				
 					foreach ($_DATA['office_center2service_group']['items'] as $vd_office_center_service_group) {
 						
-						$vd_office_center_service_group_id = $vd_office_center_service_group['id'];
-						$vd_office_center_service_group_title = $vd_office_center_service_group['title'];
-						$vd_office_center_service_group_price = $vd_office_center_service_group['price'];
+						$vd_office_center_service_group_id = $vd_office_center_service_group['service_group_id'];
 						$vd_office_center_service_group_published = $vd_office_center_service_group['published'];
-						$vd_service_group_id = $vd_office_center_service_group['service_group_id'];
-						$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_service_group_id]['css_signature'];
-						$vd_service_group_id_pricing_term = $_DATA['service_group']['items'][$vd_service_group_id]['pricing_term'];
-						$vd_service_group_id_title = $_DATA['service_group']['items'][$vd_service_group_id]['title'];
+						$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_office_center_service_group_id]['css_signature'];
 						$vd_office_center_service_group_center_id = $vd_office_center_service_group['office_center_id'];
 						
-						if ($vd_office_center_service_group['published'] == '1') {
+						if ($vd_office_center_service_group_published === '1') {
 							
-							echo '<td class="detailed_block ' . $vd_service_group_id_css . '"><a href="?center=' . $vd_office_center_service_group_center_id . '&service=' . $vd_service_group_id . '"><span>Подробнее</span></a></td>';
+							echo '<td class="detailed_block ' . $vd_service_group_id_css . '"><a href="?center=' . $vd_office_center_service_group_center_id . '&service=' . $vd_office_center_service_group_id . '"><span>Подробнее</span></a></td>';
 							
 						}
 						
@@ -232,435 +237,83 @@
 				<tr>
 					<td colspan="5" class="services_subtitle">Дополнительные сервисы, входящие в услуги</td>
 				</tr>
-				<tr>
-					<td class="service_label_block"><span>Секретарь</span></td>
 				<?
+					
+				/* get the last element key to check against in the table */
 				
-					foreach ($_DATA['office_center2service_group']['items'] as $vd_office_center_service_group) {
+				$last_service_single_key = end(array_keys($_DATA['service']['items']));
+				
+				/* loop over all availible services, such as it support, internet, etc */
+				
+				foreach ($_DATA['service']['items'] as $service_single_key => $service_single) {
+					
+					$service_single_id = $service_single['id'];
+					$service_single_title = $service_single['title'];
+					
+					/* start the output by displaying a table row, if this service is published */
+					
+					if ($service_single['published'] === '1') {
 						
-						$vd_office_center_service_group_id = $vd_office_center_service_group['id'];
-						$vd_office_center_service_group_title = $vd_office_center_service_group['title'];
-						$vd_office_center_service_group_price = $vd_office_center_service_group['price'];
-						$vd_office_center_service_group_published = $vd_office_center_service_group['published'];
-						$vd_service_group_id = $vd_office_center_service_group['service_group_id'];
-						$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_service_group_id]['css_signature'];
-						$vd_service_group_id_pricing_term = $_DATA['service_group']['items'][$vd_service_group_id]['pricing_term'];
-						$vd_service_group_id_title = $_DATA['service_group']['items'][$vd_service_group_id]['title'];
+						echo '<tr>';
 						
-						/* since we currently don't have any real data in the DB, randomize some for output */
+						echo '<td class="service_label_block"><span>' . $service_single_title . '</span></td>';
 						
-						$vd_random_css_list = array('included',
-						'not_included',
-						'payed');
+						/* loop over the parent service groups of this office center, to keep the same structure as the table header */
 						
-						$vd_random_value = rand(0,2);
-						
-						$vd_random_css = $vd_random_css_list[$vd_random_value];
-						
-						if ($vd_office_center_service_group['published'] == '1') {
+						foreach ($_DATA['office_center2service_group']['items'] as $vd_office_center_service_group) {
 							
-							echo '<td class="' . $vd_service_group_id_css . '_block">';
+							$vd_office_center_service_group_id = $vd_office_center_service_group['service_group_id'];
+							$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_office_center_service_group_id]['css_signature'];
 							
-							echo '<div class="' . $vd_random_css . '"></div>';
+							/* display the table cell of this service in this service group */
 							
-							echo '</td>';
+							echo '<td class="' . $vd_service_group_id_css . '_block ';
+							
+							if ($service_single_key == $last_service_single_key) {
+								echo 'last_block';
+							}
+							
+							echo '">';
+							
+							/* loop over all services to find out those, that should go here */
+							/* based on the service group (e.g. coworking) and service id (e.g. it support) */
+							
+							foreach ($_DATA['service2service_group']['items'] as $vd_service2service_group) {
+								
+								$vd_service2service_group_service_id = $vd_service2service_group['service_id'];
+								$vd_service2service_group_service_group_id = $vd_service2service_group['service_group_id'];
+								$vd_service2service_group_is_inclusive = $vd_service2service_group['is_inclusive'];
+								$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_service2service_group_service_group_id]['css_signature'];
+								
+								if ($vd_service2service_group_service_id === $service_single_id && $vd_service2service_group_service_group_id === $vd_office_center_service_group_id) {
+									
+									/* check if the this service is included for this service group */
+									
+									if ($vd_service2service_group_is_inclusive === '1') {
+										
+										echo '<div class="included"></div>';
+										
+									} else {
+										
+										echo '<div class="not_included"></div>';
+										
+									}
+									
+								} 
+								
+							}
+							
+							echo '</td>';	
 							
 						}
 						
-					}
-						
-				?>
-				</tr>
-				<tr>
-					<td class="service_label_block"><span>Мебель</span></td>
-				<?
-				
-					foreach ($_DATA['office_center2service_group']['items'] as $vd_office_center_service_group) {
-						
-						$vd_office_center_service_group_id = $vd_office_center_service_group['id'];
-						$vd_office_center_service_group_title = $vd_office_center_service_group['title'];
-						$vd_office_center_service_group_price = $vd_office_center_service_group['price'];
-						$vd_office_center_service_group_published = $vd_office_center_service_group['published'];
-						$vd_service_group_id = $vd_office_center_service_group['service_group_id'];
-						$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_service_group_id]['css_signature'];
-						$vd_service_group_id_pricing_term = $_DATA['service_group']['items'][$vd_service_group_id]['pricing_term'];
-						$vd_service_group_id_title = $_DATA['service_group']['items'][$vd_service_group_id]['title'];
-						
-						/* since we currently don't have any real data in the DB, randomize some for output */
-						
-						$vd_random_css_list = array('included',
-						'not_included',
-						'payed');
-						
-						$vd_random_value = rand(0,2);
-						
-						$vd_random_css = $vd_random_css_list[$vd_random_value];
-						
-						if ($vd_office_center_service_group['published'] == '1') {
-							
-							echo '<td class="' . $vd_service_group_id_css . '_block">';
-							
-							echo '<div class="' . $vd_random_css . '"></div>';
-							
-							echo '</td>';
-							
-						}
+						echo '</tr>';	
 						
 					}
-						
+					
+				}
+					
 				?>
-				</tr>
-				<tr>
-					<td class="service_label_block"><span>Интернет</span></td>
-				<?
-				
-					foreach ($_DATA['office_center2service_group']['items'] as $vd_office_center_service_group) {
-						
-						$vd_office_center_service_group_id = $vd_office_center_service_group['id'];
-						$vd_office_center_service_group_title = $vd_office_center_service_group['title'];
-						$vd_office_center_service_group_price = $vd_office_center_service_group['price'];
-						$vd_office_center_service_group_published = $vd_office_center_service_group['published'];
-						$vd_service_group_id = $vd_office_center_service_group['service_group_id'];
-						$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_service_group_id]['css_signature'];
-						$vd_service_group_id_pricing_term = $_DATA['service_group']['items'][$vd_service_group_id]['pricing_term'];
-						$vd_service_group_id_title = $_DATA['service_group']['items'][$vd_service_group_id]['title'];
-						
-						/* since we currently don't have any real data in the DB, randomize some for output */
-						
-						$vd_random_css_list = array('included',
-						'not_included',
-						'payed');
-						
-						$vd_random_value = rand(0,2);
-						
-						$vd_random_css = $vd_random_css_list[$vd_random_value];
-						
-						if ($vd_office_center_service_group['published'] == '1') {
-							
-							echo '<td class="' . $vd_service_group_id_css . '_block">';
-							
-							echo '<div class="' . $vd_random_css . '"></div>';
-							
-							echo '</td>';
-							
-						}
-						
-					}
-						
-				?>
-				</tr>
-				<tr>
-					<td class="service_label_block"><span>Почтовый адрес</span></td>
-				<?
-				
-					foreach ($_DATA['office_center2service_group']['items'] as $vd_office_center_service_group) {
-						
-						$vd_office_center_service_group_id = $vd_office_center_service_group['id'];
-						$vd_office_center_service_group_title = $vd_office_center_service_group['title'];
-						$vd_office_center_service_group_price = $vd_office_center_service_group['price'];
-						$vd_office_center_service_group_published = $vd_office_center_service_group['published'];
-						$vd_service_group_id = $vd_office_center_service_group['service_group_id'];
-						$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_service_group_id]['css_signature'];
-						$vd_service_group_id_pricing_term = $_DATA['service_group']['items'][$vd_service_group_id]['pricing_term'];
-						$vd_service_group_id_title = $_DATA['service_group']['items'][$vd_service_group_id]['title'];
-						
-						/* since we currently don't have any real data in the DB, randomize some for output */
-						
-						$vd_random_css_list = array('included',
-						'not_included',
-						'payed');
-						
-						$vd_random_value = rand(0,2);
-						
-						$vd_random_css = $vd_random_css_list[$vd_random_value];
-						
-						if ($vd_office_center_service_group['published'] == '1') {
-							
-							echo '<td class="' . $vd_service_group_id_css . '_block">';
-							
-							echo '<div class="' . $vd_random_css . '"></div>';
-							
-							echo '</td>';
-							
-						}
-						
-					}
-						
-				?>
-				</tr>
-				<tr>
-					<td class="service_label_block"><span>Телефония</span></td>
-				<?
-				
-					foreach ($_DATA['office_center2service_group']['items'] as $vd_office_center_service_group) {
-						
-						$vd_office_center_service_group_id = $vd_office_center_service_group['id'];
-						$vd_office_center_service_group_title = $vd_office_center_service_group['title'];
-						$vd_office_center_service_group_price = $vd_office_center_service_group['price'];
-						$vd_office_center_service_group_published = $vd_office_center_service_group['published'];
-						$vd_service_group_id = $vd_office_center_service_group['service_group_id'];
-						$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_service_group_id]['css_signature'];
-						$vd_service_group_id_pricing_term = $_DATA['service_group']['items'][$vd_service_group_id]['pricing_term'];
-						$vd_service_group_id_title = $_DATA['service_group']['items'][$vd_service_group_id]['title'];
-						
-						/* since we currently don't have any real data in the DB, randomize some for output */
-						
-						$vd_random_css_list = array('included',
-						'not_included',
-						'payed');
-						
-						$vd_random_value = rand(0,2);
-						
-						$vd_random_css = $vd_random_css_list[$vd_random_value];
-						
-						if ($vd_office_center_service_group['published'] == '1') {
-							
-							echo '<td class="' . $vd_service_group_id_css . '_block">';
-							
-							echo '<div class="' . $vd_random_css . '"></div>';
-							
-							echo '</td>';
-							
-						}
-						
-					}
-						
-				?>
-				</tr>
-				<tr>
-					<td class="service_label_block"><span>Курьер</span></td>
-				<?
-				
-					foreach ($_DATA['office_center2service_group']['items'] as $vd_office_center_service_group) {
-						
-						$vd_office_center_service_group_id = $vd_office_center_service_group['id'];
-						$vd_office_center_service_group_title = $vd_office_center_service_group['title'];
-						$vd_office_center_service_group_price = $vd_office_center_service_group['price'];
-						$vd_office_center_service_group_published = $vd_office_center_service_group['published'];
-						$vd_service_group_id = $vd_office_center_service_group['service_group_id'];
-						$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_service_group_id]['css_signature'];
-						$vd_service_group_id_pricing_term = $_DATA['service_group']['items'][$vd_service_group_id]['pricing_term'];
-						$vd_service_group_id_title = $_DATA['service_group']['items'][$vd_service_group_id]['title'];
-						
-						/* since we currently don't have any real data in the DB, randomize some for output */
-						
-						$vd_random_css_list = array('included',
-						'not_included',
-						'payed');
-						
-						$vd_random_value = rand(0,2);
-						
-						$vd_random_css = $vd_random_css_list[$vd_random_value];
-						
-						if ($vd_office_center_service_group['published'] == '1') {
-							
-							echo '<td class="' . $vd_service_group_id_css . '_block">';
-							
-							echo '<div class="' . $vd_random_css . '"></div>';
-							
-							echo '</td>';
-							
-						}
-						
-					}
-						
-				?>
-				</tr>
-				<tr>
-					<td class="service_label_block"><span>IT поддержка</span></td>
-				<?
-				
-					foreach ($_DATA['office_center2service_group']['items'] as $vd_office_center_service_group) {
-						
-						$vd_office_center_service_group_id = $vd_office_center_service_group['id'];
-						$vd_office_center_service_group_title = $vd_office_center_service_group['title'];
-						$vd_office_center_service_group_price = $vd_office_center_service_group['price'];
-						$vd_office_center_service_group_published = $vd_office_center_service_group['published'];
-						$vd_service_group_id = $vd_office_center_service_group['service_group_id'];
-						$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_service_group_id]['css_signature'];
-						$vd_service_group_id_pricing_term = $_DATA['service_group']['items'][$vd_service_group_id]['pricing_term'];
-						$vd_service_group_id_title = $_DATA['service_group']['items'][$vd_service_group_id]['title'];
-						
-						/* since we currently don't have any real data in the DB, randomize some for output */
-						
-						$vd_random_css_list = array('included',
-						'not_included',
-						'payed');
-						
-						$vd_random_value = rand(0,2);
-						
-						$vd_random_css = $vd_random_css_list[$vd_random_value];
-						
-						if ($vd_office_center_service_group['published'] == '1') {
-							
-							echo '<td class="' . $vd_service_group_id_css . '_block">';
-							
-							echo '<div class="' . $vd_random_css . '"></div>';
-							
-							echo '</td>';
-							
-						}
-						
-					}
-						
-				?>
-				</tr>
-				<tr>
-					<td class="service_label_block"><span>Поиск персонала</span></td>
-				<?
-				
-					foreach ($_DATA['office_center2service_group']['items'] as $vd_office_center_service_group) {
-						
-						$vd_office_center_service_group_id = $vd_office_center_service_group['id'];
-						$vd_office_center_service_group_title = $vd_office_center_service_group['title'];
-						$vd_office_center_service_group_price = $vd_office_center_service_group['price'];
-						$vd_office_center_service_group_published = $vd_office_center_service_group['published'];
-						$vd_service_group_id = $vd_office_center_service_group['service_group_id'];
-						$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_service_group_id]['css_signature'];
-						$vd_service_group_id_pricing_term = $_DATA['service_group']['items'][$vd_service_group_id]['pricing_term'];
-						$vd_service_group_id_title = $_DATA['service_group']['items'][$vd_service_group_id]['title'];
-						
-						/* since we currently don't have any real data in the DB, randomize some for output */
-						
-						$vd_random_css_list = array('included',
-						'not_included',
-						'payed');
-						
-						$vd_random_value = rand(0,2);
-						
-						$vd_random_css = $vd_random_css_list[$vd_random_value];
-						
-						if ($vd_office_center_service_group['published'] == '1') {
-							
-							echo '<td class="' . $vd_service_group_id_css . '_block">';
-							
-							echo '<div class="' . $vd_random_css . '"></div>';
-							
-							echo '</td>';
-							
-						}
-						
-					}
-						
-				?>
-				</tr>
-				<tr>
-					<td class="service_label_block"><span>Юрист</span></td>
-				<?
-				
-					foreach ($_DATA['office_center2service_group']['items'] as $vd_office_center_service_group) {
-						
-						$vd_office_center_service_group_id = $vd_office_center_service_group['id'];
-						$vd_office_center_service_group_title = $vd_office_center_service_group['title'];
-						$vd_office_center_service_group_price = $vd_office_center_service_group['price'];
-						$vd_office_center_service_group_published = $vd_office_center_service_group['published'];
-						$vd_service_group_id = $vd_office_center_service_group['service_group_id'];
-						$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_service_group_id]['css_signature'];
-						$vd_service_group_id_pricing_term = $_DATA['service_group']['items'][$vd_service_group_id]['pricing_term'];
-						$vd_service_group_id_title = $_DATA['service_group']['items'][$vd_service_group_id]['title'];
-						
-						/* since we currently don't have any real data in the DB, randomize some for output */
-						
-						$vd_random_css_list = array('included',
-						'not_included',
-						'payed');
-						
-						$vd_random_value = rand(0,2);
-						
-						$vd_random_css = $vd_random_css_list[$vd_random_value];
-						
-						if ($vd_office_center_service_group['published'] == '1') {
-							
-							echo '<td class="' . $vd_service_group_id_css . '_block">';
-							
-							echo '<div class="' . $vd_random_css . '"></div>';
-							
-							echo '</td>';
-							
-						}
-						
-					}
-						
-				?>
-				</tr>
-				<tr>
-					<td class="service_label_block"><span>Юридический адрес</span></td>
-				<?
-				
-					foreach ($_DATA['office_center2service_group']['items'] as $vd_office_center_service_group) {
-						
-						$vd_office_center_service_group_id = $vd_office_center_service_group['id'];
-						$vd_office_center_service_group_title = $vd_office_center_service_group['title'];
-						$vd_office_center_service_group_price = $vd_office_center_service_group['price'];
-						$vd_office_center_service_group_published = $vd_office_center_service_group['published'];
-						$vd_service_group_id = $vd_office_center_service_group['service_group_id'];
-						$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_service_group_id]['css_signature'];
-						$vd_service_group_id_pricing_term = $_DATA['service_group']['items'][$vd_service_group_id]['pricing_term'];
-						$vd_service_group_id_title = $_DATA['service_group']['items'][$vd_service_group_id]['title'];
-						
-						/* since we currently don't have any real data in the DB, randomize some for output */
-						
-						$vd_random_css_list = array('included',
-						'not_included',
-						'payed');
-						
-						$vd_random_value = rand(0,2);
-						
-						$vd_random_css = $vd_random_css_list[$vd_random_value];
-						
-						if ($vd_office_center_service_group['published'] == '1') {
-							
-							echo '<td class="' . $vd_service_group_id_css . '_block">';
-							
-							echo '<div class="' . $vd_random_css . '"></div>';
-							
-							echo '</td>';
-							
-						}
-						
-					}
-						
-				?>
-				</tr>
-				<tr>
-					<td class="service_label_block"><span>Видео конференция</span></td>
-				<?
-				
-					foreach ($_DATA['office_center2service_group']['items'] as $vd_office_center_service_group) {
-						
-						$vd_office_center_service_group_id = $vd_office_center_service_group['id'];
-						$vd_office_center_service_group_title = $vd_office_center_service_group['title'];
-						$vd_office_center_service_group_price = $vd_office_center_service_group['price'];
-						$vd_office_center_service_group_published = $vd_office_center_service_group['published'];
-						$vd_service_group_id = $vd_office_center_service_group['service_group_id'];
-						$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_service_group_id]['css_signature'];
-						$vd_service_group_id_pricing_term = $_DATA['service_group']['items'][$vd_service_group_id]['pricing_term'];
-						$vd_service_group_id_title = $_DATA['service_group']['items'][$vd_service_group_id]['title'];
-						
-						/* since we currently don't have any real data in the DB, randomize some for output */
-						
-						$vd_random_css_list = array('included',
-						'not_included',
-						'payed');
-						
-						$vd_random_value = rand(0,2);
-						
-						$vd_random_css = $vd_random_css_list[$vd_random_value];
-						
-						if ($vd_office_center_service_group['published'] == '1') {
-							
-							echo '<td class="' . $vd_service_group_id_css . '_block last_block">';
-							
-							echo '<div class="' . $vd_random_css . '"></div>';
-							
-							echo '</td>';
-							
-						}
-						
-					}
-						
-				?>
-				</tr>
 			</table>
 		</div>
 		<div class="vd_singleofficewrapper-content-contacts">
@@ -935,43 +588,45 @@
 </div>
 
 <div class="vd_officelistdata">
-	<div class="vd_officelistdata-block">
-		<div class="vd_officelistdata-block-title">
-			Проблема аренды площадей
+	<div class="g-container"><div class="g-container-row">
+		<div class="vd_officelistdata-block">
+			<div class="vd_officelistdata-block-title">
+				Проблема аренды площадей
+			</div>
+			<div class="vd_officelistdata-block-text">
+				<p>В Москве каждый год появляются новые офисные центры, аренда площадей в которых считается престижным и выгодным капиталовложением. В каждом из таких центров доступны сотни самых разных помещений со всеми коммуникациями и современным дизайном.</p>
+				<p>Однако зачастую представители малого бизнеса обходят их стороной, опасаясь высоких расценок и кабальных условий договоров аренды.</p>
+				<p>Натыкаясь на объявления в Интернете: «офисные центры аренда», мелкие предприниматели даже не пытаются узнать условия у арендодателя. Не торопятся идти навстречу мелким арендаторам и сами владельцы бизнес-центров, ведь гораздо выгодней сдавать в аренду большие объемы площадей на длительные сроки.</p>
+			</div>
 		</div>
-		<div class="vd_officelistdata-block-text">
-			<p>В Москве каждый год появляются новые офисные центры, аренда площадей в которых считается престижным и выгодным капиталовложением. В каждом из таких центров доступны сотни самых разных помещений со всеми коммуникациями и современным дизайном.</p>
-			<p>Однако зачастую представители малого бизнеса обходят их стороной, опасаясь высоких расценок и кабальных условий договоров аренды.</p>
-			<p>Натыкаясь на объявления в Интернете: «офисные центры аренда», мелкие предприниматели даже не пытаются узнать условия у арендодателя. Не торопятся идти навстречу мелким арендаторам и сами владельцы бизнес-центров, ведь гораздо выгодней сдавать в аренду большие объемы площадей на длительные сроки.</p>
+		<div class="vd_officelistdata-block">
+			<div class="vd_officelistdata-block-title">
+				Аренда в офисном центре –оптимальное решение
+			</div>
+			<div class="vd_officelistdata-block-text">
+				<p>Сеть офисных центров «Деловой» создана именно для того, что бы решить эту проблему и сделать аренду в офисных центрах доступной для небольших компаний. Это первая сеть в России, цель которой создать достойную инфраструктуру для малого бизнеса.</p>
+				<p>Теперь к услугам малых предпринимателей аренда в офисных центрах, которой можно пользоваться и оплачивать понедельно.</p>
+				<p>Иными словами, есть возможность забронировать офис как столик в ресторане или билет в кинотеатр. Такие малые офисы сдаются в четырех бизнес-центрах класса B+ и А: «Омега-плаза», «Алексеевская башня», «Гостиный двор» и «Арма», которые расположены в самых престижных районах города.</p>
+			</div>
 		</div>
-	</div>
-	<div class="vd_officelistdata-block">
-		<div class="vd_officelistdata-block-title">
-			Аренда в офисном центре –оптимальное решение
+		<div class="vd_officelistdata-block">
+			<div class="vd_officelistdata-block-title">
+				Очевидный эффект
+			</div>
+			<div class="vd_officelistdata-block-text">
+				<p>За умеренную плату арендатор получает:</p>
+					<ul>
+						<li>Офисы или переговорные комнаты</li>
+						<li>Бесплатный интернет и телефонию</li>
+						<li>Услуги секретарей, юристов, системных администраторов и инженеров и курьеров</li>
+						<li>Услуги профессиональной охраны</li>
+						<li>Парковку</li>
+						<li>Всю инфраструктуру делового центра (фитнес-залы, рестораны, кафе, банки, страховые компании, магазины, шоу-румы и пр.).</li>
+					</ul>
+				<p>При этом совсем необязательно заключать долгосрочный договор аренды, вносить большой депозит и страховать офис от несчастного случая. Если вам нужно встретиться с важными людьми или провести совещание с коллегами, то лучшего варианта, чем аренда переговорной в сети центров «Деловой», не найти. Этот вариант очень удобен тогда, когда в компании работает всего несколько человек, а встречи с клиентами проходят 2-3 раза в месяц.</p>
+			</div>
 		</div>
-		<div class="vd_officelistdata-block-text">
-			<p>Сеть офисных центров «Деловой» создана именно для того, что бы решить эту проблему и сделать аренду в офисных центрах доступной для небольших компаний. Это первая сеть в России, цель которой создать достойную инфраструктуру для малого бизнеса.</p>
-			<p>Теперь к услугам малых предпринимателей аренда в офисных центрах, которой можно пользоваться и оплачивать понедельно.</p>
-			<p>Иными словами, есть возможность забронировать офис как столик в ресторане или билет в кинотеатр. Такие малые офисы сдаются в четырех бизнес-центрах класса B+ и А: «Омега-плаза», «Алексеевская башня», «Гостиный двор» и «Арма», которые расположены в самых престижных районах города.</p>
-		</div>
-	</div>
-	<div class="vd_officelistdata-block">
-		<div class="vd_officelistdata-block-title">
-			Очевидный эффект
-		</div>
-		<div class="vd_officelistdata-block-text">
-			<p>За умеренную плату арендатор получает:</p>
-				<ul>
-					<li>Офисы или переговорные комнаты</li>
-					<li>Бесплатный интернет и телефонию</li>
-					<li>Услуги секретарей, юристов, системных администраторов и инженеров и курьеров</li>
-					<li>Услуги профессиональной охраны</li>
-					<li>Парковку</li>
-					<li>Всю инфраструктуру делового центра (фитнес-залы, рестораны, кафе, банки, страховые компании, магазины, шоу-румы и пр.).</li>
-				</ul>
-			<p>При этом совсем необязательно заключать долгосрочный договор аренды, вносить большой депозит и страховать офис от несчастного случая. Если вам нужно встретиться с важными людьми или провести совещание с коллегами, то лучшего варианта, чем аренда переговорной в сети центров «Деловой», не найти. Этот вариант очень удобен тогда, когда в компании работает всего несколько человек, а встречи с клиентами проходят 2-3 раза в месяц.</p>
-		</div>
-	</div>
+	</div></div>	
 </div>
 
 <?
