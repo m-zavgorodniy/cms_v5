@@ -102,23 +102,57 @@
 			<a name="about"></a>
 			<h2 class="g-section-title">О бизнес-центре</h2>
 			<?
+				
+			/* count the number of text detail items */
+				
+			$office_center_details_count = 0;
+			
+			foreach ($_DATA['office_center_detail']['items'] as $office_center_detail) {
+				if ($office_center_detail['office_center_detail_type_id'] == 'text') {
+					$office_center_details_count++;
+				}
+			}
+			
+			/* count the number of items in the columns */
+			
+			$office_center_details_column_count = (int) ceil($office_center_details_count / 2);
+			
+			$office_center_details_number = 1;
 			
 			foreach ($_DATA['office_center_detail']['items'] as $office_center_detail) {
 				
 				if ($office_center_detail['office_center_detail_type_id'] == 'text') {
 					
+					/* open the column if the item is first or we are after half of them */
+					
+					if ($office_center_details_number == 1 || $office_center_details_number == ($office_center_details_column_count + 1)) {
+						
+						echo '<div class="vd_singleofficewrapper-content-about-column">';
+						
+					}
+					
 					?>
 					
-			<div class="vd_singleofficewrapper-content-about-block">
-				<div class="vd_singleofficewrapper-content-about-block-image">
-					
-				</div>
-				<div class="vd_singleofficewrapper-content-about-block-text">
-					<? echo $office_center_detail['body']; ?>
-				</div>
-			</div>		
+					<div class="vd_singleofficewrapper-content-about-block">
+						<div class="vd_singleofficewrapper-content-about-block-image">
+							
+						</div>
+						<div class="vd_singleofficewrapper-content-about-block-text">
+							<? echo $office_center_detail['body']; ?>
+						</div>
+					</div>		
 					
 					<?
+						
+					/* close the column if the item is last or we are at half of them */
+						
+					if ($office_center_details_number == $office_center_details_column_count || $office_center_details_number == $office_center_details_count) {
+						
+						echo '</div>';
+						
+					}
+					
+					$office_center_details_number++;
 					
 				}
 				
@@ -275,6 +309,8 @@
 							
 							echo '">';
 							
+							$service_was_displayed = false;
+							
 							/* loop over all services to find out those, that should go here */
 							/* based on the service group (e.g. coworking) and service id (e.g. it support) */
 							
@@ -291,17 +327,29 @@
 									
 									if ($vd_service2service_group_is_inclusive === '1') {
 										
-										echo '<div class="included"></div>';
+										echo '<div class="included" title="Входит в стоимость услуги"></div>';
+										
+										$service_was_displayed = true;
 										
 									} else {
 										
-										echo '<div class="not_included"></div>';
+										echo '<div class="payed" title="Предоставляется за дополнительную плату"></div>';
+										
+										$service_was_displayed = true;
 										
 									}
 									
-								} 
+								}
 								
 							}
+							
+							if ($service_was_displayed == false) {
+								
+								echo '<div class="not_included" title="Не предоставляется"></div>';
+								
+							}
+							
+							$service_was_displayed = false;
 							
 							echo '</td>';	
 							
