@@ -135,7 +135,15 @@
 					
 					<div class="vd_singleofficewrapper-content-about-block">
 						<div class="vd_singleofficewrapper-content-about-block-image">
+							<?
 							
+							if ($office_center_detail['img_src'] != "") {
+								echo '<img src="..' . $office_center_detail['img_src'] . '" />';
+							} else {
+								echo '<img src="../uploads/images/icons/svg/infrastructure.svg" />';
+							}
+								
+							?>
 						</div>
 						<div class="vd_singleofficewrapper-content-about-block-text">
 							<? echo $office_center_detail['body']; ?>

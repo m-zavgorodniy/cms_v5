@@ -171,12 +171,15 @@ if ($_GET['service'] == false) {
 							if ($service2service_group_item['is_inclusive'] === '1') {
 								
 								$service2service_group_item_service_id = $service2service_group_item['service_id'];
+								$service2service_group_item_icon = $_DATA['service']['items'][$service2service_group_item_service_id]['icon_img_src'];
 								$service2service_group_item_title = $service2service_group_item['service_id_lookup'];
 								$service2service_group_item_desc = $_DATA['service']['items'][$service2service_group_item_service_id]['headline'];
 								
 								?>
 								<div class="vd_service_single_wrapper-about-list-block">
-									<div class="vd_service_single_wrapper-about-list-block-image"></div>
+									<div class="vd_service_single_wrapper-about-list-block-image">
+										<? echo '<img src="' . $service2service_group_item_icon . '" />'; ?>
+									</div>
 									<div class="vd_service_single_wrapper-about-list-block-title">
 										<span><? echo $service2service_group_item_title; ?></span>
 									</div>
@@ -202,13 +205,16 @@ if ($_GET['service'] == false) {
 							
 							if ($service2service_group_item['is_inclusive'] === '0') {
 								
-								$service2service_group_item_id = $service2service_group_item['id'];
+								$service2service_group_item_service_id = $service2service_group_item['service_id'];
+								$service2service_group_item_icon = $_DATA['service']['items'][$service2service_group_item_service_id]['icon_img_src'];
 								$service2service_group_item_title = $service2service_group_item['service_id_lookup'];
 								$service2service_group_item_desc = $_DATA['service']['items'][$service2service_group_item_id]['headline'];
 								
 								?>
 								<div class="vd_service_single_wrapper-about-list-block">
-									<div class="vd_service_single_wrapper-about-list-block-image"></div>
+									<div class="vd_service_single_wrapper-about-list-block-image">
+										<? echo '<img src="' . $service2service_group_item_icon . '" />'; ?>
+									</div>
 									<div class="vd_service_single_wrapper-about-list-block-title">
 										<span><? echo $service2service_group_item_title; ?></span>
 									</div>

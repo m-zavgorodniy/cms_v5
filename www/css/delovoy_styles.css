@@ -394,10 +394,15 @@
 .vd_singleofficewrapper-content-about-block-image {
 	height: 70px;
 	width: 70px;
-	border: 1px solid #091337;
-	border-radius: 50%;
+/* 	border: 1px solid #091337; */
+/* 	border-radius: 50%; */
 	background-size: cover;
 	float: left;
+}
+
+.vd_singleofficewrapper-content-about-block-image img {
+	max-width: 100%;
+	height: auto;
 }
 
 .vd_singleofficewrapper-content-about-block-text {
@@ -1115,10 +1120,15 @@
 .vd_serviceincenter_wrapper-about-list-block-image {
 	width: 70px;
 	height: 70px;
-	border: 1px solid #000000;
-	border-radius: 50%;
+/* 	border: 1px solid #000000; */
+/* 	border-radius: 50%; */
 	float: left;
 	background-size: cover;
+}
+
+.vd_serviceincenter_wrapper-about-list-block-image img {
+	max-width: 100%;
+	height: auto;
 }
 
 .vd_serviceincenter_wrapper-about-list-block-title {
@@ -2322,10 +2332,15 @@
 .vd_service_single_wrapper-about-list-block-image {
 	width: 70px;
 	height: 70px;
-	border: 1px solid #000000;
-	border-radius: 50%;
+/* 	border: 1px solid #000000; */
+/* 	border-radius: 50%; */
 	float: left;
 	background-size: cover;
+}
+
+.vd_service_single_wrapper-about-list-block-image img {
+	max-width: 100%;
+	height: auto;
 }
 
 .vd_service_single_wrapper-about-list-block-title {
