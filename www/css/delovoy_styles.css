@@ -376,6 +376,11 @@
 	
 }
 
+.vd_singleofficewrapper-content-about-column {
+	width: 50%;
+	float: left;
+}
+
 .vd_singleofficewrapper-content-about-block {
 	width: 550px;
 	float: left;
