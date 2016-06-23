@@ -1,3 +1,57 @@
+@font-face {
+    font-family: 'Lato-Black';
+    src: url('fonts/lato-black-webfont.woff2') format('woff2'),
+         url('fonts/lato-black-webfont.woff') format('woff'),
+         url('fonts/lato-black-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato-Bold';
+    src: url('fonts/lato-bold-webfont.woff2') format('woff2'),
+         url('fonts/lato-bold-webfont.woff') format('woff'),
+         url('fonts/lato-bold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato-Italic';
+    src: url('fonts/lato-italic-webfont.woff2') format('woff2'),
+         url('fonts/lato-italic-webfont.woff') format('woff'),
+         url('fonts/lato-italic-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato-Medium';
+    src: url('fonts/lato-medium-webfont.woff2') format('woff2'),
+         url('fonts/lato-medium-webfont.woff') format('woff'),
+         url('fonts/lato-medium-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato-Regular';
+    src: url('fonts/lato-regular-webfont.woff2') format('woff2'),
+         url('fonts/lato-regular-webfont.woff') format('woff'),
+         url('fonts/lato-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato-Semibold';
+    src: url('fonts/lato-semibold-webfont.woff2') format('woff2'),
+         url('fonts/lato-semibold-webfont.woff') format('woff'),
+         url('fonts/lato-semibold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .inner {
 	padding-top: 10px;
 }
@@ -80,7 +134,7 @@
 	position: absolute;
 	left: 0px;
 	bottom: 30px;
-/* 	font-family: Lato-Regular; */
+	font-family: Lato-Regular;
 	font-size: 20px;	
 	padding-left: 30px;
 	padding-top: 10px;
@@ -141,7 +195,7 @@
 }
 
 .vd_officelistwrapper-office-name {
-/* 	font-family: Lato-Bold; */
+	font-family: Lato-Bold;
 	font-size: 30px;
 	line-height: 1.3;
 	color: #000000;
@@ -149,7 +203,7 @@
 
 .vd_officelistwrapper-office-place {
 	margin: 15px 0px 30px 0px;
-/* 	font-family: Lato-Regular; */
+	font-family: Lato-Regular;
 	font-size: 16px;
 	line-height: 1.5;
 	color: #010101;
@@ -165,7 +219,7 @@
 }
 
 .vd_officelistwrapper-office-text {
-/* 	font-family: Lato-Regular; */
+	font-family: Lato-Regular;
 	font-size: 20px;
 	line-height: 1.5;
 	color: #000000;
@@ -184,7 +238,7 @@
 .vd_officelistdata-block {
 	width: 30%;
 	margin: 0px 15px;
-/* 	font-family: Lato-Regular; */
+	font-family: Lato-Regular;
 	font-size: 16px;
 	line-height: 1.5;
 	color: #010101;
@@ -193,7 +247,7 @@
 }
 
 .vd_officelistdata-block-title {
-/* 	font-family: Lato-Black; */
+	font-family: Lato-Black;
 	font-size: 20px;
 	line-height: 1.5;
 	color: #000000;
@@ -233,7 +287,7 @@
 }
 
 .vd_officeinfowindow-header {
-/* 	font-family: Lato-Black; */
+	font-family: Lato-Black;
 	font-size: 14px;
 	line-height: 1.4;
 	color: #ffffff;
@@ -281,13 +335,13 @@
 .vd_singleofficewrapper-header-subtitle {
 	margin-top: 60px;
 	text-align: center;
-/* 	font-family: Lato-Black; */
+	font-family: Lato-Black;
 	font-size: 30px;
 	color: #ffffff;
 }
 
 .vd_singleofficewrapper-header-name {
-/* 	font-family: Lato-Black; */
+	font-family: Lato-Black;
 	font-size: 60px;
 	color: #ffffff;
 	text-align: center;
@@ -295,7 +349,7 @@
 }
 
 .vd_singleofficewrapper-header-body {
-/* 	font-family: Lato-Bold; */
+	font-family: Lato-Bold;
 	font-size: 20px;
 	line-height: 1.5;
 	color: #ffffff;
@@ -328,7 +382,7 @@
 }
 
 .vd_singleofficewrapper-menu ul li {
-/* 	font-family: Lato-Black; */
+	font-family: Lato-Black;
 	font-size: 20px;
 	letter-spacing: 0.6px;
 	color: #262626;	
@@ -351,10 +405,6 @@
 	width: 100%;
 	overflow: auto;
 	margin: 0 auto;
-/*
-	padding-left: 120px;
-	padding-right: 120px;
-*/
 }
 
 .vd_singleofficewrapper-content-about {
@@ -366,7 +416,7 @@
 }
 
 .vd_singleofficewrapper-content-about-title {
-/* 	font-family: Lato-Black; */
+	font-family: Lato-Black;
 	font-size: 30px;
 	line-height: 1.5;
 	color: #000000;
@@ -394,8 +444,6 @@
 .vd_singleofficewrapper-content-about-block-image {
 	height: 70px;
 	width: 70px;
-/* 	border: 1px solid #091337; */
-/* 	border-radius: 50%; */
 	background-size: cover;
 	float: left;
 }
@@ -407,7 +455,7 @@
 
 .vd_singleofficewrapper-content-about-block-text {
 	padding-left: 100px;
-/* 	font-family: Lato-Regular; */
+	font-family: Lato-Regular;
 	font-size: 20px;
 	line-height: 1.5;
 	color: #000000;
@@ -420,7 +468,7 @@
 }
 
 .vd_singleofficewrapper-content-gallery-title {
-/* 	font-family: Lato-Black; */
+	font-family: Lato-Black;
 	font-size: 30px;
 	line-height: 1.5;
 	color: #000000;
@@ -479,7 +527,7 @@
 }
 
 .vd_singleofficewrapper-content-services-title {
-    /* font-family: Lato-Black; */
+    font-family: Lato-Black;
     font-size: 30px;
     line-height: 1.5;
     color: #000000;
@@ -567,7 +615,7 @@
 
 .vd_singleofficewrapper-content-services-table .services_subtitle {
 	height: 80px;
-	/* font-family: Lato-Black; */
+	font-family: Lato-Black;
 	font-size: 16px;
 	font-weight: bold;
 	line-height: 1.2;
@@ -576,7 +624,7 @@
 }
 
 .vd_singleofficewrapper-content-services-table .service_price {
-	/* font-family: Lato-Regular; */
+	font-family: Lato-Regular;
 	font-size: 20px;
 	color: #000000;
 	text-align: center;
@@ -589,7 +637,7 @@
 .vd_singleofficewrapper-content-services-table .service_header_label_block {
 	text-align: left;
 	font-weight: bold;
-	/* font-family: Lato-Black; */
+	font-family: Lato-Black;
 	font-size: 16px;
 	line-height: 1.5;
 	color: #000000;
@@ -630,7 +678,7 @@
 	text-transform: uppercase;
 	position: relative;
 	color: #ffffff;
-	/* font-family: Lato-Bold; */
+	font-family: Lato-Bold;
 	font-size: 14px;
 }
 
@@ -646,7 +694,7 @@
 
 .vd_singleofficewrapper-content-services-table .service_header_content_block {
 	width: 240px;
-	/* font-family: Lato-Semibold; */
+	font-family: Lato-Semibold;
 	font-size: 20px;
 	color: #000000;
 	text-align: left;
@@ -686,7 +734,7 @@
 
 .service_header_content_block span {
 	border-bottom: 2px solid #000000;
-	/* font-family: Lato-Semibold; */
+	font-family: Lato-Semibold;
 	font-size: 20px;
 	color: #000000;
 }
@@ -698,7 +746,7 @@
 }
 
 .vd_singleofficewrapper-content-contacts-title {
-	/* font-family: Lato-Black; */
+	font-family: Lato-Black;
     font-size: 30px;
     line-height: 1.5;
     color: #000000;
@@ -711,7 +759,7 @@
 	padding: 40px 120px;
     float: left;
     width: 100%;
-	/* font-family: Lato-Regular; */
+	font-family: Lato-Regular;
 	font-size: 20px;
 	line-height: 1.5;
 	color: #000000;
@@ -744,7 +792,7 @@
 }
 
 .vd_singleofficewrapper-content-special-title {
-	/* font-family: Lato-Black; */
+	font-family: Lato-Black;
 	font-size: 30px;
 	line-height: 1.5;
 	color: #000000;
@@ -816,7 +864,7 @@
 .vd_singleofficewrapper-content-special-list-item-text span {
     display: inline-block;
     vertical-align: middle;
-	/* font-family: Lato-Semibold; */
+	font-family: Lato-Semibold;
 	font-size: 20px;
 	color: #000000;
     padding-right: 50px;
@@ -827,7 +875,7 @@
     float: left;
     line-height: 100px;
     margin-left: 570px;
-	/* font-family: Lato-Semibold; */
+	font-family: Lato-Semibold;
 	font-size: 16px;
 	color: #000000;
 }
@@ -862,7 +910,7 @@
 	text-transform: uppercase;
 	position: relative;
 	color: #ffffff;
-	/* font-family: Lato-Bold; */
+	font-family: Lato-Bold;
 	font-size: 14px;
 }
 
@@ -883,7 +931,7 @@
 }
 
 .vd_singleofficewrapper-other-title {
-	/* font-family: Lato-Black; */
+	font-family: Lato-Black;
 	font-size: 30px;
 	line-height: 1.5;
 	color: #000000;
@@ -905,7 +953,7 @@
 }
 
 .vd_singleofficewrapper-footer p {
-	/* font-family: Lato-Regular; */
+	font-family: Lato-Regular;
 	font-size: 16px;
 	line-height: 1.5;
 	color: #010101;
@@ -984,7 +1032,7 @@
 
 .vd_serviceincenter_wrapper-header-servicename {
 	float: left;
-	/* font-family: Lato-Black; */
+	font-family: Lato-Black;
 	font-size: 30px;
 	color: #ffffff;
 	width: 800px;
@@ -994,7 +1042,7 @@
 
 .vd_serviceincenter_wrapper-header-centername {
 	float: left;
-	/* font-family: Lato-Black; */
+	font-family: Lato-Black;
 	font-size: 30px;
 	color: #ffffff;
 	width: 800px;
@@ -1003,14 +1051,14 @@
 
 .vd_serviceincenter_wrapper-header-price {
 	float: right;
-	/* font-family: Lato-Medium; */
+	font-family: Lato-Medium;
 	font-size: 20px;
 	color: #ffffff;
 	margin-top: 70px;
 }
 
 .vd_serviceincenter_wrapper-header-price span {
-	/* font-family: Lato-Black; */
+	font-family: Lato-Black;
 	font-size: 30px;
 }
 
@@ -1037,7 +1085,7 @@
 }
 
 .vd_serviceincenter_wrapper-menu ul li {
-/* 	font-family: Lato-Black; */
+	font-family: Lato-Black;
 	font-size: 20px;
 	letter-spacing: 0.6px;
 	color: #262626;	
@@ -1064,7 +1112,7 @@
 }
 
 .vd_serviceincenter_wrapper-about-title {
-	/* font-family: Lato-Black; */
+	font-family: Lato-Black;
 	font-size: 30px;
 	line-height: 1.5;
 	color: #000000;
@@ -1092,7 +1140,7 @@
 	padding-left: 50px;
     float: left;
     margin-bottom: 50px;
-/* 	font-family: Lato-Black; */
+	font-family: Lato-Black;
 	font-size: 20px;
 	line-height: 1.5;
 	color: #000000;    	
@@ -1105,7 +1153,7 @@
 	padding-left: 40px;
 	float: left;
     margin-bottom: 50px;
-/* 	font-family: Lato-Black; */
+	font-family: Lato-Black;
 	font-size: 20px;
 	line-height: 1.5;
 	color: #000000;    
@@ -1120,8 +1168,6 @@
 .vd_serviceincenter_wrapper-about-list-block-image {
 	width: 70px;
 	height: 70px;
-/* 	border: 1px solid #000000; */
-/* 	border-radius: 50%; */
 	float: left;
 	background-size: cover;
 }
@@ -1133,7 +1179,7 @@
 
 .vd_serviceincenter_wrapper-about-list-block-title {
 	padding-left: 100px;
-	/* font-family: Lato-Regular; */
+	font-family: Lato-Regular;
 	font-size: 20px;
 	line-height: 1.5;
 	color: #000000;
@@ -1145,7 +1191,7 @@
 
 .vd_serviceincenter_wrapper-about-list-block-desc {
 	padding-left: 100px;
-	/* font-family: Lato-Regular; */
+	font-family: Lato-Regular;
 	font-size: 16px;
 	line-height: 1.5;
 	color: #010101;
@@ -1154,13 +1200,13 @@
 .vd_serviceincenter_wrapper-gallery {
 	margin: 80px auto 0px auto;
     width: 100%;
-	/* padding: 0px 120px; */
+	padding: 0px 120px;
 	padding: 0;
     overflow: auto;
 }
 
 .vd_serviceincenter_wrapper-gallery-title {
-	/* font-family: Lato-Black; */
+	font-family: Lato-Black;
 	font-size: 30px;
 	line-height: 1.5;
 	color: #000000;
@@ -1179,7 +1225,7 @@
 }
 
 .vd_serviceincenter_wrapper-layout-title {
-	/* font-family: Lato-Black; */
+	font-family: Lato-Black;
 	font-size: 30px;
 	line-height: 1.5;
 	color: #000000;
@@ -1205,7 +1251,7 @@
 	width: 120px;
 	right: 26px;
 	bottom: 17px;
-	/* font-family: Lato-Regular; */
+	font-family: Lato-Regular;
 	font-size: 16px;
 	line-height: 1.5;
 	color: #0085ff;
@@ -1224,7 +1270,7 @@
 }
 
 .vd_serviceincenter_wrapper-layout-text p {
-	/* font-family: Lato-Regular; */
+	font-family: Lato-Regular;
 	font-size: 20px;
 	line-height: 1.5;
 	color: #000000;
@@ -1239,7 +1285,7 @@
 }
 
 .vd_serviceincenter_wrapper-freeoffices-title {
-	/* font-family: Lato-Black; */
+	font-family: Lato-Black;
 	font-size: 30px;
 	line-height: 1.5;
 	color: #000000;
@@ -1288,7 +1334,7 @@
 }
 
 .vd_serviceincenter_wrapper-freeoffices-list-element-header-office span {
-	/* font-family: Lato-Regular; */
+	font-family: Lato-Regular;
 	font-size: 20px;
 	line-height: 1.5;
 	color: #000000;
@@ -1301,7 +1347,7 @@
 	height: 100px;
 	border-right: 2px solid #ffffff;
 	float: left;
-	/* font-family: Lato-Regular; */
+	font-family: Lato-Regular;
 	font-size: 16px;
 	line-height: 1.5;
 	color: #010101;
@@ -1318,7 +1364,7 @@
 	height: 100px;
 	border-right: 2px solid #ffffff;
 	float: left;
-	/* font-family: Lato-Regular; */
+	font-family: Lato-Regular;
 	font-size: 16px;
 	line-height: 1.5;
 	color: #010101;
@@ -1354,20 +1400,20 @@
 	float: left;
 	width: 250px;
 	margin-left: 25px;
-	/* font-family: Lato-Semibold; */
+	font-family: Lato-Semibold;
 	font-size: 16px;
 	line-height: 1.9;
     padding-top: 32px;
 }
 
 .vd_serviceincenter_wrapper-freeoffices-list-element-header-price span.price span {
-	/* font-family: Lato-Black; */
+	font-family: Lato-Black;
 	font-size: 20px;
 	line-height: 1.5;
 }
 
 .vd_serviceincenter_wrapper-freeoffices-list-element-header-price span.special {
-	/* font-family: Lato-Semibold; */
+	font-family: Lato-Semibold;
 	font-size: 16px;
 	line-height: 1;
 	color: #e62e66;
@@ -1385,7 +1431,6 @@
 }
 
 .vd_serviceincenter_wrapper-freeoffices-list-element.open .vd_serviceincenter_wrapper-freeoffices-list-element-menu {
-	/* display: block; */
 	height: 640px;
 	border-bottom: 2px solid #b4b3cc;
 }
@@ -1398,7 +1443,7 @@
 }
 
 .vd_serviceincenter_wrapper-freeoffices-list-element-menu-title {
-	/* font-family: Lato-Bold; */
+	font-family: Lato-Bold;
 	font-size: 30px;
 	line-height: 1.3;
 	color: #000000;
@@ -1415,7 +1460,7 @@
 
 .vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-left table {
 	width: 100%;
-	/* font-family: Lato-Regular; */
+	font-family: Lato-Regular;
 	font-size: 16px;
 	line-height: 1.5;
 	color: #010101;
@@ -1426,7 +1471,7 @@
 }
 
 .vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-left table tr.special td {
-	/* font-family: Lato-Semibold; */
+	font-family: Lato-Semibold;
 	font-size: 14px;
 	line-height: 1.9;
 	color: #e62e66;
@@ -1436,14 +1481,14 @@
 	border-top: 1px solid #d7d7e4;
 	border-bottom: 1px solid #d7d7e4;
 	height: 40px;
-	/* font-family: Lato-Regular; */
+	font-family: Lato-Regular;
 	font-size: 20px;
 	line-height: 1.2;
 	color: #010101;
 }
 
 .vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-left table tr.total td span {
-	/* font-family: Lato-Black; */
+	font-family: Lato-Black;
 	font-size: 20px;
 	line-height: 1.2;
 	color: #000000;	
@@ -1463,7 +1508,7 @@
 	border-radius: 1px;
 	background-color: #ffffff;
 	border: solid 2px #dadae6;
-	/* font-family: Lato-Regular; */
+	font-family: Lato-Regular;
 	font-size: 16px;
 	line-height: 1.5;
 	color: #595964;
@@ -1480,7 +1525,7 @@
     background-repeat: no-repeat;
     background-position: 17px 8px;
     padding-left: 40px;
-    /* font-family: Lato-Regular; */
+    font-family: Lato-Regular;
     font-size: 16px;
     line-height: 1.5;
     color: #595964;
@@ -1491,7 +1536,7 @@
     background-repeat: no-repeat;
     background-position: 17px 8px;
     padding-left: 40px;
-    /* font-family: Lato-Regular; */
+    font-family: Lato-Regular;
     font-size: 16px;
     line-height: 1.5;
     color: #595964;
@@ -1503,7 +1548,7 @@
     background-repeat: no-repeat;
     background-position: 18px 11px;
     padding-left: 40px;
-    /* font-family: Lato-Regular; */
+    font-family: Lato-Regular;
     font-size: 16px;
     line-height: 1.5;
     color: #595964;
@@ -1533,8 +1578,7 @@
 .vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right .warning {
 	width: 355px;
 	float: right;
-	font-style: italic;
-	/* font-family: Lato-Italic; */
+	font-family: Lato-Italic;
 	font-size: 16px;
 	line-height: 1.5;
 	color: #000000;
@@ -1558,7 +1602,7 @@
 }
 
 .vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right .warning span {
-	font-weight: bold;
+	font-family: Lato-Bold;
 }
 
 .vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right button {
@@ -1568,7 +1612,7 @@
 	border: none;
 	line-height: 60px;
 	background-color: #e62e66;
-	/* font-family: Lato-Bold; */
+	font-family: Lato-Bold;
 	font-size: 14px;
 	color: #ffffff;
 }
@@ -1592,7 +1636,7 @@
 }
 
 .vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-left p {
-	/* font-family: Lato-Regular; */
+	font-family: Lato-Regular;
 	font-size: 16px;
 	line-height: 1.5;
 	color: #010101;	
@@ -1604,7 +1648,7 @@
 }
 
 .vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-preview {
-	/* font-family: Lato-Regular; */
+	font-family: Lato-Regular;
 	font-size: 16px;
 	line-height: 1.5;
 	color: #010101;
@@ -1660,7 +1704,7 @@
 
 .vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-datetime .ui-selectmenu-button .ui-selectmenu-text {
     padding-top: 8px;
-/*     font-family: Lato-Regular; */
+    font-family: Lato-Regular;
 	font-size: 16px;
 	line-height: 1.5;
 	color: #010101;
@@ -1691,7 +1735,7 @@
 }
 
 .ui-selectmenu-menu.ui-front.ui-selectmenu-open li {
-/* 	font-family: Lato-Regular; */
+	font-family: Lato-Regular;
 	font-size: 16px;
 	line-height: 1.5;
 	color: #000000;
@@ -1709,7 +1753,7 @@
 	border-bottom: solid 1px #ababc6;
 	height: 35px;
     line-height: 30px;
-/*     font-family: Lato-Regular; */
+    font-family: Lato-Regular;
 	font-size: 16px;
 	line-height: 30px;
 	color: #000000;
@@ -1846,7 +1890,7 @@
 .ui-datepicker.ui-widget.ui-widget-content .ui-datepicker-calendar td span {
 	border: none;
 	background-color: #ffffff;
-/* 	font-family: Lato-Regular; */
+	font-family: Lato-Regular;
 	font-size: 16px;
 	line-height: 31px;
 	color: #4a4a4a;
@@ -1858,7 +1902,7 @@
 .ui-datepicker.ui-widget.ui-widget-content .ui-datepicker-calendar td a {
 	border: none;
 	background-color: #ffffff;
-/* 	font-family: Lato-Regular; */
+	font-family: Lato-Regular;
 	font-size: 16px;
 	line-height: 31px;
 	color: #4a4a4a;
@@ -1893,7 +1937,7 @@
 	width: 380px;
 	height: 60px;
 	background-color: #0085ff;
-	/* font-family: Lato-Regular; */
+	font-family: Lato-Regular;
 	font-size: 14px;
 	color: #ffffff;
 	position: relative;
@@ -1915,7 +1959,7 @@
 }
 
 .vd_serviceincenter_wrapper-special-title {
-	/* font-family: Lato-Black; */
+	font-family: Lato-Black;
 	font-size: 30px;
 	line-height: 1.5;
 	color: #000000;
@@ -1985,7 +2029,7 @@
 .vd_serviceincenter_wrapper-special-list-item-text span {
     display: inline-block;
     vertical-align: middle;
-	/* font-family: Lato-Semibold; */
+	font-family: Lato-Semibold;
 	font-size: 20px;
 	color: #000000;
     padding-right: 50px;
@@ -1996,7 +2040,7 @@
     float: left;
     line-height: 100px;
     margin-left: 570px;
-	/* font-family: Lato-Semibold; */
+	font-family: Lato-Semibold;
 	font-size: 16px;
 	color: #000000;
 }
@@ -2031,7 +2075,7 @@
 	text-transform: uppercase;
 	position: relative;
 	color: #ffffff;
-	/* font-family: Lato-Bold; */
+	font-family: Lato-Bold;
 	font-size: 14px;
 }
 
@@ -2059,7 +2103,7 @@
     text-align: center;
     margin-left: 45px;
     margin-right: 45px;
-/* 	font-family: Lato-Black; */
+	font-family: Lato-Black;
 	font-size: 20px;
 	line-height: 1.5;
 	color: #000000;
@@ -2106,7 +2150,7 @@
 }
 
 .vd_services_text table p {
-/* 	font-family: Lato-Regular; */
+	font-family: Lato-Regular;
 	font-size: 20px;
 	line-height: 1.5;
 	color: #000000;
@@ -2118,7 +2162,7 @@
 }
 
 .vd_services_text p.editor-align-center big {
-/* 	font-family: Lato-Semibold; */
+	font-family: Lato-Semibold;
 	font-size: 30px;
 	line-height: 1.3;
 	text-align: center;
@@ -2131,7 +2175,7 @@
 }
 
 .vd_services2_subtitle {
-/* 	font-family: Lato-Regular; */
+	font-family: Lato-Regular;
 	font-size: 20px;
 	line-height: 1.5;
 	color: #000000;
@@ -2155,7 +2199,7 @@
 }
 
 .vd_service2_list-item-title {
-/* 	font-family: Lato-Regular; */
+	font-family: Lato-Regular;
 	font-size: 20px;
 	line-height: 1.5;
 	color: #000000;
@@ -2229,7 +2273,7 @@
 
 .vd_service_single_wrapper-header-servicename {
     float: left;
-    /* font-family: Lato-Black; */
+    font-family: Lato-Black;
     font-size: 30px;
     color: #ffffff;
     width: 800px;
@@ -2260,7 +2304,7 @@
 }
 
 .vd_service_single_wrapper-menu ul li {
-    /* font-family: Lato-Black; */
+    font-family: Lato-Black;
     font-size: 20px;
     letter-spacing: 0.6px;
     color: #262626;
@@ -2304,7 +2348,7 @@
     padding-left: 50px;
     float: left;
     margin-bottom: 50px;
-    /* font-family: Lato-Black; */
+    font-family: Lato-Black;
     font-size: 20px;
     line-height: 1.5;
     color: #000000;	
@@ -2317,7 +2361,7 @@
     padding-left: 40px;
     float: left;
     margin-bottom: 50px;
-    /* font-family: Lato-Black; */
+    font-family: Lato-Black;
     font-size: 20px;
     line-height: 1.5;
     color: #000000;
@@ -2332,8 +2376,6 @@
 .vd_service_single_wrapper-about-list-block-image {
 	width: 70px;
 	height: 70px;
-/* 	border: 1px solid #000000; */
-/* 	border-radius: 50%; */
 	float: left;
 	background-size: cover;
 }
@@ -2345,7 +2387,7 @@
 
 .vd_service_single_wrapper-about-list-block-title {
 	padding-left: 100px;
-    /* font-family: Lato-Regular; */
+    font-family: Lato-Regular;
     font-size: 20px;
     line-height: 1.5;
     color: #000000;
@@ -2353,7 +2395,7 @@
 
 .vd_service_single_wrapper-about-list-block-desc {
     padding-left: 100px;
-    /* font-family: Lato-Regular; */
+    font-family: Lato-Regular;
     font-size: 16px;
     line-height: 1.5;
     color: #010101;	
