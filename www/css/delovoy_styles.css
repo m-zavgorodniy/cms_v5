@@ -1520,6 +1520,10 @@
 	box-shadow: 0px 0px 0px 2px #4ea6fe;
 }
 
+.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right input.error {
+	box-shadow: 0px 0px 0px 2px #cf2553;
+}
+
 .vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right input.phone {
 	background-image: url('../images/input_phone.png');
     background-repeat: no-repeat;
@@ -1573,6 +1577,10 @@
 
 .vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right textarea:focus {
 	box-shadow: 0px 0px 0px 2px #4ea6fe;
+}
+
+.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right textarea.error {
+	box-shadow: 0px 0px 0px 2px #cf2553;
 }
 
 .vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right .warning {
@@ -1652,6 +1660,18 @@
 	font-size: 16px;
 	line-height: 1.5;
 	color: #010101;
+}
+
+.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right input:focus {
+	box-shadow: 0px 0px 0px 2px #4ea6fe;
+}
+
+.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right input.error {
+	box-shadow: 0px 0px 0px 2px #cf2553;
+}
+
+.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right .ui-selectmenu-button.ui-state-focus {
+	box-shadow: 0px 0px 0px 2px #4ea6fe;
 }
 
 .vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-preview .preview {

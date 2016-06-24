@@ -223,7 +223,104 @@ jQuery(document).ready(function() {
 	
 });
 
+function validateEmail($email) {
+	var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+	return emailReg.test($email);
+}
 
+jQuery(document).on('click', '.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-submit', function(){
+	if (jQuery(this).hasClass('disabled') == false) {
+		
+		var send = true;
+		
+		if (jQuery('.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right input.date').val().length < 10) {
+			send = false;
+			jQuery('.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right input.date').addClass('error');
+		}
+		
+		if (jQuery('.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right select.time').val().length != 13) {
+			send = false;
+			jQuery('.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right select.time').addClass('error');
+		}
+		
+		if (send == true) {
+			jQuery(this).closest('form').submit();
+		}
+		
+		if (jQuery('.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right input.phone').val().length < 18) {
+			send = false;
+			jQuery('.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right input.phone').addClass('error');
+		}
+		
+		if (validateEmail(jQuery('.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right input.email').val()) == false || jQuery('.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right input.email').val().length == 0) {
+			send = false;
+			jQuery('.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right input.email').addClass('error');
+		}
+		
+		if (jQuery('.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right input.name').val().length < 2) {
+			send = false;
+			jQuery('.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right input.name').addClass('error');
+		}	
+		
+	}
+});
+
+jQuery(document).on('click', '.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right button', function(e){
+	
+	e.preventDefault();
+	
+	if (jQuery(this).hasClass('disabled') == true) {
+		return false;
+	}
+	
+	var send = true;
+	
+	if (jQuery('.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right input.phone').val().length < 18) {
+		send = false;
+		jQuery('.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right input.phone').addClass('error');
+	}
+	
+	if (validateEmail(jQuery('.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right input.email').val()) == false || jQuery('.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right input.email').val().length == 0) {
+		send = false;
+		jQuery('.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right input.email').addClass('error');
+	}
+	
+	if (jQuery('.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right input.name').val().length < 2) {
+		send = false;
+		jQuery('.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right input.name').addClass('error');
+	}
+	
+	/*
+	if (jQuery('.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right textarea.message').val().length < 1) {
+		send = false;
+		jQuery('.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right textarea.message').addClass('error');
+	}
+	*/
+	
+	if (send == true) {
+		jQuery(this).closest('form').submit();
+	}
+	
+});
+
+jQuery(document).on('change', '.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right input.name', function() {
+	var value = jQuery(this).val();
+	jQuery('.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform input.name').val(value);
+});
+
+jQuery(document).on('change', '.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right input.email', function() {
+	var value = jQuery(this).val();
+	jQuery('.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform input.email').val(value);
+});
+
+jQuery(document).on('change', '.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right input.phone', function() {
+	var value = jQuery(this).val();
+	jQuery('.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform input.phone').val(value);
+});
+
+jQuery(document).on('focus', 'input.phone, input.email, input.name, textarea.message, input.date, select.time', function(){
+	jQuery(this).removeClass('error');
+});
 
 $(function() {
 	// your javascript here

@@ -16,6 +16,39 @@
 
 	/* prepare some needed data */
 	
+	if ($_POST['type'] == 'previewform') {
+		
+		$vd_send_form_date = $_POST['date'];
+		$vd_send_form_time = $_POST['time'];
+		$vd_send_form_name = $_POST['name'];
+		$vd_send_form_email = $_POST['email'];
+		$vd_send_form_phone = $_POST['phone'];
+		
+		$vd_send_form_message_text = "Здравствуйте,\r\nНа сайте была оформлена новая заявка на предварительный просмотр офиса.\r\nДата просмотра: $vd_send_form_date\r\nВремя просмотра: $vd_send_form_time\r\nИмя: $vd_send_form_name\r\nЭлектронная почта: $vd_send_form_email\r\nТелефон: $vd_send_form_phone";
+		
+		mail('e.izmalkova@gmail.com', 'Заявка на просмотр офиса', $vd_send_form_message_text);
+		
+		mail($vd_send_form_email, 'Ваша заявка принята', 'Ваша заявка на предварительный просмотр офиса была принята');
+		
+	} elseif ($_POST['type'] == 'reserveform') {
+		
+		$vd_send_form_name = $_POST['name'];
+		$vd_send_form_email = $_POST['email'];
+		$vd_send_form_phone = $_POST['phone'];
+		$vd_send_form_message = $_POST['message'];
+		
+		$vd_send_form_message_text = "Здравствуйте,\r\nНа сайте была оформлена новая заявка на бронирование офиса.\r\nИмя: $vd_send_form_name\r\nЭлектронная почта: $vd_send_form_email\r\nТелефон: $vd_send_form_phone";
+		
+		if ($vd_send_form_message != "") {
+			$vd_send_form_message_text = $vd_send_form_message_text . "\r\nСообщение: $vd_send_form_message";
+		}
+		
+		mail('e.izmalkova@gmail.com', 'Заявка на бронирование офиса', $vd_send_form_message_text);
+		
+		mail($vd_send_form_email, 'Ваша заявка принята', 'Ваша заявка на бронирование офиса была принята');
+		
+	}
+	
 	$vd_service_in_center_id = $_GET['service'];
 	
 	$vd_service_in_center_title = $service_groups_reverse[$vd_service_in_center_id]['service_group_id_lookup'];
@@ -214,6 +247,8 @@
 						Данные бронирования
 					</div>
 					<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform">
+						<form action="" method="post">
+							<input type="hidden" name="type" value="reserveform">
 						<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-left">
 							<table>
 								<tr>
@@ -247,15 +282,23 @@
 							</table>
 						</div>
 						<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right">
-							<input type="text" class="phone" value="" placeholder="+7 (___) ___-__-__">
-							<input type="text" class="email" value="" placeholder="E-mail">
-							<input type="text" class="name" value="" placeholder="Имя">
-							<textarea class="message" placeholder="Ваше сообщение"></textarea>
+							<input type="text" name="phone" class="phone" value="" placeholder="+7 (___) ___-__-__">
+							<input type="text" name="email" class="email" value="" placeholder="E-mail">
+							<input type="text" name="name" class="name" value="" placeholder="Имя">
+							<textarea class="message" name="message" placeholder="Ваше сообщение"></textarea>
 							<div class="warning">Обратите внимание! Услуга бронируется <span>только</span> до конца следующего дня</div>
 							<button>ЗАБРОНИРОВАТЬ</button>
 						</div>
+						</form>
 					</div>
 					<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform">
+						<form action="" method="post">
+							<input type="hidden" name="type" value="previewform">
+							
+							<input type="hidden" name="name" class="name">
+							<input type="hidden" name="email" class="email">
+							<input type="hidden" name="phone" class="phone">
+							
 						<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-left">
 							<p>Перед бронированием вы можете осмотреть выбранный офис. Для этого отметьте удобную дату и время просмотра и наш менеджер свяжется с вами.</p>
 						</div>
@@ -264,19 +307,20 @@
 								<label class="preview_label"><input type="checkbox" class="preview"><span></span>Заказать предварительный просмотр офиса</label>
 							</div>
 							<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-datetime">
-								<label class="date_label">Выберите дату просмотра <input type="text" class="date" placeholder="Выберите дату"></label><label class="time_label">Время просмотра <select class="time">
+								<label class="date_label">Выберите дату просмотра <input type="text" name="date" class="date" placeholder="Выберите дату"></label><label class="time_label">Время просмотра <select class="time" name="time">
 									<option disabled="disabled">Выберите время</option>
-									<option value="volvo" selected="selected">10.00 – 11.00</option>
-									<option value="volvo">12.00 – 13.00</option>
-									<option value="volvo">14.00 – 15.00</option>
-									<option value="volvo">16.00 – 17.00</option>
-									<option value="volvo">17.00 – 18.00</option>
+									<option value="10.00 – 11.00" selected="selected">10.00 – 11.00</option>
+									<option value="12.00 – 13.00">12.00 – 13.00</option>
+									<option value="14.00 – 15.00">14.00 – 15.00</option>
+									<option value="16.00 – 17.00">16.00 – 17.00</option>
+									<option value="17.00 – 18.00">17.00 – 18.00</option>
 								</select></label>
 							</div>
 							<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-submit disabled">
 								ЗАКАЗАТЬ ПРОСМОТР
 							</div>
 						</div>
+						</form>
 					</div>
 				</div>
 			</div>
