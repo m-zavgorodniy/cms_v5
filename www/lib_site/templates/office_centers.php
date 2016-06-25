@@ -406,7 +406,11 @@
 			<h2 class="g-section-title">Контакты</h2>
 			<div class="vd_singleofficewrapper-content-contacts-details">
 				<div class="vd_singleofficewrapper-content-contacts-details-left">
-					<? echo preg_replace('/(' . $single_office_center_metro_label . ')/u', '<div class="vd_officelistwrapper-office-place-marker" style="background-color: ' . $single_office_center_metro_color . '"></div>$1', $single_office_center_address); ?>
+				<?	if ($single_office_center_metro_label) {
+						echo preg_replace('/(' . $single_office_center_metro_label . ')/u', '<div class="vd_officelistwrapper-office-place-marker" style="background-color: ' . $single_office_center_metro_color . '"></div>$1', $single_office_center_address);
+					} else {
+						echo $single_office_center_address;
+					} ?>
 				</div>
 				<div class="vd_singleofficewrapper-content-contacts-details-right">
 					<table class="vd_singleofficewrapper-content-contacts-details-right-contactstable">
