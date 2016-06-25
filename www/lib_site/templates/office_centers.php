@@ -18,6 +18,9 @@
 
 	} else {
 	
+
+	// we've got all the office centers in the data even on the single center page (to display the other centers)
+	// so we don't have $_DATA['office_center']['is_single'] here - work directly with the parameter
 	$g_office_center_id = (int)$_GET['center'];
 
 	/* single service in office center */
@@ -600,9 +603,12 @@ function out_office_centers($vd_office_centers, $exclude_office_center_id = null
 			
 			echo '<div class="vd_officelistwrapper-office">';
 			
-				echo '<input type="hidden" class="vd_officelistwrapper-office-coordinates" value="' . $single_office_center_coordinates . '">';
+				// let's consider $exclude_office_center_id like a flag for the single office center page - don't show the other centers on the map then
+				if (!$exclude_office_center_id) {
+					echo '<input type="hidden" class="vd_officelistwrapper-office-coordinates" value="' . $single_office_center_coordinates . '">';
 					
-				echo '<input type="hidden" class="vd_officelistwrapper-office-color" value="' . $single_office_center_color . '">';
+					echo '<input type="hidden" class="vd_officelistwrapper-office-color" value="' . $single_office_center_color . '">';
+				}
 			
 				echo '<a href="?center=' . $single_office_center_id . '">';
 			
