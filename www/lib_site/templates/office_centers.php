@@ -18,17 +18,19 @@
 
 	} else {
 	
+	$g_office_center_id = (int)$_GET['center'];
+
 	/* single service in office center */
 		
-	if ($_DATA['office_center']['is_single'] && $_DATA['service_group']['is_single']) {
+	if ($g_office_center_id && $_DATA['service_group']['is_single']) {
 		
 		include('service_template.php');
 	
 	/* single office center */	
 		
-	} elseif ($_DATA['office_center']['is_single'] == true) {
+	} elseif ($g_office_center_id) {
 		
-		$single_office_center = $_DATA['office_center']["items"][$_GET['center']];
+		$single_office_center = $_DATA['office_center']['items'][$g_office_center_id];
 		
 		
 		$single_office_center_city_label = $single_office_center['city_id_lookup'];
@@ -242,7 +244,7 @@
 						
 						$vd_office_center_service_group_price = $vd_office_center_service_group['price'];
 						
-						$vd_office_center_service_group_price = preg_replace('/( |&nbsp;)(.*)( |&nbsp;)/', ' <span>$2</span> ', $vd_office_center_service_group_price);
+						$vd_office_center_service_group_price = preg_replace('/(\d+)/', '<span>$1</span>', $vd_office_center_service_group_price);
 						
 						if ($vd_office_center_service_group['published'] == '1') {
 							
@@ -287,6 +289,10 @@
 				
 				/* loop over all availible services, such as it support, internet, etc */
 				
+				// let's get the rows in an array first, to sort them before display
+				$out_service_rows = array();
+				ob_start();
+
 				foreach ($_DATA['service']['items'] as $service_single_key => $service_single) {
 					
 					$service_single_id = $service_single['id'];
@@ -296,8 +302,12 @@
 					
 					if ($service_single['published'] === '1') {
 						
+						// will hold the 'inclusive' value for the first column
+						// 1 - included, 0 - included for a fee, -1 - not included
+						$is_inclusive_in_first_column = null; // nuke it before getting into the loop by columns
+
 						echo '<tr>';
-						
+
 						echo '<td class="service_label_block"><span>' . $service_single_title . '</span></td>';
 						
 						/* loop over the parent service groups of this office center, to keep the same structure as the table header */
@@ -309,13 +319,7 @@
 							
 							/* display the table cell of this service in this service group */
 							
-							echo '<td class="' . $vd_service_group_id_css . '_block ';
-							
-							if ($service_single_key == $last_service_single_key) {
-								echo 'last_block';
-							}
-							
-							echo '">';
+							echo '<td class="' . $vd_service_group_id_css . '_block">';
 							
 							$service_was_displayed = false;
 							
@@ -347,6 +351,10 @@
 										
 									}
 									
+									if (null === $is_inclusive_in_first_column) { // get into here only for the first time (first column)
+										$is_inclusive_in_first_column = $vd_service2service_group_is_inclusive;
+									}
+
 								}
 								
 							}
@@ -355,6 +363,9 @@
 								
 								echo '<div class="not_included" title="Не предоставляется"></div>';
 								
+								if (null === $is_inclusive_in_first_column) { // get into here only for the first time (first column)
+									$is_inclusive_in_first_column = -1;
+								}
 							}
 							
 							$service_was_displayed = false;
@@ -367,8 +378,22 @@
 						
 					}
 					
+					// link the contents of the row with 'inclusive'
+					$out_service_row = & $out_service_rows[];
+					$out_service_row['is_inclusive'] = $is_inclusive_in_first_column;
+					$out_service_row['tr'] = ob_get_contents();
+					ob_clean();
+
 				}
-					
+
+				ob_end_clean();
+
+				// now order the rows by 'inclusive' and display them
+				// client's hosting uses php 5.2 - orly? - hence can't use anonymous functions
+				function orly_1($a, $b) {return $b['is_inclusive'] - $a['is_inclusive'];}
+				usort($out_service_rows, orly_1);
+				function orly_2($row) {return $row['tr'];}
+				echo implode('', array_map(orly_2, $out_service_rows));
 				?>
 			</table>
 		</div>
@@ -444,78 +469,9 @@
 	<div class="vd_singleofficewrapper-other">
 		<h2 class="g-section-title">Другие бизнес-центры</h2>
 		<div class="vd_singleofficewrapper-other-list">
-			<div class="vd_officelistwrapper-office">
-				<a href="?center=1">
-					<div class="vd_officelistwrapper-office-photo">
-						<img src="http://dev.viaduct.pro/uploads/images/office_centers/alekseevskaya/alekseevskaya_ext_460x171.jpg">
-					</div>
-				</a>
-				<div class="vd_officelistwrapper-office-services">
-					<div class="vd_officelistwrapper-office-services-service vd_officelistwrapper-office-services-service_1"></div>
-					<div class="vd_officelistwrapper-office-services-service vd_officelistwrapper-office-services-service_3"></div>
-					<div class="vd_officelistwrapper-office-services-service vd_officelistwrapper-office-services-service_4"></div>
-				</div>
-				<a href="?center=1">
-					<div class="vd_officelistwrapper-office-name">Алексеевская Башня</div>
-				</a>
-				<div class="vd_officelistwrapper-office-place">Москва</div>
-				<div class="vd_officelistwrapper-office-text"><p>Офисный центр «Деловой» предлагает в аренду полностью оборудованные помещения в современном Бизнес-центре «Алексеевская Башня» (ст.м. ВДНХ), оснащенные всем необходимым для работы.&nbsp;10&nbsp;минут пешком от м.ВДНХ / 1&nbsp;км от Проспекта Мира</p>
-				</div>
-			</div>
-			<div class="vd_officelistwrapper-office">
-				<a href="?center=1">
-					<div class="vd_officelistwrapper-office-photo">
-						<img src="http://dev.viaduct.pro/uploads/images/office_centers/alekseevskaya/alekseevskaya_ext_460x171.jpg">
-					</div>
-				</a>
-				<div class="vd_officelistwrapper-office-services">
-					<div class="vd_officelistwrapper-office-services-service vd_officelistwrapper-office-services-service_1"></div>
-					<div class="vd_officelistwrapper-office-services-service vd_officelistwrapper-office-services-service_3"></div>
-					<div class="vd_officelistwrapper-office-services-service vd_officelistwrapper-office-services-service_4"></div>
-				</div>
-				<a href="?center=1">
-					<div class="vd_officelistwrapper-office-name">Алексеевская Башня</div>
-				</a>
-				<div class="vd_officelistwrapper-office-place">Москва</div>
-				<div class="vd_officelistwrapper-office-text"><p>Офисный центр «Деловой» предлагает в аренду полностью оборудованные помещения в современном Бизнес-центре «Алексеевская Башня» (ст.м. ВДНХ), оснащенные всем необходимым для работы.&nbsp;10&nbsp;минут пешком от м.ВДНХ / 1&nbsp;км от Проспекта Мира</p>
-				</div>
-			</div>
-			<div class="vd_officelistwrapper-office">
-				<a href="?center=1">
-					<div class="vd_officelistwrapper-office-photo">
-						<img src="http://dev.viaduct.pro/uploads/images/office_centers/alekseevskaya/alekseevskaya_ext_460x171.jpg">
-					</div>
-				</a>
-				<div class="vd_officelistwrapper-office-services">
-					<div class="vd_officelistwrapper-office-services-service vd_officelistwrapper-office-services-service_1"></div>
-					<div class="vd_officelistwrapper-office-services-service vd_officelistwrapper-office-services-service_3"></div>
-					<div class="vd_officelistwrapper-office-services-service vd_officelistwrapper-office-services-service_4"></div>
-				</div>
-				<a href="?center=1">
-					<div class="vd_officelistwrapper-office-name">Алексеевская Башня</div>
-				</a>
-				<div class="vd_officelistwrapper-office-place">Москва</div>
-				<div class="vd_officelistwrapper-office-text"><p>Офисный центр «Деловой» предлагает в аренду полностью оборудованные помещения в современном Бизнес-центре «Алексеевская Башня» (ст.м. ВДНХ), оснащенные всем необходимым для работы.&nbsp;10&nbsp;минут пешком от м.ВДНХ / 1&nbsp;км от Проспекта Мира</p>
-				</div>
-			</div>
-			<div class="vd_officelistwrapper-office">
-				<a href="?center=1">
-					<div class="vd_officelistwrapper-office-photo">
-						<img src="http://dev.viaduct.pro/uploads/images/office_centers/alekseevskaya/alekseevskaya_ext_460x171.jpg">
-					</div>
-				</a>
-				<div class="vd_officelistwrapper-office-services">
-					<div class="vd_officelistwrapper-office-services-service vd_officelistwrapper-office-services-service_1"></div>
-					<div class="vd_officelistwrapper-office-services-service vd_officelistwrapper-office-services-service_3"></div>
-					<div class="vd_officelistwrapper-office-services-service vd_officelistwrapper-office-services-service_4"></div>
-				</div>
-				<a href="?center=1">
-					<div class="vd_officelistwrapper-office-name">Алексеевская Башня</div>
-				</a>
-				<div class="vd_officelistwrapper-office-place">Москва</div>
-				<div class="vd_officelistwrapper-office-text"><p>Офисный центр «Деловой» предлагает в аренду полностью оборудованные помещения в современном Бизнес-центре «Алексеевская Башня» (ст.м. ВДНХ), оснащенные всем необходимым для работы.&nbsp;10&nbsp;минут пешком от м.ВДНХ / 1&nbsp;км от Проспекта Мира</p>
-				</div>
-			</div>
+
+        <?	out_office_centers($_DATA['office_center']['items'], $g_office_center_id); ?>
+
 		</div>
 	</div>
 	<div class="vd_singleofficewrapper-footer">
@@ -538,12 +494,66 @@
 
 <div class="vd_officelistwrapper">
 <?
-	$vd_office_centers = $_DATA["office_center"]["items"];
-	
+	out_office_centers($_DATA['office_center']['items']);
+?>
+</div>
+
+<div class="vd_officelistdata">
+	<div class="g-container"><div class="g-container-row">
+		<div class="vd_officelistdata-block">
+			<div class="vd_officelistdata-block-title">
+				Проблема аренды площадей
+			</div>
+			<div class="vd_officelistdata-block-text">
+				<p>В Москве каждый год появляются новые офисные центры, аренда площадей в которых считается престижным и выгодным капиталовложением. В каждом из таких центров доступны сотни самых разных помещений со всеми коммуникациями и современным дизайном.</p>
+				<p>Однако зачастую представители малого бизнеса обходят их стороной, опасаясь высоких расценок и кабальных условий договоров аренды.</p>
+				<p>Натыкаясь на объявления в Интернете: «офисные центры аренда», мелкие предприниматели даже не пытаются узнать условия у арендодателя. Не торопятся идти навстречу мелким арендаторам и сами владельцы бизнес-центров, ведь гораздо выгодней сдавать в аренду большие объемы площадей на длительные сроки.</p>
+			</div>
+		</div>
+		<div class="vd_officelistdata-block">
+			<div class="vd_officelistdata-block-title">
+				Аренда в офисном центре –оптимальное решение
+			</div>
+			<div class="vd_officelistdata-block-text">
+				<p>Сеть офисных центров «Деловой» создана именно для того, что бы решить эту проблему и сделать аренду в офисных центрах доступной для небольших компаний. Это первая сеть в России, цель которой создать достойную инфраструктуру для малого бизнеса.</p>
+				<p>Теперь к услугам малых предпринимателей аренда в офисных центрах, которой можно пользоваться и оплачивать понедельно.</p>
+				<p>Иными словами, есть возможность забронировать офис как столик в ресторане или билет в кинотеатр. Такие малые офисы сдаются в четырех бизнес-центрах класса B+ и А: «Омега-плаза», «Алексеевская башня», «Гостиный двор» и «Арма», которые расположены в самых престижных районах города.</p>
+			</div>
+		</div>
+		<div class="vd_officelistdata-block">
+			<div class="vd_officelistdata-block-title">
+				Очевидный эффект
+			</div>
+			<div class="vd_officelistdata-block-text">
+				<p>За умеренную плату арендатор получает:</p>
+					<ul>
+						<li>Офисы или переговорные комнаты</li>
+						<li>Бесплатный интернет и телефонию</li>
+						<li>Услуги секретарей, юристов, системных администраторов и инженеров и курьеров</li>
+						<li>Услуги профессиональной охраны</li>
+						<li>Парковку</li>
+						<li>Всю инфраструктуру делового центра (фитнес-залы, рестораны, кафе, банки, страховые компании, магазины, шоу-румы и пр.).</li>
+					</ul>
+				<p>При этом совсем необязательно заключать долгосрочный договор аренды, вносить большой депозит и страховать офис от несчастного случая. Если вам нужно встретиться с важными людьми или провести совещание с коллегами, то лучшего варианта, чем аренда переговорной в сети центров «Деловой», не найти. Этот вариант очень удобен тогда, когда в компании работает всего несколько человек, а встречи с клиентами проходят 2-3 раза в месяц.</p>
+			</div>
+		</div>
+	</div></div>
+</div>
+
+<?
+}
+
+}
+
+function out_office_centers($vd_office_centers, $exclude_office_center_id = null) {
 	foreach ($vd_office_centers as $single_office_center) {
 		
 		$single_office_center_id = $single_office_center['id'];
 		
+		if ($single_office_center_id == $exclude_office_center_id) {
+			continue;
+		}
+
 		$single_office_center_city_label = $single_office_center['city_id_lookup'];
 		$single_office_center_city_id = $single_office_center['city_id'];
 		
@@ -640,56 +650,7 @@
 		}
 		
 	}
-?>	
-</div>
-
-<div class="vd_officelistdata">
-	<div class="g-container"><div class="g-container-row">
-		<div class="vd_officelistdata-block">
-			<div class="vd_officelistdata-block-title">
-				Проблема аренды площадей
-			</div>
-			<div class="vd_officelistdata-block-text">
-				<p>В Москве каждый год появляются новые офисные центры, аренда площадей в которых считается престижным и выгодным капиталовложением. В каждом из таких центров доступны сотни самых разных помещений со всеми коммуникациями и современным дизайном.</p>
-				<p>Однако зачастую представители малого бизнеса обходят их стороной, опасаясь высоких расценок и кабальных условий договоров аренды.</p>
-				<p>Натыкаясь на объявления в Интернете: «офисные центры аренда», мелкие предприниматели даже не пытаются узнать условия у арендодателя. Не торопятся идти навстречу мелким арендаторам и сами владельцы бизнес-центров, ведь гораздо выгодней сдавать в аренду большие объемы площадей на длительные сроки.</p>
-			</div>
-		</div>
-		<div class="vd_officelistdata-block">
-			<div class="vd_officelistdata-block-title">
-				Аренда в офисном центре –оптимальное решение
-			</div>
-			<div class="vd_officelistdata-block-text">
-				<p>Сеть офисных центров «Деловой» создана именно для того, что бы решить эту проблему и сделать аренду в офисных центрах доступной для небольших компаний. Это первая сеть в России, цель которой создать достойную инфраструктуру для малого бизнеса.</p>
-				<p>Теперь к услугам малых предпринимателей аренда в офисных центрах, которой можно пользоваться и оплачивать понедельно.</p>
-				<p>Иными словами, есть возможность забронировать офис как столик в ресторане или билет в кинотеатр. Такие малые офисы сдаются в четырех бизнес-центрах класса B+ и А: «Омега-плаза», «Алексеевская башня», «Гостиный двор» и «Арма», которые расположены в самых престижных районах города.</p>
-			</div>
-		</div>
-		<div class="vd_officelistdata-block">
-			<div class="vd_officelistdata-block-title">
-				Очевидный эффект
-			</div>
-			<div class="vd_officelistdata-block-text">
-				<p>За умеренную плату арендатор получает:</p>
-					<ul>
-						<li>Офисы или переговорные комнаты</li>
-						<li>Бесплатный интернет и телефонию</li>
-						<li>Услуги секретарей, юристов, системных администраторов и инженеров и курьеров</li>
-						<li>Услуги профессиональной охраны</li>
-						<li>Парковку</li>
-						<li>Всю инфраструктуру делового центра (фитнес-залы, рестораны, кафе, банки, страховые компании, магазины, шоу-румы и пр.).</li>
-					</ul>
-				<p>При этом совсем необязательно заключать долгосрочный договор аренды, вносить большой депозит и страховать офис от несчастного случая. Если вам нужно встретиться с важными людьми или провести совещание с коллегами, то лучшего варианта, чем аренда переговорной в сети центров «Деловой», не найти. Этот вариант очень удобен тогда, когда в компании работает всего несколько человек, а встречи с клиентами проходят 2-3 раза в месяц.</p>
-			</div>
-		</div>
-	</div></div>	
-</div>
-
-<?
 }
-
-}
-
 ?>
 
 

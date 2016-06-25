@@ -587,7 +587,7 @@
 	text-align: center;
 }
 
-.vd_singleofficewrapper-content-services-table .last_block {
+.vd_singleofficewrapper-content-services-table tr:last-child td {
 	border-bottom-width: 1px;
 }
 
