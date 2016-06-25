@@ -64,6 +64,7 @@
 		
 		$single_office_center_service_id_group = explode(',', $single_office_center_service_ids);
 		
+		$single_office_center_address = $single_office_center['address'];
 		$single_office_center_phone = $single_office_center['phone'];
 		$single_office_center_email = $single_office_center['email_request'];
 		
@@ -402,10 +403,7 @@
 			<h2 class="g-section-title">Контакты</h2>
 			<div class="vd_singleofficewrapper-content-contacts-details">
 				<div class="vd_singleofficewrapper-content-contacts-details-left">
-					Москва, Нижний Сусальный переулок, 5, стр. 19, 3 этаж
-					<ul>
-						<li>Курская, 5 минут пешком</li>
-					</ul>
+					<? echo preg_replace('/(' . $single_office_center_metro_label . ')/u', '<div class="vd_officelistwrapper-office-place-marker" style="background-color: ' . $single_office_center_metro_color . '"></div>$1', $single_office_center_address); ?>
 				</div>
 				<div class="vd_singleofficewrapper-content-contacts-details-right">
 					<table class="vd_singleofficewrapper-content-contacts-details-right-contactstable">
