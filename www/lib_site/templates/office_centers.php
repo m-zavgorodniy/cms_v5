@@ -544,6 +544,8 @@
 }
 
 function out_office_centers($vd_office_centers, $exclude_office_center_id = null) {
+	global $_DATA;
+
 	foreach ($vd_office_centers as $single_office_center) {
 		
 		$single_office_center_id = $single_office_center['id'];
@@ -579,9 +581,12 @@ function out_office_centers($vd_office_centers, $exclude_office_center_id = null
 		$single_office_center_service_labels = $single_office_center['service_group_lookup'];
 		
 		$single_office_center_service_ids = $single_office_center['service_group'];
-		
+
 		$single_office_center_service_id_group = explode(',', $single_office_center_service_ids);
 		
+		// set the same order as for the main list of services
+		$single_office_center_service_id_group = array_intersect(array_keys($_DATA['service_group']['items']), $single_office_center_service_id_group);
+
 		$single_office_center_phone = $single_office_center['phone'];
 		$single_office_center_email = $single_office_center['email_request'];
 		
