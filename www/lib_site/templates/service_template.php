@@ -71,12 +71,10 @@
 					<? echo $vd_service_in_center_price; ?>
 				</div>
 				<div class="vd_serviceincenter_wrapper-header-logo"></div>
-				<div class="vd_serviceincenter_wrapper-header-servicename">
-					<? echo $vd_service_in_center_title; ?>
-				</div>
-				<div class="vd_serviceincenter_wrapper-header-centername">
+				<h1>
+					<? echo $vd_service_in_center_title; ?><br />
 					в бизнес-центре «<? echo $vd_service_in_center_office_title; ?>»
-				</div>
+				</h1>
 			</div>
 		</div>		
 	</div>
@@ -222,24 +220,42 @@
 	</div>
 	<div class="vd_serviceincenter_wrapper-freeoffices">
 		<a name="freeoffices" /></a>
-		<div class="vd_serviceincenter_wrapper-freeoffices-title">Свободные офисы в бизнес-центре «Арма»</div>
+		<h2 class="g-section-title">Свободные офисы в бизнес-центре «Арма»</h2>
 		<div class="vd_serviceincenter_wrapper-freeoffices-list">
+			<?
+			
+			foreach ($_DATA['office_center_room']['items'] as $single_office_center_room) {
+				
+				$single_office_center_room_price = number_format($single_office_center_room['price'], 0, '', ' ');
+				
+				$single_office_center_room_price_full = number_format(($single_office_center_room['price'] * $single_office_center_room['seats_num']), 0, '', ' ');
+				
+			?>
+			
 			<div class="vd_serviceincenter_wrapper-freeoffices-list-element">
 				<div class="vd_serviceincenter_wrapper-freeoffices-list-element-header">
 					<div class="vd_serviceincenter_wrapper-freeoffices-list-element-header-office">
-						<img src="" />
-						<span>Офис №21</span>
+						<img src="<? echo $single_office_center_room['img_src']; ?>" />
+						<span><? echo $single_office_center_room['title']; ?></span>
 					</div>
 					<div class="vd_serviceincenter_wrapper-freeoffices-list-element-header-area">
-						21 кв. м
+						<? echo number_format($single_office_center_room['floor_area_m2']); ?> кв. м
 					</div>
 					<div class="vd_serviceincenter_wrapper-freeoffices-list-element-header-people">
-						до 4 человек
+						до <? echo $single_office_center_room['seats_num']; ?> человек
 					</div>
 					<div class="vd_serviceincenter_wrapper-freeoffices-list-element-header-price">
 						<div class="reserve">ЗАБРОНИРОВАТЬ</div>
-						<span class="price"><span>15 990</span> P / место месяц</span>
-						<span class="special">+ 4 часа переговорных</span>
+						<span class="price"><span><? echo $single_office_center_room_price; ?></span> <? echo $single_office_center_room['price_for_lookup']; ?></span>
+						<?
+						
+						if ($single_office_center_room['price_bonus']) {
+							
+							echo '<span class="special">' . $single_office_center_room['price_bonus'] . '</span>';
+							
+						}
+							
+						?>
 					</div>
 				</div>
 				<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu">
@@ -253,31 +269,41 @@
 							<table>
 								<tr>
 									<td>Бизнес-центр</td>
-									<td>Арма</td>
+									<td><? echo $single_office_center_room['office_center_id_lookup']; ?></td>
 								</tr>
 								<tr>
 									<td>Офис</td>
-									<td>21</td>
+									<td>
+									<?
+										echo filter_var($single_office_center_room['title'], FILTER_SANITIZE_NUMBER_INT);
+										
+									?>
+									</td>
 								</tr>
 								<tr>
 									<td>Площадь</td>
-									<td>21 кв. м</td>
+									<td><? echo number_format($single_office_center_room['floor_area_m2']); ?> кв. м</td>
 								</tr>
 								<tr>
 									<td>Рабочих мест</td>
-									<td>4</td>
+									<td><? echo $single_office_center_room['seats_num']; ?></td>
 								</tr>
 								<tr>
 									<td>Стоимость</td>
-									<td>15 990 Р / место месяц</td>
+									<td><? echo $single_office_center_room_price; ?> <? echo $single_office_center_room['price_for_lookup']; ?></td>
 								</tr>
-								<tr class="special">
-									<td></td>
-									<td>+ 4 часа переговорных</td>
-								</tr>
+								<?
+								
+								if ($single_office_center_room['price_bonus']) {
+									
+									echo '<tr class="special"><td></td><td>' . $single_office_center_room['price_bonus'] . '</td></tr>';
+									
+								}
+									
+								?>
 								<tr class="total">
 									<td>Итого</td>
-									<td><span>63 960</span> Р/месяц</td>
+									<td><span><? echo $single_office_center_room_price_full; ?></span> Р/месяц</td>
 								</tr>
 							</table>
 						</div>
@@ -324,45 +350,56 @@
 					</div>
 				</div>
 			</div>
+			
+			<?	
+				
+			}	
+				
+			?>
+			
 		</div>
 	</div>
 	<div class="vd_serviceincenter_wrapper-special">
 		<a name="special" /></a>
-		<h2 class="g-section-title">Cпецпредложения</h2>
-		<div class="vd_serviceincenter_wrapper-special-list">
-			<div class="vd_serviceincenter_wrapper-special-list-item office">
-				<div class="vd_serviceincenter_wrapper-special-list-item-text"><!--
-					--><span>Получите скидку 10% на аренду офиса</span>
-				</div>
-				<div class="vd_serviceincenter_wrapper-special-list-item-date">
-					1 февраля – 29 апреля 2016
-				</div>
-				<a href="" class="vd_serviceincenter_wrapper-special-list-item-details">
-					<span>Подробнее</span>
-				</a>
+		<div class="g-container">
+			<div class="g-container-row">
+				<h2 class="g-section-title">Cпецпредложения</h2>
+				<ul class="offers-items">
+			        <li>
+			            <div class="offers-item">
+			                <div class="offers-item-title c-icon c-office">
+			                    Получите скидку 10% на аренду офиса
+			                </div>
+			                <div class="offers-item-date">
+			                    1 февраля – 29 апреля 2016
+			                </div>
+			                <div class="offers-item-link"><a href="#" class="g-button c-office">ПОДРОБНЕЕ</a></div>
+			            </div>
+			        </li>
+			        <li>
+			            <div class="offers-item">
+			                <div class="offers-item-title c-icon c-virtual">
+			                    Виртуальный офис + 4 часа переговорных в подарок
+			                </div>
+			                <div class="offers-item-date">
+			                    20 марта – 18 мая  2016
+			                </div>
+			                <div class="offers-item-link"><a href="#" class="g-button c-virtual">ПОДРОБНЕЕ</a></div>
+			            </div>
+			        </li>
+			        <li>
+			            <div class="offers-item">
+			                <div class="offers-item-title c-icon c-meeting">
+			                    Акция февраля – скидка 70% на аренду переговорных
+			                </div>
+			                <div class="offers-item-date">
+			                    1 февраля – 29 апреля  2016
+			                </div>
+			                <div class="offers-item-link"><a href="#" class="g-button c-meeting">ПОДРОБНЕЕ</a></div>
+			            </div>
+			        </li>
+			    </ul>		
 			</div>
-			<div class="vd_serviceincenter_wrapper-special-list-item virtual">
-				<div class="vd_serviceincenter_wrapper-special-list-item-text"><!--
-					--><span>Виртуальный офис + 4 часа переговорных в подарок</span>
-				</div>
-				<div class="vd_serviceincenter_wrapper-special-list-item-date">
-					20 марта – 18 мая  2016
-				</div>
-				<a href="" class="vd_serviceincenter_wrapper-special-list-item-details">
-					<span>Подробнее</span>
-				</a>
-			</div>
-			<div class="vd_serviceincenter_wrapper-special-list-item negotiating">
-				<div class="vd_serviceincenter_wrapper-special-list-item-text"><!--
-					--><span>Акция февраля – скидка 70% на аренду переговорных</span>
-				</div>
-				<div class="vd_serviceincenter_wrapper-special-list-item-date">
-					1 февраля – 29 апреля 2016
-				</div>
-				<a href="" class="vd_serviceincenter_wrapper-special-list-item-details">
-					<span>Подробнее</span>
-				</a>
-			</div>
-		</div>		
+		</div>	
 	</div>
 </div>

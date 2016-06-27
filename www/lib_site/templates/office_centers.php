@@ -75,6 +75,20 @@
 		
 		$single_office_center_title = $single_office_center['title'];
 		
+		/* check if there's a gallery for this business center */
+		
+		$vd_show_gallery = false;
+		
+		foreach ($_DATA['office_center_detail']['items'] as $office_center_detail) {
+			
+			if ($office_center_detail['office_center_detail_type_id'] == 'gallery') {
+				
+				$vd_show_gallery = true;
+				
+			}
+			
+		}
+		
 ?>
 
 <div class="vd_singleofficewrapper">
@@ -94,7 +108,13 @@
 		<div class="g-container-row">	
 		<ul>
 			<li><a href="#about">О бизнес-центре</a></li>
+			<?
+				if ($vd_show_gallery) {
+			?>
 			<li><a href="#gallery">Галерея</a></li>
+			<?
+				}
+			?>
 			<li><a href="#services">Услуги бизнес-центра</a></li>
 			<li><a href="#special">Спецпредложения центра</a></li>
 			<li><a href="#contacts">Контакты</a></li>
@@ -174,6 +194,11 @@
 				
 			?>
 		</div>
+		<?
+		
+		if ($vd_show_gallery == true) {
+			
+		?>
 		<div class="vd_singleofficewrapper-content-gallery">
 			<a name="gallery"></a>
 			<h2 class="g-section-title">Галерея</h2>
@@ -209,6 +234,11 @@
 			?>
 			</div>
 		</div>
+		<?
+		
+		}	
+			
+		?>
 		<div class="vd_singleofficewrapper-content-services">
 			<a name="services"></a>
 			<h2 class="g-section-title">Услуги</h2>
@@ -274,7 +304,7 @@
 						
 						if ($vd_office_center_service_group_published === '1') {
 							
-							echo '<td class="detailed_block ' . $vd_service_group_id_css . '"><a href="?center=' . $vd_office_center_service_group_center_id . '&service=' . $vd_office_center_service_group_id . '"><span>Подробнее</span></a></td>';
+							echo '<td><a class="g-button c-' . $vd_service_group_id_css . '"href="?center=' . $vd_office_center_service_group_center_id . '&service=' . $vd_office_center_service_group_id . '">Подробнее</a></td>';
 							
 						}
 						
@@ -433,40 +463,44 @@
 		</div>
 		<div class="vd_singleofficewrapper-content-special">
 			<a name="special"></a>
-			<h2 class="g-section-title">Cпецпредложения</h2>
-			<div class="vd_singleofficewrapper-content-special-list">
-				<div class="vd_singleofficewrapper-content-special-list-item office">
-					<div class="vd_singleofficewrapper-content-special-list-item-text"><!--
-						--><span>Получите скидку 10% на аренду офиса</span>
-					</div>
-					<div class="vd_singleofficewrapper-content-special-list-item-date">
-						1 февраля – 29 апреля 2016
-					</div>
-					<a href="" class="vd_singleofficewrapper-content-special-list-item-details">
-						<span>Подробнее</span>
-					</a>
-				</div>
-				<div class="vd_singleofficewrapper-content-special-list-item virtual">
-					<div class="vd_singleofficewrapper-content-special-list-item-text"><!--
-						--><span>Виртуальный офис + 4 часа переговорных в подарок</span>
-					</div>
-					<div class="vd_singleofficewrapper-content-special-list-item-date">
-						20 марта – 18 мая  2016
-					</div>
-					<a href="" class="vd_singleofficewrapper-content-special-list-item-details">
-						<span>Подробнее</span>
-					</a>
-				</div>
-				<div class="vd_singleofficewrapper-content-special-list-item negotiating">
-					<div class="vd_singleofficewrapper-content-special-list-item-text"><!--
-						--><span>Акция февраля – скидка 70% на аренду переговорных</span>
-					</div>
-					<div class="vd_singleofficewrapper-content-special-list-item-date">
-						1 февраля – 29 апреля 2016
-					</div>
-					<a href="" class="vd_singleofficewrapper-content-special-list-item-details">
-						<span>Подробнее</span>
-					</a>
+			<div class="g-container">
+				<div class="g-container-row">
+					<h2 class="g-section-title">Cпецпредложения</h2>
+					<ul class="offers-items">
+				        <li>
+				            <div class="offers-item">
+				                <div class="offers-item-title c-icon c-office">
+				                    Получите скидку 10% на аренду офиса
+				                </div>
+				                <div class="offers-item-date">
+				                    1 февраля – 29 апреля 2016
+				                </div>
+				                <div class="offers-item-link"><a href="#" class="g-button c-office">ПОДРОБНЕЕ</a></div>
+				            </div>
+				        </li>
+				        <li>
+				            <div class="offers-item">
+				                <div class="offers-item-title c-icon c-virtual">
+				                    Виртуальный офис + 4 часа переговорных в подарок
+				                </div>
+				                <div class="offers-item-date">
+				                    20 марта – 18 мая  2016
+				                </div>
+				                <div class="offers-item-link"><a href="#" class="g-button c-virtual">ПОДРОБНЕЕ</a></div>
+				            </div>
+				        </li>
+				        <li>
+				            <div class="offers-item">
+				                <div class="offers-item-title c-icon c-meeting">
+				                    Акция февраля – скидка 70% на аренду переговорных
+				                </div>
+				                <div class="offers-item-date">
+				                    1 февраля – 29 апреля  2016
+				                </div>
+				                <div class="offers-item-link"><a href="#" class="g-button c-meeting">ПОДРОБНЕЕ</a></div>
+				            </div>
+				        </li>
+				    </ul>		
 				</div>
 			</div>
 		</div>
@@ -628,7 +662,9 @@ function out_office_centers($vd_office_centers, $exclude_office_center_id = null
 				
 				foreach ($single_office_center_service_id_group as $single_office_center_service_id_single) {
 					
-					echo '<div class="vd_officelistwrapper-office-services-service vd_officelistwrapper-office-services-service_' . $single_office_center_service_id_single . '"></div>';
+					$single_office_center_service_id_single_title = $_DATA['service_group']['items'][$single_office_center_service_id_single]['title'];
+					
+					echo '<div class="vd_officelistwrapper-office-services-service vd_officelistwrapper-office-services-service_' . $single_office_center_service_id_single . '" title="' . $single_office_center_service_id_single_title . '"></div>';
 					
 				}
 				

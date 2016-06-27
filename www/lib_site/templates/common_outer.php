@@ -138,5 +138,11 @@ define('MOBILE_MEDIA', 'screen and (max-width:' . MOBILE_BREAKPOINT_PX . 'px)');
         </div>
     </footer>
     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
+    <script src="http://vkontakte.ru/js/api/openapi.js" type="text/javascript"></script>
+<script type="text/javascript">
+  VK.init({
+    apiId: 5524404
+  });
+</script>
 </body>
 </html>

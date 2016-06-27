@@ -133,10 +133,61 @@ if ($_GET['service'] == false) {
 	<div class="vd_service_single_wrapper-header <? echo $vd_service_group_id_css; ?>">
 		<div class="g-container">
 			<div class="g-container-row">
-				<div class="vd_service_single_wrapper-header-logo"></div>
-				<div class="vd_service_single_wrapper-header-servicename">
-					<? echo $vd_service_group_id_title; ?>
+				<div class="vd_serviceincenter_wrapper-header-price">
+					<?
+						/* calculating the lowest possible price for this service */
+						/* since we don't have that kind of data in the databe */
+						
+						$all_prices_for_this_service = array();
+						
+						foreach ($_DATA['office_center2service_group']['items'] as $service_group_in_center) {
+							
+							if ($service_group_in_center['price']) {
+								
+								$all_prices_for_this_service[] = $service_group_in_center['price'];
+								
+							}
+							
+						}
+						
+						function vd_sort_prices($a, $b) {
+							
+							$matches_a = array();
+							
+							preg_match_all('/(\d+)/', $a, $matches_a);
+							
+							$a_value = (int) implode('', $matches_a[0]);
+							
+							$matches_b = array();
+							
+							preg_match_all('/(\d+)/', $b, $matches_b);
+							
+							$b_value = (int) implode('', $matches_b[0]);
+							
+							if ($a_value == $b_value) {
+								return 0;
+							} elseif ($a_value > $b_value) {
+								return 1;
+							} else {
+								return -1;
+							}
+							
+						}
+						
+						usort($all_prices_for_this_service, vd_sort_prices);
+						
+						$vd_service_in_center_price = $all_prices_for_this_service[0];
+						
+						$vd_service_in_center_price = preg_replace('/( |&nbsp;)(.*)( |&nbsp;)/', ' <span>$2</span> ', $vd_service_in_center_price);
+						
+						echo $vd_service_in_center_price;
+						
+					?>
 				</div>
+				<div class="vd_service_single_wrapper-header-logo"></div>
+				<h1>
+					<? echo $vd_service_group_id_title; ?>
+				</h1>
 			</div>
 		</div>		
 	</div>
@@ -329,42 +380,44 @@ if ($_GET['service'] == false) {
 
 	<div class="vd_serviceincenter_wrapper-special">
 		<a name="special" /></a>
-		<h2 class="g-section-title">Cпецпредложения</h2>
-		<div class="vd_serviceincenter_wrapper-special-list">
-			<div class="vd_serviceincenter_wrapper-special-list-item office">
-				<div class="vd_serviceincenter_wrapper-special-list-item-text"><!--
-					--><span>Получите скидку 10% на аренду офиса</span>
-				</div>
-				<div class="vd_serviceincenter_wrapper-special-list-item-date">
-					1 февраля – 29 апреля 2016
-				</div>
-				<a href="" class="vd_serviceincenter_wrapper-special-list-item-details">
-					<span>Подробнее</span>
-				</a>
-			</div>
-			<div class="vd_serviceincenter_wrapper-special-list-item virtual">
-				<div class="vd_serviceincenter_wrapper-special-list-item-text"><!--
-					--><span>Виртуальный офис + 4 часа переговорных в подарок</span>
-				</div>
-				<div class="vd_serviceincenter_wrapper-special-list-item-date">
-					20 марта – 18 мая  2016
-				</div>
-				<a href="" class="vd_serviceincenter_wrapper-special-list-item-details">
-					<span>Подробнее</span>
-				</a>
-			</div>
-			<div class="vd_serviceincenter_wrapper-special-list-item negotiating">
-				<div class="vd_serviceincenter_wrapper-special-list-item-text"><!--
-					--><span>Акция февраля – скидка 70% на аренду переговорных</span>
-				</div>
-				<div class="vd_serviceincenter_wrapper-special-list-item-date">
-					1 февраля – 29 апреля 2016
-				</div>
-				<a href="" class="vd_serviceincenter_wrapper-special-list-item-details">
-					<span>Подробнее</span>
-				</a>
-			</div>
-		</div>		
+		<div class="g-container-row">
+			<h2 class="g-section-title">Cпецпредложения</h2>
+			<ul class="offers-items">
+		        <li>
+		            <div class="offers-item">
+		                <div class="offers-item-title c-icon c-office">
+		                    Получите скидку 10% на аренду офиса
+		                </div>
+		                <div class="offers-item-date">
+		                    1 февраля – 29 апреля 2016
+		                </div>
+		                <div class="offers-item-link"><a href="#" class="g-button c-office">ПОДРОБНЕЕ</a></div>
+		            </div>
+		        </li>
+		        <li>
+		            <div class="offers-item">
+		                <div class="offers-item-title c-icon c-virtual">
+		                    Виртуальный офис + 4 часа переговорных в подарок
+		                </div>
+		                <div class="offers-item-date">
+		                    20 марта – 18 мая  2016
+		                </div>
+		                <div class="offers-item-link"><a href="#" class="g-button c-virtual">ПОДРОБНЕЕ</a></div>
+		            </div>
+		        </li>
+		        <li>
+		            <div class="offers-item">
+		                <div class="offers-item-title c-icon c-meeting">
+		                    Акция февраля – скидка 70% на аренду переговорных
+		                </div>
+		                <div class="offers-item-date">
+		                    1 февраля – 29 апреля  2016
+		                </div>
+		                <div class="offers-item-link"><a href="#" class="g-button c-meeting">ПОДРОБНЕЕ</a></div>
+		            </div>
+		        </li>
+		    </ul>		
+		</div>
 	</div>
 </div>
 
