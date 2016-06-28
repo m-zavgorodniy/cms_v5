@@ -16,7 +16,7 @@
 
 	/* prepare some needed data */
 	
-	if ($_POST['type'] == 'previewform') {
+	if ($_POST['form_type'] == 'previewform') {
 		
 		$vd_send_form_date = $_POST['date'];
 		$vd_send_form_time = $_POST['time'];
@@ -24,28 +24,113 @@
 		$vd_send_form_email = $_POST['email'];
 		$vd_send_form_phone = $_POST['phone'];
 		
-		$vd_send_form_message_text = "Здравствуйте,\r\nНа сайте была оформлена новая заявка на предварительный просмотр офиса.\r\nДата просмотра: $vd_send_form_date\r\nВремя просмотра: $vd_send_form_time\r\nИмя: $vd_send_form_name\r\nЭлектронная почта: $vd_send_form_email\r\nТелефон: $vd_send_form_phone";
+		$vd_send_form_manager_message_text .= "Здравствуйте,\r\nНа сайте была оформлена новая заявка на предварительный просмотр офиса.";
 		
-		mail('e.izmalkova@gmail.com', 'Заявка на просмотр офиса', $vd_send_form_message_text);
+		$vd_send_form_manager_message_text .= "\r\n";
 		
-		mail($vd_send_form_email, 'Ваша заявка принята', 'Ваша заявка на предварительный просмотр офиса была принята');
+		$vd_send_form_manager_message_text .= "\r\nДанные объекта";
+		$vd_send_form_manager_message_text .= "\r\nБизнес-центр: " . $_POST['business_center'];
+		$vd_send_form_manager_message_text .= "\r\nОфис: " . $_POST['office_number'];
+		$vd_send_form_manager_message_text .= "\r\nПлощадь: " . $_POST['office_area'];
+		$vd_send_form_manager_message_text .= "\r\nРабочих мест: " . $_POST['office_seats_num'];
 		
-	} elseif ($_POST['type'] == 'reserveform') {
+		$vd_send_form_manager_message_text .= "\r\n";
+		
+		$vd_send_form_manager_message_text .= "\r\nДанные заявки";
+		$vd_send_form_manager_message_text .= "\r\nДата просмотра: " . $vd_send_form_date;
+		$vd_send_form_manager_message_text .= "\r\nВремя просмотра: " . $vd_send_form_time;
+		$vd_send_form_manager_message_text .= "\r\nИмя: " . $vd_send_form_name;
+		$vd_send_form_manager_message_text .= "\r\nЭлектронная почта: " . $vd_send_form_email;
+		$vd_send_form_manager_message_text .= "\r\nТелефон: " . $vd_send_form_phone;
+		
+		$vd_send_form_customer_message_text .= "Здравствуйте,\r\nВаша заявка на предварительный просмотр офиса была получена.";
+		
+		$vd_send_form_customer_message_text .= "\r\n";
+		
+		$vd_send_form_customer_message_text .= "\r\nДанные объекта";
+		$vd_send_form_customer_message_text .= "\r\nБизнес-центр: " . $_POST['business_center'];
+		$vd_send_form_customer_message_text .= "\r\nОфис: " . $_POST['office_number'];
+		$vd_send_form_customer_message_text .= "\r\nПлощадь: " . $_POST['office_area'];
+		$vd_send_form_customer_message_text .= "\r\nРабочих мест: " . $_POST['office_seats_num'];
+		$vd_send_form_customer_message_text .= "\r\nСтоимость: " . $_POST['office_cost_seat'];
+		$vd_send_form_customer_message_text .= "\r\nИтого: " . $_POST['office_cost_total'];
+		
+		$vd_send_form_customer_message_text .= "\r\n";
+		
+		$vd_send_form_customer_message_text .= "\r\nВаши данные";
+		$vd_send_form_customer_message_text .= "\r\nИмя: " . $vd_send_form_name;
+		$vd_send_form_customer_message_text .= "\r\nЭлектронная почта: " . $vd_send_form_email;
+		$vd_send_form_customer_message_text .= "\r\nТелефон: " . $vd_send_form_phone;
+		$vd_send_form_customer_message_text .= "\r\nДата просмотра: " . $vd_send_form_date;
+		$vd_send_form_customer_message_text .= "\r\nВремя просмотра: " . $vd_send_form_time;
+		
+		mail('e.izmalkova@gmail.com', 'Заявка на просмотр офиса', $vd_send_form_manager_message_text);
+		
+		//mail('yojmm@yandex.ru', 'Заявка на просмотр офиса', $vd_send_form_manager_message_text);
+		
+		mail($vd_send_form_email, 'Ваша заявка принята', $vd_send_form_customer_message_text);
+		
+	} elseif ($_POST['form_type'] == 'reserveform') {
 		
 		$vd_send_form_name = $_POST['name'];
 		$vd_send_form_email = $_POST['email'];
 		$vd_send_form_phone = $_POST['phone'];
 		$vd_send_form_message = $_POST['message'];
 		
-		$vd_send_form_message_text = "Здравствуйте,\r\nНа сайте была оформлена новая заявка на бронирование офиса.\r\nИмя: $vd_send_form_name\r\nЭлектронная почта: $vd_send_form_email\r\nТелефон: $vd_send_form_phone";
+		$vd_send_form_manager_message_text .= "Здравствуйте,\r\nНа сайте была оформлена новая заявка на бронирование офиса.";
+		
+		$vd_send_form_manager_message_text .= "\r\n";
+		
+		$vd_send_form_manager_message_text .= "\r\nВы забронировали";
+		$vd_send_form_manager_message_text .= "\r\nБизнес-центр: " . $_POST['business_center'];
+		$vd_send_form_manager_message_text .= "\r\nОфис: " . $_POST['office_number'];
+		$vd_send_form_manager_message_text .= "\r\nПлощадь: " . $_POST['office_area'];
+		$vd_send_form_manager_message_text .= "\r\nРабочих мест: " . $_POST['office_seats_num'];
+		$vd_send_form_manager_message_text .= "\r\nСтоимость: " . $_POST['office_cost_seat'];
+		$vd_send_form_manager_message_text .= "\r\nИтого: " . $_POST['office_cost_total'];
+		
+		$vd_send_form_manager_message_text .= "\r\n";
+		
+		$vd_send_form_manager_message_text .= "\r\nДанные заявки";
+		$vd_send_form_manager_message_text .= "\r\nИмя: " . $vd_send_form_name;
+		$vd_send_form_manager_message_text .= "\r\nЭлектронная почта: " . $vd_send_form_email;
+		$vd_send_form_manager_message_text .= "\r\nТелефон: " . $vd_send_form_phone;
+		
+		$vd_send_form_customer_message_text .= "Здравствуйте,\r\nВаша заявка на бронирование офиса была получена.";
+		
+		$vd_send_form_customer_message_text .= "\r\n";
+		
+		$vd_send_form_customer_message_text .= "\r\nДанные объекта";
+		$vd_send_form_customer_message_text .= "\r\nБизнес-центр: " . $_POST['business_center'];
+		$vd_send_form_customer_message_text .= "\r\nОфис: " . $_POST['office_number'];
+		$vd_send_form_customer_message_text .= "\r\nПлощадь: " . $_POST['office_area'];
+		$vd_send_form_customer_message_text .= "\r\nРабочих мест: " . $_POST['office_seats_num'];
+		$vd_send_form_customer_message_text .= "\r\nСтоимость: " . $_POST['office_cost_seat'];
+		$vd_send_form_customer_message_text .= "\r\nИтого: " . $_POST['office_cost_total'];
+		
+		$vd_send_form_customer_message_text .= "\r\n";
+		
+		$vd_send_form_customer_message_tomorrow = new DateTime('tomorrow');
+		
+		$vd_send_form_customer_message_text .= "\r\nБронь сохраняется до вечера " . $vd_send_form_customer_message_tomorrow->format('d.m.Y');
+		
+		$vd_send_form_customer_message_text .= "\r\n";
+		
+		$vd_send_form_customer_message_text .= "\r\nВаши данные";
+		$vd_send_form_customer_message_text .= "\r\nИмя: " . $vd_send_form_name;
+		$vd_send_form_customer_message_text .= "\r\nЭлектронная почта: " . $vd_send_form_email;
+		$vd_send_form_customer_message_text .= "\r\nТелефон: " . $vd_send_form_phone;
 		
 		if ($vd_send_form_message != "") {
-			$vd_send_form_message_text = $vd_send_form_message_text . "\r\nСообщение: $vd_send_form_message";
+			$vd_send_form_manager_message_text .= "\r\nСообщение: $vd_send_form_message";
+			$vd_send_form_customer_message_text .= "\r\nСообщение: $vd_send_form_message";
 		}
 		
-		mail('e.izmalkova@gmail.com', 'Заявка на бронирование офиса', $vd_send_form_message_text);
+		mail('e.izmalkova@gmail.com', 'Заявка на бронирование офиса', $vd_send_form_manager_message_text);
 		
-		mail($vd_send_form_email, 'Ваша заявка принята', 'Ваша заявка на бронирование офиса была принята');
+		//mail('yojmm@yandex.ru', 'Заявка на бронирование офиса', $vd_send_form_manager_message_text);
+		
+		mail($vd_send_form_email, 'Ваша заявка принята', $vd_send_form_customer_message_text);
 		
 	}
 	
@@ -246,7 +331,7 @@
 					</div>
 					<div class="vd_serviceincenter_wrapper-freeoffices-list-element-header-price">
 						<div class="reserve">ЗАБРОНИРОВАТЬ</div>
-						<span class="price"><span><? echo $single_office_center_room_price; ?></span> <? echo $single_office_center_room['price_for_lookup']; ?></span>
+						<span class="price"><span><? echo $single_office_center_room_price; ?></span> ₽ / <? echo $single_office_center_room['price_for_lookup']; ?></span>
 						<?
 						
 						if ($single_office_center_room['price_bonus']) {
@@ -259,12 +344,18 @@
 					</div>
 				</div>
 				<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu">
+					<form action="" method="post">
+						<input type="hidden" name="form_type" class="form_type" value="">
+						<input type="hidden" name="business_center" value="<? echo $single_office_center_room['office_center_id_lookup']; ?>">
+						<input type="hidden" name="office_number" value="<? echo filter_var($single_office_center_room['title'], FILTER_SANITIZE_NUMBER_INT); ?>">
+						<input type="hidden" name="office_area" value="<? echo number_format($single_office_center_room['floor_area_m2']); ?> кв. м">
+						<input type="hidden" name="office_seats_num" value="<? echo $single_office_center_room['seats_num']; ?>">
+						<input type="hidden" name="office_cost_seat" value="<? echo $single_office_center_room_price; ?> ₽ / <? echo $single_office_center_room['price_for_lookup']; ?>">
+						<input type="hidden" name="office_cost_total" value="<? echo $single_office_center_room_price_full; ?> ₽ / месяц">
 					<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-title">
 						Данные бронирования
 					</div>
 					<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform">
-						<form action="" method="post">
-							<input type="hidden" name="type" value="reserveform">
 						<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-left">
 							<table>
 								<tr>
@@ -290,7 +381,7 @@
 								</tr>
 								<tr>
 									<td>Стоимость</td>
-									<td><? echo $single_office_center_room_price; ?> <? echo $single_office_center_room['price_for_lookup']; ?></td>
+									<td><? echo $single_office_center_room_price; ?> ₽ / <? echo $single_office_center_room['price_for_lookup']; ?></td>
 								</tr>
 								<?
 								
@@ -303,7 +394,7 @@
 								?>
 								<tr class="total">
 									<td>Итого</td>
-									<td><span><? echo $single_office_center_room_price_full; ?></span> Р/месяц</td>
+									<td><span><? echo $single_office_center_room_price_full; ?></span> ₽ / месяц</td>
 								</tr>
 							</table>
 						</div>
@@ -315,15 +406,9 @@
 							<div class="warning">Обратите внимание! Услуга бронируется <span>только</span> до конца следующего дня</div>
 							<button>ЗАБРОНИРОВАТЬ</button>
 						</div>
-						</form>
+						
 					</div>
 					<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform">
-						<form action="" method="post">
-							<input type="hidden" name="type" value="previewform">
-							
-							<input type="hidden" name="name" class="name">
-							<input type="hidden" name="email" class="email">
-							<input type="hidden" name="phone" class="phone">
 							
 						<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-left">
 							<p>Перед бронированием вы можете осмотреть выбранный офис. Для этого отметьте удобную дату и время просмотра и наш менеджер свяжется с вами.</p>
@@ -345,9 +430,9 @@
 							<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-submit disabled">
 								ЗАКАЗАТЬ ПРОСМОТР
 							</div>
-						</div>
-						</form>
+						</div>		
 					</div>
+					</form>
 				</div>
 			</div>
 			
