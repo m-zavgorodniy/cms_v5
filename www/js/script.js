@@ -316,6 +316,16 @@ jQuery(document).on('click', '.vd_serviceincenter_wrapper-freeoffices-list-eleme
 	
 });
 
+jQuery(document).on('click', '.vd_services2_list-item', function() {
+	jQuery('.vd_services2_list-item-wrapper').hide();
+	jQuery(this).children('.vd_services2_list-item-wrapper').show();
+});
+
+jQuery(document).on('click', '.vd_services2_list-item-wrapper-close', function() {
+	jQuery(this).parents('.vd_services2_list-item-wrapper').hide();
+	return false;
+});
+
 jQuery(document).on('focus', 'input.phone, input.email, input.name, textarea.message, input.date, select.time', function(){
 	jQuery(this).removeClass('error');
 });

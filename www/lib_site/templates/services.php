@@ -107,8 +107,36 @@ if ($_GET['service'] == false) {
 			?>
 			
 			<li class="vd_services2_list-item">
-				<span class="vd_service2_list-item-image"><img src="http://<? echo $_SERVER['HTTP_HOST'] . $service_group_item['icon_img_src']; ?>" /></span>
-				<span class="vd_service2_list-item-title"><? echo $service_group_item['title']; ?></span>
+				<span class="vd_service2_list-item-image">
+					<img src="http://<? echo $_SERVER['HTTP_HOST'] . $service_group_item['icon_img_src']; ?>" />
+				</span>
+				<span class="vd_service2_list-item-title">
+					<? echo $service_group_item['title']; ?>
+				</span>
+				<div class="vd_services2_list-item-wrapper">
+					<div class="vd_services2_list-item-wrapper-close">Закрыть</div>
+					<div class="vd_services2_list-item-wrapper-title">
+						<img src="http://<? echo $_SERVER['HTTP_HOST'] . $service_group_item['icon_img_src']; ?>" />
+						<? echo $service_group_item['title']; ?>
+					</div>
+					<div class="vd_services2_list-item-wrapper-desc">
+						Теперь Вам не нужен штатный системный администратор. Специалисты «Делового» будут следить за работоспособностью компьютерного парка Вашей компании.
+					</div>
+					<div class="vd_services2_list-item-wrapper-sublist">
+						<div class="vd_services2_list-item-wrapper-sublist-item">
+							Установка операционной системы (с дистрибутива заказчика)
+						</div>
+						<div class="vd_services2_list-item-wrapper-sublist-item">
+							Настройка операционной системы (оптимизация работы)
+						</div>
+						<div class="vd_services2_list-item-wrapper-sublist-item">
+							Установка программ (с дистрибутива заказчика)
+						</div>
+						<div class="vd_services2_list-item-wrapper-sublist-item">
+							Настройка программ
+						</div>
+					</div>
+				</div>
 			</li>
 			
 			<?
