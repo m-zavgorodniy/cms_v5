@@ -142,7 +142,7 @@
 
 	$vd_service_in_center_price = $service_groups_reverse[$vd_service_in_center_id]['price'];
 	
-	$vd_service_in_center_price = preg_replace('/( |&nbsp;)(.*)( |&nbsp;)/', ' <span>$2</span> ', $vd_service_in_center_price);
+	$vd_service_in_center_price = preg_replace('/(\d+)/', '<span>$1</span>', $vd_service_in_center_price);
 	
 	$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_service_in_center_id]['css_signature'];
 	
@@ -315,6 +315,12 @@
 				
 				$single_office_center_room_price_full = number_format(($single_office_center_room['price'] * $single_office_center_room['seats_num']), 0, '', ' ');
 				
+				$single_office_center_room_service_item_value = reset($_DATA['office_center2service_group']['items']);
+				
+				$single_office_center_room_price_for_lookup = $single_office_center_room_service_item_value['price_for_lookup'];
+				
+				$single_office_center_room_price_term_lookup = $single_office_center_room_service_item_value['price_term_lookup'];
+				
 			?>
 			
 			<div class="vd_serviceincenter_wrapper-freeoffices-list-element">
@@ -331,7 +337,7 @@
 					</div>
 					<div class="vd_serviceincenter_wrapper-freeoffices-list-element-header-price">
 						<div class="reserve">ЗАБРОНИРОВАТЬ</div>
-						<span class="price"><span><? echo $single_office_center_room_price; ?></span> ₽ / <? echo $single_office_center_room['price_for_lookup']; ?></span>
+						<span class="price"><span><? echo $single_office_center_room_price; ?></span> ₽ / <? echo $single_office_center_room_price_for_lookup . ' в ' . $single_office_center_room_price_term_lookup; ?></span>
 						<?
 						
 						if ($single_office_center_room['price_bonus']) {
@@ -350,8 +356,8 @@
 						<input type="hidden" name="office_number" value="<? echo filter_var($single_office_center_room['title'], FILTER_SANITIZE_NUMBER_INT); ?>">
 						<input type="hidden" name="office_area" value="<? echo number_format($single_office_center_room['floor_area_m2']); ?> кв. м">
 						<input type="hidden" name="office_seats_num" value="<? echo $single_office_center_room['seats_num']; ?>">
-						<input type="hidden" name="office_cost_seat" value="<? echo $single_office_center_room_price; ?> ₽ / <? echo $single_office_center_room['price_for_lookup']; ?>">
-						<input type="hidden" name="office_cost_total" value="<? echo $single_office_center_room_price_full; ?> ₽ / месяц">
+						<input type="hidden" name="office_cost_seat" value="<? echo $single_office_center_room_price; ?> ₽ / <? echo $single_office_center_room_price_for_lookup . ' в ' . $single_office_center_room_price_term_lookup; ?>">
+						<input type="hidden" name="office_cost_total" value="<? echo $single_office_center_room_price_full; ?> ₽ / <? echo $single_office_center_room_price_term_lookup; ?>">
 					<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-title">
 						Данные бронирования
 					</div>
@@ -381,7 +387,7 @@
 								</tr>
 								<tr>
 									<td>Стоимость</td>
-									<td><? echo $single_office_center_room_price; ?> ₽ / <? echo $single_office_center_room['price_for_lookup']; ?></td>
+									<td><? echo $single_office_center_room_price; ?> ₽ / <? echo $single_office_center_room_price_for_lookup . ' в ' . $single_office_center_room_price_term_lookup; ?></td>
 								</tr>
 								<?
 								
@@ -394,7 +400,7 @@
 								?>
 								<tr class="total">
 									<td>Итого</td>
-									<td><span><? echo $single_office_center_room_price_full; ?></span> ₽ / месяц</td>
+									<td><span><? echo $single_office_center_room_price_full; ?></span> ₽ / <? echo $single_office_center_room_price_term_lookup; ?></td>
 								</tr>
 							</table>
 						</div>

@@ -178,7 +178,7 @@ if ($_GET['service'] == false) {
 						
 						$vd_service_in_center_price = $all_prices_for_this_service[0];
 						
-						$vd_service_in_center_price = preg_replace('/( |&nbsp;)(.*)( |&nbsp;)/', ' <span>$2</span> ', $vd_service_in_center_price);
+						$vd_service_in_center_price = preg_replace('/(\d+)/', '<span>$1</span>', $vd_service_in_center_price);
 						
 						echo $vd_service_in_center_price;
 						
@@ -299,7 +299,7 @@ if ($_GET['service'] == false) {
 		$office_center2service_group_item_center_id = $office_center2service_group_item['office_center_id'];
 		$office_center2service_group_item_name = $office_center2service_group_item['office_center_id_lookup'];
 		$office_center2service_group_item_price = $office_center2service_group_item['price'];
-		$office_center2service_group_item_price = preg_replace('/( |&nbsp;)(.*)( |&nbsp;)/', ' <span>$2</span> ', $office_center2service_group_item_price);
+		$office_center2service_group_item_price = preg_replace('/(\d+)/', '<span>$1</span>', $office_center2service_group_item_price);
 		$office_center2service_group_item_publised = $office_center2service_group_item['published'];
 		
 		if ($office_center2service_group_item_publised === '1') {
