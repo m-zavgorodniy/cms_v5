@@ -52,6 +52,10 @@
     font-style: normal;
 }
 
+html {
+	min-width: 1440px;
+}
+
 .inner {
 	padding-top: 10px;
 }
@@ -339,20 +343,23 @@
 }
 
 .vd_singleofficewrapper-header h1 {
+	font-size: 60px;
+	margin-top: 14px;
+	text-align: center;
+/* 	font-family: Lato-Black; */
+	font-weight: 700;
+	color: #ffffff;
+	text-shadow: 0px 0px 30px rgba(0,0,0,0.3);
+}
+
+.vd_singleofficewrapper-header-subtitle {
+	font-size: 30px;
 	margin-top: 60px;
 	text-align: center;
 /* 	font-family: Lato-Black; */
 	font-weight: 700;
 	color: #ffffff;
-}
-
-.vd_singleofficewrapper-header-subtitle {
-	font-size: 30px;
-}
-
-.vd_singleofficewrapper-header-name {
-	font-size: 60px;
-	margin-top: 14px;
+	text-shadow: 0px 0px 30px rgba(0,0,0,0.3);
 }
 
 .vd_singleofficewrapper-header-body {
@@ -365,6 +372,7 @@
 	padding-left: 360px;
 	padding-right: 360px;
 	margin-top: 20px;
+	text-shadow: 0px 0px 30px rgba(0,0,0,0.3);
 }
 
 .vd_singleofficewrapper-menu {
@@ -913,7 +921,7 @@
 .vd_singleofficewrapper-footer {
 	width: 100%;
     overflow: auto;
-	padding: 60px 120px 80px 120px;
+	padding: 60px 0px 80px 0px;
 	margin: 100px auto 0px auto;
 	background-color: #f7f8f9;
 }
@@ -2224,6 +2232,8 @@
     background-size: 19px 19px;
     background-repeat: no-repeat;
 /* 	font-family: Lato-Regular; */
+    height: 19px;
+    line-height: 19px;
 	font-size: 16px;
 	color: #b4b4cd;
     background-position: center right;
@@ -2258,8 +2268,9 @@
 	padding: 20px 0px;
 }
 
-.vd_services2_list-item-wrapper-sublist-item {
-	height: 50px;
+.vd_subservice_list-item {
+	min-height: 50px;
+	height: auto;
 	line-height: 50px;
 /* 	font-family: Lato-Semibold; */
 	font-weight: 600;
@@ -2272,7 +2283,70 @@
     width: 100%;
     background-image: url('../images/fake-time-icon.png');
     background-repeat: no-repeat;
-	background-position: 755px center;
+	background-position: 755px 14px;
+	cursor: pointer;
+}
+
+.vd_subservice_list-item.open {
+	background-color: #edecf5;
+}
+
+.vd_subservice_list-item-sublist {
+	margin-top: 15px;
+    max-height: 155px;
+    background-color: #f7f8f9;
+    overflow: hidden;
+    position: relative;
+    float: left;
+    width: 100%;
+}
+
+.vd_subservice_list-item-sublist .jspPane {
+	width: 100% !important;
+}
+
+.vd_subservice_list-item-sublist .jspVerticalBar {
+	width: 10px;
+}
+
+.vd_subservice_list-item-sublist .jspTrack {
+	background-color: #e6eaf2;
+}
+
+.vd_subservice_list-item-sublist .jspDrag {
+	background-color: #ababc6;
+}
+
+.vd_subservice_list-item-sublist.closed {
+	height: 0px;
+	margin-top: 0px;
+	overflow: hidden;
+}
+
+.vd_subservice_list-item-sublist-item {
+	height: 31px;
+	width: 100%;
+	padding: 0px 55px 0px 30px;
+	background-color: #ffffff;
+/* 	font-family: Lato-Regular; */
+	font-size: 16px;
+}
+
+.vd_subservice_list-item-sublist-item:nth-child(odd) {
+	background-color: #fafafd;
+}
+
+.vd_subservice_list-item-sublist-item-name {
+	height: 100%;
+    line-height: 31px;	
+}
+
+.vd_subservice_list-item-sublist-item-price {
+	float: right;
+	height: 100%;
+    line-height: 31px;
+/*  font-family: Lato-Black; */
+	font-weight: 700;
 }
 
 /* service single styles */

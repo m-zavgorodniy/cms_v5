@@ -146,6 +146,20 @@
 	
 	$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_service_in_center_id]['css_signature'];
 	
+	/* check if there's a gallery for this business center */
+		
+	$vd_show_gallery = false;
+	
+	foreach ($_DATA['office_center_detail']['items'] as $office_center_detail) {
+		
+		if ($office_center_detail['office_center_detail_type_id'] == 'gallery') {
+			
+			$vd_show_gallery = true;
+			
+		}
+		
+	}
+	
 ?>
 
 <div class="vd_serviceincenter_wrapper">
@@ -168,9 +182,22 @@
 			<div class="g-container-row">
 				<ul>
 					<li><a href="#about">Об услуге</a></li>
+					
+					<?
+						if ($vd_show_gallery) {
+					?>
 					<li><a href="#gallery">Галерея</a></li>
+					<?
+						}
+					?>
 					<li><a href="#layout">План офисов</a></li>
+					<?
+						if (count($_DATA['office_center_room']['items']) > 1) {	
+					?>
 					<li><a href="#freeoffices">Свободные офисы бизнес-центра</a></li>
+					<?
+						}	
+					?>
 					<li><a href="#special">Спецпредложения</a></li>
 					<li class="helper"></li>
 				</ul>
@@ -303,9 +330,14 @@
 			<p>Все помещения отличаются современным оснащением, поэтому можете быть уверены, что никаких проблем с техническими средствами не возникнет. Все, что требуется, — снять офис и приступить к работе!</p>
 		</div>
 	</div>
+	<?
+	
+	if (count($_DATA['office_center_room']['items']) > 1) {	
+		
+	?>
 	<div class="vd_serviceincenter_wrapper-freeoffices">
 		<a name="freeoffices" /></a>
-		<h2 class="g-section-title">Свободные офисы в бизнес-центре «Арма»</h2>
+		<h2 class="g-section-title">Свободные офисы в бизнес-центре «<? echo $vd_service_in_center_office_title; ?>»</h2>
 		<div class="vd_serviceincenter_wrapper-freeoffices-list">
 			<?
 			
@@ -450,6 +482,11 @@
 			
 		</div>
 	</div>
+	<?
+		
+	}	
+	
+	?>
 	<div class="vd_serviceincenter_wrapper-special">
 		<a name="special" /></a>
 		<div class="g-container">

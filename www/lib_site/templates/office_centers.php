@@ -93,13 +93,11 @@
 
 <div class="vd_singleofficewrapper">
 	<div class="vd_singleofficewrapper-header" style="background-image: url(<?php echo $single_office_center_img_int; ?>); background-size: cover;">
-		<h1>
 		<div class="vd_singleofficewrapper-header-subtitle">
 			Бизнес-центр
 		</div>
-		<div class="vd_singleofficewrapper-header-name">
+		<h1>
 			<? echo $single_office_center_title; ?>
-		</div>
 		</h1>
 		<div class="vd_singleofficewrapper-header-body">
 			<? echo $single_office_center_annotation; ?>
@@ -516,7 +514,9 @@
 		</div>
 	</div>
 	<div class="vd_singleofficewrapper-footer">
+		<div class="g-container">
 		<p>«Деловой» предлагает гораздо большее: современную недвижимость для малого предпринимателя, помощь в оптимизации расходов на аренду и выход на новый уровень ведения бизнеса. Цены на аренду офисов начинаются от 11 и до 15,5 тыс. рублей за 1 рабочее место в месяц, а расценки на аренду переговорных 700 (в 3-х центрах) и 1800 рублей в час (в Гостином Дворе). При этом чем больше часов вы у нас работаете, тем больше скидка. Наши цены оптимальны и справедливы, не занижены искусственно за счет дополнительных скрытых платежей.</p>
+		</div>
 	</div>
 </div>
 

@@ -122,17 +122,67 @@ if ($_GET['service'] == false) {
 					<div class="vd_services2_list-item-wrapper-desc">
 						Теперь Вам не нужен штатный системный администратор. Специалисты «Делового» будут следить за работоспособностью компьютерного парка Вашей компании.
 					</div>
-					<div class="vd_services2_list-item-wrapper-sublist">
-						<div class="vd_services2_list-item-wrapper-sublist-item">
+					<div class="vd_subservice_list">
+						<div class="vd_subservice_list-item">
 							Установка операционной системы (с дистрибутива заказчика)
 						</div>
-						<div class="vd_services2_list-item-wrapper-sublist-item">
+						<div class="vd_subservice_list-item">
 							Настройка операционной системы (оптимизация работы)
 						</div>
-						<div class="vd_services2_list-item-wrapper-sublist-item">
+						<div class="vd_subservice_list-item">
 							Установка программ (с дистрибутива заказчика)
 						</div>
-						<div class="vd_services2_list-item-wrapper-sublist-item">
+							<div class="vd_subservice_list-item-sublist closed">
+								<div class="vd_subservice_list-item-sublist-item">
+									<div class="vd_subservice_list-item-sublist-item-price">
+										390
+									</div>
+									<div class="vd_subservice_list-item-sublist-item-name">
+										Драйвер устройства (за один компонент)
+									</div>
+								</div>
+								<div class="vd_subservice_list-item-sublist-item">
+									<div class="vd_subservice_list-item-sublist-item-price">
+										790 / 990 / 1290
+									</div>
+									<div class="vd_subservice_list-item-sublist-item-name">
+										Microsoft Office 2003 / 2007 / 2010
+									</div>
+								</div>
+								<div class="vd_subservice_list-item-sublist-item">
+									<div class="vd_subservice_list-item-sublist-item-price">
+										390
+									</div>
+									<div class="vd_subservice_list-item-sublist-item-name">
+										Архиватор
+									</div>
+								</div>
+								<div class="vd_subservice_list-item-sublist-item">
+									<div class="vd_subservice_list-item-sublist-item-price">
+										900
+									</div>
+									<div class="vd_subservice_list-item-sublist-item-name">
+										Антивирус (лицензия на 1 год)
+									</div>
+								</div>
+								<div class="vd_subservice_list-item-sublist-item">
+									<div class="vd_subservice_list-item-sublist-item-price">
+										490
+									</div>
+									<div class="vd_subservice_list-item-sublist-item-name">
+										Кодеки
+									</div>
+								</div>
+								<div class="vd_subservice_list-item-sublist-item">
+									<div class="vd_subservice_list-item-sublist-item-price">
+										1490
+									</div>
+									<div class="vd_subservice_list-item-sublist-item-name">
+										ПО для восстановления системы Windows
+									</div>
+								</div>
+							</div>
+						<div class="vd_subservice_list-item">
 							Настройка программ
 						</div>
 					</div>
@@ -328,6 +378,7 @@ if ($_GET['service'] == false) {
 		$office_center2service_group_item_name = $office_center2service_group_item['office_center_id_lookup'];
 		$office_center2service_group_item_price = $office_center2service_group_item['price'];
 		$office_center2service_group_item_price = preg_replace('/(\d+)/', '<span>$1</span>', $office_center2service_group_item_price);
+		$office_center2service_group_item_price_for_lookup = $office_center2service_group_item['price_for_lookup'];
 		$office_center2service_group_item_publised = $office_center2service_group_item['published'];
 		
 		if ($office_center2service_group_item_publised === '1') {
@@ -354,7 +405,11 @@ if ($_GET['service'] == false) {
 				<a href="/business-centers/?center=<? echo $office_center2service_group_item_center_id; ?>&service=<? echo $_GET['service']; ?>">
 					<div class="vd_officelistwrapper-office-photo">
 						<img src="http://<? echo $_SERVER['HTTP_HOST'] . $office_center2service_group_item_center_img_int; ?>" />
-						<div class="vd_officelistwrapper-office-price <? echo $vd_service_group_id_css; ?>"><? echo $office_center2service_group_item_price; ?></div>
+						<div class="vd_officelistwrapper-office-price <? echo $vd_service_group_id_css; ?>">
+							<? echo $office_center2service_group_item_price; ?>
+							<br />
+							за <? echo $office_center2service_group_item_price_for_lookup; ?>
+						</div>
 					</div>
 				</a>
 				<div class="vd_officelistwrapper-office-services">

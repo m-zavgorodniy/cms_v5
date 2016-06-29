@@ -19,7 +19,8 @@ define('MOBILE_MEDIA', 'screen and (max-width:' . MOBILE_BREAKPOINT_PX . 'px)');
 	<link rel="stylesheet" type="text/css" href="/css/delovoy_styles.css" />
 	<link rel="stylesheet" type="text/css" href="/css/jquery-ui.min.css" />
 	<link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css" />
-	<link rel="stylesheet" type="text/css" href="/css/jquery.fancybox-thumbs.css" />	
+	<link rel="stylesheet" type="text/css" href="/css/jquery.fancybox-thumbs.css" />
+	<link rel="stylesheet" type="text/css" href="/css/jquery.jscrollpane.css" />
 	<link rel="stylesheet" type="text/css" href="/css/mobile.css" media="<?=MOBILE_MEDIA?>" />
     <!--[if lte IE 9]><script src="/respond.min.js"></script><![endif]-->
     <script type="text/javascript" src="/js/jquery-1.12.3.min.js"></script>
@@ -31,7 +32,9 @@ define('MOBILE_MEDIA', 'screen and (max-width:' . MOBILE_BREAKPOINT_PX . 'px)');
     <script type="text/javascript" src="/js/jquery.cycle2.carousel.min.js"></script>
 	<script type="text/javascript" src="/js/jquery.fancybox.js"></script>
 	<script type="text/javascript" src="/js/jquery.fancybox-thumbs.js"></script>
-	<script type="text/javascript" src="/js/jquery.mask.min.js"></script>    
+	<script type="text/javascript" src="/js/jquery.mask.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.mousewheel.js"></script>
+	<script type="text/javascript" src="/js/jquery.jscrollpane.min.js"></script>    
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body class="page-<?=$_SITE['section_type']?>">

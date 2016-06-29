@@ -34,7 +34,7 @@ function initMap() {
 			arrowSize: 0,
 			borderWidth: 0,
 			borderColor: '#ffffff',
-			disableAutoPan: false,
+			disableAutoPan: true,
 			hideCloseButton: true,
 			arrowPosition: 30,
 			backgroundClassName: 'vd_office_markerinfowindow',
@@ -328,6 +328,19 @@ jQuery(document).on('click', '.vd_services2_list-item-wrapper-close', function()
 
 jQuery(document).on('focus', 'input.phone, input.email, input.name, textarea.message, input.date, select.time', function(){
 	jQuery(this).removeClass('error');
+});
+
+/* opening the subservice menu when clicking on the service icon */
+/* initializing the fake scrollbar for the subservice list, if it wasn't already */
+
+jQuery(document).on('click', '.vd_subservice_list-item', function() {
+	jQuery(this).toggleClass('open');
+	console.log(jQuery(this).next('.vd_subservice_list-item-sublist'));
+	jQuery(this).next('.vd_subservice_list-item-sublist').toggleClass('closed');
+	if (jQuery(this).next('.vd_subservice_list-item-sublist').hasClass('jspScrollable') == false) {
+		jQuery(this).next('.vd_subservice_list-item-sublist').jScrollPane();
+	}
+	return false;
 });
 
 $(function() {
