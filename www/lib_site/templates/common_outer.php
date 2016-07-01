@@ -141,11 +141,13 @@ define('MOBILE_MEDIA', 'screen and (max-width:' . MOBILE_BREAKPOINT_PX . 'px)');
         </div>
     </footer>
     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
-    <script src="http://vkontakte.ru/js/api/openapi.js" type="text/javascript"></script>
-<script type="text/javascript">
-  VK.init({
-    apiId: 5524404
-  });
-</script>
+	<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
 </body>
 </html>

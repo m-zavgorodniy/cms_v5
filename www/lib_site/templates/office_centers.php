@@ -16,6 +16,10 @@
 
 		include('special_template.php'); 
 
+	} elseif ($_GET['display_blog']) {
+
+		include('blog_template.php'); 
+
 	} else {
 	
 

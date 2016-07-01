@@ -2537,3 +2537,161 @@ html {
     line-height: 1.5;
     color: #010101;	
 }
+
+/* blog styles */
+
+.vd_blog_wrapper {
+	background-color: #f7f8f9;
+	width: 100%;
+	padding-bottom: 100px;
+}
+
+.vd_blog_wrapper-header {
+	background-image: url('../images/delovoy_fake_blog_header.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 196px;
+	float: left;
+    width: 100%;
+}
+
+.vd_blog_wrapper-header h1 {
+	font-size: 60px;
+	color: #ffffff;
+	text-align: center;
+	margin-top: 60px;
+	font-weight: 700;
+}
+
+.vd_blog_wrapper-main-sidebar {
+	float: right;
+	width: 180px;
+	margin-left: 30px;
+	padding-top: 120px;
+}
+
+.vd_blog_wrapper-main-sidebar-title {
+/* 	font-family: Lato-Regular; */
+	font-size: 16px;
+	line-height: 1.5;
+	color: #010101;	
+}
+
+.vd_blog_wrapper-main-sidebar-title span {
+/*     font-family: Lato-Black; */
+	font-weight: 700;
+    font-size: 20px;
+    line-height: 1.5;
+    color: #000000;
+    width: 100%;
+    display: block;
+}
+
+.vd_blog_subscribe {
+	margin: 12px 0px 50px 0px;
+}
+
+.vd_blog_subscribe-email {
+	width: 100%;
+    height: 40px;
+    border: solid 2px #dadae6;
+    border-radius: 2px;	
+}
+
+.vd_blog_subscribe-submit {
+	width: 100%;
+	height: 40px;
+    border-radius: 0px;
+    background-color: #007aff;
+    border: none;
+    margin-top: -2px;
+    background-image: url('../images/svg/arrow-small.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.vd_blog_wrapper-main-postlist {
+	float: left;
+	width: 990px;
+	padding-top: 50px;
+	padding-bottom: 30px;
+}
+
+.vd_blog_post {
+	margin: 30px 0px;
+	float: left;
+}
+
+.vd_blog_post-image {
+	float: left;
+    width: 380px;
+    margin-right: 30px;
+}
+
+.vd_blog_post-date {
+	font-size: 16px;
+	padding: 6px 0px 8px 0px;
+}
+
+.vd_blog_post-title {
+	font-size: 30px;
+	font-weight: 600;
+    padding: 10px 0px 12px 0px;
+}
+
+.vd_blog_post-title a {
+	color: #000000;
+}
+
+.vd_blog_post-title a:hover {
+	color: #007aff;
+	border-bottom: 2px solid #007aff;
+}
+
+.vd_blog_post-desc {
+/* 	font-family: Lato-Regular; */
+	font-size: 20px;
+	line-height: 1.5;
+	color: #000000;
+	padding: 10px 0px 15px 0px;
+}
+
+.vd_blog_post-tags {
+	float: left;
+	font-size: 16px;
+	padding: 10px 0px;
+	background-image: url('../images/delovoy_fake_blog_tag.png');
+	background-repeat: no-repeat;
+    background-position: center left;
+    padding-left: 30px;
+}
+
+.vd_blog_post-tags span {
+	padding: 0px 5px;
+	color: #007aff;
+}
+
+.vd_blog_loadmore {
+	width: 100%;
+	float: left;
+}
+
+.vd_blog_loadmore-button {
+	margin: 0 auto;
+	width: 130px;
+	cursor: pointer;
+}
+
+.vd_blog_loadmore-button-text {
+	text-align: center;
+/* 	font-family: Lato-Regular; */
+	font-size: 14px;
+	color: #000000;	
+}
+
+.vd_blog_loadmore-button-icon {
+	height: 60px;
+	width: 60px;
+	margin: 15px auto;
+	background-image: url('../images/more.png');
+}
