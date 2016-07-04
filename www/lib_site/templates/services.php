@@ -205,6 +205,18 @@ if ($_GET['service'] == false) {
 	$vd_service_group_id_title = $_DATA['service_group']['items'][$_GET['service']]['title'];
 	$vd_service_group_id_css = $_DATA['service_group']['items'][$_GET['service']]['css_signature'];
 	
+	/* check if there's a gallery to display and its id, if there's any */
+	
+	foreach ($_DATA['service_group_detail']['items'] as $service_group_detail_key => $service_group_detail_value) {
+		
+		if ($service_group_detail_value['office_center_detail_type_id'] == 'gallery') {
+			
+			$vd_service_group_id_show_gallery = $service_group_detail_key;
+			
+		}	
+		
+	}
+	
 ?>
 
 <div class="vd_service_single_wrapper">
@@ -274,7 +286,13 @@ if ($_GET['service'] == false) {
 			<div class="g-container-row">
 				<ul>
 					<li><a href="#about">Об услуге</a></li>
-					<li><a href="#gallery">Галерея</a></li>
+					<?
+						if ($vd_service_group_id_show_gallery) {
+					?>	
+					<li><a href="#gallery">Галерея</a></li>	
+					<?	
+						}		
+					?>
 					<li><a href="#office_centers">Бизнес-центры, предоставляющие услугу</a></li>
 					<li><a href="#special">Спецпредложения</a></li>
 					<li class="helper"></li>
@@ -363,6 +381,42 @@ if ($_GET['service'] == false) {
 			</div>
 		</div>
 	</div>
+	
+	<?
+	if ($vd_service_group_id_show_gallery) {
+	?>
+	
+	<div class="vd_service-gallery">
+		<a name="gallery" /></a>
+		<h2 class="g-section-title">Галерея</h2>
+		<div class="cycle-slideshow"
+			data-cycle-timeout="0"
+			data-cycle-allow-wrap="false"	
+			data-cycle-fx="carousel"
+			data-cycle-carousel-fluid="false"
+			data-cycle-slides="> a"
+		>
+		    <div class="cycle-prev"></div>
+			<div class="cycle-next"></div>
+			<?
+			
+				$vd_service_gallery_body = $_DATA['service_group_detail']['items'][$vd_service_group_id_show_gallery]['body'];
+				
+				$vd_service_gallery_items = gallery_html2array($vd_service_gallery_body);
+				
+				foreach ($vd_service_gallery_items as $vd_service_gallery_item) {
+					
+					echo '<a href="' . $vd_service_gallery_item[1] . '" class="fancybox-thumb" rel="fancybox-thumb"><img src="' . $vd_service_gallery_item[2] . '" data-original-src="' . $vd_service_gallery_item[1] . '" /></a>';
+					
+				}
+				
+			?>
+		</div>
+	</div>
+	
+	<?
+	}
+	?>
 	
 	<div class="vd_service_single_wrapper-centers">
 	<div class="g-container">

@@ -1173,7 +1173,7 @@ html {
 	color: #010101;
 }
 
-.vd_serviceincenter_wrapper-gallery {
+.vd_service-gallery {
 	margin: 80px auto 0px auto;
     width: 100%;
 	padding: 0px 120px;
@@ -1181,7 +1181,7 @@ html {
     overflow: auto;
 }
 
-.vd_serviceincenter_wrapper-gallery-title {
+.vd_service-gallery-title {
 /* 	font-family: Lato-Black; */
 	font-size: 30px;
 	line-height: 1.5;
@@ -1189,7 +1189,7 @@ html {
 	text-align: center;
 }
 
-.vd_serviceincenter_wrapper-gallery .cycle-slideshow {
+.vd_service-gallery .cycle-slideshow {
 	margin-top: 30px;
 }
 
@@ -1217,6 +1217,8 @@ html {
 }
 
 .vd_serviceincenter_wrapper-layout-image img {
+	width: 413px;
+	height: auto;
 	float: left;
 	margin: 20px 0px 0px 80px;
 }
@@ -2536,6 +2538,10 @@ html {
     font-size: 16px;
     line-height: 1.5;
     color: #010101;	
+}
+
+.vd_service_single_wrapper-centers {
+	margin-top: 80px;
 }
 
 /* blog styles */

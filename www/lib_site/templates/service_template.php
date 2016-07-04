@@ -160,6 +160,18 @@
 		
 	}
 	
+	/* check if there's an office plan for this business center and its id, if there's any */
+	
+	foreach ($_DATA['service_group_detail']['items'] as $service_group_detail_key => $service_group_detail_value) {
+	
+		if ($service_group_detail_value['office_center_detail_type_id'] == 'plan') {
+			
+			$vd_service_group_id_show_plan = $service_group_detail_key;
+			
+		}	
+		
+	}
+	
 ?>
 
 <div class="vd_serviceincenter_wrapper">
@@ -190,7 +202,13 @@
 					<?
 						}
 					?>
+					<?
+						if ($vd_service_group_id_show_plan) {
+					?>
 					<li><a href="#layout">План офисов</a></li>
+					<?
+						}
+					?>
 					<?
 						if (count($_DATA['office_center_room']['items']) > 1) {	
 					?>
@@ -280,7 +298,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="vd_serviceincenter_wrapper-gallery">
+	<div class="vd_service-gallery">
 		<a name="gallery" /></a>
 		<h2 class="g-section-title">Галерея</h2>
 		<div class="cycle-slideshow"
@@ -315,22 +333,31 @@
 			?>
 		</div>
 	</div>
+	<?
+	if ($vd_service_group_id_show_plan) {
+		
+		$vd_service_group_id_show_plan_content = $_DATA['service_group_detail']['items'][$vd_service_group_id_show_plan];
+		
+		$vd_service_group_id_show_plan_img_src = $vd_service_group_id_show_plan_content['img_src'];
+		$vd_service_group_id_show_plan_img_src_big = $vd_service_group_id_show_plan_content['img_src_big'];
+		$vd_service_group_id_show_plan_body = $vd_service_group_id_show_plan_content['body'];
+		
+	?>
 	<div class="vd_serviceincenter_wrapper-layout">
 		<a name="layout" /></a>
 		<h2 class="g-section-title">План офисов</h2>
 		<div class="vd_serviceincenter_wrapper-layout-image">
-			<img src="/images/fake_office_layout.png" />
+			<img src="<? echo $vd_service_group_id_show_plan_img_src; ?>" data-src-big="<? echo $vd_service_group_id_show_plan_img_src_big; ?>" />
 			<div class="vd_serviceincenter_wrapper-layout-image-zoom">
 				увеличить
 			</div>
 		</div>
 		<div class="vd_serviceincenter_wrapper-layout-text">
-			<p>Вставить текст про этаж/варианты площадей/переговорные/зоны входа/парковку и инфраструктуру.</p>
-			<p>Ссылка на информацию о бизнес-центре</p>
-			<p>Все помещения отличаются современным оснащением, поэтому можете быть уверены, что никаких проблем с техническими средствами не возникнет. Все, что требуется, — снять офис и приступить к работе!</p>
+			<? echo $vd_service_group_id_show_plan_body; ?>
 		</div>
 	</div>
 	<?
+	}
 	
 	if (count($_DATA['office_center_room']['items']) > 1) {	
 		

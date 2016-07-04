@@ -162,7 +162,7 @@ function vd_get_pin(color) {
 }
 
 jQuery(document).on('click', '.vd_serviceincenter_wrapper-layout-image-zoom', function() {
-	jQuery.fancybox( jQuery('.vd_serviceincenter_wrapper-layout-image img').attr('src'), { helpers: {
+	jQuery.fancybox( jQuery('.vd_serviceincenter_wrapper-layout-image img').data('src-big'), { helpers: {
 		overlay: {
 			locked: false
 		}
