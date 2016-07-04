@@ -10,10 +10,11 @@ class MetaTableSiteLink extends MetaTable {
 
 			$do_run_query = true;
 			if ($this->table_meta['frontend_sql_filter']) {
-				// syntax: book.published AND [book_section_id = {book_section}]
+				// syntax: book.published AND [book_section_id = {book_section}] AND [book_type_id =ISNULL {book_type}]
+				// we can use GET params in filters. example: service_group_id = {service_group}
 				// {get parameter name}
 				// [active if {get parameter} is set]
-				// we can use GET params in filters. example: service_group_id = {service_group}
+				// [.. =ISNULL ..] is a secret (ok, to be replaced by IS NULL if the parameter is empty)
 				if (preg_match_all("/{([a-zA-Z0-9_\-]+)}/U", $this->table_meta['frontend_sql_filter'], $matches)) {
 					foreach ($matches[1] as &$param_name) {
 						$do_filter = false;
@@ -34,7 +35,7 @@ class MetaTableSiteLink extends MetaTable {
 										$param_value_min = $param_value_max;
 										$param_value_max = $s;
 									}
-									$this->table_meta['frontend_sql_filter'] = preg_replace("/(=|(<>))\s*{\s*" . $param_name . "\s*}/", '\\2 BETWEEN ' . $param_value_min . ' AND ' . $param_value_max, $this->table_meta['frontend_sql_filter']);
+									$this->table_meta['frontend_sql_filter'] = preg_replace("/(=|=ISNULL|(<>))\s*{\s*" . $param_name . "\s*}/", '\\2 BETWEEN ' . $param_value_min . ' AND ' . $param_value_max, $this->table_meta['frontend_sql_filter']);
 									$this->table_meta['frontend_sql_filter'] = str_replace('<> BETWEEN', ' NOT BETWEEN', $this->table_meta['frontend_sql_filter']);
 									$is_range = true;
 /*								} else {
@@ -68,17 +69,20 @@ class MetaTableSiteLink extends MetaTable {
 							}
 						} 
 						if (!$do_filter) {
-							// skip filtering in square brackets if SQL contains parameter name which is not defined in GET
-							// example: [service_group_id = {service_group}]
-							$this->table_meta['frontend_sql_filter'] = preg_replace("/\[[^{]*{\s*" . $param_name . "\s*}[^\]]*\]/", '1', $this->table_meta['frontend_sql_filter'], -1, $preg_replace_count);
+							$this->table_meta['frontend_sql_filter'] = preg_replace("/\[([^=]*)=ISNULL\s*{\s*" . $param_name . "\s*}[^\]]*\]/", '\\1 IS NULL', $this->table_meta['frontend_sql_filter'], -1, $preg_replace_count);
 							if (0 == $preg_replace_count) {
-								$do_run_query = false;
-								break; 
+								// skip filtering in square brackets if SQL contains parameter name which is not defined in GET
+								// example: [service_group_id = {service_group}]
+								$this->table_meta['frontend_sql_filter'] = preg_replace("/\[[^{]*{\s*" . $param_name . "\s*}[^\]]*\]/", '1', $this->table_meta['frontend_sql_filter'], -1, $preg_replace_count);
+								if (0 == $preg_replace_count) {
+									$do_run_query = false;
+									break; 
+								}
 							}
 						}
 					}
 					unset($param_name);
-// echo $this->table_meta['frontend_sql_filter'];
+					$this->table_meta['frontend_sql_filter'] = str_replace('=ISNULL', '=', $this->table_meta['frontend_sql_filter']);
 				}
 				// ! todo
 				//
