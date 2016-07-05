@@ -20,6 +20,10 @@
 
 		include('blog_template.php'); 
 
+	} elseif ($_GET['display_about']) {
+
+		include('about_template.php'); 
+
 	} else {
 	
 

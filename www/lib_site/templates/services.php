@@ -13,6 +13,12 @@ if ($_GET['service'] == false) {
 ?>
 
 <div class="g-container">
+	<div class="g-container-row vd_services_header">
+		<h1>Услуги</h1>
+		<div class="vd_services_header-popular">
+			Популярные услуги: <a href="">почасовая аренда офиса</a>, <a href="">офис под представительство в Москве</a>
+		</div>
+	</div>
 	<div class="g-container-row">
 		<h2 class="g-section-title">Cпецпредложения</h2>
 		<ul class="offers-items">
