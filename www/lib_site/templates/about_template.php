@@ -1,3 +1,31 @@
+<?
+
+	$about_contacts_email = $_POST['about_contacts_email'];
+	$about_contacts_name = $_POST['about_contacts_name'];
+	$about_contacts_message = $_POST['about_contacts_message'];
+	
+	$about_contacts_manager_message_text .= "Здравствуйте,\r\nНа сайте было отправлено новое сообщение через форму контактов на странице «О компании».";
+		
+	$about_contacts_manager_message_text .= "\r\n";
+	
+	$about_contacts_manager_message_text .= "\r\nДанные сообщения";
+	$about_contacts_manager_message_text .= "\r\nИмя: " . $about_contacts_name;
+	$about_contacts_manager_message_text .= "\r\nE-mail: " . $about_contacts_email;
+	$about_contacts_manager_message_text .= "\r\nСообщение: " . $about_contacts_message;
+	
+	$about_contacts_customer_message_text .= "Здравствуйте,\r\nВаше сообщение, отправленное через форму контактов на странице «О компании», было принято.";
+	
+	if ($about_contacts_email && $about_contacts_name && $about_contacts_message) {
+	
+		mail('e.izmalkova@gmail.com', 'Новое сообщение со страницы «О компании»', $about_contacts_manager_message_text);
+		
+		//mail('yojmm@yandex.ru', 'Новое сообщение со страницы «О компании»', $about_contacts_manager_message_text);
+		
+		mail($about_contacts_email, 'Ваше сообщение принято', $about_contacts_customer_message_text);
+		
+	}
+	
+?>
 <div class="vd_about_wrapper">
 	<div class="vd_about_wrapper-header">
 		<h1>О компании Деловой</h1>
@@ -6,19 +34,19 @@
 		<div class="g-container">
 		<ul>
 			<li>
-				<a href="">О нас</a>
+				<a href="#about">О нас</a>
 			</li>
 			<li>
-				<a href="">Блог</a>
+				<a href="#blog">Блог</a>
 			</li>
 			<li>
-				<a href="">Агентам</a>
+				<a href="#agents">Агентам</a>
 			</li>
 			<li>
-				<a href="">Наши клиенты</a>
+				<a href="#clients">Наши клиенты</a>
 			</li>
 			<li>
-				<a href="">Контакты</a>
+				<a href="#contacts">Контакты</a>
 			</li>
 			<li class="helper"></li>
 		</ul>
@@ -26,6 +54,7 @@
 	</div>
 	<div class="vd_about_wrapper-about">
 		<div class="g-container">
+			<a name="about"></a>
 			<h2 class="g-section-title">О нас</h2>
 			<div class="vd_about_wrapper-subtitle">
 				Сеть офисных центров «Деловой» — единственная в России компания, деятельность которой заключается в создании благоприятных условий работы для малого и среднего бизнеса.
@@ -40,6 +69,7 @@
 		</div>
 	</div>
 	<div class="vd_about_wrapper-blog">
+		<a name="blog"></a>
 		<h2 class="g-section-title">Блог</h2>
 		<div class="g-container">
 			<div class="vd_about_wrapper-blog-list">
@@ -114,6 +144,7 @@
 		</div>
 	</div>
 	<div class="vd_about_wrapper-agents">
+		<a name="agents"></a>
 		<h2 class="g-section-title">Агентам</h2>
 		<div class="g-container">
 			<p>
@@ -123,6 +154,7 @@
 		</div>
 	</div>
 	<div class="vd_about_wrapper-clients">
+		<a name="clients"></a>
 		<h2 class="g-section-title">Наши клиенты</h2>
 		<div class="g-container">
 			<div class="vd_about_wrapper-clients-list">
@@ -209,13 +241,36 @@
 		</div>
 	</div>
 	<div class="vd_about_wrapper-contacts">
+		<a name="contacts"></a>
 		<h2 class="g-section-title">Контакты главного офиса</h2>
 		<div class="vd_about_wrapper-contacts-inner">
 			<div class="g-container">
-				<div class="g-container-row">
-					TODO
+				<div class="azaza">
+					<div class="vd_about_wrapper-contacts-inner-data">
+						<div class="vd_about_wrapper-contacts-inner-data-block">
+							145464, Москва<br />
+							ул. Ленинская Слобода, 19<br />
+							этаж 4/5<br />
+							<span class="metro">Автозаводская</span>
+						</div>
+						<div class="vd_about_wrapper-contacts-inner-data-block">
+							<span class="phone">+7 (495) 765-78-76</span>
+							<span class="email"><a href="mailto:info@delovoy.su">info@delovoy.su</a></span>
+						</div>
+						<div class="vd_about_wrapper-contacts-inner-data-form">
+							<span class="title">Оставить сообщение</span>
+							<form method="post">
+								<input class="email" name="about_contacts_email" type="text" placeholder="E-mail">
+								<input class="name" name="about_contacts_name" type="text" placeholder="Имя">
+								<textarea class="message" name="about_contacts_message" placeholder="Сообщение"></textarea>
+								<input class="submit" type="submit" value="Отправить">
+							</form>
+						</div>
+					</div>
+					<div id="vd_about_wrapper-contacts-inner-map"></div>
 				</div>
 			</div>
+			
 		</div>
 	</div>
 </div>

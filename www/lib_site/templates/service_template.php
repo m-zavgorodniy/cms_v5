@@ -225,79 +225,86 @@
 	<div class="vd_serviceincenter_wrapper-about">
 		<a name="about" /></a>
 		<h2 class="g-section-title">Об услуге</h2>
-		<div class="vd_serviceincenter_wrapper-about-list">
-			<div class="vd_serviceincenter_wrapper-about-list-sublist included">
-				<div class="vd_serviceincenter_wrapper-about-list-sublist-header">
-					В услугу входит
+			<div class="g-container">
+			<div class="vd_serviceincenter_wrapper-about-list">
+				<div class="vd_serviceincenter_wrapper-about-list-sublist included">
+					<div class="vd_serviceincenter_wrapper-about-list-sublist-header">
+						В услугу входит
+					</div>
+					<?
+							
+					foreach ($_DATA['service2service_group']['items'] as $service2service_group_item) {
+						
+						if ($service2service_group_item['is_inclusive'] === '1') {
+							
+							$service2service_group_item_service_id = $service2service_group_item['service_id'];
+							$service2service_group_item_icon = $_DATA['service']['items'][$service2service_group_item_service_id]['icon_img_src'];
+							$service2service_group_item_title = $service2service_group_item['service_id_lookup'];
+							$service2service_group_item_desc = $_DATA['service']['items'][$service2service_group_item_service_id]['headline'];
+							
+							?>
+							<div class="vd_serviceincenter_wrapper-about-list-block">
+								<div class="vd_serviceincenter_wrapper-about-list-block-image">
+									<? echo '<img src="' . $service2service_group_item_icon . '" />'; ?>
+								</div>
+								<div class="vd_serviceincenter_wrapper-about-list-block-title">
+									<span><? echo $service2service_group_item_title; ?></span>
+								</div>
+								<div class="vd_serviceincenter_wrapper-about-list-block-desc">
+									<?echo $service2service_group_item_desc; ?>
+								</div>
+							</div>
+							<?
+							
+						}
+						
+					}		
+					
+					?>
 				</div>
-				<?
+				<div class="vd_serviceincenter_wrapper-about-list-sublist payed">
+					<div class="vd_serviceincenter_wrapper-about-list-sublist-header">
+						За дополнительную плату
+					</div>
+					<?
+							
+					foreach ($_DATA['service2service_group']['items'] as $service2service_group_item) {
 						
-				foreach ($_DATA['service2service_group']['items'] as $service2service_group_item) {
+						if ($service2service_group_item['is_inclusive'] === '0') {
+							
+							$service2service_group_item_service_id = $service2service_group_item['service_id'];
+							$service2service_group_item_icon = $_DATA['service']['items'][$service2service_group_item_service_id]['icon_img_src'];
+							$service2service_group_item_title = $service2service_group_item['service_id_lookup'];
+							$service2service_group_item_desc = $_DATA['service']['items'][$service2service_group_item_service_id]['headline'];
+							
+							?>
+							<div class="vd_serviceincenter_wrapper-about-list-block">
+								<div class="vd_serviceincenter_wrapper-about-list-block-image">
+									<? echo '<img src="' . $service2service_group_item_icon . '" />'; ?>
+								</div>
+								<div class="vd_serviceincenter_wrapper-about-list-block-title">
+									<span><? echo $service2service_group_item_title; ?></span>
+								</div>
+								<div class="vd_serviceincenter_wrapper-about-list-block-desc">
+									<?echo $service2service_group_item_desc; ?>
+								</div>
+							</div>
+							<?
+							
+						}
+						
+					}		
 					
-					if ($service2service_group_item['is_inclusive'] === '1') {
-						
-						$service2service_group_item_service_id = $service2service_group_item['service_id'];
-						$service2service_group_item_icon = $_DATA['service']['items'][$service2service_group_item_service_id]['icon_img_src'];
-						$service2service_group_item_title = $service2service_group_item['service_id_lookup'];
-						$service2service_group_item_desc = $_DATA['service']['items'][$service2service_group_item_service_id]['headline'];
-						
-						?>
-						<div class="vd_serviceincenter_wrapper-about-list-block">
-							<div class="vd_serviceincenter_wrapper-about-list-block-image">
-								<? echo '<img src="' . $service2service_group_item_icon . '" />'; ?>
-							</div>
-							<div class="vd_serviceincenter_wrapper-about-list-block-title">
-								<span><? echo $service2service_group_item_title; ?></span>
-							</div>
-							<div class="vd_serviceincenter_wrapper-about-list-block-desc">
-								<?echo $service2service_group_item_desc; ?>
-							</div>
-						</div>
-						<?
-						
-					}
-					
-				}		
-				
-				?>
-			</div>
-			<div class="vd_serviceincenter_wrapper-about-list-sublist payed">
-				<div class="vd_serviceincenter_wrapper-about-list-sublist-header">
-					За дополнительную плату
+					?>
 				</div>
-				<?
-						
-				foreach ($_DATA['service2service_group']['items'] as $service2service_group_item) {
-					
-					if ($service2service_group_item['is_inclusive'] === '0') {
-						
-						$service2service_group_item_service_id = $service2service_group_item['service_id'];
-						$service2service_group_item_icon = $_DATA['service']['items'][$service2service_group_item_service_id]['icon_img_src'];
-						$service2service_group_item_title = $service2service_group_item['service_id_lookup'];
-						$service2service_group_item_desc = $_DATA['service']['items'][$service2service_group_item_service_id]['headline'];
-						
-						?>
-						<div class="vd_serviceincenter_wrapper-about-list-block">
-							<div class="vd_serviceincenter_wrapper-about-list-block-image">
-								<? echo '<img src="' . $service2service_group_item_icon . '" />'; ?>
-							</div>
-							<div class="vd_serviceincenter_wrapper-about-list-block-title">
-								<span><? echo $service2service_group_item_title; ?></span>
-							</div>
-							<div class="vd_serviceincenter_wrapper-about-list-block-desc">
-								<?echo $service2service_group_item_desc; ?>
-							</div>
-						</div>
-						<?
-						
-					}
-					
-				}		
-				
-				?>
 			</div>
-		</div>
+		</div>	
 	</div>
+	<?
+	
+	if ($vd_show_gallery) {	
+		
+	?>
 	<div class="vd_service-gallery">
 		<a name="gallery" /></a>
 		<h2 class="g-section-title">Галерея</h2>
@@ -334,6 +341,13 @@
 		</div>
 	</div>
 	<?
+		
+	}
+	
+	?>
+	
+	
+	<?
 	if ($vd_service_group_id_show_plan) {
 		
 		$vd_service_group_id_show_plan_content = $_DATA['service_group_detail']['items'][$vd_service_group_id_show_plan];
@@ -346,14 +360,16 @@
 	<div class="vd_serviceincenter_wrapper-layout">
 		<a name="layout" /></a>
 		<h2 class="g-section-title">План офисов</h2>
-		<div class="vd_serviceincenter_wrapper-layout-image">
-			<img src="<? echo $vd_service_group_id_show_plan_img_src; ?>" data-src-big="<? echo $vd_service_group_id_show_plan_img_src_big; ?>" />
-			<div class="vd_serviceincenter_wrapper-layout-image-zoom">
-				увеличить
+		<div class="g-container">
+			<div class="vd_serviceincenter_wrapper-layout-image">
+				<img src="<? echo $vd_service_group_id_show_plan_img_src; ?>" data-src-big="<? echo $vd_service_group_id_show_plan_img_src_big; ?>" />
+				<div class="vd_serviceincenter_wrapper-layout-image-zoom">
+					увеличить
+				</div>
 			</div>
-		</div>
-		<div class="vd_serviceincenter_wrapper-layout-text">
-			<? echo $vd_service_group_id_show_plan_body; ?>
+			<div class="vd_serviceincenter_wrapper-layout-text">
+				<? echo $vd_service_group_id_show_plan_body; ?>
+			</div>
 		</div>
 	</div>
 	<?
@@ -365,148 +381,150 @@
 	<div class="vd_serviceincenter_wrapper-freeoffices">
 		<a name="freeoffices" /></a>
 		<h2 class="g-section-title">Свободные офисы в бизнес-центре «<? echo $vd_service_in_center_office_title; ?>»</h2>
-		<div class="vd_serviceincenter_wrapper-freeoffices-list">
-			<?
-			
-			foreach ($_DATA['office_center_room']['items'] as $single_office_center_room) {
+		<div class="g-container">
+			<div class="vd_serviceincenter_wrapper-freeoffices-list">
+				<?
 				
-				$single_office_center_room_price = number_format($single_office_center_room['price'], 0, '', ' ');
+				foreach ($_DATA['office_center_room']['items'] as $single_office_center_room) {
+					
+					$single_office_center_room_price = number_format($single_office_center_room['price'], 0, '', ' ');
+					
+					$single_office_center_room_price_full = number_format(($single_office_center_room['price'] * $single_office_center_room['seats_num']), 0, '', ' ');
+					
+					$single_office_center_room_service_item_value = reset($_DATA['office_center2service_group']['items']);
+					
+					$single_office_center_room_price_for_lookup = $single_office_center_room_service_item_value['price_for_lookup'];
+					
+					$single_office_center_room_price_term_lookup = $single_office_center_room_service_item_value['price_term_lookup'];
+					
+				?>
 				
-				$single_office_center_room_price_full = number_format(($single_office_center_room['price'] * $single_office_center_room['seats_num']), 0, '', ' ');
-				
-				$single_office_center_room_service_item_value = reset($_DATA['office_center2service_group']['items']);
-				
-				$single_office_center_room_price_for_lookup = $single_office_center_room_service_item_value['price_for_lookup'];
-				
-				$single_office_center_room_price_term_lookup = $single_office_center_room_service_item_value['price_term_lookup'];
-				
-			?>
-			
-			<div class="vd_serviceincenter_wrapper-freeoffices-list-element">
-				<div class="vd_serviceincenter_wrapper-freeoffices-list-element-header">
-					<div class="vd_serviceincenter_wrapper-freeoffices-list-element-header-office">
-						<img src="<? echo $single_office_center_room['img_src']; ?>" />
-						<span><? echo $single_office_center_room['title']; ?></span>
-					</div>
-					<div class="vd_serviceincenter_wrapper-freeoffices-list-element-header-area">
-						<? echo number_format($single_office_center_room['floor_area_m2']); ?> кв. м
-					</div>
-					<div class="vd_serviceincenter_wrapper-freeoffices-list-element-header-people">
-						до <? echo $single_office_center_room['seats_num']; ?> человек
-					</div>
-					<div class="vd_serviceincenter_wrapper-freeoffices-list-element-header-price">
-						<div class="reserve">ЗАБРОНИРОВАТЬ</div>
-						<span class="price"><span><? echo $single_office_center_room_price; ?></span> ₽ / <? echo $single_office_center_room_price_for_lookup . ' в ' . $single_office_center_room_price_term_lookup; ?></span>
-						<?
-						
-						if ($single_office_center_room['price_bonus']) {
+				<div class="vd_serviceincenter_wrapper-freeoffices-list-element">
+					<div class="vd_serviceincenter_wrapper-freeoffices-list-element-header">
+						<div class="vd_serviceincenter_wrapper-freeoffices-list-element-header-office">
+							<img src="<? echo $single_office_center_room['img_src']; ?>" />
+							<span><? echo $single_office_center_room['title']; ?></span>
+						</div>
+						<div class="vd_serviceincenter_wrapper-freeoffices-list-element-header-area">
+							<? echo number_format($single_office_center_room['floor_area_m2']); ?> кв. м
+						</div>
+						<div class="vd_serviceincenter_wrapper-freeoffices-list-element-header-people">
+							до <? echo $single_office_center_room['seats_num']; ?> человек
+						</div>
+						<div class="vd_serviceincenter_wrapper-freeoffices-list-element-header-price">
+							<div class="reserve">ЗАБРОНИРОВАТЬ</div>
+							<span class="price"><span><? echo $single_office_center_room_price; ?></span> ₽ / <? echo $single_office_center_room_price_for_lookup . ' в ' . $single_office_center_room_price_term_lookup; ?></span>
+							<?
 							
-							echo '<span class="special">' . $single_office_center_room['price_bonus'] . '</span>';
-							
-						}
-							
-						?>
+							if ($single_office_center_room['price_bonus']) {
+								
+								echo '<span class="special">' . $single_office_center_room['price_bonus'] . '</span>';
+								
+							}
+								
+							?>
+						</div>
 					</div>
-				</div>
-				<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu">
-					<form action="" method="post">
-						<input type="hidden" name="form_type" class="form_type" value="">
-						<input type="hidden" name="business_center" value="<? echo $single_office_center_room['office_center_id_lookup']; ?>">
-						<input type="hidden" name="office_number" value="<? echo filter_var($single_office_center_room['title'], FILTER_SANITIZE_NUMBER_INT); ?>">
-						<input type="hidden" name="office_area" value="<? echo number_format($single_office_center_room['floor_area_m2']); ?> кв. м">
-						<input type="hidden" name="office_seats_num" value="<? echo $single_office_center_room['seats_num']; ?>">
-						<input type="hidden" name="office_cost_seat" value="<? echo $single_office_center_room_price; ?> ₽ / <? echo $single_office_center_room_price_for_lookup . ' в ' . $single_office_center_room_price_term_lookup; ?>">
-						<input type="hidden" name="office_cost_total" value="<? echo $single_office_center_room_price_full; ?> ₽ / <? echo $single_office_center_room_price_term_lookup; ?>">
-					<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-title">
-						Данные бронирования
-					</div>
-					<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform">
-						<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-left">
-							<table>
-								<tr>
-									<td>Бизнес-центр</td>
-									<td><? echo $single_office_center_room['office_center_id_lookup']; ?></td>
-								</tr>
-								<tr>
-									<td>Офис</td>
-									<td>
+					<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu">
+						<form action="" method="post">
+							<input type="hidden" name="form_type" class="form_type" value="">
+							<input type="hidden" name="business_center" value="<? echo $single_office_center_room['office_center_id_lookup']; ?>">
+							<input type="hidden" name="office_number" value="<? echo filter_var($single_office_center_room['title'], FILTER_SANITIZE_NUMBER_INT); ?>">
+							<input type="hidden" name="office_area" value="<? echo number_format($single_office_center_room['floor_area_m2']); ?> кв. м">
+							<input type="hidden" name="office_seats_num" value="<? echo $single_office_center_room['seats_num']; ?>">
+							<input type="hidden" name="office_cost_seat" value="<? echo $single_office_center_room_price; ?> ₽ / <? echo $single_office_center_room_price_for_lookup . ' в ' . $single_office_center_room_price_term_lookup; ?>">
+							<input type="hidden" name="office_cost_total" value="<? echo $single_office_center_room_price_full; ?> ₽ / <? echo $single_office_center_room_price_term_lookup; ?>">
+						<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-title">
+							Данные бронирования
+						</div>
+						<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform">
+							<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-left">
+								<table>
+									<tr>
+										<td>Бизнес-центр</td>
+										<td><? echo $single_office_center_room['office_center_id_lookup']; ?></td>
+									</tr>
+									<tr>
+										<td>Офис</td>
+										<td>
+										<?
+											echo filter_var($single_office_center_room['title'], FILTER_SANITIZE_NUMBER_INT);
+											
+										?>
+										</td>
+									</tr>
+									<tr>
+										<td>Площадь</td>
+										<td><? echo number_format($single_office_center_room['floor_area_m2']); ?> кв. м</td>
+									</tr>
+									<tr>
+										<td>Рабочих мест</td>
+										<td><? echo $single_office_center_room['seats_num']; ?></td>
+									</tr>
+									<tr>
+										<td>Стоимость</td>
+										<td><? echo $single_office_center_room_price; ?> ₽ / <? echo $single_office_center_room_price_for_lookup . ' в ' . $single_office_center_room_price_term_lookup; ?></td>
+									</tr>
 									<?
-										echo filter_var($single_office_center_room['title'], FILTER_SANITIZE_NUMBER_INT);
+									
+									if ($single_office_center_room['price_bonus']) {
+										
+										echo '<tr class="special"><td></td><td>' . $single_office_center_room['price_bonus'] . '</td></tr>';
+										
+									}
 										
 									?>
-									</td>
-								</tr>
-								<tr>
-									<td>Площадь</td>
-									<td><? echo number_format($single_office_center_room['floor_area_m2']); ?> кв. м</td>
-								</tr>
-								<tr>
-									<td>Рабочих мест</td>
-									<td><? echo $single_office_center_room['seats_num']; ?></td>
-								</tr>
-								<tr>
-									<td>Стоимость</td>
-									<td><? echo $single_office_center_room_price; ?> ₽ / <? echo $single_office_center_room_price_for_lookup . ' в ' . $single_office_center_room_price_term_lookup; ?></td>
-								</tr>
-								<?
-								
-								if ($single_office_center_room['price_bonus']) {
-									
-									echo '<tr class="special"><td></td><td>' . $single_office_center_room['price_bonus'] . '</td></tr>';
-									
-								}
-									
-								?>
-								<tr class="total">
-									<td>Итого</td>
-									<td><span><? echo $single_office_center_room_price_full; ?></span> ₽ / <? echo $single_office_center_room_price_term_lookup; ?></td>
-								</tr>
-							</table>
-						</div>
-						<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right">
-							<input type="text" name="phone" class="phone" value="" placeholder="+7 (___) ___-__-__">
-							<input type="text" name="email" class="email" value="" placeholder="E-mail">
-							<input type="text" name="name" class="name" value="" placeholder="Имя">
-							<textarea class="message" name="message" placeholder="Ваше сообщение"></textarea>
-							<div class="warning">Обратите внимание! Услуга бронируется <span>только</span> до конца следующего дня</div>
-							<button>ЗАБРОНИРОВАТЬ</button>
-						</div>
-						
-					</div>
-					<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform">
+									<tr class="total">
+										<td>Итого</td>
+										<td><span><? echo $single_office_center_room_price_full; ?></span> ₽ / <? echo $single_office_center_room_price_term_lookup; ?></td>
+									</tr>
+								</table>
+							</div>
+							<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right">
+								<input type="text" name="phone" class="phone" value="" placeholder="+7 (___) ___-__-__">
+								<input type="text" name="email" class="email" value="" placeholder="E-mail">
+								<input type="text" name="name" class="name" value="" placeholder="Имя">
+								<textarea class="message" name="message" placeholder="Ваше сообщение"></textarea>
+								<div class="warning">Обратите внимание! Услуга бронируется <span>только</span> до конца следующего дня</div>
+								<button>ЗАБРОНИРОВАТЬ</button>
+							</div>
 							
-						<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-left">
-							<p>Перед бронированием вы можете осмотреть выбранный офис. Для этого отметьте удобную дату и время просмотра и наш менеджер свяжется с вами.</p>
 						</div>
-						<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right">
-							<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-preview">
-								<label class="preview_label"><input type="checkbox" class="preview"><span></span>Заказать предварительный просмотр офиса</label>
+						<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform">
+								
+							<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-left">
+								<p>Перед бронированием вы можете осмотреть выбранный офис. Для этого отметьте удобную дату и время просмотра и наш менеджер свяжется с вами.</p>
 							</div>
-							<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-datetime">
-								<label class="date_label">Выберите дату просмотра <input type="text" name="date" class="date" placeholder="Выберите дату"></label><label class="time_label">Время просмотра <select class="time" name="time">
-									<option disabled="disabled">Выберите время</option>
-									<option value="10.00 – 11.00" selected="selected">10.00 – 11.00</option>
-									<option value="12.00 – 13.00">12.00 – 13.00</option>
-									<option value="14.00 – 15.00">14.00 – 15.00</option>
-									<option value="16.00 – 17.00">16.00 – 17.00</option>
-									<option value="17.00 – 18.00">17.00 – 18.00</option>
-								</select></label>
-							</div>
-							<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-submit disabled">
-								ЗАКАЗАТЬ ПРОСМОТР
-							</div>
-						</div>		
+							<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right">
+								<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-preview">
+									<label class="preview_label"><input type="checkbox" class="preview"><span></span>Заказать предварительный просмотр офиса</label>
+								</div>
+								<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-datetime">
+									<label class="date_label">Выберите дату просмотра <input type="text" name="date" class="date" placeholder="Выберите дату"></label><label class="time_label">Время просмотра <select class="time" name="time">
+										<option disabled="disabled">Выберите время</option>
+										<option value="10.00 – 11.00" selected="selected">10.00 – 11.00</option>
+										<option value="12.00 – 13.00">12.00 – 13.00</option>
+										<option value="14.00 – 15.00">14.00 – 15.00</option>
+										<option value="16.00 – 17.00">16.00 – 17.00</option>
+										<option value="17.00 – 18.00">17.00 – 18.00</option>
+									</select></label>
+								</div>
+								<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-submit disabled">
+									ЗАКАЗАТЬ ПРОСМОТР
+								</div>
+							</div>		
+						</div>
+						</form>
 					</div>
-					</form>
 				</div>
+				
+				<?	
+					
+				}	
+					
+				?>
+				
 			</div>
-			
-			<?	
-				
-			}	
-				
-			?>
-			
 		</div>
 	</div>
 	<?

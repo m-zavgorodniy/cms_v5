@@ -100,7 +100,7 @@
 ?>
 
 <div class="vd_singleofficewrapper">
-	<div class="vd_singleofficewrapper-header" style="background-image: url(<?php echo $single_office_center_img_int; ?>); background-size: cover;">
+	<div class="vd_singleofficewrapper-header" style="background-image: url(<?php echo $single_office_center_ext_int; ?>); background-size: cover;">
 		<div class="vd_singleofficewrapper-header-subtitle">
 			Бизнес-центр
 		</div>

@@ -6,140 +6,162 @@ jQuery.fn.outerHTML = function(s) {
 
 
 function initMap() {
-
-	map = new google.maps.Map(document.getElementById('vd_mapwrapper-map'), {
-		center: {lat: 51.000, lng: 45.496},
-		zoom: 5,
-		scrollwheel: false,
-		styles: [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"saturation":-100},{"lightness":51},{"visibility":"simplified"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}]
-	});
-
-	/* filling up the map on the office center list page */
 	
-	if (jQuery('.vd_officelistwrapper-office-coordinates').length > 0) {
-	
-		var officecenter_number = jQuery('.vd_officelistwrapper-office').length;
+	if (jQuery('#vd_about_wrapper-contacts-inner-map').length > 0) {
 		
-	// 	var infowindow = new google.maps.InfoWindow();
-	
-		var infowindow = new InfoBubble({
-			map: map,
-			minWidth: 200,
-			minHeight: 80,
-			content: '',
-			shadowStyle: 0,
-			padding: 9,
-			backgroundColor: '#ffffff',
-			borderRadius: 0,
-			arrowSize: 0,
-			borderWidth: 0,
-			borderColor: '#ffffff',
-			disableAutoPan: true,
-			hideCloseButton: true,
-			arrowPosition: 30,
-			backgroundClassName: 'vd_office_markerinfowindow',
-			arrowStyle: 0
-	    });
-	    
-	    var content_list = {};
-	    
-	    var markers = [];
-	    
-	    var options = {
-	        imagePath: '../images/m',
-	        styles: [{
-		        url: '../images/m1.png',
-		        height: 72,
-		        width: 72,
-		        textColor: '#ffffff',
-		        textSize: '30'
-	        }, {
-		        url: '../images/m1.png',
-		        height: 72,
-		        width: 72,
-		        textColor: '#ffffff',
-		        textSize: '30'
-	        }, {
-		        url: '../images/m1.png',
-		        height: 72,
-		        width: 72,
-		        textColor: '#ffffff',
-		        textSize: '30'
-	        }, {
-		        url: '../images/m1.png',
-		        height: 72,
-		        width: 72,
-		        textColor: '#ffffff',
-		        textSize: '30'
-	        }, {
-		        url: '../images/m1.png',
-		        height: 72,
-		        width: 72,
-		        textColor: '#ffffff',
-		        textSize: '30'
-	        }]
-	    };
+		map = new google.maps.Map(document.getElementById('vd_about_wrapper-contacts-inner-map'), {
+			center: {lat: 55.7086573, lng: 37.6530437},
+			zoom: 17,
+			scrollwheel: false,
+			styles: [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"saturation":-100},{"lightness":51},{"visibility":"simplified"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}]
+		});
 		
-		for (i = 0; i < officecenter_number; i++) {
+		var marker = new google.maps.Marker({
+			position: {lat: 55.7086573, lng: 37.6530437},
+			title: 'xynta',
+			icon: vd_get_pin(),
+			map: map
+		});
+		
+	}
+	
+	if (jQuery('#vd_mapwrapper-map').length > 0) {
+
+		map = new google.maps.Map(document.getElementById('vd_mapwrapper-map'), {
+			center: {lat: 51.000, lng: 45.496},
+			zoom: 5,
+			scrollwheel: false,
+			styles: [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"saturation":-100},{"lightness":51},{"visibility":"simplified"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}]
+		});
+	
+		/* filling up the map on the office center list page */
+		
+		if (jQuery('.vd_officelistwrapper-office-coordinates').length > 0) {
+		
+			var officecenter_number = jQuery('.vd_officelistwrapper-office').length;
 			
-			var coordinates = jQuery('.vd_officelistwrapper-office-coordinates', jQuery('.vd_officelistwrapper-office')[i]).val();
-			var color = jQuery('.vd_officelistwrapper-office-color', jQuery('.vd_officelistwrapper-office')[i]).val();
+		// 	var infowindow = new google.maps.InfoWindow();
+		
+			var infowindow = new InfoBubble({
+				map: map,
+				minWidth: 200,
+				minHeight: 80,
+				content: '',
+				shadowStyle: 0,
+				padding: 9,
+				backgroundColor: '#ffffff',
+				borderRadius: 0,
+				arrowSize: 0,
+				borderWidth: 0,
+				borderColor: '#ffffff',
+				disableAutoPan: true,
+				hideCloseButton: true,
+				arrowPosition: 30,
+				backgroundClassName: 'vd_office_markerinfowindow',
+				arrowStyle: 0
+		    });
+		    
+		    var content_list = {};
+		    
+		    var markers = [];
+		    
+		    var options = {
+		        imagePath: '../images/m',
+		        styles: [{
+			        url: '../images/m1.png',
+			        height: 72,
+			        width: 72,
+			        textColor: '#ffffff',
+			        textSize: '30'
+		        }, {
+			        url: '../images/m1.png',
+			        height: 72,
+			        width: 72,
+			        textColor: '#ffffff',
+			        textSize: '30'
+		        }, {
+			        url: '../images/m1.png',
+			        height: 72,
+			        width: 72,
+			        textColor: '#ffffff',
+			        textSize: '30'
+		        }, {
+			        url: '../images/m1.png',
+			        height: 72,
+			        width: 72,
+			        textColor: '#ffffff',
+			        textSize: '30'
+		        }, {
+			        url: '../images/m1.png',
+			        height: 72,
+			        width: 72,
+			        textColor: '#ffffff',
+			        textSize: '30'
+		        }]
+		    };
 			
-			var link = jQuery('a', jQuery('.vd_officelistwrapper-office')[i]).attr('href');
+			for (i = 0; i < officecenter_number; i++) {
+				
+				var coordinates = jQuery('.vd_officelistwrapper-office-coordinates', jQuery('.vd_officelistwrapper-office')[i]).val();
+				var color = jQuery('.vd_officelistwrapper-office-color', jQuery('.vd_officelistwrapper-office')[i]).val();
+				
+				var link = jQuery('a', jQuery('.vd_officelistwrapper-office')[i]).attr('href');
+				
+				var coordinates_array = coordinates.split(',');
+				var marker = new google.maps.Marker({
+					position: {lat: parseFloat(coordinates_array[0]), lng: parseFloat(coordinates_array[1])},
+					title: 'xynta',
+					icon: vd_get_pin(color)
+				});
+				
+				markers.push(marker);
+				
+				var content_string = '<a href="' + link + '"><div class="vd_officeinfowindow-header" style="background-color: ' + color + ';"><p>' + jQuery('.vd_officelistwrapper-office-name', jQuery('.vd_officelistwrapper-office')[i]).text() + '</p></div>' + jQuery('.vd_officelistwrapper-office-services', jQuery('.vd_officelistwrapper-office')[i]).outerHTML() + '</a>';
+				
+				content_list[i] = content_string;
+				
+				google.maps.event.addListener(marker, 'click', (function(marker, i) {
+					return function() {
+						infowindow.setContent(content_list[i]);
+						infowindow.open(map, marker);
+					}
+				})(marker, i));
+		
+		
+				/* close the marker's infowindow, if it doesn't have a map after zooming out (and becoming a part of the cluster) */
+				google.maps.event.addListener(marker, 'map_changed', (function(marker, i) {
+					return function() {
+						if (this.getMap() != false ) {
+							infowindow.close();
+						}
+					}
+				})(marker, i));
+				
+			}
 			
+			var markerCluster = new MarkerClusterer(map, markers, options);
+	
+		} else if (jQuery('.vd_singleofficewrapper-content-contacts-coordinates').length == 1) {
+	
+			map.setZoom(17);
+	
+			var coordinates = jQuery('.vd_singleofficewrapper-content-contacts-coordinates').val();
+			
+			var color = jQuery('.vd_singleofficewrapper-content-contacts-color').val();
+	
 			var coordinates_array = coordinates.split(',');
+	
+			map.setCenter({lat: parseFloat(coordinates_array[0]), lng: parseFloat(coordinates_array[1])});
+	
 			var marker = new google.maps.Marker({
 				position: {lat: parseFloat(coordinates_array[0]), lng: parseFloat(coordinates_array[1])},
 				title: 'xynta',
-				icon: vd_get_pin(color)
+				icon: vd_get_pin(color),
+				map: map
 			});
-			
-			markers.push(marker);
-			
-			var content_string = '<a href="' + link + '"><div class="vd_officeinfowindow-header" style="background-color: ' + color + ';"><p>' + jQuery('.vd_officelistwrapper-office-name', jQuery('.vd_officelistwrapper-office')[i]).text() + '</p></div>' + jQuery('.vd_officelistwrapper-office-services', jQuery('.vd_officelistwrapper-office')[i]).outerHTML() + '</a>';
-			
-			content_list[i] = content_string;
-			
-			google.maps.event.addListener(marker, 'click', (function(marker, i) {
-				return function() {
-					infowindow.setContent(content_list[i]);
-					infowindow.open(map, marker);
-				}
-			})(marker, i));
 	
-	
-			/* close the marker's infowindow, if it doesn't have a map after zooming out (and becoming a part of the cluster) */
-			google.maps.event.addListener(marker, 'map_changed', (function(marker, i) {
-				return function() {
-					if (this.getMap() != false ) {
-						infowindow.close();
-					}
-				}
-			})(marker, i));
-			
 		}
 		
-		var markerCluster = new MarkerClusterer(map, markers, options);
-
-	} else if (jQuery('.vd_singleofficewrapper-content-contacts-coordinates').length == 1) {
-
-		map.setZoom(17);
-
-		var coordinates = jQuery('.vd_singleofficewrapper-content-contacts-coordinates').val();
-		
-		var color = jQuery('.vd_singleofficewrapper-content-contacts-color').val();
-
-		var coordinates_array = coordinates.split(',');
-
-		map.setCenter({lat: parseFloat(coordinates_array[0]), lng: parseFloat(coordinates_array[1])});
-
-		var marker = new google.maps.Marker({
-			position: {lat: parseFloat(coordinates_array[0]), lng: parseFloat(coordinates_array[1])},
-			title: 'xynta',
-			icon: vd_get_pin(color),
-			map: map
-		});
-
 	}
 	
 }
@@ -341,6 +363,85 @@ jQuery(document).on('click', '.vd_subservice_list-item', function() {
 		jQuery(this).next('.vd_subservice_list-item-sublist').jScrollPane();
 	}
 	return false;
+});
+
+/* about us contacts form interactivity */
+
+jQuery(document).on('submit', '.vd_about_wrapper-contacts-inner-data-form form', function(e) {
+	
+// 	e.preventDefault();
+	
+	var send = true;
+	
+	if (validateEmail(jQuery('input.email', jQuery(this)).val()) == false) {
+		send = false;
+		jQuery('input.email', jQuery(this)).addClass('error');
+	}
+	
+	if (jQuery('input.email', jQuery(this)).val().length == 0) {
+		send = false;
+		jQuery('input.email', jQuery(this)).addClass('error');
+	}
+	
+	if (jQuery('input.name', jQuery(this)).val().length < 2) {
+		send = false;
+		jQuery('input.name', jQuery(this)).addClass('error');
+	}
+	
+	if (jQuery('textarea.message', jQuery(this)).val().length == 0) {
+		send = false;
+		jQuery('textarea.message', jQuery(this)).addClass('error');
+	}
+	
+	if (send == true) {
+		jQuery(this).submit();
+	} else {
+		return false;
+	}
+	
+});
+
+/* special offers form interactivity */
+
+jQuery(document).on('submit', '.vd_specialoffer-offers-list-element-menu form', function(e) {
+
+	var send = true;
+	
+	if (jQuery('input.phone', jQuery(this)).val().length < 18) {
+		send = false;
+		jQuery('input.phone', jQuery(this)).addClass('error');
+	}
+	
+	if (validateEmail(jQuery('input.email', jQuery(this)).val()) == false) {
+		send = false;
+		jQuery('input.email', jQuery(this)).addClass('error');
+	}
+	
+	if (jQuery('input.email', jQuery(this)).val().length == 0) {
+		send = false;
+		jQuery('input.email', jQuery(this)).addClass('error');
+	}
+	
+	if (jQuery('input.name', jQuery(this)).val().length < 2) {
+		send = false;
+		jQuery('input.name', jQuery(this)).addClass('error');
+	}
+	
+	if (jQuery('textarea.message', jQuery(this)).val().length == 0) {
+		send = false;
+		jQuery('textarea.message', jQuery(this)).addClass('error');
+	}
+	
+	if (send == true) {
+		
+		jQuery(this).submit();
+		
+	} else {
+		
+		return false;
+		
+	}
+	
 });
 
 $(function() {

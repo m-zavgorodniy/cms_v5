@@ -41,8 +41,8 @@ define('MOBILE_MEDIA', 'screen and (max-width:' . MOBILE_BREAKPOINT_PX . 'px)');
     <div class="body-wrap">
         <header class="header">
             <div class="header-top">
-                <div class="header-top-left"><span>ГОРНЫЙ ДЕЛОВОЙ ЦЕНТР</span> в Роза Хутор. Работа и учеба в горах.</div>
-                <div class="header-top-right"><a href="#">УЗНАТЬ БОЛЬШЕ</a></div>
+                <div class="header-top-left"><a href="/business-centers/?center=6"><span>ГОРНЫЙ ДЕЛОВОЙ ЦЕНТР</span> в Роза Хутор. Работа и учеба в горах.</a></div>
+                <div class="header-top-right"><a href="/business-centers/?center=6">УЗНАТЬ БОЛЬШЕ</a></div>
             </div>
             <div class="g-container"><div class="g-container-row">
                 <div class="header-nav g-clearfix">
