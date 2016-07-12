@@ -100,7 +100,7 @@
 ?>
 
 <div class="vd_singleofficewrapper">
-	<div class="vd_singleofficewrapper-header" style="background-image: url(<?php echo $single_office_center_ext_int; ?>); background-size: cover;">
+	<div class="vd_singleofficewrapper-header" style="background-image: url(<?php echo $single_office_center_img_ext; ?>); background-size: cover;">
 		<div class="vd_singleofficewrapper-header-subtitle">
 			Бизнес-центр
 		</div>
@@ -133,6 +133,7 @@
 	</div>
 	<div class="vd_singleofficewrapper-content">
 		<div class="vd_singleofficewrapper-content-about">
+			<div class="g-container">
 			<a name="about"></a>
 			<h2 class="g-section-title">О бизнес-центре</h2>
 			<?
@@ -201,6 +202,7 @@
 			}	
 				
 			?>
+			</div>
 		</div>
 		<?
 		
@@ -248,6 +250,7 @@
 			
 		?>
 		<div class="vd_singleofficewrapper-content-services">
+			<div class="g-container">
 			<a name="services"></a>
 			<h2 class="g-section-title">Услуги</h2>
 			<table class="vd_singleofficewrapper-content-services-table">
@@ -438,9 +441,11 @@
 				echo implode('', array_map(orly_2, $out_service_rows));
 				?>
 			</table>
+			</div>
 		</div>
 		<div class="vd_singleofficewrapper-content-contacts">
 			<a name="contacts"></a>
+			<div class="g-container">
 			<h2 class="g-section-title">Контакты</h2>
 			<div class="vd_singleofficewrapper-content-contacts-details">
 				<div class="vd_singleofficewrapper-content-contacts-details-left">
@@ -510,6 +515,7 @@
 				        </li>
 				    </ul>		
 				</div>
+			</div>
 			</div>
 		</div>
 	</div>
