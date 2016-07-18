@@ -211,6 +211,12 @@ jQuery(document).on('change', '.preview', function() {
 });
 
 jQuery(document).ready(function() {
+	
+	jQuery('.vd_serviceincenter_wrapper-virtualrates-list-form select').selectmenu({
+		position: { my : "center top+12", at: "center bottom" }
+	});
+	
+	
 	jQuery('.time').selectmenu({
 		position: { my : "center top+12", at: "center bottom" }
 	});

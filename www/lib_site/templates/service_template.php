@@ -375,6 +375,141 @@
 	<?
 	}
 	
+	if ($_GET['show_virtual_details'] == 'true') {
+		
+	?>
+	
+	<div class="vd_serviceincenter_wrapper-virtualrates">
+		<a name="freeoffices" /></a>
+		<h2 class="g-section-title">Тарифы</h2>
+		<div class="g-container">
+			<div class="vd_serviceincenter_wrapper-virtualrates-list">
+				<div class="vd_serviceincenter_wrapper-virtualrates-list-header">
+					<table>
+						<tr class="table_header">
+							<th class="label">Тарифы</th>
+							<th>Почтовый адрес</th>
+							<th>Виртуальный офис</th>
+							<th>Виртуальный офис +</th>
+							<th>Виртуальный офис +<br />юридический адрес</th>
+						</tr>
+						<tr class="prices">
+							<td></td>
+							<td>от <span>3 490</span> руб./мес</td>
+							<td>от <span>4 490</span> руб./мес</td>
+							<td>от <span>7 490</span> руб./мес</td>
+							<td>от <span>9 500</span> руб./мес</td>
+						</tr>
+						<tr class="reverse_buttons">
+							<td></td>
+							<td>
+								<span class="reserve reserved" data-virtual-form-id="1">
+									Забронировано
+								</span>
+							</td>
+							<td>
+								<span class="reserve" data-virtual-form-id="2">
+									Забронировать
+								</span>
+							</td>
+							<td>
+								<span class="reserve active" data-virtual-form-id="3">
+									Забронировать
+								</span>
+							</td>
+							<td>
+								<span class="reserve" data-virtual-form-id="4">
+									Забронировать
+								</span>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="vd_serviceincenter_wrapper-virtualrates-list-forms">
+					<div class="vd_serviceincenter_wrapper-virtualrates-list-form" data-virtual-form="2">
+						<h2>Данные бронирования</h2>
+						<div class="vd_serviceincenter_wrapper-virtualrates-list-form-rigth">
+							<input type="text" class="phone" placeholder="+7 (___) ___-__-__" maxlength="18">
+							<input type="text" class="email" placeholder="E-mail">
+							<input type="text" class="name" placeholder="Имя">
+							<textarea class="message" placeholder="Ваше сообщение"></textarea>
+							<button>Забронировать виртуальный офис</button>
+							<button class="disabled">Получить консультацию</button>
+						</div>
+						<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left">
+							<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item">
+								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-label">
+									Бизнес-центр
+								</div>
+								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-value">
+									<select>
+										<option>Арма</option>
+										<option>Башня</option>
+										<option>Горный</option>
+									</select>
+								</div>
+							</div>
+							<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item">
+								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-label">
+									Тариф
+								</div>
+								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-value">
+									Виртуальный офис +
+								</div>
+							</div>
+							<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item">
+								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-label">
+									Стоимость
+								</div>
+								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-value">
+									7 400 рублей в месяц
+								</div>
+							</div>
+							<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item">
+								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-label">
+									Срок
+								</div>
+								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-value">
+									<select>
+										<option>1 месяц</option>
+										<option>3 месяцев</option>
+										<option>6 месяцев</option>
+										<option>12 месяцев</option>
+									</select>
+								</div>
+							</div>
+							<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-total">
+								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-total-label">
+									Итого
+								</div>
+								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-total-value">
+									<span>44 400</span> рублей
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<?	
+		
+	}
+	
+	if ($_GET['show_coworking_details'] == 'true') {
+		
+		
+		
+	}
+	
+	if ($_GET['show_meeting_details'] == 'true') {
+		
+		
+		
+	}
+	
+	
 	if (count($_DATA['office_center_room']['items']) > 1) {	
 		
 	?>
