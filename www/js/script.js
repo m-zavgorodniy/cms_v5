@@ -216,6 +216,9 @@ jQuery(document).ready(function() {
 		position: { my : "center top+12", at: "center bottom" }
 	});
 	
+	jQuery('.vd_serviceincenter_wrapper-meetingrates-list-item-form-left select').selectmenu({
+		position: { my : "center top+12", at: "center bottom" }
+	});
 	
 	jQuery('.time').selectmenu({
 		position: { my : "center top+12", at: "center bottom" }

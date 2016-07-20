@@ -497,13 +497,133 @@
 		
 	}
 	
-	if ($_GET['show_coworking_details'] == 'true') {
+	if ($_GET['show_meeting_details'] == 'true') {
 		
-		
+	?>
+	
+	<div class="vd_serviceincenter_wrapper-meetingrates">
+		<a name="freeoffices" /></a>
+		<h2 class="g-section-title">Переговорные в бизнес-центре «Алексеевская Башня»</h2>
+		<div class="g-container">
+			<div class="vd_serviceincenter_wrapper-meetingrates-list">
+				<div class="vd_serviceincenter_wrapper-meetingrates-list-item open">
+					<div class="vd_serviceincenter_wrapper-meetingrates-list-item-header">
+						<div class="vd_serviceincenter_wrapper-meetingrates-list-item-header-photo">
+							<img src="http://dev.viaduct.pro/uploads/images/office_centers/arma/gallery/.resize/21_MOR_5963.175x100.jpg" />
+						</div>
+						<div class="vd_serviceincenter_wrapper-meetingrates-list-item-header-name">
+							<span>Большой зал</span>
+						</div>
+						<div class="vd_serviceincenter_wrapper-meetingrates-list-item-header-area">
+							38 кв. м
+						</div>
+						<div class="vd_serviceincenter_wrapper-meetingrates-list-item-header-people">
+							до 18 человек
+						</div>
+						<div class="vd_serviceincenter_wrapper-meetingrates-list-item-header-price">
+							<span>1 225 – 2 800 ₽</span>/час
+							<button class="active">Забронировать</button>
+						</div>
+					</div>
+					<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form">
+						<h2>Данные бронирования</h2>
+						<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-right">
+							<input type="text" class="phone" placeholder="+7 (___) ___-__-__" maxlength="18">
+							<input type="text" class="email" placeholder="E-mail">
+							<input type="text" class="name" placeholder="Имя">
+							<textarea class="message" placeholder="Ваше сообщение"></textarea>
+							<button>Забронировать</button>
+							<button class="disabled">Получить консультацию</button>
+						</div>
+						<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left">
+							<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item">
+								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-label">
+									Бизнес-центр
+								</div>
+								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-value">
+									Алексеевская Башня
+								</div>
+							</div>
+							<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item">
+								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-label">
+									Переговорная
+								</div>
+								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-value">
+									Большой зал
+								</div>
+							</div>
+							<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item">
+								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-wide">
+									Дата / время / продолжительность встречи
+								</div>
+							</div>
+							<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item">
+								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-widecontrols">
+									<input type="text" class="date" placeholder="Выбор даты">
+									<select class="azaza">
+										<option>10.00</option>
+										<option>12.00</option>
+										<option>14.00</option>
+										<option>16.00</option>
+									</select>
+									<select>
+										<option>1 час</option>
+										<option>2 часа</option>
+										<option>3 часа</option>
+										<option>6 часов</option>
+									</select>
+								</div>
+							</div>
+							<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item">
+								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-label">
+									Стоимость
+								</div>
+								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-value">
+									1 225 рублей<br />
+									(при аренде от 6 часов)
+								</div>
+							</div>
+							<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-total">
+								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-total-label">
+									Итого
+								</div>
+								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-total-value">
+									<span>2 500</span> рублей
+								</div>
+							</div>
+							<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item">
+								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-widetall">
+									<label class="additionalservice_label"><input type="checkbox" class="additionalservice"><span></span>Нужно дополнительное обслуживание</label>
+								</div>
+							</div>
+						</div>
+						<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom">
+							<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom-right">
+								<div class="warning">
+									Возврат ранее оплаченного бронирования переговорной комнаты возможен только при уведомлении об отказе бронирования не менее чем за 3 рабочих дня!
+								</div>
+								<div class="info">
+									<p class="subheading">Наценка</p>
+									<p><span>+ 50%</span> к стоимости аренды</p>
+								</div>
+							</div>
+							<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom-left">
+								<p class="subheading">Скидки</p>
+								<p><span>1 400</span> руб/час (при аренде зала от 3 часов)</p>
+								<p><span>1 225</span> руб/час (при аренде от 6 часов)</p>	
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<?	
 		
 	}
 	
-	if ($_GET['show_meeting_details'] == 'true') {
+	if ($_GET['show_coworking_details'] == 'true') {
 		
 		
 		
