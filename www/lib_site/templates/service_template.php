@@ -69,6 +69,23 @@
 		//mail('yojmm@yandex.ru', 'Заявка на просмотр офиса', $vd_send_form_manager_message_text);
 		
 		mail($vd_send_form_email, 'Ваша заявка принята', $vd_send_form_customer_message_text);
+
+		$db_data = array(
+			'office_center_id' => 5,
+			'service_group_id' => 1,
+			'office_center_room_id' => 3,
+			'name' => 'James Brown',
+			'email' => 'james@gmail.com',
+			'phone' => '+7 (916) 123-45-67',
+			'message' => 'Let me outta here',
+			'office_seat_num' => 8,
+			'office_seat_price' => 9990,
+			'office_price_total' => 79920,
+			'viewing_needed' => 1,
+			'viewing_date' => '2016-08-15',
+			'viewing_time' => '09:00-15:00'
+		);
+		db_insert_booking($db_data);
 		
 	} elseif ($_POST['form_type'] == 'reserveform') {
 		

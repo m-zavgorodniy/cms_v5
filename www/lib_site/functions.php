@@ -36,4 +36,17 @@ function gallery_html2array($str) {
     return $matches;
 }
 
+function db_insert_booking($data) {
+    global $_SITE;
+    $res = false;
+    if (is_array($data)) {
+        foreach ($data as $field => &$value) {
+            if (null !== $value and '' !== ($value = trim($value))) {
+                $value = mysql_real_escape_string($value, $_SITE['conn']);
+            }
+        }
+        $res = db_mysql_query("INSERT INTO booking (" . implode(',', array_keys($data)) . ", created) VALUES ('" . implode("','", $data) . "', NOW())", $_SITE['conn']);
+    }
+    return true === $res;
+}
 ?>
