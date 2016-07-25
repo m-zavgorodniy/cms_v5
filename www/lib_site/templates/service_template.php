@@ -71,20 +71,21 @@
 		mail($vd_send_form_email, 'Ваша заявка принята', $vd_send_form_customer_message_text);
 
 		$db_data = array(
-			'office_center_id' => 5,
-			'service_group_id' => 1,
-			'office_center_room_id' => 3,
-			'name' => 'James Brown',
-			'email' => 'james@gmail.com',
-			'phone' => '+7 (916) 123-45-67',
-			'message' => 'Let me outta here',
-			'office_seat_num' => 8,
-			'office_seat_price' => 9990,
-			'office_price_total' => 79920,
+			'office_center_id' => $_POST['business_center_id'],
+			'service_group_id' => $_POST['business_center_service_group_id'],
+			'office_center_room_id' => $_POST['business_center_room_id'],
+			'name' => $vd_send_form_name,
+			'email' => $vd_send_form_email,
+			'phone' => $vd_send_form_phone,
+			'message' => $_POST['message'],
+			'office_seat_num' => $_POST['office_seats_num'],
+			'office_seat_price' => $_POST['office_cost_seat'],
+			'office_price_total' => $_POST['office_cost_total'],
 			'viewing_needed' => 1,
-			'viewing_date' => '2016-08-15',
-			'viewing_time' => '09:00-15:00'
+			'viewing_date' => $vd_send_form_date,
+			'viewing_time' => $vd_send_form_time
 		);
+		
 		db_insert_booking($db_data);
 		
 	} elseif ($_POST['form_type'] == 'reserveform') {
@@ -148,6 +149,24 @@
 		//mail('yojmm@yandex.ru', 'Заявка на бронирование офиса', $vd_send_form_manager_message_text);
 		
 		mail($vd_send_form_email, 'Ваша заявка принята', $vd_send_form_customer_message_text);
+		
+		$db_data = array(
+			'office_center_id' => $_POST['business_center_id'],
+			'service_group_id' => $_POST['business_center_service_group_id'],
+			'office_center_room_id' => $_POST['business_center_room_id'],
+			'name' => $vd_send_form_name,
+			'email' => $vd_send_form_email,
+			'phone' => $vd_send_form_phone,
+			'message' => $_POST['message'],
+			'office_seat_num' => $_POST['office_seats_num'],
+			'office_seat_price' => $_POST['office_cost_seat'],
+			'office_price_total' => $_POST['office_cost_total'],
+			'viewing_needed' => 0,
+			'viewing_date' => '',
+			'viewing_time' => ''
+		);
+		
+		db_insert_booking($db_data);
 		
 	}
 	
@@ -430,7 +449,7 @@
 								</span>
 							</td>
 							<td>
-								<span class="reserve active" data-virtual-form-id="3">
+								<span class="reserve" data-virtual-form-id="3">
 									Забронировать
 								</span>
 							</td>
@@ -794,6 +813,9 @@
 						<form action="" method="post">
 							<input type="hidden" name="form_type" class="form_type" value="">
 							<input type="hidden" name="business_center" value="<? echo $single_office_center_room['office_center_id_lookup']; ?>">
+							<input type="hidden" name="business_center_id" value="<? echo $single_office_center_room['office_center_id']; ?>">
+							<input type="hidden" name="business_center_room_id" value="<? echo $single_office_center_room['id']; ?>">
+							<input type="hidden" name="business_center_service_group_id" value="<? echo $single_office_center_room['service_group_id']; ?>">
 							<input type="hidden" name="office_number" value="<? echo filter_var($single_office_center_room['title'], FILTER_SANITIZE_NUMBER_INT); ?>">
 							<input type="hidden" name="office_area" value="<? echo number_format($single_office_center_room['floor_area_m2']); ?> кв. м">
 							<input type="hidden" name="office_seats_num" value="<? echo $single_office_center_room['seats_num']; ?>">

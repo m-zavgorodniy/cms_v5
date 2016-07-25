@@ -2101,7 +2101,12 @@ html {
 	background-color: #fafafc;	
 	padding: 30px;
     float: left;
-    width: 100%;	
+    width: 100%;
+    display: none;
+}
+
+.vd_serviceincenter_wrapper-virtualrates-list-form.open {
+	display: block;
 }
 
 .vd_serviceincenter_wrapper-virtualrates-list-form h2 {

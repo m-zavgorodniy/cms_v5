@@ -453,6 +453,14 @@ jQuery(document).on('submit', '.vd_specialoffer-offers-list-element-menu form', 
 	
 });
 
+jQuery(document).on('click', '.vd_serviceincenter_wrapper-virtualrates-list-header .reserve', function(){
+	jQuery('.vd_serviceincenter_wrapper-virtualrates-list-header .reserve').removeClass('active');
+	jQuery(this).addClass('active');
+	var virtual_form_id = jQuery(this).data('virtual-form-id');
+	jQuery('.vd_serviceincenter_wrapper-virtualrates-list-form').removeClass('open');
+	jQuery('.vd_serviceincenter_wrapper-virtualrates-list-form[data-virtual-form="' + virtual_form_id + '"]').addClass('open');
+});
+
 $(function() {
 	// your javascript here
 });
