@@ -642,7 +642,100 @@
 	
 	if ($_GET['show_coworking_details'] == 'true') {
 		
-		
+	?>
+	
+	<div class="vd_serviceincenter_wrapper-coworkingrates">
+		<a name="freeoffices" /></a>
+		<h2 class="g-section-title">Тарифы</h2>
+		<div class="g-container">
+			<div class="vd_serviceincenter_wrapper-coworkingrates-list">
+				<div class="vd_serviceincenter_wrapper-coworkingrates-list-item open">
+					<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-header">
+						<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-header-name">
+							<span>Постоянный</span>
+						</div>
+						<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-header-features">
+							<ul>
+								<li>- Незакреплённое рабочее место</li>
+								<li>- 4 часа переговорной комнаты в неделю</li>
+								<li>- Личный ящик</li>
+								<li>- Возможность заморозить абонемент на 2 недели</li>
+								<li>- Скидка 11% при покупке тарифа более, чем на 2 месяца</li>
+								<li>- Бесплатный доступ на все мероприятия коворкинга в течение месяца</li>
+							</ul>
+						</div>
+						<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-header-price">
+							<span>15 490</span> руб./мес
+							<button class="active">Забронировать</button>
+						</div>
+					</div>
+					<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form">
+						<h2>Данные бронирования</h2>
+						<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-right">
+							<input type="text" class="phone" placeholder="+7 (___) ___-__-__" maxlength="18">
+							<input type="text" class="email" placeholder="E-mail">
+							<input type="text" class="name" placeholder="Имя">
+							<textarea class="message" placeholder="Ваше сообщение"></textarea>
+							<button>Забронировать коворкинг</button>
+							<button class="disabled">Получить консультацию</button>
+						</div>
+						<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left">
+							<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item">
+								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-label">
+									Бизнес-центр
+								</div>
+								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-value">
+									Алексеевская Башня
+								</div>
+							</div>
+							<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item">
+								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-label">
+									Тариф
+								</div>
+								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-value">
+									Постоянный
+								</div>
+							</div>
+							<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item">
+								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-label">
+									Минимальный срок
+								</div>
+								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-value">
+									месяц
+								</div>
+							</div>
+							<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item">
+								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-label">
+									Стоимость
+								</div>
+								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-value">
+									15 400 руб./мес
+								</div>
+							</div>
+							<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item input">
+								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-label">
+									Рабочих мест
+								</div>
+								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-value">
+									<input type="number" class="coworking_workplaces" min="1">
+								</div>
+							</div>
+							<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-total">
+								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-total-label">
+									Итого
+								</div>
+								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-total-value">
+									<span>30 800</span> руб./месяц
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<?php	
 		
 	}
 	
