@@ -66,7 +66,7 @@ define('MOBILE_MEDIA', 'screen and (max-width:' . MOBILE_BREAKPOINT_PX . 'px)');
                             <nav class="header-menu">
                                 <ul>
                                 <?	foreach ($_SITE['menu']['main'] as $id => &$menu_item) { ?>
-                                    <li<?=$_SITE['crumbs'][$id]?' class="menu-active"':''?>><a<?=!$_SITE['crumbs'][$id]['is_current']?' href="' . $menu_item['url'] . '"':''?><?=$menu_item['target_blank']?' target="_blank"':''?>><?=$menu_item['title']?></a></li>
+                                    <li<?=$_SITE['crumbs'][$id]?' class="menu-active"':''?>><a href="<?=$menu_item['url']?>"<?=$menu_item['target_blank']?' target="_blank"':''?>><?=$menu_item['title']?></a></li>
                                 <?	} ?>
                                 </ul>                            
                             </nav>
