@@ -461,6 +461,28 @@ jQuery(document).on('click', '.vd_serviceincenter_wrapper-virtualrates-list-head
 	jQuery('.vd_serviceincenter_wrapper-virtualrates-list-form[data-virtual-form="' + virtual_form_id + '"]').addClass('open');
 });
 
+
+jQuery(document).on('click', '.vd_serviceincenter_wrapper-coworkingrates-list-item button', function() {
+	jQuery('.vd_serviceincenter_wrapper-coworkingrates-list-item').removeClass('open');
+	jQuery(this).parents('.vd_serviceincenter_wrapper-coworkingrates-list-item').addClass('open');
+});
+
+jQuery(document).on('click', '.vd_serviceincenter_wrapper-virtualrates table th.label', function() {
+	jQuery('.vd_serviceincenter_wrapper-virtualrates-list-header tr.details').toggleClass('open');
+	jQuery(this).toggleClass('open');
+});
+
+jQuery(document).on('click', '.vd_serviceincenter_wrapper-virtualrates-details-list-item-header', function() {
+	jQuery(this).parent().toggleClass('open');
+})
+
+jQuery(document).ready(function(){
+	jQuery('.tooltip').tooltipster({
+    	contentCloning: true,
+    	theme: 'tooltipster-shadow',
+	});
+});
+
 $(function() {
 	// your javascript here
 });

@@ -1562,6 +1562,65 @@ html {
     font-size: 20px;
 }
 
+/* get presentation block styles */
+
+.vd_serviceincenter_wrapper-get_presentation {
+	width: 100%;
+	overflow: auto;
+	margin: 80px 0px 0px 0px;
+	background-color: #f6f7f8;
+	padding: 60px;
+}
+
+.vd_serviceincenter_wrapper-get_presentation p {
+/* 	font-family: Lato-Regular; */
+	font-size: 16px;
+	line-height: 1.5;
+	color: #010101;	
+}
+
+.vd_serviceincenter_wrapper-get_presentation form {
+	margin: 30px auto 0px auto;
+	width: 590px;
+}
+
+.vd_serviceincenter_wrapper-get_presentation input.email {
+	width: 310px;
+	height: 60px;
+	border: 2px solid #d5d5e2;
+	line-height: 60px;
+	display: block;
+	float: left;
+/* 	font-family: Lato-Regular; */
+	font-size: 16px;
+	color: #595964;
+	padding: 0px 20px 0px 50px;
+	background-image: url('../images/input_email.png');
+    background-repeat: no-repeat;
+    background-position: 16px 18px;
+    margin-right: -2px;
+}
+
+.vd_serviceincenter_wrapper-get_presentation input.get_presentation {
+	width: 280px;
+	height: 60px;
+	border: none;
+	line-height: 60px;
+	display: block;
+	float: left;
+/* 	font-family: Lato-Regular; */
+	font-size: 16px;
+	color: #ffffff;
+	padding: 0;
+	text-align: center;
+	text-transform: uppercase;
+	background-color: #d5d5e2;
+}
+
+.vd_serviceincenter_wrapper-get_presentation input.get_presentation.coworking {
+	background-color: #0092da;
+}
+
 /* meeting rooms details styles */
 
 .vd_serviceincenter_wrapper-meetingrates {
@@ -2030,6 +2089,35 @@ html {
 	margin-bottom: 2px;
 }
 
+.vd_serviceincenter_wrapper-virtualrates-list-header tr.details {
+	display: none;
+}
+
+.vd_serviceincenter_wrapper-virtualrates-list-header tr.details.open {
+	display: table-row;
+}
+
+.vd_serviceincenter_wrapper-virtualrates-list-header table tr.details td {
+	vertical-align: top;
+/* 	font-family: Lato-Regular; */
+	font-size: 16px;
+	line-height: 1.5;
+	color: #010101;	
+}
+
+.vd_serviceincenter_wrapper-virtualrates-list-header .icons {
+	padding: 20px 0px;
+	height: 86px;
+}
+
+.vd_serviceincenter_wrapper-virtualrates-list-header .icons img {
+	margin: 0 15px;
+}
+
+.vd_serviceincenter_wrapper-virtualrates-list-header .icons img:first-of-type {
+	margin: 0px 15px 0px 0px;
+}
+
 .vd_serviceincenter_wrapper-virtualrates table {
 	width: 100%;
 	
@@ -2054,8 +2142,18 @@ html {
 }
 
 .vd_serviceincenter_wrapper-virtualrates table th.label {
+	cursor: pointer;
 	font-size: 16px;
+	padding-left: 55px;
+	padding-top: 20px;
 	width: auto;
+	background-image: url(../images/delovoy_fake_table_arrow_side.png);
+    background-repeat: no-repeat;
+    background-position: 15px 20px;
+}
+
+.vd_serviceincenter_wrapper-virtualrates table th.label.open {
+	background-image: url(../images/delovoy_fake_table_arrow_down.png);
 }
 
 .vd_serviceincenter_wrapper-virtualrates table tr.prices {
@@ -2303,6 +2401,121 @@ html {
 
 .vd_serviceincenter_wrapper-virtualrates-list-form-left .ui-selectmenu-button.ui-state-focus {
 	box-shadow: 0px 0px 0px 2px #4ea6fe;
+}
+
+/* */
+
+.vd_serviceincenter_wrapper-virtualrates-details {
+	margin: 40px auto 0px auto;
+    width: 100%;
+    overflow: auto;
+}
+
+.vd_serviceincenter_wrapper-virtualrates-details-list-item {
+	margin-bottom: 20px;
+	width: 100%;
+	float: left;
+}
+
+.vd_serviceincenter_wrapper-virtualrates-details-list-item-header {
+	cursor: pointer;
+	width: 100%;
+	height: 60px;
+	background-color: #f7f8f9;
+	line-height: 60px;
+	float: left;
+/* 	font-family: Lato-Black; */
+	font-weight: 700;
+	font-size: 16px;
+	color: #262626;	
+	padding-left: 55px;
+	background-image: url(../images/delovoy_take_virtualdetails_table_arrow_side.png);
+	background-repeat: no-repeat;
+	background-position: 16px 18px;
+}
+
+.open .vd_serviceincenter_wrapper-virtualrates-details-list-item-header {
+	background-color: #edecf5;
+	background-image: url(../images/delovoy_take_virtualdetails_table_arrow_down.png);
+}
+
+.vd_serviceincenter_wrapper-virtualrates-details-list-item-table {
+	float: left;
+	width: 100%;
+	display: none;
+}
+
+.open .vd_serviceincenter_wrapper-virtualrates-details-list-item-table {
+	display: block;
+}
+
+.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 10px 0px;
+}
+
+.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr {
+	height: 60px;
+}
+
+.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td.label {
+	width: 200px;
+	border-bottom: none;
+	text-align: left;
+}
+
+.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td {
+	border-bottom: 1px solid #edecf5;
+	text-align: center;
+	width: 235px;
+	position: relative;
+}
+
+.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td .included {
+    background-image: url(/images/svg/check.svg);
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+}
+
+.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td .not_included {
+    background-image: url(/images/svg/cross.svg);
+    width: 19px;
+    height: 19px;
+    display: inline-block;
+}
+
+.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td span {
+	padding-left: 20px;
+	vertical-align: super;
+/* 	font-family: Lato-Regular; */
+	font-size: 16px;
+	line-height: 1.5;
+	color: #010101;	
+}
+
+.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td .tooltip {
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	background-image: url(../images/svg/information.svg);
+	margin-left: 6px;
+    margin-bottom: -3px;
+}
+
+.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td .tooltip:hoveractive {
+	background-image: url(../images/svg/information-active.svg);
+}
+
+#tooltip_content_wrapper {
+	display: none;
+}
+
+#tooltip_content {
+	width: 466px;
+	height: 266px;
+/* 	padding: 30px 40px; */
 }
 
 /* */

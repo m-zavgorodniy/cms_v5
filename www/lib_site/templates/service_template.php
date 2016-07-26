@@ -429,6 +429,13 @@
 							<th>Виртуальный офис +</th>
 							<th>Виртуальный офис +<br />юридический адрес</th>
 						</tr>
+						<tr class="details">
+							<td></td>
+							<td><div class="icons"><img src="http://dev.viaduct.pro/uploads/images/icons/svg/address.svg"></div>Предоставляет для вашей компании почтовый адрес  для приема почтовой корреспонденции в современном БЦ.</td>
+							<td><div class="icons"><img src="http://dev.viaduct.pro/uploads/images/icons/svg/telephone.svg"><img src="http://dev.viaduct.pro/uploads/images/icons/svg/secretary.svg"></div>Это московский телефонный номер для Вашей компании и обработка входящих звонков «живым» секретарем.</td>
+							<td><div class="icons"><img src="http://dev.viaduct.pro/uploads/images/icons/svg/address.svg"><img src="http://dev.viaduct.pro/uploads/images/icons/svg/telephone.svg"><img src="http://dev.viaduct.pro/uploads/images/icons/svg/secretary.svg"></div>Тариф предоставляет Вашей компании почтовый адрес в современном БЦ, московский телефонный номер и обработка входящих звонков «живым» секретарем</td>
+							<td><div class="icons"><img src="http://dev.viaduct.pro/uploads/images/icons/svg/law.svg"><img src="http://dev.viaduct.pro/uploads/images/icons/svg/telephone.svg"><img src="http://dev.viaduct.pro/uploads/images/icons/svg/secretary.svg"></div>Это предоставление для Вашей компании единого юридического (для регистрации в ИФНС) и почтового адреса в современном БЦ, московского телефонного номера и обработка входящих звонков «живым» секретарем</td>
+						</tr>
 						<tr class="prices">
 							<td></td>
 							<td>от <span>3 490</span> руб./мес</td>
@@ -527,6 +534,134 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	
+	<div class="vd_serviceincenter_wrapper-virtualrates-details">
+		<div class="g-container">
+		<div class="vd_serviceincenter_wrapper-virtualrates-details-list">
+			<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item">
+				<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-header">
+					Основные сервисы
+				</div>
+				<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-table">
+					<table>
+						<tr>
+							<td class="label">Предоставление почтового адреса</td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+						</tr>
+						<tr>
+							<td class="label">Голосовой почтовый ящик</td>
+							<td><div class="not_included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+						</tr>
+						<tr>
+							<td class="label">Юридический адрес</td>
+							<td><div class="not_included"></div></td>
+							<td><div class="not_included"></div></td>
+							<td><div class="not_included"></div></td>
+							<td><div class="included"></div></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item">
+				<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-header">
+					Обработка корреспонденции, уведомления
+				</div>
+				<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-table">
+					<table>
+						<tr>
+							<td class="label">Прием и сортировка</td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+						</tr>
+						<tr>
+							<td class="label">Хранение</td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+						</tr>
+						<tr>
+							<td class="label">Прием факсов</td>
+							<td><div class="not_included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+						</tr>
+						<tr>
+							<td class="label">Уведомления о поступлении корр-ции  на эл. почту</td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item">
+				<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-header">
+					Телефонные номера, прием и переадресация входящих звонков
+				</div>
+				<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-table">
+					<table>
+						<tr>
+							<td class="label">Телефонный номер<br />в коде 495 / 499</td>
+							<td><div class="not_included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+						</tr>
+						<tr>
+							<td class="label">На городские<br />номера Москвы</td>
+							<td><div class="not_included"></div></td>
+							<td><div class="included"></div><span>Включено 1500 минут</span></td>
+							<td><div class="included"></div><span>Включено 1500 минут</span></td>
+							<td><div class="included"></div><span>Включено 1500 минут</span></td>
+						</tr>
+						<tr>
+							<td class="label">На городские<br />номера РФ<div class="tooltip" data-tooltip-content="#tooltip_content"></div></td>
+							<td><div class="not_included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+						</tr>
+						<tr>
+							<td class="label">На мобильные<br />номера Москвы и РФ</td>
+							<td><div class="not_included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+						</tr>
+						<tr>
+							<td class="label">На мобильные<br />и городские номера зарубежья<div class="tooltip" data-tooltip-content="#tooltip_content"></div></td>
+							<td><div class="not_included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+	
+	<div id="tooltip_content_wrapper">
+	<div id="tooltip_content">
+		<span class="title">Телефонные номера, прием и переадресация входящих звонков на мобильные и городские номера зарубежья</span>
+		<p>Сюда вносим информацию по условиям и особенностям пункта.</p>
+		<p>Прием и переадресация входящих звонков осуществляется по будням с 10.00 до 18.00 по Московскому времени</p>
+		<p>* Дополнительно вносится обеспечительный платеж в размере 45 000 руб, который возвращается при прекращении договора и смене юрадреса на новый</p>
+		<p>** Оплачивается только стоимость звонков согласно тарифам провайдера</p>
+	</div>
 	</div>
 	
 	<?	
@@ -668,7 +803,7 @@
 		<h2 class="g-section-title">Тарифы</h2>
 		<div class="g-container">
 			<div class="vd_serviceincenter_wrapper-coworkingrates-list">
-				<div class="vd_serviceincenter_wrapper-coworkingrates-list-item open">
+				<div class="vd_serviceincenter_wrapper-coworkingrates-list-item">
 					<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-header">
 						<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-header-name">
 							<span>Постоянный</span>
@@ -685,7 +820,7 @@
 						</div>
 						<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-header-price">
 							<span>15 490</span> руб./мес
-							<button class="active">Забронировать</button>
+							<button>Забронировать</button>
 						</div>
 					</div>
 					<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form">
@@ -751,6 +886,17 @@
 					</div>
 				</div>
 			</div>
+		</div>
+	</div>
+	
+	<div class="vd_serviceincenter_wrapper-get_presentation">
+		<div class="g-container">
+			<h2 class="g-section-title">Узнайте подробности наших услуг в презентации</h2>
+			<p>Оставьте свои контакты, и мы через минуту вышлем на почту подробную презентацию. Без спама.</p>
+			<form>
+				<input type="text" class="email" placeholder="Введите ваш e-mail">
+				<input type="submit" class="get_presentation coworking" value="Получить презентацию" />
+			</form>
 		</div>
 	</div>
 	
