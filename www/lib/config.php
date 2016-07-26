@@ -36,7 +36,7 @@ $config['DATA_PUBLISHED_FIELD_NAME'] = 'published';
 $config['OUT_TYPO_ENABLED'] = true;
 
 $config['SEO_ENABLED'] = true;
-$config['SEO_URL_NAMED_PARAMS_MODE'] = true; // if true, include name of parameter in url, otherwise get the parameter values strictly by the order of appearance in url
+$config['SEO_URL_NAMED_PARAMS_MODE'] = false; // if true, include name of parameter in url, otherwise get the parameter values strictly by the order of appearance in url
 $config['SEO_URL_PARAM_NAME_DELIMETER'] = '/'; // using '-' may cause collision betweeen 'news' and 'news-tag' parameter names
 $config['SEO_URL_PARAM_EMPTY_VALUE'] = '-';
 $config['SEO_URL_SOURCE_LANG_ID'] = '';
