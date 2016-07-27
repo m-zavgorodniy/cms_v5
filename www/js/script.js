@@ -474,12 +474,28 @@ jQuery(document).on('click', '.vd_serviceincenter_wrapper-virtualrates table th.
 
 jQuery(document).on('click', '.vd_serviceincenter_wrapper-virtualrates-details-list-item-header', function() {
 	jQuery(this).parent().toggleClass('open');
-})
+});
+
+jQuery(document).on('click', '.vd_serviceincenter_wrapper-meetingrates-list-item button', function() {
+	jQuery('.vd_serviceincenter_wrapper-coworkingrates-list-item').removeClass('open');
+	jQuery('.vd_serviceincenter_wrapper-meetingrates-list-item button').removeClass('active');
+	jQuery(this).addClass('active');
+	jQuery(this).parents('.vd_serviceincenter_wrapper-meetingrates-list-item').addClass('open');
+});
 
 jQuery(document).ready(function(){
 	jQuery('.tooltip').tooltipster({
     	contentCloning: true,
     	theme: 'tooltipster-shadow',
+    	trigger: 'click',
+    	side: ['right', 'bottom'],
+    	functionBefore: function(instance, helper) {
+	    	jQuery(helper.origin).addClass('active');
+    	},
+    	functionAfter: function(instance, helper) {
+	    	var item = instance._$origin[0];
+	    	jQuery(item).removeClass('active');
+    	}
 	});
 });
 
