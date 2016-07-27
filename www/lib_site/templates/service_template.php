@@ -168,6 +168,187 @@
 		
 		db_insert_booking($db_data);
 		
+	} elseif ($_POST['form_type'] == 'book_virtualoffice') {
+		
+		$vd_send_form_manager_message_text .= "Здравствуйте,\r\nНа сайте была оформлена новая заявка на виртуальный офис.";
+		
+		$vd_send_form_manager_message_text .= "\r\n";
+		
+		$vd_send_form_manager_message_text .= "\r\nВы забронировали";
+		$vd_send_form_manager_message_text .= "\r\nБизнес-центр: " . $_POST['business_center'];
+		$vd_send_form_manager_message_text .= "\r\nТариф: " . $_POST['virtual_office_rate'];
+		$vd_send_form_manager_message_text .= "\r\nСтоимость: " . $_POST['virtual_office_price'];
+		
+		$vd_send_form_manager_message_text .= "\r\n";
+		
+		$vd_send_form_manager_message_text .= "\r\nДанные заявки";
+		$vd_send_form_manager_message_text .= "\r\nИмя: " . $_POST['name'];
+		$vd_send_form_manager_message_text .= "\r\nЭлектронная почта: " . $_POST['email'];
+		$vd_send_form_manager_message_text .= "\r\nТелефон: " . $_POST['phone'];
+		
+		$vd_send_form_customer_message_text .= "Здравствуйте,\r\nВаша заявка на виртуальный офис была получена.";
+		
+		$vd_send_form_customer_message_text .= "\r\n";
+		
+		$vd_send_form_customer_message_text .= "\r\nДанные объекта";
+		$vd_send_form_customer_message_text .= "\r\nБизнес-центр: " . $_POST['business_center'];
+		$vd_send_form_customer_message_text .= "\r\nТариф: " . $_POST['virtual_office_rate'];
+		$vd_send_form_customer_message_text .= "\r\nСтоимость: " . $_POST['virtual_office_price'];
+		
+		$vd_send_form_customer_message_text .= "\r\n";
+		
+		$vd_send_form_customer_message_text .= "\r\nВаши данные";
+		$vd_send_form_customer_message_text .= "\r\nИмя: " . $_POST['name'];
+		$vd_send_form_customer_message_text .= "\r\nЭлектронная почта: " . $_POST['email'];
+		$vd_send_form_customer_message_text .= "\r\nТелефон: " . $_POST['phone'];
+		
+		if ($vd_send_form_message != "") {
+			$vd_send_form_manager_message_text .= "\r\nСообщение: " . $_POST['message'];
+			$vd_send_form_customer_message_text .= "\r\nСообщение: " . $_POST['message'];
+		}
+		
+		mail('e.izmalkova@gmail.com', 'Заявка на виртуальный офис', $vd_send_form_manager_message_text);
+		
+		//mail('yojmm@yandex.ru', 'Заявка на виртуальный офис', $vd_send_form_manager_message_text);
+		
+		mail($_POST['email'], 'Ваша заявка принята', $vd_send_form_customer_message_text);
+		
+		$db_data = array(
+			'office_center_id' => $_POST['business_center_id'],
+			'service_group_id' => $_POST['business_center_service_group_id'],
+			'office_center_room_id' => $_POST['business_center_room_id'],
+			'name' => $_POST['name'],
+			'email' => $_POST['email'],
+			'phone' => $_POST['phone'],
+			'message' => $_POST['message'],
+			'office_seat_num' => 's',
+			'office_seat_price' => 'f',
+			'office_price_total' => $_POST['virtual_office_price'],
+			'viewing_needed' => 0
+		);
+		
+		db_insert_booking($db_data);
+		
+	} elseif ($_POST['form_type'] == 'book_meeting') {
+		
+		$vd_send_form_manager_message_text .= "Здравствуйте,\r\nНа сайте была оформлена новая заявка на переговорную.";
+		
+		$vd_send_form_manager_message_text .= "\r\n";
+		
+		$vd_send_form_manager_message_text .= "\r\nВы забронировали";
+		$vd_send_form_manager_message_text .= "\r\nБизнес-центр: " . $_POST['business_center'];
+		$vd_send_form_manager_message_text .= "\r\nТариф: " . $_POST['meeting_rate'];
+		$vd_send_form_manager_message_text .= "\r\nСтоимость: " . $_POST['meeting_price'];
+		
+		$vd_send_form_manager_message_text .= "\r\n";
+		
+		$vd_send_form_manager_message_text .= "\r\nДанные заявки";
+		$vd_send_form_manager_message_text .= "\r\nИмя: " . $_POST['name'];
+		$vd_send_form_manager_message_text .= "\r\nЭлектронная почта: " . $_POST['email'];
+		$vd_send_form_manager_message_text .= "\r\nТелефон: " . $_POST['phone'];
+		
+		$vd_send_form_customer_message_text .= "Здравствуйте,\r\nВаша заявка на переговорную была получена.";
+		
+		$vd_send_form_customer_message_text .= "\r\n";
+		
+		$vd_send_form_customer_message_text .= "\r\nДанные объекта";
+		$vd_send_form_customer_message_text .= "\r\nБизнес-центр: " . $_POST['business_center'];
+		$vd_send_form_customer_message_text .= "\r\nТариф: " . $_POST['meeting_rate'];
+		$vd_send_form_customer_message_text .= "\r\nСтоимость: " . $_POST['meeting_price'];
+		
+		$vd_send_form_customer_message_text .= "\r\n";
+		
+		$vd_send_form_customer_message_text .= "\r\nВаши данные";
+		$vd_send_form_customer_message_text .= "\r\nИмя: " . $_POST['name'];
+		$vd_send_form_customer_message_text .= "\r\nЭлектронная почта: " . $_POST['email'];
+		$vd_send_form_customer_message_text .= "\r\nТелефон: " . $_POST['phone'];
+		
+		if ($vd_send_form_message != "") {
+			$vd_send_form_manager_message_text .= "\r\nСообщение: " . $_POST['message'];
+			$vd_send_form_customer_message_text .= "\r\nСообщение: " . $_POST['message'];
+		}
+		
+		mail('e.izmalkova@gmail.com', 'Заявка на переговорную', $vd_send_form_manager_message_text);
+		
+		//mail('yojmm@yandex.ru', 'Заявка на переговорную', $vd_send_form_manager_message_text);
+		
+		mail($_POST['email'], 'Ваша заявка принята', $vd_send_form_customer_message_text);
+		
+		$db_data = array(
+			'office_center_id' => $_POST['business_center_id'],
+			'service_group_id' => $_POST['business_center_service_group_id'],
+			'office_center_room_id' => $_POST['business_center_room_id'],
+			'name' => $_POST['name'],
+			'email' => $_POST['email'],
+			'phone' => $_POST['phone'],
+			'message' => $_POST['message'],
+			'office_price_total' => $_POST['virtual_office_price'],
+			'meeting_date' => $_POST['date'],
+			'meeting_time' => $_POST['meeting_time'],
+			'meeting_duration' => $_POST['meeting_duration'],
+			'meeting_needs_service' => $_POST['additionalservice'],
+		);
+		
+		db_insert_booking($db_data);
+		
+	} elseif ($_POST['form_type'] == 'book_coworking') {
+		
+		$vd_send_form_manager_message_text .= "Здравствуйте,\r\nНа сайте была оформлена новая заявка на коворкинг.";
+		
+		$vd_send_form_manager_message_text .= "\r\n";
+		
+		$vd_send_form_manager_message_text .= "\r\nВы забронировали";
+		$vd_send_form_manager_message_text .= "\r\nБизнес-центр: " . $_POST['business_center'];
+		$vd_send_form_manager_message_text .= "\r\nТариф: " . $_POST['coworking_rate'];
+		$vd_send_form_manager_message_text .= "\r\nСтоимость: " . $_POST['coworking_price'];
+		
+		$vd_send_form_manager_message_text .= "\r\n";
+		
+		$vd_send_form_manager_message_text .= "\r\nДанные заявки";
+		$vd_send_form_manager_message_text .= "\r\nИмя: " . $_POST['name'];
+		$vd_send_form_manager_message_text .= "\r\nЭлектронная почта: " . $_POST['email'];
+		$vd_send_form_manager_message_text .= "\r\nТелефон: " . $_POST['phone'];
+		
+		$vd_send_form_customer_message_text .= "Здравствуйте,\r\nВаша заявка на коворкинг была получена.";
+		
+		$vd_send_form_customer_message_text .= "\r\n";
+		
+		$vd_send_form_customer_message_text .= "\r\nДанные объекта";
+		$vd_send_form_customer_message_text .= "\r\nБизнес-центр: " . $_POST['business_center'];
+		$vd_send_form_customer_message_text .= "\r\nТариф: " . $_POST['coworking_rate'];
+		$vd_send_form_customer_message_text .= "\r\nСтоимость: " . $_POST['coworking_price'];
+		
+		$vd_send_form_customer_message_text .= "\r\n";
+		
+		$vd_send_form_customer_message_text .= "\r\nВаши данные";
+		$vd_send_form_customer_message_text .= "\r\nИмя: " . $_POST['name'];
+		$vd_send_form_customer_message_text .= "\r\nЭлектронная почта: " . $_POST['email'];
+		$vd_send_form_customer_message_text .= "\r\nТелефон: " . $_POST['phone'];
+		
+		if ($vd_send_form_message != "") {
+			$vd_send_form_manager_message_text .= "\r\nСообщение: " . $_POST['message'];
+			$vd_send_form_customer_message_text .= "\r\nСообщение: " . $_POST['message'];
+		}
+		
+		mail('e.izmalkova@gmail.com', 'Заявка на коворкинг', $vd_send_form_manager_message_text);
+		
+		//mail('yojmm@yandex.ru', 'Заявка на коворкинг', $vd_send_form_manager_message_text);
+		
+		mail($_POST['email'], 'Ваша заявка принята', $vd_send_form_customer_message_text);
+		
+		$db_data = array(
+			'office_center_id' => $_POST['business_center_id'],
+			'service_group_id' => $_POST['business_center_service_group_id'],
+			'office_center_room_id' => $_POST['business_center_room_id'],
+			'name' => $_POST['name'],
+			'email' => $_POST['email'],
+			'phone' => $_POST['phone'],
+			'message' => $_POST['message'],
+			'office_price_total' => $_POST['virtual_office_price']
+		);
+		
+		db_insert_booking($db_data);
+		
 	}
 	
 	$vd_service_in_center_id = $_GET['service'];
@@ -247,9 +428,25 @@
 					?>
 					<?
 						if (count($_DATA['office_center_room']['items']) > 1) {	
-					?>
-					<li><a href="#freeoffices">Свободные офисы бизнес-центра</a></li>
-					<?
+							
+							if ($_DATA['service_group']['items'][$_GET['service']]['css_signature'] == 'office') {
+								
+								?>
+								
+								<li><a href="#freeoffices">Свободные офисы бизнес-центра</a></li>
+								
+								<?
+								
+							} else {
+								
+								?>
+								
+								<li><a href="#freeoffices">Тарифы</a></li>
+								
+								<?
+								
+							}
+							
 						}	
 					?>
 					<li><a href="#special">Спецпредложения</a></li>
@@ -411,525 +608,12 @@
 	<?
 	}
 	
-	if ($_GET['show_virtual_details'] == 'true') {
+	if (count($_DATA['office_center_room']['items']) > 1) {
+		
+		if ($_DATA['service_group']['items'][$_GET['service']]['css_signature'] == 'office')	{
 		
 	?>
 	
-	<div class="vd_serviceincenter_wrapper-virtualrates">
-		<a name="freeoffices" /></a>
-		<h2 class="g-section-title">Тарифы</h2>
-		<div class="g-container">
-			<div class="vd_serviceincenter_wrapper-virtualrates-list">
-				<div class="vd_serviceincenter_wrapper-virtualrates-list-header">
-					<table>
-						<tr class="table_header">
-							<th class="label">Тарифы</th>
-							<th>Почтовый адрес</th>
-							<th>Виртуальный офис</th>
-							<th>Виртуальный офис +</th>
-							<th>Виртуальный офис +<br />юридический адрес</th>
-						</tr>
-						<tr class="details">
-							<td></td>
-							<td><div class="icons"><img src="http://dev.viaduct.pro/uploads/images/icons/svg/address.svg"></div>Предоставляет для вашей компании почтовый адрес  для приема почтовой корреспонденции в современном БЦ.</td>
-							<td><div class="icons"><img src="http://dev.viaduct.pro/uploads/images/icons/svg/telephone.svg"><img src="http://dev.viaduct.pro/uploads/images/icons/svg/secretary.svg"></div>Это московский телефонный номер для Вашей компании и обработка входящих звонков «живым» секретарем.</td>
-							<td><div class="icons"><img src="http://dev.viaduct.pro/uploads/images/icons/svg/address.svg"><img src="http://dev.viaduct.pro/uploads/images/icons/svg/telephone.svg"><img src="http://dev.viaduct.pro/uploads/images/icons/svg/secretary.svg"></div>Тариф предоставляет Вашей компании почтовый адрес в современном БЦ, московский телефонный номер и обработка входящих звонков «живым» секретарем</td>
-							<td><div class="icons"><img src="http://dev.viaduct.pro/uploads/images/icons/svg/law.svg"><img src="http://dev.viaduct.pro/uploads/images/icons/svg/telephone.svg"><img src="http://dev.viaduct.pro/uploads/images/icons/svg/secretary.svg"></div>Это предоставление для Вашей компании единого юридического (для регистрации в ИФНС) и почтового адреса в современном БЦ, московского телефонного номера и обработка входящих звонков «живым» секретарем</td>
-						</tr>
-						<tr class="prices">
-							<td></td>
-							<td>от <span>3 490</span> руб./мес</td>
-							<td>от <span>4 490</span> руб./мес</td>
-							<td>от <span>7 490</span> руб./мес</td>
-							<td>от <span>9 500</span> руб./мес</td>
-						</tr>
-						<tr class="reverse_buttons">
-							<td></td>
-							<td>
-								<span class="reserve reserved" data-virtual-form-id="1">
-									Забронировано
-								</span>
-							</td>
-							<td>
-								<span class="reserve" data-virtual-form-id="2">
-									Забронировать
-								</span>
-							</td>
-							<td>
-								<span class="reserve" data-virtual-form-id="3">
-									Забронировать
-								</span>
-							</td>
-							<td>
-								<span class="reserve" data-virtual-form-id="4">
-									Забронировать
-								</span>
-							</td>
-						</tr>
-					</table>
-				</div>
-				<div class="vd_serviceincenter_wrapper-virtualrates-list-forms">
-					<div class="vd_serviceincenter_wrapper-virtualrates-list-form" data-virtual-form="2">
-						<h2>Данные бронирования</h2>
-						<div class="vd_serviceincenter_wrapper-virtualrates-list-form-rigth">
-							<input type="text" class="phone" placeholder="+7 (___) ___-__-__" maxlength="18">
-							<input type="text" class="email" placeholder="E-mail">
-							<input type="text" class="name" placeholder="Имя">
-							<textarea class="message" placeholder="Ваше сообщение"></textarea>
-							<button>Забронировать виртуальный офис</button>
-							<button class="disabled">Получить консультацию</button>
-						</div>
-						<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left">
-							<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item">
-								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-label">
-									Бизнес-центр
-								</div>
-								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-value">
-									<select>
-										<option>Арма</option>
-										<option>Башня</option>
-										<option>Горный</option>
-									</select>
-								</div>
-							</div>
-							<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item">
-								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-label">
-									Тариф
-								</div>
-								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-value">
-									Виртуальный офис +
-								</div>
-							</div>
-							<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item">
-								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-label">
-									Стоимость
-								</div>
-								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-value">
-									7 400 рублей в месяц
-								</div>
-							</div>
-							<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item">
-								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-label">
-									Срок
-								</div>
-								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-value">
-									<select>
-										<option>1 месяц</option>
-										<option>3 месяцев</option>
-										<option>6 месяцев</option>
-										<option>12 месяцев</option>
-									</select>
-								</div>
-							</div>
-							<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-total">
-								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-total-label">
-									Итого
-								</div>
-								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-total-value">
-									<span>44 400</span> рублей
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<div class="vd_serviceincenter_wrapper-virtualrates-details">
-		<div class="g-container">
-		<div class="vd_serviceincenter_wrapper-virtualrates-details-list">
-			<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item">
-				<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-header">
-					Основные сервисы
-				</div>
-				<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-table">
-					<table>
-						<tr>
-							<td class="label">Предоставление почтового адреса</td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-						</tr>
-						<tr>
-							<td class="label">Голосовой почтовый ящик</td>
-							<td><div class="not_included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-						</tr>
-						<tr>
-							<td class="label">Юридический адрес</td>
-							<td><div class="not_included"></div></td>
-							<td><div class="not_included"></div></td>
-							<td><div class="not_included"></div></td>
-							<td><div class="included"></div></td>
-						</tr>
-					</table>
-				</div>
-			</div>
-			<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item">
-				<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-header">
-					Обработка корреспонденции, уведомления
-				</div>
-				<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-table">
-					<table>
-						<tr>
-							<td class="label">Прием и сортировка</td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-						</tr>
-						<tr>
-							<td class="label">Хранение</td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-						</tr>
-						<tr>
-							<td class="label">Прием факсов</td>
-							<td><div class="not_included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-						</tr>
-						<tr>
-							<td class="label">Уведомления о поступлении корр-ции  на эл. почту</td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-						</tr>
-					</table>
-				</div>
-			</div>
-			<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item">
-				<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-header">
-					Телефонные номера, прием и переадресация входящих звонков
-				</div>
-				<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-table">
-					<table>
-						<tr>
-							<td class="label">Телефонный номер<br />в коде 495 / 499</td>
-							<td><div class="not_included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-						</tr>
-						<tr>
-							<td class="label">На городские<br />номера Москвы</td>
-							<td><div class="not_included"></div></td>
-							<td><div class="included"></div><span>Включено 1500 минут</span></td>
-							<td><div class="included"></div><span>Включено 1500 минут</span></td>
-							<td><div class="included"></div><span>Включено 1500 минут</span></td>
-						</tr>
-						<tr>
-							<td class="label">На городские<br />номера РФ<div class="tooltip" data-tooltip-content="#tooltip_content"></div></td>
-							<td><div class="not_included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-						</tr>
-						<tr>
-							<td class="label">На мобильные<br />номера Москвы и РФ</td>
-							<td><div class="not_included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-						</tr>
-						<tr>
-							<td class="label">На мобильные<br />и городские номера зарубежья<div class="tooltip" data-tooltip-content="#tooltip_content"></div></td>
-							<td><div class="not_included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-						</tr>
-					</table>
-				</div>
-			</div>
-		</div>
-		</div>
-	</div>
-	
-	<div class="vd_serviceincenter_wrapper-get_presentation">
-		<div class="g-container">
-			<h2 class="g-section-title">Узнайте подробности наших услуг в презентации</h2>
-			<p>Оставьте свои контакты, и мы через минуту вышлем на почту подробную презентацию. Без спама.</p>
-			<form>
-				<input type="text" class="email" placeholder="Введите ваш e-mail">
-				<input type="submit" class="get_presentation virtual" value="Получить презентацию" />
-			</form>
-		</div>
-	</div>		
-	
-	<div id="tooltip_content_wrapper">
-	<div id="tooltip_content">
-		<span class="title">Телефонные номера, прием и переадресация входящих звонков на мобильные и городские номера зарубежья</span>
-		<p>Сюда вносим информацию по условиям и особенностям пункта.</p>
-		<p>Прием и переадресация входящих звонков осуществляется по будням с 10.00 до 18.00 по Московскому времени</p>
-		<p>* Дополнительно вносится обеспечительный платеж в размере 45 000 руб, который возвращается при прекращении договора и смене юрадреса на новый</p>
-		<p>** Оплачивается только стоимость звонков согласно тарифам провайдера</p>
-	</div>
-	</div>
-	
-	<?	
-		
-	}
-	
-	if ($_GET['show_meeting_details'] == 'true') {
-		
-	?>
-	
-	<div class="vd_serviceincenter_wrapper-meetingrates">
-		<a name="freeoffices" /></a>
-		<h2 class="g-section-title">Переговорные в бизнес-центре «Алексеевская Башня»</h2>
-		<div class="g-container">
-			<div class="vd_serviceincenter_wrapper-meetingrates-list">
-				<div class="vd_serviceincenter_wrapper-meetingrates-list-item">
-					<div class="vd_serviceincenter_wrapper-meetingrates-list-item-header">
-						<div class="vd_serviceincenter_wrapper-meetingrates-list-item-header-photo">
-							<img src="http://dev.viaduct.pro/uploads/images/office_centers/arma/gallery/.resize/21_MOR_5963.175x100.jpg" />
-						</div>
-						<div class="vd_serviceincenter_wrapper-meetingrates-list-item-header-name">
-							<span>Большой зал</span>
-						</div>
-						<div class="vd_serviceincenter_wrapper-meetingrates-list-item-header-area">
-							38 кв. м
-						</div>
-						<div class="vd_serviceincenter_wrapper-meetingrates-list-item-header-people">
-							до 18 человек
-						</div>
-						<div class="vd_serviceincenter_wrapper-meetingrates-list-item-header-price">
-							<span>1 225 – 2 800 ₽</span>/час
-							<button>Забронировать</button>
-						</div>
-					</div>
-					<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form">
-						<h2>Данные бронирования</h2>
-						<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-right">
-							<input type="text" class="phone" placeholder="+7 (___) ___-__-__" maxlength="18">
-							<input type="text" class="email" placeholder="E-mail">
-							<input type="text" class="name" placeholder="Имя">
-							<textarea class="message" placeholder="Ваше сообщение"></textarea>
-							<button>Забронировать</button>
-							<button class="disabled">Получить консультацию</button>
-						</div>
-						<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left">
-							<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item">
-								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-label">
-									Бизнес-центр
-								</div>
-								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-value">
-									Алексеевская Башня
-								</div>
-							</div>
-							<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item">
-								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-label">
-									Переговорная
-								</div>
-								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-value">
-									Большой зал
-								</div>
-							</div>
-							<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item">
-								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-wide">
-									Дата / время / продолжительность встречи
-								</div>
-							</div>
-							<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item">
-								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-widecontrols">
-									<input type="text" class="date" placeholder="Выбор даты">
-									<select class="azaza">
-										<option>10.00</option>
-										<option>12.00</option>
-										<option>14.00</option>
-										<option>16.00</option>
-									</select>
-									<select>
-										<option>1 час</option>
-										<option>2 часа</option>
-										<option>3 часа</option>
-										<option>6 часов</option>
-									</select>
-								</div>
-							</div>
-							<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item">
-								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-label">
-									Стоимость
-								</div>
-								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-value">
-									1 225 рублей<br />
-									(при аренде от 6 часов)
-								</div>
-							</div>
-							<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-total">
-								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-total-label">
-									Итого
-								</div>
-								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-total-value">
-									<span>2 500</span> рублей
-								</div>
-							</div>
-							<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item">
-								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-widetall">
-									<label class="additionalservice_label"><input type="checkbox" class="additionalservice"><span></span>Нужно дополнительное обслуживание</label>
-								</div>
-							</div>
-						</div>
-						<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom">
-							<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom-right">
-								<div class="warning">
-									Возврат ранее оплаченного бронирования переговорной комнаты возможен только при уведомлении об отказе бронирования не менее чем за 3 рабочих дня!
-								</div>
-								<div class="info">
-									<p class="subheading">Наценка</p>
-									<p><span>+ 50%</span> к стоимости аренды</p>
-								</div>
-							</div>
-							<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom-left">
-								<p class="subheading">Скидки</p>
-								<p><span>1 400</span> руб/час (при аренде зала от 3 часов)</p>
-								<p><span>1 225</span> руб/час (при аренде от 6 часов)</p>	
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<div class="vd_serviceincenter_wrapper-get_presentation">
-		<div class="g-container">
-			<h2 class="g-section-title">Узнайте подробности наших услуг в презентации</h2>
-			<p>Оставьте свои контакты, и мы через минуту вышлем на почту подробную презентацию. Без спама.</p>
-			<form>
-				<input type="text" class="email" placeholder="Введите ваш e-mail">
-				<input type="submit" class="get_presentation meeting" value="Получить презентацию" />
-			</form>
-		</div>
-	</div>	
-	
-	<?	
-		
-	}
-	
-	if ($_GET['show_coworking_details'] == 'true') {
-		
-	?>
-	
-	<div class="vd_serviceincenter_wrapper-coworkingrates">
-		<a name="freeoffices" /></a>
-		<h2 class="g-section-title">Тарифы</h2>
-		<div class="g-container">
-			<div class="vd_serviceincenter_wrapper-coworkingrates-list">
-				<div class="vd_serviceincenter_wrapper-coworkingrates-list-item">
-					<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-header">
-						<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-header-name">
-							<span>Постоянный</span>
-						</div>
-						<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-header-features">
-							<ul>
-								<li>- Незакреплённое рабочее место</li>
-								<li>- 4 часа переговорной комнаты в неделю</li>
-								<li>- Личный ящик</li>
-								<li>- Возможность заморозить абонемент на 2 недели</li>
-								<li>- Скидка 11% при покупке тарифа более, чем на 2 месяца</li>
-								<li>- Бесплатный доступ на все мероприятия коворкинга в течение месяца</li>
-							</ul>
-						</div>
-						<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-header-price">
-							<span>15 490</span> руб./мес
-							<button>Забронировать</button>
-						</div>
-					</div>
-					<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form">
-						<h2>Данные бронирования</h2>
-						<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-right">
-							<input type="text" class="phone" placeholder="+7 (___) ___-__-__" maxlength="18">
-							<input type="text" class="email" placeholder="E-mail">
-							<input type="text" class="name" placeholder="Имя">
-							<textarea class="message" placeholder="Ваше сообщение"></textarea>
-							<button>Забронировать коворкинг</button>
-							<button class="disabled">Получить консультацию</button>
-						</div>
-						<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left">
-							<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item">
-								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-label">
-									Бизнес-центр
-								</div>
-								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-value">
-									Алексеевская Башня
-								</div>
-							</div>
-							<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item">
-								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-label">
-									Тариф
-								</div>
-								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-value">
-									Постоянный
-								</div>
-							</div>
-							<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item">
-								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-label">
-									Минимальный срок
-								</div>
-								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-value">
-									месяц
-								</div>
-							</div>
-							<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item">
-								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-label">
-									Стоимость
-								</div>
-								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-value">
-									15 400 руб./мес
-								</div>
-							</div>
-							<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item input">
-								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-label">
-									Рабочих мест
-								</div>
-								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-value">
-									<input type="number" class="coworking_workplaces" min="1">
-								</div>
-							</div>
-							<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-total">
-								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-total-label">
-									Итого
-								</div>
-								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-total-value">
-									<span>30 800</span> руб./месяц
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<div class="vd_serviceincenter_wrapper-get_presentation">
-		<div class="g-container">
-			<h2 class="g-section-title">Узнайте подробности наших услуг в презентации</h2>
-			<p>Оставьте свои контакты, и мы через минуту вышлем на почту подробную презентацию. Без спама.</p>
-			<form>
-				<input type="text" class="email" placeholder="Введите ваш e-mail">
-				<input type="submit" class="get_presentation coworking" value="Получить презентацию" />
-			</form>
-		</div>
-	</div>
-	
-	<?php	
-		
-	}
-	
-	
-	if (count($_DATA['office_center_room']['items']) > 1) {	
-		
-	?>
 	<div class="vd_serviceincenter_wrapper-freeoffices">
 		<a name="freeoffices" /></a>
 		<h2 class="g-section-title">Свободные офисы в бизнес-центре «<? echo $vd_service_in_center_office_title; ?>»</h2>
@@ -1082,7 +766,668 @@
 			</div>
 		</div>
 	</div>
-	<?
+	
+	<?	
+			
+		} elseif ($_DATA['service_group']['items'][$_GET['service']]['css_signature'] == 'virtual')	{
+		
+	?>
+	
+	<div class="vd_serviceincenter_wrapper-virtualrates">
+		<a name="freeoffices" /></a>
+		<h2 class="g-section-title">Тарифы</h2>
+		<div class="g-container">
+			<div class="vd_serviceincenter_wrapper-virtualrates-list">
+				<div class="vd_serviceincenter_wrapper-virtualrates-list-header">
+					<table>
+						<tr class="table_header">
+							<th class="label">Тарифы</th>
+							<th>Почтовый адрес</th>
+							<?
+							
+							foreach ($_DATA['office_center_room']['items'] as $single_virtual_office) {
+								
+								echo '<th>' . $single_virtual_office['title'] . '</th>';
+								
+							}	
+								
+							?>
+						</tr>
+						<tr class="details">
+							<td></td>
+							<td><div class="icons"><img src="http://dev.viaduct.pro/uploads/images/icons/svg/address.svg"></div>Предоставляет для вашей компании почтовый адрес  для приема почтовой корреспонденции в современном БЦ.</td>
+							<?
+							
+							foreach ($_DATA['office_center_room']['items'] as $single_virtual_office) {
+								
+								echo '<td>' . $single_virtual_office['annotation'] . '</td>';
+								
+							}	
+								
+							?>
+						</tr>
+						<tr class="prices">
+							<td></td>
+							<td>от <span>3 490</span> руб./мес</td>
+							<?
+							
+							foreach ($_DATA['office_center_room']['items'] as $single_virtual_office) {
+								
+								$single_virtual_office_price = number_format($single_virtual_office['price'], 0, '', ' ');
+								
+								echo '<td>от <span>' . $single_virtual_office_price . '</span> руб./мес</td>';
+								
+							}	
+								
+							?>
+						</tr>
+						<tr class="reverse_buttons">
+							<td></td>
+							<td>
+								<span class="reserve reserved" data-virtual-form-id="1123">
+									Забронировано
+								</span>
+							</td>
+							<?
+							
+							foreach ($_DATA['office_center_room']['items'] as $single_virtual_office) {
+								
+								echo '<td><span class="reserve" data-virtual-form-id="' . $single_virtual_office['id'] . '">Забронировать</span></td>';
+								
+							}	
+								
+							?>
+						</tr>
+					</table>
+				</div>
+				<div class="vd_serviceincenter_wrapper-virtualrates-list-forms">
+					<div class="vd_serviceincenter_wrapper-virtualrates-list-form" data-virtual-form="1123">
+						<form method="post" action="">
+							<input type="hidden" name="form_type" value="book_virtualoffice" />
+							<input type="hidden" name="business_center" value="Арма" />
+							<input type="hidden" name="business_center_id" value="1" />
+							<input type="hidden" name="business_center_room_id" value="6" />
+							<input type="hidden" name="business_center_service_group_id" value="1" />
+							<input type="hidden" name="office_number" value="88" />
+							<input type="hidden" name="virtual_office_price" value="2342342" />
+							<input type="hidden" name="virtual_office_rate" value="Виртуальный офис +" />
+							<h2>Данные бронирования</h2>
+							<div class="vd_serviceincenter_wrapper-virtualrates-list-form-rigth">
+								<input type="text" class="phone" name="phone" placeholder="+7 (___) ___-__-__" maxlength="18">
+								<input type="text" class="email" name="email" placeholder="E-mail">
+								<input type="text" class="name" name="name" placeholder="Имя">
+								<textarea class="message" name="message" placeholder="Ваше сообщение"></textarea>
+								<button>Забронировать виртуальный офис</button>
+								<button class="disabled">Получить консультацию</button>
+							</div>
+							<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left">
+								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item">
+									<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-label">
+										Бизнес-центр
+									</div>
+									<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-value">
+										<select name="business_center_select">
+											<option value="Арма1">Арма</option>
+											<option value="Башня1">Башня</option>
+											<option value="Горный1">Горный</option>
+										</select>
+									</div>
+								</div>
+								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item">
+									<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-label">
+										Тариф
+									</div>
+									<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-value">
+										Виртуальный офис +
+									</div>
+								</div>
+								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item">
+									<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-label">
+										Стоимость
+									</div>
+									<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-value">
+										7 400 рублей в месяц
+									</div>
+								</div>
+								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item">
+									<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-label">
+										Срок
+									</div>
+									<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-value">
+										<select name="term">
+											<option value="1month">1 месяц</option>
+											<option value="3months">3 месяцев</option>
+											<option value="6montsh">6 месяцев</option>
+											<option value="12months">12 месяцев</option>
+										</select>
+									</div>
+								</div>
+								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-total">
+									<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-total-label">
+										Итого
+									</div>
+									<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-total-value">
+										<span>44 400</span> рублей
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+					<?
+							
+					foreach ($_DATA['office_center_room']['items'] as $single_virtual_office) {
+						
+						$single_virtual_office_price = number_format($single_virtual_office['price'], 0, '', ' ');
+						
+					?>
+						
+					<div class="vd_serviceincenter_wrapper-virtualrates-list-form" data-virtual-form="<? echo $single_virtual_office['id']; ?>">
+						<form method="post" action="">
+							<input type="hidden" name="form_type" value="book_virtualoffice" />
+							<input type="hidden" name="business_center" value="<? echo $single_virtual_office['office_center_id_lookup']; ?>" />
+							<input type="hidden" name="business_center_id" value="<? echo $single_virtual_office['office_center_id']; ?>" />
+							<input type="hidden" name="business_center_room_id" value="<? echo $single_virtual_office['id']; ?>" />
+							<input type="hidden" name="business_center_service_group_id" value="<? echo $single_virtual_office['service_group_id']; ?>" />
+							<input type="hidden" name="virtual_office_price" value="<? echo $single_virtual_office['price']; ?>" />
+							<input type="hidden" name="virtual_office_rate" value="<? echo $single_virtual_office['title']; ?>" />
+							<h2>Данные бронирования</h2>
+							<div class="vd_serviceincenter_wrapper-virtualrates-list-form-rigth">
+								<input type="text" class="phone" name="phone" placeholder="+7 (___) ___-__-__" maxlength="18">
+								<input type="text" class="email" name="email" placeholder="E-mail">
+								<input type="text" class="name" name="name" placeholder="Имя">
+								<textarea class="message" name="message" placeholder="Ваше сообщение"></textarea>
+								<button>Забронировать виртуальный офис</button>
+								<button class="disabled">Получить консультацию</button>
+							</div>
+							<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left">
+								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item">
+									<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-label">
+										Бизнес-центр
+									</div>
+									<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-value">
+										<select name="business_center_select">
+											<option value="Арма1">Арма</option>
+											<option value="Башня1">Башня</option>
+											<option value="Горный1">Горный</option>
+										</select>
+									</div>
+								</div>
+								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item">
+									<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-label">
+										Тариф
+									</div>
+									<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-value">
+										<? echo $single_virtual_office['title']; ?>
+									</div>
+								</div>
+								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item">
+									<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-label">
+										Стоимость
+									</div>
+									<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-value">
+										<? echo $single_virtual_office_price; ?> рублей в месяц
+									</div>
+								</div>
+								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item">
+									<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-label">
+										Срок
+									</div>
+									<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-value">
+										<select name="term">
+											<option value="1">1 месяц</option>
+											<option value="3">3 месяцев</option>
+											<option value="6">6 месяцев</option>
+											<option value="12">12 месяцев</option>
+										</select>
+									</div>
+								</div>
+								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-total">
+									<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-total-label">
+										Итого
+									</div>
+									<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-total-value">
+										<span>44 400</span> рублей
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>	
+						
+					<?
+						
+					}	
+						
+					?>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="vd_serviceincenter_wrapper-virtualrates-details">
+		<div class="g-container">
+		<div class="vd_serviceincenter_wrapper-virtualrates-details-list">
+			<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item">
+				<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-header">
+					Основные сервисы
+				</div>
+				<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-table">
+					<table>
+						<tr>
+							<td class="label">Предоставление почтового адреса</td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+						</tr>
+						<tr>
+							<td class="label">Голосовой почтовый ящик</td>
+							<td><div class="not_included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+						</tr>
+						<tr>
+							<td class="label">Юридический адрес</td>
+							<td><div class="not_included"></div></td>
+							<td><div class="not_included"></div></td>
+							<td><div class="not_included"></div></td>
+							<td><div class="included"></div></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item">
+				<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-header">
+					Обработка корреспонденции, уведомления
+				</div>
+				<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-table">
+					<table>
+						<tr>
+							<td class="label">Прием и сортировка</td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+						</tr>
+						<tr>
+							<td class="label">Хранение</td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+						</tr>
+						<tr>
+							<td class="label">Прием факсов</td>
+							<td><div class="not_included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+						</tr>
+						<tr>
+							<td class="label">Уведомления о поступлении корр-ции  на эл. почту</td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item">
+				<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-header">
+					Телефонные номера, прием и переадресация входящих звонков
+				</div>
+				<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-table">
+					<table>
+						<tr>
+							<td class="label">Телефонный номер<br />в коде 495 / 499</td>
+							<td><div class="not_included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+						</tr>
+						<tr>
+							<td class="label">На городские<br />номера Москвы</td>
+							<td><div class="not_included"></div></td>
+							<td><div class="included"></div><span>Включено 1500 минут</span></td>
+							<td><div class="included"></div><span>Включено 1500 минут</span></td>
+							<td><div class="included"></div><span>Включено 1500 минут</span></td>
+						</tr>
+						<tr>
+							<td class="label">На городские<br />номера РФ<div class="tooltip" data-tooltip-content="#tooltip_content"></div></td>
+							<td><div class="not_included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+						</tr>
+						<tr>
+							<td class="label">На мобильные<br />номера Москвы и РФ</td>
+							<td><div class="not_included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+						</tr>
+						<tr>
+							<td class="label">На мобильные<br />и городские номера зарубежья<div class="tooltip" data-tooltip-content="#tooltip_content"></div></td>
+							<td><div class="not_included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+							<td><div class="included"></div></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+	
+	<div class="vd_serviceincenter_wrapper-get_presentation">
+		<div class="g-container">
+			<h2 class="g-section-title">Узнайте подробности наших услуг в презентации</h2>
+			<p>Оставьте свои контакты, и мы через минуту вышлем на почту подробную презентацию. Без спама.</p>
+			<form>
+				<input type="text" class="email" placeholder="Введите ваш e-mail">
+				<input type="submit" class="get_presentation virtual" value="Получить презентацию" />
+			</form>
+		</div>
+	</div>		
+	
+	<div id="tooltip_content_wrapper">
+	<div id="tooltip_content">
+		<span class="title">Телефонные номера, прием и переадресация входящих звонков на мобильные и городские номера зарубежья</span>
+		<p>Сюда вносим информацию по условиям и особенностям пункта.</p>
+		<p>Прием и переадресация входящих звонков осуществляется по будням с 10.00 до 18.00 по Московскому времени</p>
+		<p>* Дополнительно вносится обеспечительный платеж в размере 45 000 руб, который возвращается при прекращении договора и смене юрадреса на новый</p>
+		<p>** Оплачивается только стоимость звонков согласно тарифам провайдера</p>
+	</div>
+	</div>
+	
+	<?	
+			
+		} elseif ($_DATA['service_group']['items'][$_GET['service']]['css_signature'] == 'meeting')	{
+		
+	?>
+	
+	<div class="vd_serviceincenter_wrapper-meetingrates">
+		<a name="freeoffices" /></a>
+		<h2 class="g-section-title">Переговорные в бизнес-центре «<? echo $_DATA['office_center']['items'][$_GET['center']]['title']; ?>»</h2>
+		<div class="g-container">
+			<div class="vd_serviceincenter_wrapper-meetingrates-list">
+				<?
+					
+				foreach ($_DATA['office_center_room']['items'] as $single_metting_office) {
+					
+					$single_meeting_office_price = number_format($single_metting_office['price'], 0, '', ' ');
+					
+				?>
+				
+				<div class="vd_serviceincenter_wrapper-meetingrates-list-item">
+					<form method="post" action="">
+						<input type="hidden" name="form_type" value="book_meeting" />
+						<input type="hidden" name="business_center" value="<? echo $single_metting_office['office_center_id_lookup']; ?>" />
+						<input type="hidden" name="business_center_id" value="<? echo $single_metting_office['office_center_id']; ?>" />
+						<input type="hidden" name="business_center_room_id" value="<? echo $single_metting_office['id']; ?>" />
+						<input type="hidden" name="business_center_service_group_id" value="<? echo $single_metting_office['service_group_id']; ?>" />
+						<input type="hidden" name="meeting_price" value="<? echo $single_metting_office['price']; ?>" />
+						<input type="hidden" name="meeting_rate" value="<? echo $single_metting_office['title']; ?>" />						
+						<div class="vd_serviceincenter_wrapper-meetingrates-list-item-header">
+							<div class="vd_serviceincenter_wrapper-meetingrates-list-item-header-photo">
+								<img src="<? echo $single_metting_office['img_src']; ?>" />
+							</div>
+							<div class="vd_serviceincenter_wrapper-meetingrates-list-item-header-name">
+								<span><? echo $single_metting_office['title']; ?></span>
+							</div>
+							<div class="vd_serviceincenter_wrapper-meetingrates-list-item-header-area">
+								<? echo $single_metting_office['floor_area_m2']; ?> кв. м
+							</div>
+							<div class="vd_serviceincenter_wrapper-meetingrates-list-item-header-people">
+								до <? echo $single_metting_office['seats_num']; ?> человек
+							</div>
+							<div class="vd_serviceincenter_wrapper-meetingrates-list-item-header-price">
+								<span><? echo $single_meeting_office_price; ?> ₽</span>/час
+								<button>Забронировать</button>
+							</div>
+						</div>
+						<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form">
+							<h2>Данные бронирования</h2>
+							<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-right">
+								<input type="text" class="phone" name="phone" placeholder="+7 (___) ___-__-__" maxlength="18">
+								<input type="text" class="email" name="email" placeholder="E-mail">
+								<input type="text" class="name" name="name" placeholder="Имя">
+								<textarea class="message" name="message" placeholder="Ваше сообщение"></textarea>
+								<button class="meeting_submit">Забронировать</button>
+								<button class="disabled">Получить консультацию</button>
+							</div>
+							<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left">
+								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item">
+									<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-label">
+										Бизнес-центр
+									</div>
+									<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-value">
+										<? echo $single_metting_office['office_center_id_lookup']; ?>
+									</div>
+								</div>
+								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item">
+									<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-label">
+										Переговорная
+									</div>
+									<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-value">
+										<? echo $single_metting_office['title']; ?>
+									</div>
+								</div>
+								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item">
+									<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-wide">
+										Дата / время / продолжительность встречи
+									</div>
+								</div>
+								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item">
+									<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-widecontrols">
+										<input type="text" class="date" name="date" placeholder="Выбор даты">
+										<select class="azaza" name="meeting_time">
+											<option>10.00</option>
+											<option>12.00</option>
+											<option>14.00</option>
+											<option>16.00</option>
+										</select>
+										<select name="meeting_duration">
+											<option>1 час</option>
+											<option>2 часа</option>
+											<option>3 часа</option>
+											<option>6 часов</option>
+										</select>
+									</div>
+								</div>
+								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item">
+									<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-label">
+										Стоимость
+									</div>
+									<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-value">
+										<? echo $single_metting_office['price']; ?> рублей<br />
+										(при аренде от 6 часов)
+									</div>
+								</div>
+								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-total">
+									<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-total-label">
+										Итого
+									</div>
+									<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-total-value">
+										<span>2 500</span> рублей
+									</div>
+								</div>
+								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item">
+									<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-widetall">
+										<label class="additionalservice_label"><input type="checkbox" name="additionalservice" class="additionalservice" value="1"><span></span>Нужно дополнительное обслуживание</label>
+									</div>
+								</div>
+							</div>
+							<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom">
+								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom-right">
+									<div class="warning">
+										Возврат ранее оплаченного бронирования переговорной комнаты возможен только при уведомлении об отказе бронирования не менее чем за 3 рабочих дня!
+									</div>
+									<div class="info">
+										<p class="subheading">Наценка</p>
+										<p><span>+ 50%</span> к стоимости аренды</p>
+									</div>
+								</div>
+								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom-left">
+									<p class="subheading">Скидки</p>
+									<p><span>1 400</span> руб/час (при аренде зала от 3 часов)</p>
+									<p><span>1 225</span> руб/час (при аренде от 6 часов)</p>	
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				
+				<?	
+					
+				}	
+					
+				?>
+			</div>
+		</div>
+	</div>
+	
+	<div class="vd_serviceincenter_wrapper-get_presentation">
+		<div class="g-container">
+			<h2 class="g-section-title">Узнайте подробности наших услуг в презентации</h2>
+			<p>Оставьте свои контакты, и мы через минуту вышлем на почту подробную презентацию. Без спама.</p>
+			<form>
+				<input type="text" class="email" placeholder="Введите ваш e-mail">
+				<input type="submit" class="get_presentation meeting" value="Получить презентацию" />
+			</form>
+		</div>
+	</div>
+	
+	<?	
+			
+		} elseif ($_DATA['service_group']['items'][$_GET['service']]['css_signature'] == 'coworking')	{
+		
+	?>
+	
+	<div class="vd_serviceincenter_wrapper-coworkingrates">
+		<a name="freeoffices" /></a>
+		<h2 class="g-section-title">Тарифы</h2>
+		<div class="g-container">
+			<div class="vd_serviceincenter_wrapper-coworkingrates-list">
+				<?
+				
+				foreach ($_DATA['office_center_room']['items'] as $single_coworking) {
+					
+					$single_coworking_price = number_format($single_coworking['price'], 0, '', ' ');
+					
+				?>
+				
+				<div class="vd_serviceincenter_wrapper-coworkingrates-list-item">
+					<form method="post" action="">
+						<input type="hidden" name="form_type" value="book_coworking" />
+						<input type="hidden" name="business_center" value="<? echo $single_coworking['office_center_id_lookup']; ?>" />
+						<input type="hidden" name="business_center_id" value="<? echo $single_coworking['office_center_id']; ?>" />
+						<input type="hidden" name="business_center_room_id" value="<? echo $single_coworking['id']; ?>" />
+						<input type="hidden" name="business_center_service_group_id" value="<? echo $single_coworking['service_group_id']; ?>" />
+						<input type="hidden" name="coworking_price" value="<? echo $single_coworking['price']; ?>" />
+						<input type="hidden" name="coworking_rate" value="<? echo $single_coworking['title']; ?>" />	
+						<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-header">
+							<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-header-name">
+								<span><? echo $single_coworking['title']; ?></span>
+							</div>
+							<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-header-features">
+								<? echo $single_coworking['annotation']; ?>
+							</div>
+							<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-header-price">
+								<span><? echo $single_coworking_price; ?></span> руб./мес
+								<button>Забронировать</button>
+							</div>
+						</div>
+						<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form">
+							<h2>Данные бронирования</h2>
+							<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-right">
+								<input type="text" class="phone" name="phone" placeholder="+7 (___) ___-__-__" maxlength="18">
+								<input type="text" class="email" name="email" placeholder="E-mail">
+								<input type="text" class="name" name="name" placeholder="Имя">
+								<textarea class="message" name="message" placeholder="Ваше сообщение"></textarea>
+								<button class="coworking_submit">Забронировать коворкинг</button>
+								<button class="disabled">Получить консультацию</button>
+							</div>
+							<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left">
+								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item">
+									<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-label">
+										Бизнес-центр
+									</div>
+									<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-value">
+										<? echo $single_coworking['office_center_id_lookup']; ?>
+									</div>
+								</div>
+								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item">
+									<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-label">
+										Тариф
+									</div>
+									<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-value">
+										<? echo $single_coworking['title']; ?>
+									</div>
+								</div>
+								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item">
+									<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-label">
+										Минимальный срок
+									</div>
+									<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-value">
+										месяц
+									</div>
+								</div>
+								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item">
+									<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-label">
+										Стоимость
+									</div>
+									<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-value">
+										<? echo $single_coworking_price; ?> руб./мес
+									</div>
+								</div>
+								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item input">
+									<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-label">
+										Рабочих мест
+									</div>
+									<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-value">
+										<input type="number" class="coworking_workplaces" name="coworking_workplaces" value="1" min="1">
+									</div>
+								</div>
+								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-total">
+									<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-total-label">
+										Итого
+									</div>
+									<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-total-value">
+										<span><? echo $single_coworking_price; ?></span> руб./месяц
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				
+				<?	
+					
+				}	
+					
+				?>
+			</div>
+		</div>
+	</div>
+	
+	<div class="vd_serviceincenter_wrapper-get_presentation">
+		<div class="g-container">
+			<h2 class="g-section-title">Узнайте подробности наших услуг в презентации</h2>
+			<p>Оставьте свои контакты, и мы через минуту вышлем на почту подробную презентацию. Без спама.</p>
+			<form>
+				<input type="text" class="email" placeholder="Введите ваш e-mail">
+				<input type="submit" class="get_presentation coworking" value="Получить презентацию" />
+			</form>
+		</div>
+	</div>
+	
+	<?	
+			
+		}
+
 		
 	}	
 	

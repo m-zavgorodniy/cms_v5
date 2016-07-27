@@ -461,10 +461,76 @@ jQuery(document).on('click', '.vd_serviceincenter_wrapper-virtualrates-list-head
 	jQuery('.vd_serviceincenter_wrapper-virtualrates-list-form[data-virtual-form="' + virtual_form_id + '"]').addClass('open');
 });
 
+jQuery(document).on('click', '.vd_serviceincenter_wrapper-virtualrates-list-form button', function(e){
+	
+	e.preventDefault();
+	
+	var send = true;
+	
+	if (jQuery('input.phone', jQuery(this).parents('form')).val().length < 18) {
+		send = false;
+		jQuery('input.phone', jQuery(this).parents('form')).addClass('error');
+	}
+	
+	if (validateEmail(jQuery('input.email', jQuery(this).parents('form')).val()) == false) {
+		send = false;
+		console.log(validateEmail(jQuery('input.email', jQuery(this).parents('form')).val()));
+		jQuery('input.email', jQuery(this).parents('form')).addClass('error');
+	}
+	
+	if (jQuery('input.email', jQuery(this).parents('form')).val().length == 0) {
+		send = false;
+		console.log(jQuery('input.email', jQuery(this).parents('form')).val().length);
+		jQuery('input.email', jQuery(this).parents('form')).addClass('error');
+	}
+	
+	if (jQuery('input.name', jQuery(this).parents('form')).val().length < 2) {
+		send = false;
+		jQuery('input.name', jQuery(this).parents('form')).addClass('error');
+	}
+	
+	if (send == true) {
+		jQuery(this).closest('form').submit();
+	}
+	
+});
 
-jQuery(document).on('click', '.vd_serviceincenter_wrapper-coworkingrates-list-item button', function() {
+jQuery(document).on('click', '.vd_serviceincenter_wrapper-coworkingrates-list-item button', function(e) {
+	e.preventDefault();
 	jQuery('.vd_serviceincenter_wrapper-coworkingrates-list-item').removeClass('open');
 	jQuery(this).parents('.vd_serviceincenter_wrapper-coworkingrates-list-item').addClass('open');
+});
+
+jQuery(document).on('click', '.vd_serviceincenter_wrapper-coworkingrates-list-item .coworking_submit', function(e) {
+	e.preventDefault();
+	
+	var send = true;
+	
+	if (jQuery('input.phone', jQuery(this).parents('form')).val().length < 18) {
+		send = false;
+		jQuery('input.phone', jQuery(this).parents('form')).addClass('error');
+	}
+	
+	if (validateEmail(jQuery('input.email', jQuery(this).parents('form')).val()) == false) {
+		send = false;
+		console.log(validateEmail(jQuery('input.email', jQuery(this).parents('form')).val()));
+		jQuery('input.email', jQuery(this).parents('form')).addClass('error');
+	}
+	
+	if (jQuery('input.email', jQuery(this).parents('form')).val().length == 0) {
+		send = false;
+		console.log(jQuery('input.email', jQuery(this).parents('form')).val().length);
+		jQuery('input.email', jQuery(this).parents('form')).addClass('error');
+	}
+	
+	if (jQuery('input.name', jQuery(this).parents('form')).val().length < 2) {
+		send = false;
+		jQuery('input.name', jQuery(this).parents('form')).addClass('error');
+	}
+	
+	if (send == true) {
+		jQuery(this).closest('form').submit();
+	}
 });
 
 jQuery(document).on('click', '.vd_serviceincenter_wrapper-virtualrates table th.label', function() {
@@ -476,11 +542,51 @@ jQuery(document).on('click', '.vd_serviceincenter_wrapper-virtualrates-details-l
 	jQuery(this).parent().toggleClass('open');
 });
 
-jQuery(document).on('click', '.vd_serviceincenter_wrapper-meetingrates-list-item button', function() {
+jQuery(document).on('click', '.vd_serviceincenter_wrapper-meetingrates-list-item button', function(e) {
+	e.preventDefault();
 	jQuery('.vd_serviceincenter_wrapper-coworkingrates-list-item').removeClass('open');
 	jQuery('.vd_serviceincenter_wrapper-meetingrates-list-item button').removeClass('active');
 	jQuery(this).addClass('active');
 	jQuery(this).parents('.vd_serviceincenter_wrapper-meetingrates-list-item').addClass('open');
+});
+
+jQuery(document).on('click', '.vd_serviceincenter_wrapper-meetingrates-list-item .meeting_submit', function(e){
+	
+	e.preventDefault();
+	
+	var send = true;
+	
+	if (jQuery('input.phone', jQuery(this).parents('form')).val().length < 18) {
+		send = false;
+		jQuery('input.phone', jQuery(this).parents('form')).addClass('error');
+	}
+	
+	if (validateEmail(jQuery('input.email', jQuery(this).parents('form')).val()) == false) {
+		send = false;
+		console.log(validateEmail(jQuery('input.email', jQuery(this).parents('form')).val()));
+		jQuery('input.email', jQuery(this).parents('form')).addClass('error');
+	}
+	
+	if (jQuery('input.email', jQuery(this).parents('form')).val().length == 0) {
+		send = false;
+		console.log(jQuery('input.email', jQuery(this).parents('form')).val().length);
+		jQuery('input.email', jQuery(this).parents('form')).addClass('error');
+	}
+	
+	if (jQuery('input.name', jQuery(this).parents('form')).val().length < 2) {
+		send = false;
+		jQuery('input.name', jQuery(this).parents('form')).addClass('error');
+	}
+	
+	if (jQuery('input.date', jQuery(this).parents('form')).val().length == 0) {
+		send = false;
+		jQuery('input.date', jQuery(this).parents('form')).addClass('error');
+	}
+	
+	if (send == true) {
+		jQuery(this).closest('form').submit();
+	}
+	
 });
 
 jQuery(document).ready(function(){
