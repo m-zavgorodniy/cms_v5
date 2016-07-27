@@ -654,6 +654,17 @@
 		</div>
 	</div>
 	
+	<div class="vd_serviceincenter_wrapper-get_presentation">
+		<div class="g-container">
+			<h2 class="g-section-title">Узнайте подробности наших услуг в презентации</h2>
+			<p>Оставьте свои контакты, и мы через минуту вышлем на почту подробную презентацию. Без спама.</p>
+			<form>
+				<input type="text" class="email" placeholder="Введите ваш e-mail">
+				<input type="submit" class="get_presentation virtual" value="Получить презентацию" />
+			</form>
+		</div>
+	</div>		
+	
 	<div id="tooltip_content_wrapper">
 	<div id="tooltip_content">
 		<span class="title">Телефонные номера, прием и переадресация входящих звонков на мобильные и городские номера зарубежья</span>
@@ -677,7 +688,7 @@
 		<h2 class="g-section-title">Переговорные в бизнес-центре «Алексеевская Башня»</h2>
 		<div class="g-container">
 			<div class="vd_serviceincenter_wrapper-meetingrates-list">
-				<div class="vd_serviceincenter_wrapper-meetingrates-list-item open">
+				<div class="vd_serviceincenter_wrapper-meetingrates-list-item">
 					<div class="vd_serviceincenter_wrapper-meetingrates-list-item-header">
 						<div class="vd_serviceincenter_wrapper-meetingrates-list-item-header-photo">
 							<img src="http://dev.viaduct.pro/uploads/images/office_centers/arma/gallery/.resize/21_MOR_5963.175x100.jpg" />
@@ -693,7 +704,7 @@
 						</div>
 						<div class="vd_serviceincenter_wrapper-meetingrates-list-item-header-price">
 							<span>1 225 – 2 800 ₽</span>/час
-							<button class="active">Забронировать</button>
+							<button>Забронировать</button>
 						</div>
 					</div>
 					<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form">
@@ -789,6 +800,17 @@
 			</div>
 		</div>
 	</div>
+	
+	<div class="vd_serviceincenter_wrapper-get_presentation">
+		<div class="g-container">
+			<h2 class="g-section-title">Узнайте подробности наших услуг в презентации</h2>
+			<p>Оставьте свои контакты, и мы через минуту вышлем на почту подробную презентацию. Без спама.</p>
+			<form>
+				<input type="text" class="email" placeholder="Введите ваш e-mail">
+				<input type="submit" class="get_presentation meeting" value="Получить презентацию" />
+			</form>
+		</div>
+	</div>	
 	
 	<?	
 		
