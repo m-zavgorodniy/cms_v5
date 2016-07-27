@@ -1265,6 +1265,7 @@ html {
     width: 100%;
 	float: left;
 	position: relative;
+	margin-bottom: 20px;
 }
 
 .vd_serviceincenter_wrapper-coworkingrates-list-item.open:after {
@@ -1324,6 +1325,7 @@ html {
 	/* font-family: Lato-Regular; */
     font-size: 20px;
     padding: 30px 0px 30px 20px;
+    line-height: 50px;
 }
 
 .vd_serviceincenter_wrapper-coworkingrates-list-item-header-price span {
@@ -1638,6 +1640,12 @@ html {
     overflow: visible;
 }
 
+.vd_serviceincenter_wrapper-meetingrates-list-item {
+	margin-bottom: 20px;
+	float: left;
+    width: 100%;
+}
+
 .vd_serviceincenter_wrapper-meetingrates-list-item-header {
 	height: 101px;
 	background-color: #fafafc;
@@ -1706,8 +1714,8 @@ html {
 }
 
 .vd_serviceincenter_wrapper-meetingrates-list-item-header-price {
-    float: left;
-    width: 503px;
+    float: right;
+/*     width: 503px; */
     height: 100px;
     line-height: 101px;
     padding-left: 30px;
@@ -1720,6 +1728,7 @@ html {
 	background-color: #86bf37;
 	float: right;
     margin-top: 20px;
+    margin-left: 20px;
     text-transform: uppercase;
     color: #ffffff;
 }
@@ -1791,6 +1800,10 @@ html {
 }
 
 .vd_serviceincenter_wrapper-meetingrates-list-item-form-right input.error {
+	box-shadow: 0px 0px 0px 2px #cf2553;
+}
+
+.vd_serviceincenter_wrapper-meetingrates-list-item-form-left input.error {
 	box-shadow: 0px 0px 0px 2px #cf2553;
 }
 
