@@ -1576,7 +1576,8 @@ html {
 /* 	font-family: Lato-Regular; */
 	font-size: 16px;
 	line-height: 1.5;
-	color: #010101;	
+	color: #010101;
+	text-align: center;
 }
 
 .vd_serviceincenter_wrapper-get_presentation form {
@@ -1621,12 +1622,20 @@ html {
 	background-color: #0092da;
 }
 
+.vd_serviceincenter_wrapper-get_presentation input.get_presentation.meeting {
+	background-color: #86bf37;
+}
+
+.vd_serviceincenter_wrapper-get_presentation input.get_presentation.virtual {
+	background-color: #8f3a92;
+}
+
 /* meeting rooms details styles */
 
 .vd_serviceincenter_wrapper-meetingrates {
 	margin: 80px auto 0px auto;
     width: 100%;
-    overflow: auto;
+    overflow: visible;
 }
 
 .vd_serviceincenter_wrapper-meetingrates-list-item-header {
@@ -1732,6 +1741,23 @@ html {
 	padding-top: 30px;
 	float: left;
     width: 100%;
+    position: relative;
+    display: none;
+}
+
+.open .vd_serviceincenter_wrapper-meetingrates-list-item-form {
+	display: block;
+}
+
+.vd_serviceincenter_wrapper-meetingrates-list-item-form:after {
+	position: absolute;
+    content: '';
+    height: 3px;
+    background-color: #ababc6;
+    left: -1px;
+    right: -1px;
+    bottom: 0px;
+    border-top: 2px solid #ffffff;
 }
 
 .vd_serviceincenter_wrapper-meetingrates-list-item-form-right {
@@ -2201,10 +2227,22 @@ html {
     float: left;
     width: 100%;
     display: none;
+    position: relative;
 }
 
 .vd_serviceincenter_wrapper-virtualrates-list-form.open {
 	display: block;
+}
+
+.vd_serviceincenter_wrapper-virtualrates-list-form.open:after {
+	position: absolute;
+    content: '';
+    height: 3px;
+    background-color: #ababc6;
+    left: -1px;
+    right: -1px;
+    bottom: 0px;
+    border-top: 2px solid #ffffff;	
 }
 
 .vd_serviceincenter_wrapper-virtualrates-list-form h2 {
@@ -2504,7 +2542,7 @@ html {
     margin-bottom: -3px;
 }
 
-.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td .tooltip:hoveractive {
+.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td .tooltip.active {
 	background-image: url(../images/svg/information-active.svg);
 }
 
@@ -2512,10 +2550,32 @@ html {
 	display: none;
 }
 
+.tooltipster-sidetip.tooltipster-shadow .tooltipster-box {
+	background-color: #fafafc !important;
+}
+
 #tooltip_content {
 	width: 466px;
 	height: 266px;
-/* 	padding: 30px 40px; */
+	padding: 30px 25px;
+}
+
+#tooltip_content p {
+	/* 	font-family: Lato-Regular; */
+	font-size: 12px;
+	line-height: 1.3;
+	color: #010101;
+	padding-bottom: 6px;
+}
+
+#tooltip_content .title {
+/* 	font-family: Lato-Black; */
+	font-weight: 700;
+	font-size: 12px;
+	line-height: 1.3;
+	color: #262626;
+	display: block;
+    padding: 6px 0px;	
 }
 
 /* */
