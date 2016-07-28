@@ -16,7 +16,7 @@ html, body {height: 100%;}
 body, input, textarea, button {font-size: 15px; font-family: 'Open Sans', Arial, sans-serif;}
 body, input, textarea {color: #010101;}
 
-a {color: #0085ff; text-decoration: none;}
+a {color: #0085ff; text-decoration: none; transition: all 0.05s linear 0s;}
 
 h1 {font-size: 59px;}
 h2 {font-size: 29px; margin-bottom: .8em; line-height: 1.5; font-weight: 700; color: #000;}
@@ -60,7 +60,8 @@ h2 {font-size: 29px; margin-bottom: .8em; line-height: 1.5; font-weight: 700; co
 .header-menu li:first-child {margin-left: 0;}
 .header-menu a {color: #262626;}
 
-.header-menu a:hover, .header-menu .menu-active a {color: #0085ff; border-bottom: 2px solid #0085ff;}
+.header-menu a:hover {color: #0085ff; border-bottom: 2px solid #0085ff !important;}
+.header-menu .menu-active a {border-bottom: 2px solid #262626;}
 
 .header-path {margin-top: 38px; font-size: 13px; color: #666;}
 .header-path li {display: inline-block;}

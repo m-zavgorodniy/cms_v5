@@ -14,7 +14,7 @@ class MetaTableSiteLink extends MetaTable {
 				// we can use GET params in filters. example: service_group_id = {service_group}
 				// {get parameter name}
 				// [active if {get parameter} is set]
-				// [.. =ISNULL ..] is a secret (ok, to be replaced by IS NULL if the parameter is empty)
+				// [.. =ISNULL ..] to be replaced by IS NULL if the parameter is empty
 				if (preg_match_all("/{([a-zA-Z0-9_\-]+)}/U", $this->table_meta['frontend_sql_filter'], $matches)) {
 					foreach ($matches[1] as &$param_name) {
 						$do_filter = false;
