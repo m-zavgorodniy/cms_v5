@@ -173,9 +173,9 @@
 							<?
 							
 							if ($office_center_detail['img_src'] != "") {
-								echo '<img src="..' . $office_center_detail['img_src'] . '" />';
+								echo '<img src="' . $office_center_detail['img_src'] . '" />';
 							} else {
-								echo '<img src="../uploads/images/icons/svg/infrastructure.svg" />';
+								echo '<img src="/uploads/images/icons/svg/infrastructure.svg" />';
 							}
 								
 							?>

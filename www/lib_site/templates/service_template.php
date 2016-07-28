@@ -378,15 +378,16 @@
 	}
 	
 	/* check if there's an office plan for this business center and its id, if there's any */
-	
-	foreach ($_DATA['service_group_detail']['items'] as $service_group_detail_key => $service_group_detail_value) {
-	
-		if ($service_group_detail_value['office_center_detail_type_id'] == 'plan') {
-			
-			$vd_service_group_id_show_plan = $service_group_detail_key;
-			
-		}	
+	if (isset($_DATA['service_group_detail'])) {
+		foreach ($_DATA['service_group_detail']['items'] as $service_group_detail_key => $service_group_detail_value) {
 		
+			if ($service_group_detail_value['office_center_detail_type_id'] == 'plan') {
+				
+				$vd_service_group_id_show_plan = $service_group_detail_key;
+				
+			}	
+			
+		}
 	}
 	
 ?>
@@ -427,7 +428,7 @@
 						}
 					?>
 					<?
-						if (count($_DATA['office_center_room']['items']) > 1) {	
+						if (count($_DATA['office_center_room']['items']) > 0) {	
 							
 							if ($_DATA['service_group']['items'][$_GET['service']]['css_signature'] == 'office') {
 								
@@ -608,7 +609,7 @@
 	<?
 	}
 	
-	if (count($_DATA['office_center_room']['items']) > 1) {
+	if (count($_DATA['office_center_room']['items']) > 0) {
 		
 		if ($_DATA['service_group']['items'][$_GET['service']]['css_signature'] == 'office')	{
 		
@@ -1251,7 +1252,7 @@
 										Итого
 									</div>
 									<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-total-value">
-										<span>2 500</span> рублей
+										<span><? echo $single_metting_office['price']; ?></span> рублей
 									</div>
 								</div>
 								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item">

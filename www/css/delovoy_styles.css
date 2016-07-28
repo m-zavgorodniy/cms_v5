@@ -1294,7 +1294,7 @@ html {
 }
 
 .vd_serviceincenter_wrapper-coworkingrates-list-item-header-name {
-	width: 175px;
+	width: 205px;
 	height: 100%;
 	border-right: 2px solid #ffffff;
 /* 	font-family: Lato-Black; */
@@ -1317,7 +1317,13 @@ html {
 }
 
 .vd_serviceincenter_wrapper-coworkingrates-list-item-header-features li {
-	line-height: 26px;
+	line-height: 32px;
+	padding-left: .75em;
+	text-indent: -.75em;
+}
+
+.vd_serviceincenter_wrapper-coworkingrates-list-item-header-features li:before {
+  content: "\2013\a0";
 }
 
 .vd_serviceincenter_wrapper-coworkingrates-list-item-header-price {
