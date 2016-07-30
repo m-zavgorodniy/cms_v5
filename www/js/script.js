@@ -589,6 +589,70 @@ jQuery(document).on('click', '.vd_serviceincenter_wrapper-meetingrates-list-item
 	
 });
 
+/* a basic function to format numbers with spaces as thousands separators */
+
+function formatNumber (num) {
+
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1 ")
+
+}
+
+/* change the total coworking price in the coworking service form, when the user updates the workplace count */
+
+jQuery(document).on('change', '.coworking_workplaces', function() {
+
+	var value = jQuery(this).val();
+
+	var base_price = jQuery(this).parents('form').find('input[name="coworking_price"]').val();
+
+	var new_value = base_price * value;
+
+	jQuery(this).parents('form').find('.total_coworking_price').text(formatNumber(new_value));
+
+});
+
+/* change the total meeting price in the meeting service form, when the user updates the hours count */
+
+jQuery(document).on('selectmenuchange', 'select.meeting_duration', function() {
+
+	var value = parseInt(jQuery(this).val());
+
+	var base_price = jQuery(this).parents('form').find('input[name="meeting_price"]').val();
+
+	var new_value = base_price * value;
+
+	jQuery(this).parents('form').find('.total_meeting_price').text(formatNumber(new_value));
+
+});
+
+/* change the total virtual office price in the virual office service form, when the user updates the months count */
+
+jQuery(document).on('selectmenuchange', 'select.virtual_office_term', function() {
+
+	var value = jQuery(this).val();
+
+	var base_price = jQuery(this).parents('form').find('input[name="virtual_office_price"]').val();
+
+	var new_value = base_price * value;
+
+	jQuery(this).parents('form').find('.total_virtual_office_price').text(formatNumber(new_value));
+
+});
+
+/* change the office center id and name, when the user changes the office center in the virtual office select menu */
+
+jQuery(document).on('selectmenuchange', 'select.business_center_select', function() {
+
+	var value = jQuery(this).val();
+
+	var text = jQuery('option:selected', jQuery(this)).text();
+
+	jQuery(this).parents('form').find('input[name="business_center_id"]').val(value);
+
+	jQuery(this).parents('form').find('input[name="business_center"]').val(text);
+
+});
+
 jQuery(document).ready(function(){
 	jQuery('.tooltip').tooltipster({
     	contentCloning: true,
