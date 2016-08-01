@@ -4554,6 +4554,20 @@ html {
 	display: inline-block;
 }
 
+.vd_about_wrapper-clients-list-slide img {
+	max-width: 180px;
+	max-height: 80px;
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	opacity: .9;
+}
+
+.vd_about_wrapper-clients-list-slide img:hover {
+	-webkit-filter: grayscale(0);
+	filter: grayscale(0);
+	opacity: 1;
+}
+
 .vd_about_wrapper-clients-list-slide .helper {
 	display: inline-block;
     position: relative;
@@ -4717,7 +4731,7 @@ html {
 	margin: 0 auto;
 }
 .vd_specialoffer-header {
-	height: 372px;
+	min-height: 372px;
 	padding: 60px 0px;
 	background-color: #f8f9fa;
 }		
@@ -4743,6 +4757,24 @@ html {
 	margin: 0 21px 0 0;		
 	width: 90px;
 	height: 55px;
+	float: left;
+}
+.vd_specialoffer-header-office {
+	background-image: url(/images/svg/icon-office.svg);
+	background-repeat: no-repeat;
+	background-size: 70.5px 81.9px;
+	margin: 0 21px 0 0;
+	width: 70.5px;
+	height: 81.9px;
+	float: left;
+}
+.vd_specialoffer-header-coworking {
+	background-image: url(/images/svg/icon-coworking.svg);
+	background-repeat: no-repeat;
+	background-size: 70.5px 81.9px;
+	margin: 0 21px 0 0;
+	width: 70.5px;
+	height: 81.9px;
 	float: left;
 }
 .vd_specialoffer-header h1 {	

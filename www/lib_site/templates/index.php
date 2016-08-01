@@ -4,69 +4,29 @@
             Приходи и&nbsp;работай
         </div>
         <ul class="index-promo-links">
-            <li class="c-icon c-office">
-                <a href="#">Офисы и рабочие места</a>
-                <div class="index-promo-links-text">в современных бизнес-центрах</div>
+        <?  foreach ($_DATA['service_group']['items'] as &$service_group) { ?>
+            <li class="c-icon c-<?=$service_group['css_signature']?>">
+                <a href="<?=$_SITE['section_paths']['services']['path']?>?service=<?=$service_group['id']?>"><?=$service_group['title_alt']?$service_group['title_alt']:$service_group['title']?></a>
+                <div class="index-promo-links-text"><?=$service_group['headline']?></div>
             </li>
-            <li class="c-icon c-meeting">
-                <a href="#">Переговорные</a>
-                <div class="index-promo-links-text">лучшие условия для встреч</div>
-           </li>
-            <li class="c-icon c-virtual">
-                <a href="#">Виртуальный офис</a>
-                <div class="index-promo-links-text">почта, телефон, секретарь</div>
-           </li>
-            <li class="c-icon c-coworking">
-                <a href="#">Коворкинг</a>
-                <div class="index-promo-links-text">работа в профессиональной среде единомышленников</div>
-           </li>
+        <?  }
+            unset($service_group); ?>
         </ul>
     </div>
     <div class="index-promo-right g-bigpicture"><div class="g-bigpicture-box">
-        <a href="#" style="background-image: url(/uploads/images/samples/main_1.png)"></a>
+        <a style="background-image: url(/uploads/images/samples/main_1.png)"></a>
     </div></div>
 </div></div>
-<div class="offers index-offers g-container"><div class="g-container-row">
-    <h2 class="g-section-title">Cпецпредложения</h2>
-    <ul class="offers-items">
-        <li>
-            <div class="offers-item">
-                <div class="offers-item-title c-icon c-office">
-                    Получите скидку 10% на аренду офиса
-                </div>
-                <div class="offers-item-date">
-                    1 февраля – 29 апреля 2016
-                </div>
-                <div class="offers-item-link"><a href="#" class="g-button c-office">ПОДРОБНЕЕ</a></div>
-            </div>
-        </li>
-        <li>
-            <div class="offers-item">
-                <div class="offers-item-title c-icon c-virtual">
-                    Виртуальный офис + 4 часа переговорных в подарок
-                </div>
-                <div class="offers-item-date">
-                    20 марта – 18 мая  2016
-                </div>
-                <div class="offers-item-link"><a href="#" class="g-button c-virtual">ПОДРОБНЕЕ</a></div>
-            </div>
-        </li>
-        <li>
-            <div class="offers-item">
-                <div class="offers-item-title c-icon c-meeting">
-                    Акция февраля – скидка 70% на аренду переговорных
-                </div>
-                <div class="offers-item-date">
-                    1 февраля – 29 апреля  2016
-                </div>
-                <div class="offers-item-link"><a href="#" class="g-button c-meeting">ПОДРОБНЕЕ</a></div>
-            </div>
-        </li>
-    </ul>
-</div></div>
+<?
+if (isset($_DATA['special_offer'])) { ?>
+    <div class="offers index-offers g-container"><div class="g-container-row">
+    <?  out_special_offers($_DATA['special_offer']['items']); ?>
+    </div></div>
+<?
+} ?>
 <div class="index-promo2 g-container"><div class="g-container-row">
     <div class="index-promo2-left g-bigpicture"><div class="g-bigpicture-box">
-        <a href="#" style="background-image: url(/uploads/images/samples/main_1.png)"></a>
+        <a style="background-image: url(/uploads/images/office_centers/roza_hutor/roza3.jpg)"></a>
     </div></div>
     <div class="index-promo2-right">
         <h2>Горный деловой центр в Роза Хутор</h2>
@@ -74,7 +34,7 @@
             <p>Новый формат — сочетание работы и активного отдыха. Все возможности известного курорта «Роза Хутор» и офисного центра «Деловой».
 Работайте в комфортной обстановке настоящего офиса. Не важно, проведете Вы здесь один час или несколько дней, придете один или с коллегами, — мы создали все условия для того, чтобы ваша работа была комфортной и продуктивной.</p>
         </div>
-        <div class="index-promo2-link"><a href="#" class="g-button">ПОДРОБНЕЕ</a></div>
+        <div class="index-promo2-link"><a href="<?=$_SITE['section_paths']['office_centers']['path']?>?center=<?=$_SITE['config']['GDC_OFFICE_CENTER_ID']?>" class="g-button">ПОДРОБНЕЕ</a></div>
     </div>
 </div></div>
 <div class="index-text">

@@ -807,9 +807,9 @@
 						<tr class="details">
 							<td></td>
 							<td><div class="icons"><img src="/uploads/images/icons/svg/address.svg"></div>Предоставляет для вашей компании почтовый адрес  для приема почтовой корреспонденции в современном БЦ.</td>
-							<td><div class="icons"><img src="http://dev.viaduct.pro/uploads/images/icons/svg/telephone.svg"><img src="http://dev.viaduct.pro/uploads/images/icons/svg/secretary.svg"></div>Это московский телефонный номер для Вашей компании и обработка входящих звонков «живым» секретарем.</td>
-							<td><div class="icons"><img src="http://dev.viaduct.pro/uploads/images/icons/svg/address.svg"><img src="http://dev.viaduct.pro/uploads/images/icons/svg/telephone.svg"><img src="http://dev.viaduct.pro/uploads/images/icons/svg/secretary.svg"></div>Тариф предоставляет Вашей компании почтовый адрес в современном БЦ, московский телефонный номер и обработка входящих звонков «живым» секретарем</td>
-							<td><div class="icons"><img src="http://dev.viaduct.pro/uploads/images/icons/svg/law.svg"><img src="http://dev.viaduct.pro/uploads/images/icons/svg/telephone.svg"><img src="http://dev.viaduct.pro/uploads/images/icons/svg/secretary.svg"></div>Это предоставление для Вашей компании единого юридического (для регистрации в ИФНС) и почтового адреса в современном БЦ, московского телефонного номера и обработка входящих звонков «живым» секретарем</td>
+							<td><div class="icons"><img src="/uploads/images/icons/svg/telephone.svg"><img src="/uploads/images/icons/svg/secretary.svg"></div>Это московский телефонный номер для Вашей компании и обработка входящих звонков «живым» секретарем.</td>
+							<td><div class="icons"><img src="/uploads/images/icons/svg/address.svg"><img src="/uploads/images/icons/svg/telephone.svg"><img src="/uploads/images/icons/svg/secretary.svg"></div>Тариф предоставляет Вашей компании почтовый адрес в современном БЦ, московский телефонный номер и обработка входящих звонков «живым» секретарем</td>
+							<td><div class="icons"><img src="/uploads/images/icons/svg/company-address.svg"><img src="/uploads/images/icons/svg/telephone.svg"><img src="/uploads/images/icons/svg/secretary.svg"></div>Это предоставление для Вашей компании единого юридического (для регистрации в ИФНС) и почтового адреса в современном БЦ, московского телефонного номера и обработка входящих звонков «живым» секретарем</td>
 							<?
 
 							/* temporary disable annotations, since there's content in the databases */
@@ -1389,48 +1389,14 @@
 		
 	}	
 	
-	?>
+	if (isset($_DATA['special_offer'])) { ?>
 	<div class="vd_serviceincenter_wrapper-special">
 		<a name="special" /></a>
 		<div class="g-container">
 			<div class="g-container-row">
-				<h2 class="g-section-title">Cпецпредложения</h2>
-				<ul class="offers-items">
-			        <li>
-			            <div class="offers-item">
-			                <div class="offers-item-title c-icon c-office">
-			                    Получите скидку 10% на аренду офиса
-			                </div>
-			                <div class="offers-item-date">
-			                    1 февраля – 29 апреля 2016
-			                </div>
-			                <div class="offers-item-link"><a href="#" class="g-button c-office">ПОДРОБНЕЕ</a></div>
-			            </div>
-			        </li>
-			        <li>
-			            <div class="offers-item">
-			                <div class="offers-item-title c-icon c-virtual">
-			                    Виртуальный офис + 4 часа переговорных в подарок
-			                </div>
-			                <div class="offers-item-date">
-			                    20 марта – 18 мая  2016
-			                </div>
-			                <div class="offers-item-link"><a href="#" class="g-button c-virtual">ПОДРОБНЕЕ</a></div>
-			            </div>
-			        </li>
-			        <li>
-			            <div class="offers-item">
-			                <div class="offers-item-title c-icon c-meeting">
-			                    Акция февраля – скидка 70% на аренду переговорных
-			                </div>
-			                <div class="offers-item-date">
-			                    1 февраля – 29 апреля  2016
-			                </div>
-			                <div class="offers-item-link"><a href="#" class="g-button c-meeting">ПОДРОБНЕЕ</a></div>
-			            </div>
-			        </li>
-			    </ul>		
+			<?  out_special_offers($_DATA['special_offer']['items']); ?>
 			</div>
 		</div>	
 	</div>
+<?	} ?>
 </div>

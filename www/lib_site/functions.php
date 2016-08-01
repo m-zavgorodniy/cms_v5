@@ -31,6 +31,28 @@ function out_sharing() { ?>
 <?
 }
 
+function out_special_offers($special_offers) {
+    global $_SITE; ?>
+    <h2 class="g-section-title">Cпецпредложения</h2>
+    <ul class="offers-items">
+    <?  foreach ($special_offers as &$special_offer) { ?>
+        <li>
+            <div class="offers-item">
+                <div class="offers-item-title c-icon c-<?=$special_offer['service_group_css_class']?>">
+                    <?=$special_offer['title']?>
+                </div>
+                <div class="offers-item-date">
+                    <?=text_date_str($special_offer['date_from'], 'ru_RU', 'j M')?><?=$special_offer['date_to']?' – ' . text_date_str($special_offer['date_to'], 'ru_RU', 'j M'):''?>
+                </div>
+                <div class="offers-item-link"><a href="<?=$_SITE['section_paths']['services']['path']?>?service=<?=$special_offer['service_group_id']?>&special=<?=$special_offer['id']?>" class="g-button c-<?=$special_offer['service_group_css_class']?>">ПОДРОБНЕЕ</a></div>
+            </div>
+        </li>
+    <?  }
+        unset($special_offer); ?>
+    </ul>
+<?
+}
+
 function gallery_html2array($str) {
     preg_match_all('/<a\s.*?href="([^"]*)".*?<img\s.*?src="([^"]*)"/is', $str, &$matches, PREG_SET_ORDER);
     return $matches;

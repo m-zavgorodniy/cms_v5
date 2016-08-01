@@ -6,6 +6,6 @@ $config['GALLERY_THUMBNAIL_WIDTH'] = 500;
 $config['GALLERY_THUMBNAIL_HEIGHT'] = 320;
 
 // add your custom settings
-$config['DEFAULT_CITY_ID'] = 1;
+$config['GDC_OFFICE_CENTER_ID'] = 6;
 
 ?>

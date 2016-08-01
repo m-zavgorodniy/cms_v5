@@ -170,66 +170,20 @@
 						data-pager=".vd_about_wrapper-clients-list .cycle-pager"	
 					>
 						<div class="vd_about_wrapper-clients-list-slide">
-							<div class="vd_about_wrapper-clients-list-slide-element">
-								<img src="../images/delovoy_fake_clients_1.png" />
-							</div>
-							<div class="vd_about_wrapper-clients-list-slide-element">
-								<img src="../images/delovoy_fake_clients_2.png" />
-							</div>
-							<div class="vd_about_wrapper-clients-list-slide-element">
-								<img src="../images/delovoy_fake_clients_3.png" />
-							</div>
-							<div class="vd_about_wrapper-clients-list-slide-element">
-								<img src="../images/delovoy_fake_clients_4.png" />
-							</div>
-							<div class="vd_about_wrapper-clients-list-slide-element">
-								<img src="../images/delovoy_fake_clients_5.png" />
-							</div>
-							<div class="vd_about_wrapper-clients-list-slide-element">
-								<img src="../images/delovoy_fake_clients_6.png" />
-							</div>
-							<div class="helper"></div>
-						</div>
-						<div class="vd_about_wrapper-clients-list-slide">
-							<div class="vd_about_wrapper-clients-list-slide-element">
-								<img src="../images/delovoy_fake_clients_1.png" />
-							</div>
-							<div class="vd_about_wrapper-clients-list-slide-element">
-								<img src="../images/delovoy_fake_clients_6.png" />
-							</div>
-							<div class="vd_about_wrapper-clients-list-slide-element">
-								<img src="../images/delovoy_fake_clients_2.png" />
-							</div>
-							<div class="vd_about_wrapper-clients-list-slide-element">
-								<img src="../images/delovoy_fake_clients_5.png" />
-							</div>
-							<div class="vd_about_wrapper-clients-list-slide-element">
-								<img src="../images/delovoy_fake_clients_3.png" />
-							</div>
-							<div class="vd_about_wrapper-clients-list-slide-element">
-								<img src="../images/delovoy_fake_clients_5.png" />
-							</div>
-							<div class="helper"></div>
-						</div>
-						<div class="vd_about_wrapper-clients-list-slide">
-							<div class="vd_about_wrapper-clients-list-slide-element">
-								<img src="../images/delovoy_fake_clients_6.png" />
-							</div>
-							<div class="vd_about_wrapper-clients-list-slide-element">
-								<img src="../images/delovoy_fake_clients_5.png" />
-							</div>
-							<div class="vd_about_wrapper-clients-list-slide-element">
-								<img src="../images/delovoy_fake_clients_4.png" />
-							</div>
-							<div class="vd_about_wrapper-clients-list-slide-element">
-								<img src="../images/delovoy_fake_clients_3.png" />
-							</div>
-							<div class="vd_about_wrapper-clients-list-slide-element">
-								<img src="../images/delovoy_fake_clients_2.png" />
-							</div>
-							<div class="vd_about_wrapper-clients-list-slide-element">
-								<img src="../images/delovoy_fake_clients_1.png" />
-							</div>
+						<?	$logo_count = count($_DATA['client']['items']);
+							$logo_per_slide = 5;
+							$i = 0;
+							foreach ($_DATA['client']['items'] as &$client) { ?>
+								<div class="vd_about_wrapper-clients-list-slide-element">
+									<?=out_http_link($client['web'], true, '<img src="' . $client['img_src'] . '" title="' . $client['title'] . '">')?>
+								</div>
+							<?	if (++$i != $logo_count && $i % $logo_per_slide == 0) { ?>
+										<div class="helper"></div>
+									</div>
+									<div class="vd_about_wrapper-clients-list-slide">
+							<?	}
+							}
+							unset($client); ?>
 							<div class="helper"></div>
 						</div>
 					</div>

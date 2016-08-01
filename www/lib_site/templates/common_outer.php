@@ -2,6 +2,8 @@
 define('MOBILE_BREAKPOINT_PX', '1000'); // 568px - iPhone 5, 768px - tablet
 define('MOBILE_MEDIA', 'screen and (max-width:' . MOBILE_BREAKPOINT_PX . 'px)');
 
+define('UPD', '?upd=1');
+
 ?><!DOCTYPE html>
 <html lang="<?=$_SITE['html_lang']?>" xmlns:og="http://ogp.me/ns#">
 <head>
@@ -14,19 +16,19 @@ define('MOBILE_MEDIA', 'screen and (max-width:' . MOBILE_BREAKPOINT_PX . 'px)');
     	<meta name="description" content="<?=$_SITE['seo_description']?>" />
 <?	} ?>
 	<meta name="format-detection" content="telephone=no" />
-	<link rel="stylesheet" type="text/css" href="/css/styles.css" />
-	<link rel="stylesheet" type="text/css" href="/css/content.css" />
-	<link rel="stylesheet" type="text/css" href="/css/delovoy_styles.css" />
+	<link rel="stylesheet" type="text/css" href="/css/styles.css<?=UPD?>" />
+	<link rel="stylesheet" type="text/css" href="/css/content.css<?=UPD?>" />
+	<link rel="stylesheet" type="text/css" href="/css/delovoy_styles.css<?=UPD?>" />
 	<link rel="stylesheet" type="text/css" href="/css/jquery-ui.min.css" />
 	<link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css" />
 	<link rel="stylesheet" type="text/css" href="/css/jquery.fancybox-thumbs.css" />
 	<link rel="stylesheet" type="text/css" href="/css/jquery.jscrollpane.css" />
 	<link rel="stylesheet" type="text/css" href="/css/tooltipster.bundle.min.css" />
 	<link rel="stylesheet" type="text/css" href="/css/tooltipster-sideTip-shadow.min.css" />	
-	<link rel="stylesheet" type="text/css" href="/css/mobile.css" media="<?=MOBILE_MEDIA?>" />
+	<link rel="stylesheet" type="text/css" href="/css/mobile.css<?=UPD?>" media="<?=MOBILE_MEDIA?>" />
     <!--[if lte IE 9]><script src="/respond.min.js"></script><![endif]-->
     <script type="text/javascript" src="/js/jquery-1.12.3.min.js"></script>
-    <script type="text/javascript" src="/js/script.js"></script>
+    <script type="text/javascript" src="/js/script.js<?=UPD?>"></script>
 	<script type="text/javascript" src="/js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="/js/infobubble.js"></script>
     <script type="text/javascript" src="/js/markerclusterer.js"></script>
@@ -45,8 +47,8 @@ define('MOBILE_MEDIA', 'screen and (max-width:' . MOBILE_BREAKPOINT_PX . 'px)');
     <div class="body-wrap">
         <header class="header">
             <div class="header-top">
-                <div class="header-top-left"><a href="/business-centers/?center=6"><span>ГОРНЫЙ ДЕЛОВОЙ ЦЕНТР</span> в Роза Хутор. Работа и учеба в горах.</a></div>
-                <div class="header-top-right"><a href="/business-centers/?center=6">УЗНАТЬ БОЛЬШЕ</a></div>
+                <div class="header-top-left"><a href="<?=$_SITE['section_paths']['office_centers']['path']?>?center=<?=$_SITE['config']['GDC_OFFICE_CENTER_ID']?>"><span>ГОРНЫЙ ДЕЛОВОЙ ЦЕНТР</span> в Роза Хутор. Работа и учеба в горах.</a></div>
+                <div class="header-top-right"><a href="<?=$_SITE['section_paths']['office_centers']['path']?>?center=<?=$_SITE['config']['GDC_OFFICE_CENTER_ID']?>">УЗНАТЬ БОЛЬШЕ</a></div>
             </div>
             <div class="g-container"><div class="g-container-row">
                 <div class="header-nav g-clearfix">

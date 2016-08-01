@@ -52,7 +52,7 @@
 			mysql_close($conn); ?>
         </div>
 		<a href="doclist.php?type=container&mode=sitetree" target="tree" onClick="setFrame()"><img src="images/icons/sitemap.png" alt="">Разделы</a>
-		<a href="doclist.php?type=banner_type" target="tree" onClick="setFrame()"><img src="images/icons/application_view_gallery.png" alt="">Баннеры</a>
+		<a href="list.php?type=booking" target="content" onClick="setFrame()"><img src="images/icons/calendar.png" alt="">Бронирование</a>
 		<a href="extras.php" target="tree" onClick="setFrame()"><img src="images/icons/wrench.png" alt="">Настройки и справочники</a>
 <!--		<a href="mailing.php" target="tree" onClick="setFrame()"><img src="images/icons/email.png" alt="">Рассылки</a> -->
 	    <a href="site.php?view=metatable" target="tree" onClick="setFrame()"><img src="images/icons/gear_big.png" alt="">Сайт</a>
