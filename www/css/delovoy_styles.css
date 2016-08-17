@@ -1778,7 +1778,7 @@ html {
 .vd_serviceincenter_wrapper-meetingrates-list-item-form-right {
 	float: right;
 	width: 716px;
-	margin-right: 30px;
+	margin: 0 30px 30px 0;
 }
 
 .vd_serviceincenter_wrapper-meetingrates-list-item-form-right input {

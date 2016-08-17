@@ -694,7 +694,7 @@
 										<td><? echo $single_office_center_room['office_center_id_lookup']; ?></td>
 									</tr>
 									<tr>
-										<td>Офис</td>
+										<td>Номер офиса</td>
 										<td>
 										<?
 											echo filter_var($single_office_center_room['title'], FILTER_SANITIZE_NUMBER_INT);
@@ -702,6 +702,7 @@
 										?>
 										</td>
 									</tr>
+								<? /*
 									<tr>
 										<td>Площадь</td>
 										<td><? echo number_format($single_office_center_room['floor_area_m2']); ?> кв. м</td>
@@ -726,7 +727,7 @@
 									<tr class="total">
 										<td>Итого</td>
 										<td><span><? echo $single_office_center_room_price_full; ?></span> ₽ / <? echo $single_office_center_room_price_term_lookup; ?></td>
-									</tr>
+									</tr> */ ?>
 								</table>
 							</div>
 							<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right">
@@ -916,6 +917,7 @@
 										<? echo $single_virtual_office['title']; ?>
 									</div>
 								</div>
+							<? /*
 								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item">
 									<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-label">
 										Стоимость
@@ -923,7 +925,7 @@
 									<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-value">
 										<? echo $single_virtual_office_price; ?> рублей в месяц
 									</div>
-								</div>
+								</div> */?>
 								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item">
 									<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-label">
 										Срок
@@ -937,6 +939,7 @@
 										</select>
 									</div>
 								</div>
+							<? /*
 								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-total">
 									<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-total-label">
 										Итого
@@ -944,7 +947,7 @@
 									<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-total-value">
 										<span class="total_virtual_office_price"><?php echo $single_virtual_office_price; ?></span> рублей
 									</div>
-								</div>
+								</div> */ ?>
 							</div>
 						</form>
 					</div>	
@@ -1193,6 +1196,7 @@
 										</select>
 									</div>
 								</div>
+							<? /*
 								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item">
 									<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-label">
 										Стоимость
@@ -1209,7 +1213,7 @@
 									<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-total-value">
 										<span class="total_meeting_price"><? echo $single_metting_office['price']; ?></span> рублей
 									</div>
-								</div>
+								</div> */ ?>
 								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item">
 									<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-widetall">
 										<label class="additionalservice_label"><input type="checkbox" name="additionalservice" class="additionalservice" value="1"><span></span>Нужно дополнительное обслуживание</label>
@@ -1347,6 +1351,7 @@
 										<input type="number" class="coworking_workplaces" name="coworking_workplaces" value="1" min="1">
 									</div>
 								</div>
+							<? /*
 								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-total">
 									<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-total-label">
 										Итого
@@ -1354,7 +1359,7 @@
 									<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-total-value">
 										<span class="total_coworking_price"><? echo $single_coworking_price; ?></span> руб./месяц
 									</div>
-								</div>
+								</div> */ ?>
 							</div>
 						</div>
 					</form>
