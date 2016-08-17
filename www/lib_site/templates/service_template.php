@@ -394,7 +394,8 @@
 		
 			if ($service_group_detail_value['office_center_detail_type_id'] == 'plan') {
 				
-				$vd_service_group_id_show_plan = $service_group_detail_key;
+				$vd_service_group_plans[] = $service_group_detail_value;
+////				$vd_service_group_id_show_plan = $service_group_detail_key;
 				
 			}	
 			
@@ -432,7 +433,7 @@
 						}
 					?>
 					<?
-						if ($vd_service_group_id_show_plan) {
+						if (isset($vd_service_group_plans)) {
 					?>
 					<li><a href="#layout">План офисов</a></li>
 					<?
@@ -593,29 +594,26 @@
 	
 	
 	<?
-	if ($vd_service_group_id_show_plan) {
-		
-		$vd_service_group_id_show_plan_content = $_DATA['service_group_detail']['items'][$vd_service_group_id_show_plan];
-		
-		$vd_service_group_id_show_plan_img_src = $vd_service_group_id_show_plan_content['img_src'];
-		$vd_service_group_id_show_plan_img_src_big = $vd_service_group_id_show_plan_content['img_src_big'];
-		$vd_service_group_id_show_plan_body = $vd_service_group_id_show_plan_content['body'];
-		
+	if (isset($vd_service_group_plans)) {
 	?>
 	<div class="vd_serviceincenter_wrapper-layout">
 		<a name="layout" /></a>
 		<h2 class="g-section-title">План офисов</h2>
+	<?	foreach ($vd_service_group_plans as $vd_service_group_plan) { ?>
 		<div class="g-container">
-			<div class="vd_serviceincenter_wrapper-layout-image">
-				<img src="<? echo $vd_service_group_id_show_plan_img_src; ?>" data-src-big="<? echo $vd_service_group_id_show_plan_img_src_big; ?>" />
-				<div class="vd_serviceincenter_wrapper-layout-image-zoom">
-					увеличить
+			<div class="vd_serviceincenter_wrapper-plan">
+				<div class="vd_serviceincenter_wrapper-layout-image">
+					<img src="<? echo $vd_service_group_plan['img_src']; ?>" data-src-big="<? echo $vd_service_group_plan['img_src_big']; ?>" />
+					<div class="vd_serviceincenter_wrapper-layout-image-zoom">
+						увеличить
+					</div>
+				</div>
+				<div class="vd_serviceincenter_wrapper-layout-text">
+					<? echo $vd_service_group_plan['body']; ?>
 				</div>
 			</div>
-			<div class="vd_serviceincenter_wrapper-layout-text">
-				<? echo $vd_service_group_id_show_plan_body; ?>
-			</div>
 		</div>
+	<?	} ?>
 	</div>
 	<?
 	}
