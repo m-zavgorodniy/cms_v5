@@ -106,7 +106,7 @@ class TableRows extends MetaTable {
 					
 					$col_num = 2; // first column is always id
                     foreach ($this->record_meta as $column => $meta) { ?>
-                        <th<?=($meta['main'] and $main_is_wide or $meta['wide'])?' width="' . (floor(100/($wide_cols?$wide_cols:1))) .'%"':''?>>
+                        <th<?=($meta['main'] and $main_is_wide and $meta['type'] != 'date' or $meta['wide'])?' width="' . (floor(100/($wide_cols?$wide_cols:1))) .'%"':''?>>
                         <?	if ($this->master_table != NULL) { //  it's a sub query
                         		$view_link = "type=" . $this->master_table . "&id=" . $this->master_id . ($bookmark?'&bookmark='.$bookmark:'');
                         	} else {
@@ -157,20 +157,17 @@ class TableRows extends MetaTable {
                                 <?=htmlspecialchars($subrow[$column . "_lookup"])?>
 <?								} ?>&#160;
                             </td>
-<?						} else {
-                            $field_value = '';
+<?						} else { 
                             if ($meta['type'] === 'html') {
                                 $field_value = $subrow[$column];
                             } else if ($meta['type'] === 'textarea') {
                                 $field_value = nl2br(htmlspecialchars($subrow[$column]));
                             } else if (0 === strpos($meta['type'], 'image')) {
-                                if ($subrow[$column]) {
-                                    $field_value = '<img src="' . htmlspecialchars($subrow[$column]) . (false === strpos($subrow[$column], '?')?'?' . rand():'') . '" alt="" class="cm-content-subquery-image" />';
-                                }
+                                $field_value = '<img src="' . htmlspecialchars($subrow[$column]) . (false === strpos($subrow[$column], '?')?'?' . rand():'') . '" alt="" class="cm-content-subquery-image" />';
                             } else {
                                 $field_value = htmlspecialchars($subrow[$column . (($meta['multi_lang'] and $field_lang_id)?'_' . $field_lang_id:'')]);
                             } ?>
-                            <td<?=($meta['main'] and $main_is_wide or $meta['wide'] or $meta['type'] == 'html' or $meta['type'] == 'textarea')?'':''/*' nowrap=""'*/?><?=$type !== 'digit'?'':' align="right"'?>>
+                            <td<?=($meta['main'] and $main_is_wide or $meta['wide'] and $meta['type'] != 'date' or $meta['type'] == 'html' or $meta['type'] == 'textarea')?'':''/*' nowrap=""'*/?><?=$type !== 'digit'?'':' align="right"'?><?=$meta['type'] == 'date'?' nowrap':'' ?>>
 <?								if ($meta['main']) { ?>
                                 <a href="view.php?type=<?=$this->table . "&id=" . $subrow['id']?>"><?=$field_value?></a>
 <?								} else { ?>
