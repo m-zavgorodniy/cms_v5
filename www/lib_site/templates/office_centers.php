@@ -252,7 +252,7 @@
 		<div class="vd_singleofficewrapper-content-services">
 			<div class="g-container">
 			<a name="services"></a>
-			<h2 class="g-section-title">Услуги</h2>
+			<h2 class="g-section-title">Услуги в бизнес-центре</h2>
 			<table class="vd_singleofficewrapper-content-services-table">
 				<tr>
 					<th class="service_header_label_block">Основные услуги</th>
@@ -479,6 +479,7 @@
 			<a name="special"></a>
 			<div class="g-container">
 				<div class="g-container-row">
+					<h2 class="g-section-title">Cпецпредложения в бизнес-центре</h2>
 				<?  out_special_offers($_DATA['special_offer']['items']); ?>
 				</div>
 			</div>

@@ -47,26 +47,9 @@ if ($_GET['special']) {
 	</div>
 	<div class="g-container-row vd_services_text">
 		<?
-			$vd_services_text = $_DATA['article']['items'][1]['body'];
-			
-			$vd_services_text_pattern = array(
-				'/width="50%"/',
-				'/width="30"/',
-				'/width="50%"/'
-			);
-			
-			$vd_services_text_replacement = array(
-				'/width="48%"/',
-				'/width="4%"/',
-				'/width="48%%"/'
-			);
-			
-			/* change the width values to have a more sane separator between the cells */
-			
-			$vd_services_text = preg_replace($vd_services_text_pattern, $vd_services_text_replacement, $vd_services_text);
-			
-			echo $vd_services_text;
-			
+			$article = current($_DATA['article']['items']);
+			echo $article['body'];
+
 		?>
 	</div>
 	<div class="g-container-row vd_services2">
@@ -81,7 +64,7 @@ if ($_GET['special']) {
 			
 			<li class="vd_services2_list-item">
 				<span class="vd_service2_list-item-image">
-					<img src="http://<? echo $_SERVER['HTTP_HOST'] . $service_group_item['icon_img_src']; ?>" />
+					<img src="<? echo $service_group_item['icon_img_src']; ?>" />
 				</span>
 				<span class="vd_service2_list-item-title">
 					<? echo $service_group_item['title']; ?>
@@ -89,11 +72,11 @@ if ($_GET['special']) {
 				<div class="vd_services2_list-item-wrapper">
 					<div class="vd_services2_list-item-wrapper-close">Закрыть</div>
 					<div class="vd_services2_list-item-wrapper-title">
-						<img src="http://<? echo $_SERVER['HTTP_HOST'] . $service_group_item['icon_img_src']; ?>" />
+						<img src="<? echo $service_group_item['icon_img_src']; ?>" />
 						<? echo $service_group_item['title']; ?>
 					</div>
 					<div class="vd_services2_list-item-wrapper-desc">
-						Теперь Вам не нужен штатный системный администратор. Специалисты «Делового» будут следить за работоспособностью компьютерного парка Вашей компании.
+						<? echo $service_group_item['headline']; ?>
 					</div>
 					<div class="vd_subservice_list">
 						<div class="vd_subservice_list-item">
@@ -171,6 +154,7 @@ if ($_GET['special']) {
 	</div>
 <?	if (isset($_DATA['special_offer'])) { ?>
 	<div class="g-container"><div class="g-container-row">
+		<h2 class="g-section-title">Cпецпредложения</h2>
 	<?  out_special_offers($_DATA['special_offer']['items']); ?>
 	</div></div>
 <?	} ?>
@@ -498,6 +482,7 @@ if ($_GET['special']) {
 	<div class="vd_serviceincenter_wrapper-special">
 		<a name="special" /></a>
 		<div class="g-container-row">
+			<h2 class="g-section-title">Cпецпредложения</h2>
 		<?  out_special_offers($_DATA['special_offer']['items']); ?>	
 		</div>
 	</div>

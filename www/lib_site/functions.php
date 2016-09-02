@@ -1,4 +1,11 @@
 <?
+// the code in here runs before all
+
+// a little naughty hack - see SQL-filter in /admin/edit.php?type=meta_table&id=special_offer:
+// [FIND_IN_SET({center}, office_center_id)] AND [service_group_id = {service}] OR [{special} > 0]
+// so this is to not let {special} be empty ('' or null)
+if (!isset($_GET['special'])) $_GET['special'] = 0;
+
 // this file is auto-included in all the php templates
 // the functions you add here are available to use in the templates
 
@@ -31,22 +38,25 @@ function out_sharing() { ?>
 <?
 }
 
-function out_special_offers($special_offers) {
-    global $_SITE; ?>
-    <h2 class="g-section-title">Cпецпредложения</h2>
+function out_special_offers($special_offers, $exclude_offer_id = 0) {
+    global $_SITE, $_DATA; ?>
     <ul class="offers-items">
-    <?  foreach ($special_offers as &$special_offer) { ?>
-        <li>
-            <div class="offers-item">
-                <div class="offers-item-title c-icon c-<?=$special_offer['service_group_css_class']?>">
-                    <?=$special_offer['title']?>
+    <?  foreach ($special_offers as &$special_offer) {
+            if ($exclude_offer_id == $special_offer['id']) continue; ?>
+            <li>
+                <div class="offers-item">
+                    <div class="offers-item-title c-icon c-<?=$special_offer['service_group_css_class']?>">
+                        <?=$special_offer['title']?>
+                    </div>
+                    <div class="offers-item-date">
+                        <span class="g-nobr"><?=text_date_str($special_offer['date_from'], 'ru_RU', 'j M')?><?=$special_offer['date_to']?' – ' . text_date_str($special_offer['date_to'], 'ru_RU', 'j M'):''?></span>
+                    </div>
+                    <div class="offers-item-center">
+                        <?=str_replace('/', '&nbsp;/ ', str_replace(' ', '&nbsp;', str_replace(', ', '/', $special_offer['office_center_id_lookup'])))?>
+                    </div>
+                    <div class="offers-item-link"><a href="<?=$_SITE['section_paths']['services']['path']?>?service=<?=$special_offer['service_group_id']?>&special=<?=$special_offer['id']?>" class="g-button c-<?=$special_offer['service_group_css_class']?>">ПОДРОБНЕЕ</a></div>
                 </div>
-                <div class="offers-item-date">
-                    <?=text_date_str($special_offer['date_from'], 'ru_RU', 'j M')?><?=$special_offer['date_to']?' – ' . text_date_str($special_offer['date_to'], 'ru_RU', 'j M'):''?>
-                </div>
-                <div class="offers-item-link"><a href="<?=$_SITE['section_paths']['services']['path']?>?service=<?=$special_offer['service_group_id']?>&special=<?=$special_offer['id']?>" class="g-button c-<?=$special_offer['service_group_css_class']?>">ПОДРОБНЕЕ</a></div>
-            </div>
-        </li>
+            </li>
     <?  }
         unset($special_offer); ?>
     </ul>

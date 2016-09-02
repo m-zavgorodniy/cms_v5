@@ -2,7 +2,7 @@
 define('MOBILE_BREAKPOINT_PX', '1000'); // 568px - iPhone 5, 768px - tablet
 define('MOBILE_MEDIA', 'screen and (max-width:' . MOBILE_BREAKPOINT_PX . 'px)');
 
-define('UPD', '?upd=2');
+define('UPD', '?upd=4');
 
 ?><!DOCTYPE html>
 <html lang="<?=$_SITE['html_lang']?>" xmlns:og="http://ogp.me/ns#">

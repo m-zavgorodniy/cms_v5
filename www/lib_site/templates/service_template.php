@@ -792,7 +792,7 @@
 				<div class="vd_serviceincenter_wrapper-virtualrates-list-header">
 					<table>
 						<tr class="table_header">
-							<th class="label">Тарифы</th>
+							<th class="label open">Тарифы</th>
 							<?
 							
 							foreach ($_DATA['office_center_room']['items'] as $single_virtual_office) {
@@ -803,7 +803,7 @@
 								
 							?>
 						</tr>
-						<tr class="details">
+						<tr class="details open">
 							<td></td>
 							<td><div class="icons"><img src="/uploads/images/icons/svg/address.svg"></div>Предоставляет для вашей компании почтовый адрес  для приема почтовой корреспонденции в современном БЦ.</td>
 							<td><div class="icons"><img src="/uploads/images/icons/svg/telephone.svg"><img src="/uploads/images/icons/svg/secretary.svg"></div>Это московский телефонный номер для Вашей компании и обработка входящих звонков «живым» секретарем.</td>
@@ -961,125 +961,65 @@
 			</div>
 		</div>
 	</div>
-	
+<?	
+if (isset($_DATA['tariff_includes']['items']) && isset($_DATA['office_center_room']['items'])) {
+	// getting reverse arrays of services included in tariff, for search below
+	function reverse_tariff_includes($item) {
+		$item['tariff_includes_id'] = array_flip(explode(',', $item['tariff_includes_id']));
+		return $item;
+	}
+	$_DATA['office_center_room']['items'] = array_map('reverse_tariff_includes', $_DATA['office_center_room']['items']); ?>
 	<div class="vd_serviceincenter_wrapper-virtualrates-details">
 		<div class="g-container">
 		<div class="vd_serviceincenter_wrapper-virtualrates-details-list">
-			<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item">
-				<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-header">
-					Основные сервисы
-				</div>
-				<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-table">
-					<table>
-						<tr>
-							<td class="label">Предоставление почтового адреса</td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-						</tr>
-						<tr>
-							<td class="label">Голосовой почтовый ящик</td>
-							<td><div class="not_included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-						</tr>
-						<tr>
-							<td class="label">Юридический адрес</td>
-							<td><div class="not_included"></div></td>
-							<td><div class="not_included"></div></td>
-							<td><div class="not_included"></div></td>
-							<td><div class="included"></div></td>
-						</tr>
-					</table>
-				</div>
-			</div>
-			<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item">
-				<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-header">
-					Обработка корреспонденции, уведомления
-				</div>
-				<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-table">
-					<table>
-						<tr>
-							<td class="label">Прием и сортировка</td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-						</tr>
-						<tr>
-							<td class="label">Хранение</td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-						</tr>
-						<tr>
-							<td class="label">Прием факсов</td>
-							<td><div class="not_included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-						</tr>
-						<tr>
-							<td class="label">Уведомления о поступлении корр-ции  на эл. почту</td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-						</tr>
-					</table>
-				</div>
-			</div>
-			<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item">
-				<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-header">
-					Телефонные номера, прием и переадресация входящих звонков
-				</div>
-				<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-table">
-					<table>
-						<tr>
-							<td class="label">Телефонный номер<br />в коде 495 / 499</td>
-							<td><div class="not_included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-						</tr>
-						<tr>
-							<td class="label">На городские<br />номера Москвы</td>
-							<td><div class="not_included"></div></td>
-							<td><div class="included"></div><span>Включено 1500 минут</span></td>
-							<td><div class="included"></div><span>Включено 1500 минут</span></td>
-							<td><div class="included"></div><span>Включено 1500 минут</span></td>
-						</tr>
-						<tr>
-							<td class="label">На городские<br />номера РФ<div class="tooltip" data-tooltip-content="#tooltip_content"></div></td>
-							<td><div class="not_included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-						</tr>
-						<tr>
-							<td class="label">На мобильные<br />номера Москвы и РФ</td>
-							<td><div class="not_included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-						</tr>
-						<tr>
-							<td class="label">На мобильные<br />и городские номера зарубежья<div class="tooltip" data-tooltip-content="#tooltip_content"></div></td>
-							<td><div class="not_included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-							<td><div class="included"></div></td>
-						</tr>
-					</table>
-				</div>
-			</div>
+		<?	$first_item = current($_DATA['tariff_includes']['items']);
+			if (!$first_item['is_group_title']) {
+				array_unshift($_DATA['tariff_includes']['items'], array('title' => 'Сервисы', 'is_group_title' => 1));
+			}
+			$i = 0;
+			foreach ($_DATA['tariff_includes']['items'] as $tariff_service_id => &$tariff_service) {
+				if ($tariff_service['is_group_title']) { 
+					if (0 != $i++) { ?>
+							</table>
+						</div>
+					</div>
+				<?	} ?>
+					<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item open">
+						<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-header">
+							<?=$tariff_service['title']?>
+						</div>
+						<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-table">
+							<table>
+			<?	} else { ?>
+					<tr>
+						<td class="label"><?=$tariff_service['title']?>
+						<?	if ($tariff_service['annotation']) { ?>
+							<div class="tooltip" data-tooltip-content="#tooltip_<?=$tariff_service_id?>"></div>
+							<div class="tooltip_content_wrapper">
+							<div class="tooltip_content" id="tooltip_<?=$tariff_service_id?>">
+								<p><?=$tariff_service['annotation']?></p>
+							</div>
+							</div>
+					<?	} ?>
+						</td>
+					<?	foreach ($_DATA['office_center_room']['items'] as $tariff_id => &$tariff) {
+							$is_included = isset($tariff['tariff_includes_id'][$tariff_service_id]); ?>
+							<td><div class="<?=!$is_included?'not_':''?>included" title="<?=$is_included?'Входит в стоимость услуги':'Не предоставляется'?>"></div></td>
+					<?	}
+						unset($tariff); ?>
+					</tr>
+			<?	}
+			}
+			unset($tariff_service); ?>
+							</table>
+						</div>
+					</div>
 		</div>
 		</div>
 	</div>
-	
+<?
+} ?>
+
 	<div class="vd_serviceincenter_wrapper-get_presentation">
 		<div class="g-container">
 			<h2 class="g-section-title">Узнайте подробности наших услуг в презентации</h2>
@@ -1090,16 +1030,6 @@
 			</form>
 		</div>
 	</div>		
-	
-	<div id="tooltip_content_wrapper">
-	<div id="tooltip_content">
-		<span class="title">Телефонные номера, прием и переадресация входящих звонков на мобильные и городские номера зарубежья</span>
-		<p>Сюда вносим информацию по условиям и особенностям пункта.</p>
-		<p>Прием и переадресация входящих звонков осуществляется по будням с 10.00 до 18.00 по Московскому времени</p>
-		<p>* Дополнительно вносится обеспечительный платеж в размере 45 000 руб, который возвращается при прекращении договора и смене юрадреса на новый</p>
-		<p>** Оплачивается только стоимость звонков согласно тарифам провайдера</p>
-	</div>
-	</div>
 	
 	<?	
 			
@@ -1143,7 +1073,17 @@
 								до <? echo $single_metting_office['seats_num']; ?> человек
 							</div>
 							<div class="vd_serviceincenter_wrapper-meetingrates-list-item-header-price">
-								<span><? echo $single_meeting_office_price; ?> ₽</span>/час
+							<?	$sitem_value = reset($_DATA['office_center2service_group']['items']);
+								
+								$price_term = $sitem_value['price_term_lookup']; ?>
+
+								<span><? echo $single_meeting_office_price; ?> ₽</span>/<?=$price_term?>
+							<? 	if ($single_metting_office['price_bonus']) {
+								
+									echo '<br><span class="special">' . $single_metting_office['price_bonus'] . '</span>';
+								
+								}
+							?>
 								<button>Забронировать</button>
 							</div>
 						</div>
@@ -1397,6 +1337,7 @@
 		<a name="special" /></a>
 		<div class="g-container">
 			<div class="g-container-row">
+				<h2 class="g-section-title">Cпецпредложения</h2>
 			<?  out_special_offers($_DATA['special_offer']['items']); ?>
 			</div>
 		</div>	

@@ -147,15 +147,19 @@
 		</div>
 	</div>
 
+<?	// count($_DATA['special_offer']['items']) == 1 meens that we've got one and only special offer and we are on its page
+ 	// but we want OTHER special offers to be here
+	if (isset($_DATA['special_offer']) && count($_DATA['special_offer']['items']) > 1) { ?>
 		<div class="vd_singleofficewrapper-content-special">
 			<a name="special"></a>
 			<div class="g-container">
 				<div class="g-container-row">
+					<h2 class="g-section-title">Другие спецпредложения</h2>
 
-				<?	out_special_offers($_DATA['special_offer']['items']); ?>
+				<?	out_special_offers($_DATA['special_offer']['items'], (int)$_GET['special']); ?>
 
 				</div>
 			</div>
 		</div>
-	
+<?	} ?>	
 </div>
