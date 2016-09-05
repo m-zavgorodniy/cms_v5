@@ -122,7 +122,7 @@ h2 {font-size: 29px; margin-bottom: .8em; line-height: 1.5; font-weight: 700; co
 .offers-item-date {width: 250px;}
 .offers-item-center, .offers-item-date {padding: 0 20px; font-size: 16px;}
 .offers-item-link {text-align: right;}
-.offers-item-link a {display: inline-block;}
+.offers-item-link a {display: inline-block; width: 202px;}
 
 /* icons */
 .c-icon {background-repeat: no-repeat; background-size: 40px auto; min-height: 45px;}

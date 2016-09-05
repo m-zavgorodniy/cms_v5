@@ -659,7 +659,7 @@
 						</div>
 						<div class="vd_serviceincenter_wrapper-freeoffices-list-element-header-price">
 							<div class="reserve">ЗАБРОНИРОВАТЬ</div>
-							<span class="price"><span><? echo $single_office_center_room_price; ?></span> ₽ / <? echo $single_office_center_room_price_for_lookup . ' в ' . $single_office_center_room_price_term_lookup; ?></span>
+							<span class="price"><span><? echo $single_office_center_room_price; ?></span> руб / <? echo $single_office_center_room_price_for_lookup . ' в ' . $single_office_center_room_price_term_lookup; ?></span>
 							<?
 							
 							if ($single_office_center_room['price_bonus']) {
@@ -681,8 +681,8 @@
 							<input type="hidden" name="office_number" value="<? echo filter_var($single_office_center_room['title'], FILTER_SANITIZE_NUMBER_INT); ?>">
 							<input type="hidden" name="office_area" value="<? echo number_format($single_office_center_room['floor_area_m2']); ?> кв. м">
 							<input type="hidden" name="office_seats_num" value="<? echo $single_office_center_room['seats_num']; ?>">
-							<input type="hidden" name="office_cost_seat" value="<? echo $single_office_center_room_price; ?> ₽ / <? echo $single_office_center_room_price_for_lookup . ' в ' . $single_office_center_room_price_term_lookup; ?>">
-							<input type="hidden" name="office_cost_total" value="<? echo $single_office_center_room_price_full; ?> ₽ / <? echo $single_office_center_room_price_term_lookup; ?>">
+							<input type="hidden" name="office_cost_seat" value="<? echo $single_office_center_room_price; ?> руб / <? echo $single_office_center_room_price_for_lookup . ' в ' . $single_office_center_room_price_term_lookup; ?>">
+							<input type="hidden" name="office_cost_total" value="<? echo $single_office_center_room_price_full; ?> руб / <? echo $single_office_center_room_price_term_lookup; ?>">
 						<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-title">
 							Данные бронирования
 						</div>
@@ -1077,7 +1077,7 @@ if (isset($_DATA['tariff_includes']['items']) && isset($_DATA['office_center_roo
 								
 								$price_term = $sitem_value['price_term_lookup']; ?>
 
-								<span><? echo $single_meeting_office_price; ?> ₽</span>/<?=$price_term?>
+								<span><? echo $single_meeting_office_price; ?></span> руб/<?=$price_term?>
 							<? 	if ($single_metting_office['price_bonus']) {
 								
 									echo '<br><span class="special">' . $single_metting_office['price_bonus'] . '</span>';

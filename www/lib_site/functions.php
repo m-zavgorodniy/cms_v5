@@ -45,7 +45,7 @@ function out_special_offers($special_offers, $exclude_offer_id = 0) {
             if ($exclude_offer_id == $special_offer['id']) continue; ?>
             <li>
                 <div class="offers-item">
-                    <div class="offers-item-title c-icon c-<?=$special_offer['service_group_css_class']?>">
+                    <div class="offers-item-title c-icon c-<?=current(explode(',', $special_offer['service_group_css_class']))?>">
                         <?=$special_offer['title']?>
                     </div>
                     <div class="offers-item-date">

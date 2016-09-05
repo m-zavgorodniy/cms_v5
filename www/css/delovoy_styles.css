@@ -1670,7 +1670,7 @@ html {
 
 .vd_serviceincenter_wrapper-meetingrates-list-item-header-name {
 	float: left;
-	width: 165px;
+	width: 215px;
 	height: 100px;
 	border-right: 2px solid #ffffff;
 /* 	font-family: Lato-Black; */
@@ -1678,7 +1678,7 @@ html {
 	font-size: 20px;
 	line-height: 1.5;
 	color: #000000;
-	padding: 0 30px;
+	padding-left: 25px;
 	display: table;
 }
 
@@ -1696,43 +1696,44 @@ html {
 /* 	font-family: Lato-Regular; */
 	font-size: 16px;
 	color: #010101;
-	padding-left: 70px;
+	padding-left: 55px;
 	background-image: url('../images/svg/icon-office-black.svg');
     background-size: 24px 24px;
     background-repeat: no-repeat;
-    background-position: 30px 36px;
+    background-position: 20px 36px;
 }
 
 .vd_serviceincenter_wrapper-meetingrates-list-item-header-people {
 	float: left;
-	width: 202px;
+	width: 180px;
 	height: 101px;
 	border-right: 2px solid #ffffff;
 	line-height: 101px;
 /* 	font-family: Lato-Regular; */
 	font-size: 16px;
 	color: #010101;
-	padding-left: 70px;
+	padding-left: 55px;
 	background-image: url('../images/number_of_people_closed.png');
     background-size: 32px 32px;
     background-repeat: no-repeat;
-    background-position: 30px 36px;
+    background-position: 15px 36px;
 }
 
 .vd_serviceincenter_wrapper-meetingrates-list-item-header-price {
 /*     width: 503px; */
 	 padding-top: 35px;
-     padding-left: 30px;
+     padding-left: 25px;
+     position: relative;
 }
 
 .vd_serviceincenter_wrapper-meetingrates-list-item-header-price button {
+	position: absolute;
 	height: 60px;
 	width: 205px;
 	border: none;
 	background-color: #86bf37;
-	float: right;
-    margin-top: -40px;
-    margin-left: 20px;
+	top: 20px;
+	right: 0;
     text-transform: uppercase;
     color: #ffffff;
 }
@@ -4782,9 +4783,9 @@ html {
 	float: left;
 }
 .vd_specialoffer-header h1 {	
-	height: 46px;
-	/*font-family: Lato-Bold;*/
+	margin-top: 18px;
 	font-size: 30px;
+	font-weight: 600;	
 	line-height: 1.3;
 	color: #000000;
 	float: left;
@@ -4793,7 +4794,6 @@ html {
 	width: 100%;
 	float: left;
 	margin: 25px 0 0 0;
-	/*font-family: Lato-Regular;*/
 	font-size: 20px;
 	line-height: 1.5;
 }
@@ -4805,8 +4805,8 @@ html {
 }
 
 .vd_specialoffer-offers-title {
-	/* font-family: Lato-Black; */
 	font-size: 30px;
+	font-weight: 700;
 	line-height: 1.5;
 	color: #000000;
 	text-align: center;	
