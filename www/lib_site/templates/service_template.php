@@ -394,7 +394,8 @@
 		
 			if ($service_group_detail_value['office_center_detail_type_id'] == 'plan') {
 				
-				$vd_service_group_id_show_plan = $service_group_detail_key;
+				$vd_service_group_plans[] = $service_group_detail_value;
+////				$vd_service_group_id_show_plan = $service_group_detail_key;
 				
 			}	
 			
@@ -432,7 +433,7 @@
 						}
 					?>
 					<?
-						if ($vd_service_group_id_show_plan) {
+						if (isset($vd_service_group_plans)) {
 					?>
 					<li><a href="#layout">План офисов</a></li>
 					<?
@@ -593,29 +594,26 @@
 	
 	
 	<?
-	if ($vd_service_group_id_show_plan) {
-		
-		$vd_service_group_id_show_plan_content = $_DATA['service_group_detail']['items'][$vd_service_group_id_show_plan];
-		
-		$vd_service_group_id_show_plan_img_src = $vd_service_group_id_show_plan_content['img_src'];
-		$vd_service_group_id_show_plan_img_src_big = $vd_service_group_id_show_plan_content['img_src_big'];
-		$vd_service_group_id_show_plan_body = $vd_service_group_id_show_plan_content['body'];
-		
+	if (isset($vd_service_group_plans)) {
 	?>
 	<div class="vd_serviceincenter_wrapper-layout">
 		<a name="layout" /></a>
 		<h2 class="g-section-title">План офисов</h2>
+	<?	foreach ($vd_service_group_plans as $vd_service_group_plan) { ?>
 		<div class="g-container">
-			<div class="vd_serviceincenter_wrapper-layout-image">
-				<img src="<? echo $vd_service_group_id_show_plan_img_src; ?>" data-src-big="<? echo $vd_service_group_id_show_plan_img_src_big; ?>" />
-				<div class="vd_serviceincenter_wrapper-layout-image-zoom">
-					увеличить
+			<div class="vd_serviceincenter_wrapper-plan">
+				<div class="vd_serviceincenter_wrapper-layout-image">
+					<img src="<? echo $vd_service_group_plan['img_src']; ?>" data-src-big="<? echo $vd_service_group_plan['img_src_big']; ?>" />
+					<div class="vd_serviceincenter_wrapper-layout-image-zoom">
+						увеличить
+					</div>
+				</div>
+				<div class="vd_serviceincenter_wrapper-layout-text">
+					<? echo $vd_service_group_plan['body']; ?>
 				</div>
 			</div>
-			<div class="vd_serviceincenter_wrapper-layout-text">
-				<? echo $vd_service_group_id_show_plan_body; ?>
-			</div>
 		</div>
+	<?	} ?>
 	</div>
 	<?
 	}
@@ -661,7 +659,7 @@
 						</div>
 						<div class="vd_serviceincenter_wrapper-freeoffices-list-element-header-price">
 							<div class="reserve">ЗАБРОНИРОВАТЬ</div>
-							<span class="price"><span><? echo $single_office_center_room_price; ?></span> ₽ / <? echo $single_office_center_room_price_for_lookup . ' в ' . $single_office_center_room_price_term_lookup; ?></span>
+							<span class="price"><span><? echo $single_office_center_room_price; ?></span> руб / <? echo $single_office_center_room_price_for_lookup . ' в ' . $single_office_center_room_price_term_lookup; ?></span>
 							<?
 							
 							if ($single_office_center_room['price_bonus']) {
@@ -683,8 +681,8 @@
 							<input type="hidden" name="office_number" value="<? echo filter_var($single_office_center_room['title'], FILTER_SANITIZE_NUMBER_INT); ?>">
 							<input type="hidden" name="office_area" value="<? echo number_format($single_office_center_room['floor_area_m2']); ?> кв. м">
 							<input type="hidden" name="office_seats_num" value="<? echo $single_office_center_room['seats_num']; ?>">
-							<input type="hidden" name="office_cost_seat" value="<? echo $single_office_center_room_price; ?> ₽ / <? echo $single_office_center_room_price_for_lookup . ' в ' . $single_office_center_room_price_term_lookup; ?>">
-							<input type="hidden" name="office_cost_total" value="<? echo $single_office_center_room_price_full; ?> ₽ / <? echo $single_office_center_room_price_term_lookup; ?>">
+							<input type="hidden" name="office_cost_seat" value="<? echo $single_office_center_room_price; ?> руб / <? echo $single_office_center_room_price_for_lookup . ' в ' . $single_office_center_room_price_term_lookup; ?>">
+							<input type="hidden" name="office_cost_total" value="<? echo $single_office_center_room_price_full; ?> руб / <? echo $single_office_center_room_price_term_lookup; ?>">
 						<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-title">
 							Данные бронирования
 						</div>
@@ -696,7 +694,7 @@
 										<td><? echo $single_office_center_room['office_center_id_lookup']; ?></td>
 									</tr>
 									<tr>
-										<td>Офис</td>
+										<td>Номер офиса</td>
 										<td>
 										<?
 											echo filter_var($single_office_center_room['title'], FILTER_SANITIZE_NUMBER_INT);
@@ -704,6 +702,7 @@
 										?>
 										</td>
 									</tr>
+								<? /*
 									<tr>
 										<td>Площадь</td>
 										<td><? echo number_format($single_office_center_room['floor_area_m2']); ?> кв. м</td>
@@ -728,7 +727,7 @@
 									<tr class="total">
 										<td>Итого</td>
 										<td><span><? echo $single_office_center_room_price_full; ?></span> ₽ / <? echo $single_office_center_room_price_term_lookup; ?></td>
-									</tr>
+									</tr> */ ?>
 								</table>
 							</div>
 							<div class="vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right">
@@ -809,7 +808,7 @@
 								</tr>
 							</table>
 						</td>
-							<?
+						<?
 
 							$ys_tariff_details = array(
 								'<div class="icons"><img src="/uploads/images/icons/svg/address.svg"></div>Предоставляет для вашей компании почтовый адрес  для приема почтовой корреспонденции в современном БЦ.',
@@ -933,6 +932,7 @@
 										<? echo $single_virtual_office['title']; ?>
 									</div>
 								</div>
+							<? /*
 								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item">
 									<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-label">
 										Стоимость
@@ -940,7 +940,7 @@
 									<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-value">
 										<? echo $single_virtual_office_price; ?> рублей в месяц
 									</div>
-								</div>
+								</div> */?>
 								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item">
 									<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item-label">
 										Срок
@@ -954,6 +954,7 @@
 										</select>
 									</div>
 								</div>
+							<? /*
 								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-total">
 									<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-total-label">
 										Итого
@@ -961,7 +962,7 @@
 									<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-total-value">
 										<span class="total_virtual_office_price"><?php echo $single_virtual_office_price; ?></span> рублей
 									</div>
-								</div>
+								</div> */ ?>
 							</div>
 						</form>
 					</div>	
@@ -975,125 +976,65 @@
 			</div>
 		</div>
 	</div>
-	
+<?	
+if (isset($_DATA['tariff_includes']['items']) && isset($_DATA['office_center_room']['items'])) {
+	// getting reverse arrays of services included in tariff, for search below
+	function reverse_tariff_includes($item) {
+		$item['tariff_includes_id'] = array_flip(explode(',', $item['tariff_includes_id']));
+		return $item;
+	}
+	$_DATA['office_center_room']['items'] = array_map('reverse_tariff_includes', $_DATA['office_center_room']['items']); ?>
 	<div class="vd_serviceincenter_wrapper-virtualrates-details">
 		<div class="g-container">
 		<div class="vd_serviceincenter_wrapper-virtualrates-details-list">
-			<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item">
-				<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-header">
-					Основные сервисы
-				</div>
-				<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-table">
-					<table>
-						<tr>
-							<td class="label">Предоставление почтового адреса</td>
-							<td><span class="tariff_name_in_cell">Почтовый адрес</span><div class="included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис</span><div class="included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис +</span><div class="included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис + юридический адрес</span><div class="included"></div></td>
-						</tr>
-						<tr>
-							<td class="label">Голосовой почтовый ящик</td>
-							<td><span class="tariff_name_in_cell">Почтовый адрес</span><div class="not_included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис</span><div class="included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис +</span><div class="included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис + юридический адрес</span><div class="included"></div></td>
-						</tr>
-						<tr>
-							<td class="label">Юридический адрес</td>
-							<td><span class="tariff_name_in_cell">Почтовый адрес</span><div class="not_included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис</span><div class="not_included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис +</span><div class="not_included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис + юридический адрес</span><div class="included"></div></td>
-						</tr>
-					</table>
-				</div>
-			</div>
-			<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item">
-				<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-header">
-					Обработка корреспонденции, уведомления
-				</div>
-				<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-table">
-					<table>
-						<tr>
-							<td class="label">Прием и сортировка</td>
-							<td><span class="tariff_name_in_cell">Почтовый адрес</span><div class="included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис</span><div class="included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис +</span><div class="included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис + юридический адрес</span><div class="included"></div></td>
-						</tr>
-						<tr>
-							<td class="label">Хранение</td>
-							<td><span class="tariff_name_in_cell">Почтовый адрес</span><div class="included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис</span><div class="included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис +</span><div class="included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис + юридический адрес</span><div class="included"></div></td>
-						</tr>
-						<tr>
-							<td class="label">Прием факсов</td>
-							<td><span class="tariff_name_in_cell">Почтовый адрес</span><div class="not_included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис</span><div class="included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис +</span><div class="included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис + юридический адрес</span><div class="included"></div></td>
-						</tr>
-						<tr>
-							<td class="label">Уведомления о поступлении корр-ции  на эл. почту</td>
-							<td><span class="tariff_name_in_cell">Почтовый адрес</span><div class="included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис</span><div class="included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис +</span><div class="included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис + юридический адрес</span><div class="included"></div></td>
-						</tr>
-					</table>
-				</div>
-			</div>
-			<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item">
-				<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-header">
-					Телефонные номера, прием и переадресация входящих звонков
-				</div>
-				<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-table">
-					<table>
-						<tr>
-							<td class="label">Телефонный номер<br />в коде 495 / 499</td>
-							<td><span class="tariff_name_in_cell">Почтовый адрес</span><div class="not_included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис</span><div class="included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис +</span><div class="included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис + юридический адрес</span><div class="included"></div></td>
-						</tr>
-						<tr>
-							<td class="label">На городские<br />номера Москвы</td>
-							<td><span class="tariff_name_in_cell">Почтовый адрес</span><div class="not_included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис</span><div class="included"><span class="additional_options">*</span></div><span class="additional_options_exact">Включено 1500 минут</span></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис +</span><div class="included"><span class="additional_options">*</span></div><span class="additional_options_exact">Включено 1500 минут</span></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис + юридический адрес</span><div class="included"><span class="additional_options">*</span></div><span class="additional_options_exact_last"><span class="additional_options">*</span>Включено 1500 минут</span></td>
-						</tr>
-						<tr>
-							<td class="label">На городские<br />номера РФ<div class="tooltip" data-tooltip-content="#tooltip_content"></div></td>
-							<td><span class="tariff_name_in_cell">Почтовый адрес</span><div class="not_included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис</span><div class="included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис +</span><div class="included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис + юридический адрес</span><div class="included"></div></td>
-						</tr>
-						<tr>
-							<td class="label">На мобильные<br />номера Москвы и РФ</td>
-							<td><span class="tariff_name_in_cell">Почтовый адрес</span><div class="not_included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис</span><div class="included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис +</span><div class="included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис + юридический адрес</span><div class="included"></div></td>
-						</tr>
-						<tr>
-							<td class="label">На мобильные<br />и городские номера зарубежья<div class="tooltip" data-tooltip-content="#tooltip_content"></div></td>
-							<td><span class="tariff_name_in_cell">Почтовый адрес</span><div class="not_included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис</span><div class="included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис +</span><div class="included"></div></td>
-							<td><span class="tariff_name_in_cell">Виртуальный офис + юридический адрес</span><div class="included"></div></td>
-						</tr>
-					</table>
-				</div>
-			</div>
+		<?	$first_item = current($_DATA['tariff_includes']['items']);
+			if (!$first_item['is_group_title']) {
+				array_unshift($_DATA['tariff_includes']['items'], array('title' => 'Сервисы', 'is_group_title' => 1));
+			}
+			$i = 0;
+			foreach ($_DATA['tariff_includes']['items'] as $tariff_service_id => &$tariff_service) {
+				if ($tariff_service['is_group_title']) { 
+					if (0 != $i++) { ?>
+							</table>
+						</div>
+					</div>
+				<?	} ?>
+					<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item open">
+						<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-header">
+							<?=$tariff_service['title']?>
+						</div>
+						<div class="vd_serviceincenter_wrapper-virtualrates-details-list-item-table">
+							<table>
+			<?	} else { ?>
+					<tr>
+						<td class="label"><?=$tariff_service['title']?>
+						<?	if ($tariff_service['annotation']) { ?>
+							<div class="tooltip" data-tooltip-content="#tooltip_<?=$tariff_service_id?>"></div>
+							<div class="tooltip_content_wrapper">
+							<div class="tooltip_content" id="tooltip_<?=$tariff_service_id?>">
+								<p><?=$tariff_service['annotation']?></p>
+							</div>
+							</div>
+					<?	} ?>
+						</td>
+					<?	foreach ($_DATA['office_center_room']['items'] as $tariff_id => &$tariff) {
+							$is_included = isset($tariff['tariff_includes_id'][$tariff_service_id]); ?>
+							<td><div class="<?=!$is_included?'not_':''?>included" title="<?=$is_included?'Входит в стоимость услуги':'Не предоставляется'?>"></div></td>
+					<?	}
+						unset($tariff); ?>
+					</tr>
+			<?	}
+			}
+			unset($tariff_service); ?>
+							</table>
+						</div>
+					</div>
 		</div>
 		</div>
 	</div>
-	
+<?
+} ?>
+
 	<div class="vd_serviceincenter_wrapper-get_presentation">
 		<div class="g-container">
 			<h2 class="g-section-title">Узнайте подробности наших услуг в презентации</h2>
@@ -1104,16 +1045,6 @@
 			</form>
 		</div>
 	</div>		
-	
-	<div id="tooltip_content_wrapper">
-	<div id="tooltip_content">
-		<span class="title">Телефонные номера, прием и переадресация входящих звонков на мобильные и городские номера зарубежья</span>
-		<p>Сюда вносим информацию по условиям и особенностям пункта.</p>
-		<p>Прием и переадресация входящих звонков осуществляется по будням с 10.00 до 18.00 по Московскому времени</p>
-		<p>* Дополнительно вносится обеспечительный платеж в размере 45 000 руб, который возвращается при прекращении договора и смене юрадреса на новый</p>
-		<p>** Оплачивается только стоимость звонков согласно тарифам провайдера</p>
-	</div>
-	</div>
 	
 	<?	
 			
@@ -1157,7 +1088,17 @@
 								до <? echo $single_metting_office['seats_num']; ?> человек
 							</div>
 							<div class="vd_serviceincenter_wrapper-meetingrates-list-item-header-price">
-								<span><? echo $single_meeting_office_price; ?> ₽</span>/час
+							<?	$sitem_value = reset($_DATA['office_center2service_group']['items']);
+								
+								$price_term = $sitem_value['price_term_lookup']; ?>
+
+								<span><? echo $single_meeting_office_price; ?></span> руб/<?=$price_term?>
+							<? 	if ($single_metting_office['price_bonus']) {
+								
+									echo '<br><span class="special">' . $single_metting_office['price_bonus'] . '</span>';
+								
+								}
+							?>
 								<button>Забронировать</button>
 							</div>
 						</div>
@@ -1210,6 +1151,7 @@
 										</select>
 									</div>
 								</div>
+							<? /*
 								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item">
 									<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-label">
 										Стоимость
@@ -1226,7 +1168,7 @@
 									<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-total-value">
 										<span class="total_meeting_price"><? echo $single_metting_office['price']; ?></span> рублей
 									</div>
-								</div>
+								</div> */ ?>
 								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item">
 									<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-widetall">
 										<label class="additionalservice_label"><input type="checkbox" name="additionalservice" class="additionalservice" value="1"><span></span>Нужно дополнительное обслуживание</label>
@@ -1364,6 +1306,7 @@
 										<input type="number" class="coworking_workplaces" name="coworking_workplaces" value="1" min="1">
 									</div>
 								</div>
+							<? /*
 								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-total">
 									<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-total-label">
 										Итого
@@ -1371,7 +1314,7 @@
 									<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-total-value">
 										<span class="total_coworking_price"><? echo $single_coworking_price; ?></span> руб./месяц
 									</div>
-								</div>
+								</div> */ ?>
 							</div>
 						</div>
 					</form>
@@ -1409,6 +1352,7 @@
 		<a name="special" /></a>
 		<div class="g-container">
 			<div class="g-container-row">
+				<h2 class="g-section-title">Cпецпредложения</h2>
 			<?  out_special_offers($_DATA['special_offer']['items']); ?>
 			</div>
 		</div>	

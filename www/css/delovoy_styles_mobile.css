@@ -172,7 +172,7 @@
 	.g-bigpicture-box {
 		height: 44%;
 	}
-	.offers-item-title, .offers-item-date, .offers-item-link {
+	.offers-item-title, .offers-item-date, .offers-item-center, .offers-item-link {
 		display: inline-block;
 	}
 	.offers-item-title{
@@ -187,7 +187,7 @@
 		width: 100%;
 		text-align: center;
 	}
-	.offers-item-date + .offers-item-link{
+	.offers-item-center + .offers-item-link{
 		width: 100%;
 		padding: 10px;
 	}
@@ -381,6 +381,7 @@
 		display: inline-block; 
 		width: 100vw;
 		height: 360px;
+		max-width: 414px;
 	}
 	.vd_about_wrapper-clients-list-slide-element {
 		display: block;
@@ -735,8 +736,12 @@
 		width: 100%;
 	}
 	.vd_serviceincenter_wrapper-virtualrates-list-form.open{
-		overflow: hidden;;
+		overflow: hidden;
 	}
+	.vd_serviceincenter_wrapper-virtualrates-list-form.open form {
+	    display: flex;
+	    flex-flow: column nowrap;
+    }
 	.vd_serviceincenter_wrapper-virtualrates table th.label{
 		text-align: center;
 		background-image: none;
@@ -766,7 +771,8 @@
 	}
 	.vd_serviceincenter_wrapper-virtualrates-list-form-rigth{
 		width: 100%;
-		margin-top: 275px;
+		order: 2;
+		margin-top: 15px;
 	}
 	.vd_serviceincenter_wrapper-virtualrates-list-form-rigth input.phone{
 		width: 100%;
@@ -788,7 +794,8 @@
 	}
 	.vd_serviceincenter_wrapper-virtualrates-list-form-left{
 		width: 100%;
-		margin-top: -685px;
+		order: 1;
+		margin-bottom: 15px;
 	}
 	.vd_serviceincenter_wrapper-virtualrates-list-form-left-item{
 		font-size: 14px;
@@ -974,7 +981,7 @@
 	.vd_serviceincenter_wrapper-coworkingrates-list-item-header-price button{
 		width: 100%;
 		padding: 0;
-		background-position: 250px center;
+		background-position: right 40px center;
 	}
 	.vd_serviceincenter_wrapper-coworkingrates-list-item-form h2{
 		font-size: 25px;
@@ -1133,14 +1140,19 @@
 
 	.vd_serviceincenter_wrapper-meetingrates-list-item-header-price{
 		width: 100%;
+		float: left;
+		height: 100px;
 	}
 	.vd_serviceincenter_wrapper-meetingrates-list-item-header-price button{
 		width: 100%;
 		margin: 0;
+		top: 40px;
 	}
 	.vd_serviceincenter_wrapper-meetingrates-list-item-form-left{
 		width: 100%;
-		margin: -920px 0 0 0;
+		height: auto;
+		margin: 0px;
+		order: 1;
 		padding: 30px;
 	}
 	.vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-label{
@@ -1181,6 +1193,9 @@
 		line-height: 25px;
 		width: 100%;
 	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom {
+		order: 3;
+	}
 	.vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom-right{
 		width: 100%;
 	}
@@ -1205,6 +1220,8 @@
 	}
 	.open .vd_serviceincenter_wrapper-meetingrates-list-item-form{
 		margin-top: 61px;
+		display: flex;
+		flex-flow: column nowrap;
 	}
 	.vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom-left  p + p{
 		font-size: 14px;
@@ -1218,7 +1235,9 @@
 	.vd_serviceincenter_wrapper-meetingrates-list-item-form-right{
 		padding: 0 30px;
 		width: 100%;
-		margin: 455px 0 0 0;
+		height: auto;
+		margin: 0px;
+		order: 2;
 	}
 	.vd_serviceincenter_wrapper-meetingrates-list-item-form{
 		overflow: hidden;
@@ -1459,11 +1478,13 @@
 		font-size: 25px;
 	}
 	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform{
-		height: 210px;
+		height: auto;
+		float: left;
 		padding: 30px;
 	}
 	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-left{
-		height: 210px;
+		height: auto;
+		padding-bottom: 20px;
 		width: 100%;
 		margin: 0;
 	}
@@ -1486,6 +1507,7 @@
 	}
 	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right{
 		width: 100%;
+		height: auto;
 	}
 	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right input.phone{
 		width: 100%;
@@ -1506,7 +1528,6 @@
 		margin-top: 15px;
 	}
 	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform{
-		margin-top: 490px;
 		width: 100%;
 		padding: 10px 30px;
 		height: auto;
@@ -1784,8 +1805,11 @@
 		height: 510px;
 	}
 	.offers-item-title{
-		width: 50%;
-		padding: 0 85px;
+		width: 260px;
+		padding: 0 10px 0 85px;
+	}
+	.offers-item-date {
+		width: 230px;
 	}
 	.offers-item-link .g-button{
 		text-align: center;
@@ -2191,10 +2215,8 @@
 		background-position: 10px 36px;
 	}
 	.vd_serviceincenter_wrapper-meetingrates-list-item-header-price{
-		width: 283px;
-	}
-	.vd_serviceincenter_wrapper-meetingrates-list-item-header-price{
-		padding: 0;
+		padding-top: 35px;
+		padding-left: 25px;
 	}
 	.vd_serviceincenter_wrapper-meetingrates-list-item-header-price button{
 		width: 180px;
@@ -2508,12 +2530,24 @@
 		line-height: 60px;
 		border-right: 2px solid #fff;
 	}
+	.offers-item-center {
+		float: left;
+		height: 60px;
+		width: 50%;
+		position: relative;		
+	}
+	.offers-item-center p {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+	}
 	.offers-item-link{
 		margin-top: 0;
 		height: 60px;
 		float: left;
 		margin-left: 0;
-		width: 350px;
+		width: 100%;
+		text-align: center;
 	}
 	.offers-item-link .g-button.c-virtual{
 		width: 350px;
@@ -2880,7 +2914,8 @@
 	    margin-right: 0;
 	}
 	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform{
-		height: 510px;
+		height: auto;
+		float: left;
 	}
 	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-left{
 		width: 100%;
@@ -2942,10 +2977,11 @@
 	    margin-left: 76px;
 	}  
 	.vd_serviceincenter_wrapper-freeoffices-list-element.open .vd_serviceincenter_wrapper-freeoffices-list-element-menu{
-		height: 930px;
+		height: auto;
 	}  
 	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform{
-		height: 350px;
+		height: auto;
+		float: left;
 	}
 	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-submit{
 		width: 320px;
@@ -3036,12 +3072,17 @@
 	.vd_serviceincenter_wrapper-meetingrates-list-item-header-price{
 		width: 700px;
 		padding-left: 0;
+		float: left;
 	}
 	.vd_serviceincenter_wrapper-meetingrates-list-item-header-price span{
 		padding-left: 35px;
 	}
 	.vd_serviceincenter_wrapper-meetingrates-list-item-header-price button{
 		width: 350px;
+	}
+	.open .vd_serviceincenter_wrapper-meetingrates-list-item-form {
+		display: flex;
+		flex-flow: column nowrap;
 	}
 	.vd_serviceincenter_wrapper-meetingrates-list-item-form h2{
 		font-size: 27px;
@@ -3050,7 +3091,7 @@
 	    width: 100%;
 	    margin-right: 0;
 	    padding: 30px;
-	    margin-top: 290px;
+	    order: 2;
 	}
 	.vd_serviceincenter_wrapper-meetingrates-list-item-form-right input {
 	    margin-right: 5px;
@@ -3061,8 +3102,11 @@
     }
     .vd_serviceincenter_wrapper-meetingrates-list-item-form-left{
 	    width: auto;
-	    margin-top: -590px;
+	    order: 1;
 	    padding-right: 30px;
+    }
+    .vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom {
+	    order: 3;
     }
     .vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom-right {
 	    width: 100%;
@@ -3114,12 +3158,17 @@
     .vd_serviceincenter_wrapper-virtualrates-list-form{
 	    overflow: hidden;
     }
+    .vd_serviceincenter_wrapper-virtualrates-list-form.open form {
+	    display: flex;
+	    flex-flow: column nowrap;
+    }
     .vd_serviceincenter_wrapper-virtualrates-list-form h2{
 	    font-size: 27px;
     }
     .vd_serviceincenter_wrapper-virtualrates-list-form-rigth {
 	    width: 100%;
-	    margin-top: 280px;
+	    order: 2;
+	    margin-top: 15px;
 	}
 	.vd_serviceincenter_wrapper-virtualrates-list-form-rigth input {
 	    margin-right: 5px;
@@ -3133,7 +3182,8 @@
     }
     .vd_serviceincenter_wrapper-virtualrates-list-form-left {
     	width: 100%;
-    	margin-top: -535px;
+    	order: 1;
+    	margin-bottom: 15px;
     }
 	.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td.label {
 	    width: 100%;
