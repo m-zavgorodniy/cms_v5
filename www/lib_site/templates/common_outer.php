@@ -2,7 +2,7 @@
 define('MOBILE_BREAKPOINT_PX', '1000'); // 568px - iPhone 5, 768px - tablet
 define('MOBILE_MEDIA', 'screen and (max-width:' . MOBILE_BREAKPOINT_PX . 'px)');
 
-define('UPD', '?upd=5');
+define('UPD', '?upd=1');
 
 ?><!DOCTYPE html>
 <html lang="<?=$_SITE['html_lang']?>" xmlns:og="http://ogp.me/ns#">
@@ -19,6 +19,7 @@ define('UPD', '?upd=5');
 	<link rel="stylesheet" type="text/css" href="/css/styles.css<?=UPD?>" />
 	<link rel="stylesheet" type="text/css" href="/css/content.css<?=UPD?>" />
 	<link rel="stylesheet" type="text/css" href="/css/delovoy_styles.css<?=UPD?>" />
+    <link rel="stylesheet" type="text/css" href="/css/delovoy_styles_mobile.css<?=UPD?>" />
 	<link rel="stylesheet" type="text/css" href="/css/jquery-ui.min.css" />
 	<link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css" />
 	<link rel="stylesheet" type="text/css" href="/css/jquery.fancybox-thumbs.css" />

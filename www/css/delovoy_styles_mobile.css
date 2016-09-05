@@ -1,0 +1,3298 @@
+@media (max-width: 767px) {
+	html {
+		min-width: 320px;
+		max-width: 414px;
+		margin: 0 auto;
+	}
+	body {
+		min-width: 320px;
+		max-width: 414px;
+	}
+	.header-top {
+	height: 90px;
+	}
+	.header-phone {
+		display: none;
+	}
+	.index-promo-right {
+		float: none;
+		margin: 0;
+		padding: 10px 0 0 0;
+	}
+	.index-promo-left-title {
+		font-size: 32px;
+		margin-top: 320px;
+		padding: 0;
+		text-align: center;
+	}
+	.header-nav-right {
+		width: 100%;
+		float: none;
+	}
+	.header-menu {
+		font-size: 12px;
+		float: none;
+		display: block;
+		height: 64px;
+		width: 64px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		overflow: hidden;
+		background: url("/uploads/images/icons/hamburger.png");
+		position: absolute;
+		z-index: 100;
+		background-size: 48px 48px;
+		background-repeat: no-repeat;
+		background-position: 8px 8px;
+	}
+	.header-menu ul{
+		display: none;
+		margin-top: 80px;
+		background: white none repeat scroll 0% 0%;
+		z-index: 200;
+		position: relative;
+	}
+	.header-menu ul li{
+		text-align: left;
+		font-size: 16px;
+		padding: 7px 0 15px 25px;
+	}
+	.header {
+	height: auto;
+	}
+	.g-bigpicture a {
+		width: 100%;
+		height: 300px;
+	}
+	.header-nav-logo {
+		display: block;
+	}
+	.open_menu{
+		background: url("/uploads/images/icons/hamburger_close.png") no-repeat;
+		width: 100%;
+		height: auto;
+		position: absolute;
+		z-index: 100;
+		background-size: 48px;
+		background-position: 8px 8px;
+	}
+	.header-nav-logo img{
+		position: absolute;
+		display: block;
+		width: 48px;
+		height: 48px;
+		left: 70px;
+		z-index: 400;
+		top: 8px;
+	}
+	.header-nav-logo a:after {
+		content: 'Деловой';
+		display: block;
+		position: relative;
+		width: 100px;
+		height: 64px;
+		padding-left: 123px;
+		padding-top: 20px;
+		font-size: 24px;
+		color: black;
+		text-transform: uppercase;
+		font-weight: 600;
+	}
+	.g-container {
+		width: 100%;
+		height: auto;
+	}
+	.header-nav{
+		margin-top: 0;
+	}
+	.header-menu li {
+		float: none;
+		margin-left: 0;
+		font-size: 15px;
+		text-align: center;
+		border-bottom: solid 1px #ebebeb;
+	}
+	.header-path{
+		margin-top: 10px;
+		padding: 0 15px;
+	}
+	.header-path>ul>li:last-child{
+		margin-left: -12px;
+	}
+	.index-promo-right{
+		width: 100%;
+	}
+	.index-promo-left{
+		width: 100%;
+	}
+	.inner {
+	margin-top: 30px;
+	}
+	.header-phone{
+		display: block;
+		width: 64px;
+		position: absolute;
+		height: 64px;
+		right: 0;
+		z-index: 300;
+		background: url("/uploads/images/icons/phone.png") no-repeat;
+		overflow: hidden;
+		background-size: 40px;
+		top: 8px;
+		background-position: 11px 2px;
+	}
+	.header-phone-number{
+		display: none;
+		position: absolute;
+		top: 62px;
+		padding-left:50px;
+		background: white;
+		z-index: 300;
+		width: 100%;
+		height: 200px;
+		font-size: 20px;
+	}
+	.header-phone-button.g-button{
+		top: 120px;
+		position: absolute;
+		z-index: 300;
+		left: 50%;
+		width: 70%;
+		display: none;
+		margin-left: -35%;
+	}
+	.open_menu_phone{
+		width: 100%;
+		height: 300px;
+		background: url("/uploads/images/icons/hamburger_close.png") no-repeat;
+		background-position: 98% 0;
+		background-size: 48px;
+	}
+	.g-bigpicture-box {
+		height: 44%;
+	}
+	.offers-item-title, .offers-item-date, .offers-item-link {
+		display: inline-block;
+	}
+	.offers-item-title{
+		padding: 0 0 0 100px;
+		width: 100%;
+		font-size: 14px;
+		background-position:24px 6px;
+	}
+	.offers-item-date {
+		font-size: 14px;
+		padding:0;
+		width: 100%;
+		text-align: center;
+	}
+	.offers-item-date + .offers-item-link{
+		width: 100%;
+		padding: 10px;
+	}
+	.offers-item-link, .g-button{
+		text-align: center;
+	}
+	.offers-item-link > .g-button.c-office {
+		width: 100%;
+		height: 50px;
+		line-height: 50px;
+		margin-top: 0;
+	}
+	.offers-item-link > .g-button.c-virtual {
+		width: 100%;
+		height: 50px;
+		line-height: 50px;
+		margin-top: 0;
+	}
+	.offers-item-link > .g-button.c-meeting {
+		width: 100%;
+		height: 50px;
+		line-height: 50px;
+		margin-top: 0;
+	}
+	.offers-item-link > .g-button.c-coworking {
+		width: 100%;
+		height: 50px;
+		line-height: 50px;
+		margin-top: 0;
+	}
+	li > .g-button{
+		width: 70%
+	}
+	.g-button {
+		padding: 0px 6px 0px 6px;
+		height: 32px;
+		line-height: 32px;
+		font-size: 13px;
+		padding-top: 0;
+	}
+	.c-icon {
+		background-size: 30px auto;
+	}
+	.mobile{
+		height: 100%;
+	}
+	.index-promo2-left{ 
+		width: 100%; 
+		/*max-height: 229px; */
+		height: auto;
+	} 
+	.index-promo2-right{ 
+		width: 100%; 
+		padding: 50px 10px 0 10px;
+	}
+	.text-content > p {
+		font-size: 90%;
+	}
+	.index-text-left{
+		width: 100%;
+		margin-right: 0;
+		padding: 0 10px 0 10px;
+	}
+	.index-text-right {
+		width: 100%;
+		padding: 0 10px 0 10px;
+	}
+	.footer-main-left{
+		margin-right: 0;
+		width: 100%;
+		padding: 0 10px 0 10px;
+		display: block;
+	}
+	.footer-main-left-col {
+		width: 100%;
+		float: left;
+		display: block;
+		padding-right: 0;
+	}
+	.footer-main-left-col:last-child{
+		width: 100%;
+	}
+	.footer-main-right>.footer-main-title{
+		padding: 415px 10px 0 10px; 
+	}
+	.footer-main-title {
+		margin: 1.25em 0;
+		padding: 0 0 0 0px;
+	}
+	.footer-main-left-col li{
+		padding: 0 0 0 0px;
+	}
+	.footer-main-left-col:last-child>ul>li:last-child{
+		padding: 0;
+	}
+	.footer-main-left .g-button{
+		width: 100%;
+		height: 50px;
+		line-height: 50px;
+		font-size: 13px;
+	}
+	.footer-main-right-text {
+		padding: 0 10px 0 10px;
+	}
+	.g-clearfix > form{
+		text-align: center;
+	}
+	.footer-subscribe input{
+		width: calc(100% - 139px);
+		border: 1px solid grey;
+		margin: 0 10px;
+	}
+	.footer-subscribe button{
+		margin: 0px 0;
+	}
+	.footer-bottom{
+		font-size: 73%;
+		padding: 0 10px 0 10px;
+	}
+
+	/*about*/
+	.vd_about_wrapper-header{
+		padding-top: 20px;
+	}
+	.vd_about_wrapper-header h1{
+		font-size: 50px;
+	}
+	.vd_about_wrapper-menu{
+		height: auto;
+	}
+	.vd_about_wrapper-menu ul{
+		width: 100%;
+		padding: 0 10px;
+		height: auto;
+	}
+	.vd_about_wrapper-menu ul li{
+		line-height: 30px;
+		width: 100%;
+		vertical-align: middle;
+		font-size: 15px;
+		text-align: center;
+		padding-bottom: 8px;
+	}
+	.vd_about_wrapper-menu ul li.helper{
+		display: none;
+	}
+	.vd_about_wrapper-menu ul li:first-child{
+		padding-top: 8px;
+	}
+	.vd_about_wrapper-subtitle{
+		font-size: 19px;
+		padding: 5px 10px;
+		text-align: center;
+	}
+	.vd_about_wrapper p{
+		font-size: 15px;
+		padding: 20px 10px;
+	}
+	.vd_about_wrapper-about{
+		padding: 50px 0 50px;
+	}
+	.vd_about_wrapper-blog{
+		padding: 30px 0;
+	}
+	.vd_about_wrapper-blog-list-post{
+		max-width: 100%;
+	}
+	.vd_about_wrapper-blog-list>.cycle-prev, .cycle-next{
+		width: 50px;
+		height: 50px;
+		top: 37%;
+	}
+	.vd_about_wrapper-blog-list> .cycle-next{
+		width: 50px;
+		height: 50px;
+		top: 37%;
+	}
+	.vd_about_wrapper-blog-list-post .blogpost_date{
+		font-size: 14px;
+		padding: 0 10px;
+	}
+	.vd_about_wrapper-blog-list-post .blogpost_title{
+		font-size: 20px;
+		margin: 10px 0 45px;
+		padding: 0 10px;
+	}
+	.vd_about_wrapper-blog-list-all{
+		width: 100%;
+	}
+	.vd_about_wrapper-clients-list-slide{
+		display: inline-block; 
+		width: 100vw;
+		height: 360px;
+	}
+	.vd_about_wrapper-clients-list-slide-element {
+		display: block;
+	}
+	.vd_about_wrapper-clients-list-slide-element {
+		display: block;
+	}
+	.vd_about_wrapper-contacts-inner{
+		height: 1075px;
+	}
+	.vd_about_wrapper-contacts-inner-data{
+		font-size: 17px;
+		padding: 0 10px;
+		width: 100%;
+	}
+	#vd_about_wrapper-contacts-inner-map{
+		left: 0;
+		top: 575px;
+	}
+	.vd_about_wrapper-blog-list-post img{
+		width: auto !important;
+		height: auto !important;
+	}
+	.vd_about_wrapper-blog-list-post {
+		width: auto;
+		left: 0px;
+		margin-right: 0;
+	}
+	.cycle-carousel-wrap{
+		left: 0;
+	}
+	.cycle-carousel-wrap img{
+		height: auto !important;
+	}
+	.vd_about_wrapper-blog-list .cycle-slideshow .cycle-carousel-wrap{
+		width: 100%;
+	}
+	.vd_about_wrapper-clients-list-slide-element{
+		text-align: center;
+	}
+	.vd_about_wrapper-clients-list .cycle-slideshow .cycle-prev.disabled, .cycle-prev{
+		top: 50%;
+		width: 50px;
+		height: 50px;
+	}
+
+	/*services*/
+	.vd_services_header h1{
+		font-size: 45px;
+	}
+	.vd_services_header-popular{
+		padding: 0 10px;
+	}
+	.vd_services_text table p{
+		font-size: 15px;
+	}
+	.vd_services_text>table>tbody>tr>td{
+		display: block;
+		text-align: left;
+		width: auto;
+		padding: 0 10px;
+	}
+	.vd_services_text p.editor-align-center big{
+		font-size: 25px;
+		padding: 0 15px;
+	}
+	.vd_services2_list-item{
+		margin: 30px 0;
+		width: 100%;
+	}
+	.vd_services2_list-item-wrapper-title{
+		height: auto;
+		line-height: 35px;
+	}
+	.vd_services2_list-item-wrapper{
+		width: 100%;
+		padding: 35px 20px;
+		top: auto;
+		z-index: 999;
+	}
+	.vd_services2_list-item-wrapper-close{
+		font-size: 14px;
+		width: 80px;
+	}
+	.vd_services2_list-item-wrapper-desc{
+		font-size: 15px;
+	}
+	.vd_subservice_list-item{
+		line-height: 35px;
+		font-size: 16px;
+		background-position: 245px 5px;
+		padding: 0 15px;
+	}
+	.vd_subservice_list-item-sublist-item{
+		font-size: 10px;
+		padding: 0px 15px;
+		height: auto;
+	}
+	.vd_services_list-item.helper{
+		display: none;
+	}
+	.vd_service-gallery .cycle-slideshow .cycle-carousel-wrap img{
+		height: 100% !important;
+	}
+	.vd_singleofficewrapper-content-gallery .cycle-slideshow .cycle-carousel-wrap img{
+		height: 100% !important;
+	}
+
+	/*businessCenters*/
+	.vd_officelistwrapper-map::before{
+		width: 100%;
+	}
+	.vd_officelistwrapper, .vd_officelistwrapper-office, .vd_officelistwrapper-office-photo, .vd_officelistwrapper-office-photo img{
+		width: 100%;
+		height: auto;
+	}
+	.vd_officelistwrapper-office:nth-child(2n+1) {
+		margin-right: 0;
+		height: auto;
+	}
+	.vd_officelistwrapper-office-name{
+		padding: 0 15px;
+		margin-top: 65px;
+	}
+	.vd_officelistwrapper-office-services{
+		float: left;
+	}
+	.vd_officelistwrapper-office-place{
+		padding: 0 15px;
+	}
+	.vd_officelistwrapper-office-text{
+		font-size: 15px;
+		padding: 0 10px;
+		max-height: 150px;
+	}
+	.vd_officelistdata{
+		padding: 30px 0px;
+	}
+	.vd_officelistdata-block{
+		width: 100%;
+		margin: 0;
+	}
+	.vd_officelistdata-block-text {
+		margin-top: 55px;
+		padding: 0 10px;
+	}
+	.vd_officelistdata-block-title{
+		font-size: 17px;
+		padding: 0 10px;
+	}
+
+	/*exactBusinessCenter*/
+	.vd_singleofficewrapper-header h1{
+		font-size: 40px;
+	}
+	.vd_singleofficewrapper-header-body{
+		font-size: 20px;
+		padding: 0;
+		width: 100%;
+	}
+	.vd_singleofficewrapper-menu{
+		height: auto;
+	}
+	.vd_singleofficewrapper-menu > .g-container{
+		width: 100%;
+		height: auto;
+	}
+	.vd_singleofficewrapper-menu ul {
+		height: auto;
+		padding: 0 10px;
+	}
+	.vd_singleofficewrapper-menu ul li{
+		line-height: 30px;
+		width: 100%;
+		vertical-align: middle;
+		font-size: 15px;
+		text-align: center;
+		padding-bottom: 8px;
+	}
+	.vd_singleofficewrapper-menu ul li:first-child{
+		padding-top: 8px;
+	}
+	.vd_singleofficewrapper-menu ul li.helper{
+		display: none;
+	}
+	.vd_singleofficewrapper-content-about{
+		margin: 50px auto 0px auto;
+		padding: 0;
+	}
+	.vd_singleofficewrapper-content-about-column, .vd_singleofficewrapper-content-about-block{
+		width: 100%;
+	}
+	.vd_singleofficewrapper-content-about-block-image{
+		height: 50px;
+		width: 50px;
+		margin-left: 15px;
+	}
+	.vd_singleofficewrapper-content-about-block-text{
+		padding: 0 15px 0 80px;
+		font-size: 14px;
+	}
+	.vd_singleofficewrapper-content-services{
+		padding: 0;
+		margin: 50px auto 0;
+	}
+	.vd_singleofficewrapper-content-gallery > .cycle-slideshow> .cycle-prev, .cycle-next{
+		top: 50%;
+		width: 50px;
+		height: 50px;
+	}
+	.vd_singleofficewrapper-content-about .vd_singleofficewrapper-content-services .g-container .g-section-title{
+		margin-top: -15px;
+	}
+	/*table*/
+	.vd_singleofficewrapper-content-services-table{
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+
+	.vd_singleofficewrapper-content-services-table .service_header_label_block{
+		display: none;
+	}
+	.vd_singleofficewrapper-content-services-table tr{
+		width: 100%;
+		display: inline-block;
+		height: auto;
+	}
+	.vd_singleofficewrapper-content-services-table .service_header_content_block{
+		width: 100%;
+		height: auto;
+		display: block;
+		float: left;
+		text-align: center;
+	}
+	.service_header_content_block span.title{
+		padding-top: 10px;
+		display: inline-block;
+	}
+	.vd_singleofficewrapper-content-services-table .service_price{
+		text-align: center;
+		margin-top: -15px;
+		text-align: center;
+		width: 100%;
+		height: 55px;
+	}
+	.service_details_in_table{
+		margin-top: -25px;
+	}
+	.vd_singleofficewrapper-content-services-table tr:last-child td{
+		border-bottom: none;
+	}
+	.service_header_content_block span{
+		font-size: 18px;
+		line-height: 25px;
+	}
+	.vd_singleofficewrapper-content-services-table .service_price{
+		text-align: center;
+		display: block;
+	}
+	.vd_singleofficewrapper-content-services-table .service_label_block{
+		padding: 20px 0;
+		text-align: center;
+	}
+	.vd_singleofficewrapper-content-services-table .office_block{
+		width: 25%;
+		float: left;
+		padding: 15px 0 25px;
+	}
+	.vd_singleofficewrapper-content-services-table .coworking_block{
+		width: 25%;
+		float: left;
+		padding: 15px 0 25px;
+	}
+	.vd_singleofficewrapper-content-services-table .meeting_block{
+		width: 25%;
+		float: left;
+		padding: 15px 0 25px;
+	}
+	.vd_singleofficewrapper-content-services-table .virtual_block{
+		width: 25%;
+		float: left;
+		padding: 15px 0 25px;
+	}
+	.g-button.c-office{
+		display: block;
+		height: 50px;
+		line-height: 50px;
+	}
+	.g-button.c-coworking {
+		display: block;
+		height: 50px;
+		line-height: 50px;
+	}
+	.g-button.c-meeting{
+		display: block;
+		height: 50px;
+		line-height: 50px;
+	}
+	.g-button.c-virtual{
+		display: block;
+		height: 50px;
+		line-height: 50px;
+	}
+	.vd_singleofficewrapper-content-services-table .services_subtitle{
+		margin-top: 20px;
+	}
+	.vd_singleofficewrapper-content-contacts-details{
+		padding: 0px 15px;
+	}
+	.vd_singleofficewrapper-content-contacts-details-left{
+		width: 100%;
+		font-size: 15px;
+		text-align: left;
+	}
+	.vd_singleofficewrapper-content-contacts-details-right{
+		width: 100%;
+		padding: 15px 0;
+	}
+	.vd_singleofficewrapper-content-contacts-details-right-contactstable{
+		width: 100%;
+		font-size: 15px;
+	}
+	.vd_singleofficewrapper-content-contacts-details-right, table, tr, td{
+		text-align: center;
+	}
+	.vd_singleofficewrapper-other{
+		width: 100%;
+		overflow: visible;
+		margin: 0 auto;
+	}
+	.g-section-title{
+		font-size: 25px;
+		padding: 0px 10px;
+	}
+	.vd_singleofficewrapper-other-list{
+		padding: 0;
+		width: 100%;
+	}
+	.vd_singleofficewrapper-footer{
+		padding: 50px 15px 80px 15px;
+	}
+	.vd_singleofficewrapper-footer p{
+		font-size: 14px;
+	}
+	.vd_serviceincenter_wrapper-virtualrates table{
+		margin-top: 15px;
+	}
+	.vd_serviceincenter_wrapper-virtualrates table th{
+		text-align: center;
+		padding-left: 0;
+		width: 100%;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-list-form.open{
+		overflow: hidden;;
+	}
+	.vd_serviceincenter_wrapper-virtualrates table th.label{
+		text-align: center;
+		background-image: none;
+		padding: 0;
+		line-height: 90px;
+	}
+	.vd_serviceincenter_wrapper-virtualrates table tr.prices td{
+		margin-top: 10px;
+		padding: 0 10px;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-list-header table tr.details td{
+		font-size: 15px;
+		padding: 0 10px;
+	}
+	.vd_serviceincenter_wrapper-virtualrates table tr.reverse_buttons td{
+		padding-left: 0;
+		cursor: pointer;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-list-header tr.details{
+		display: table-row;
+	}
+	.table_header_main{
+		display: none;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-list-form h2{
+		font-size: 20px;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-list-form-rigth{
+		width: 100%;
+		margin-top: 275px;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-list-form-rigth input.phone{
+		width: 100%;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-list-form-rigth input.email{
+		width: 100%;
+		margin-top: 10px;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-list-form-rigth input.name{
+		width: 100%;
+		margin-top: 10px;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-list-form-rigth button{
+		width: 100%;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-list-form-rigth button:nth-child(2n) {
+		margin-left: 0;
+		margin-top: 10px;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-list-form-left{
+		width: 100%;
+		margin-top: -685px;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-list-form-left-item{
+		font-size: 14px;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-list-form-left-item-label{
+		width: 40%;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-list-form-left-item-value {
+		width: 60%;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-list-form-left .ui-selectmenu-button{
+		width: 100% !important;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-list-form-left .ui-selectmenu-button .ui-selectmenu-text{
+		background-position: 150px 6px;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-details{
+		overflow: unset;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-details-list-item-header{
+		background-position: 16px 9px;
+		line-height: 20px;
+		padding: 10px 50px;
+		height: auto;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td{
+		display: block;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td.label{
+		width: 100%;
+		text-align: center;
+		height: auto;
+		padding: 20px 0;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td{
+		width: 100%;
+		height: 40px;
+	}
+	.tariff_name_in_cell{
+		display: block;
+		text-align: left;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td span{
+		padding-left: 0;
+		font-size: 14px;
+		float: left;
+		line-height: 40px;
+		width: 70%;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td:last-child .tariff_name_in_cell{
+		line-height: 20px;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td .included{
+		width: 30%;
+		background-repeat: no-repeat;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td .not_included{
+		width: 30%;
+		background-repeat: no-repeat;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td span.additional_options{
+		display: block;
+		color: red;
+	}
+	.additional_options_exact{
+		display: none;
+	}
+	.additional_options_exact_last{
+		display: block;
+		width: 100%;
+		text-align: left;
+		color: red !important;
+	}
+	.additional_options_exact_last > .additional_options{
+		width: 5px;
+		padding-right: 10px;
+		color: red;
+	}
+	#tooltip_content{
+		width: 100%;
+		height: auto;
+	}
+
+	/*coworking*/
+	.vd_serviceincenter_wrapper-header .g-container-row{
+		overflow: visible;
+	}
+	.vd_serviceincenter_wrapper-header h1, .vd_service_single_wrapper-header h1{
+		font-size: 20px;
+		top: 75px;
+		left: 85px;
+		width: 60%;
+	}
+	.vd_serviceincenter_wrapper-menu, .vd_serviceincenter_wrapper-menu ul{
+		height: auto;
+	}
+	.vd_serviceincenter_wrapper-menu, .vd_serviceincenter_wrapper-menu ul>li:first-child{
+		padding-top: 8px;
+	}
+	.vd_serviceincenter_wrapper-menu ul li{
+		line-height: 30px;
+		width: 100%;
+		vertical-align: middle;
+		font-size: 15px;
+		text-align: center;
+		padding-bottom: 8px;
+	}
+	.vd_serviceincenter_wrapper-menu ul li.helper{
+		display: none;
+	}
+	.vd_serviceincenter_wrapper-about{
+		margin: 50px auto 0px auto;
+	}
+	.vd_serviceincenter_wrapper-about-list, .vd_serviceincenter_wrapper-about-list-sublist{
+		width: 100%;
+	}
+	.vd_serviceincenter_wrapper-about-list{
+		margin-top: 0;
+	}
+	.vd_serviceincenter_wrapper-about-list{
+		padding: 0 15px;
+	}
+	.included .vd_serviceincenter_wrapper-about-list-sublist-header{
+		background-size: 25px 25px;
+		font-size: 18px;
+		margin-bottom: 35px;
+	}
+	.vd_serviceincenter_wrapper-about-list-block-image {
+		width: 55px;
+		height: 55px;
+	}
+	.vd_serviceincenter_wrapper-about-list-block-title {
+		padding-left: 75px;
+		font-family: Lato-Regular;
+		font-size: 17px;
+	}
+	.vd_serviceincenter_wrapper-about-list-block-desc {
+		padding-left: 75px;
+		font-family: Lato-Regular;
+		font-size: 14px;
+	}
+	.vd_serviceincenter_wrapper-about-list-sublist.payed{
+		margin: 0;
+	}
+	.payed .vd_serviceincenter_wrapper-about-list-sublist-header{
+		font-size: 18px;
+		background-size: 25px 25px;
+	}
+	.vd_serviceincenter_wrapper-special {
+		margin: 50px 0 0;
+		width: 100%;
+		padding: 0;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates > .g-section-title{
+		font-size: 20px;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-header{
+		padding: 0 0 15px 0;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-header-name{
+		width: 100%;
+		float: left;
+		border-bottom: 2px solid #ffffff;
+		border-right: 0;
+		text-align: center;
+		font-size: 18px;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-header-features{
+		width: 100%;
+		display: block;
+		font-size: 15px;
+		border-bottom: 2px solid #ffffff;
+		border-right: 0;
+		padding: 120px 30px 20px;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-header-features li {
+		line-height: 25px;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-header-price{
+		display: block;
+		padding: 30px 20px;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-header-price button{
+		width: 100%;
+		padding: 0;
+		background-position: 250px center;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-form h2{
+		font-size: 25px;
+		margin: 265px 0 0 0;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-form-right{
+		width: 100%;
+		margin: 50px 0 0 0;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-form-right input.phone{
+		width: 100%;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-form-right input.email{
+		width: 100%;
+		margin-top: 10px;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-form-right input.name{
+		width: 100%;
+		margin-top: 10px;
+	}
+	.open .vd_serviceincenter_wrapper-coworkingrates-list-item-form{
+		padding: 30px;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-form-right button{
+		width: 100%;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-form-right button:nth-child(2n){
+		margin: 10px 0 20px;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-form-left {
+		width: 100%;
+		margin-left: 0;
+		margin-top: -780px;
+	}
+	vd_serviceincenter_wrapper-coworkingrates-list-item open{
+		overflow: hidden;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item {
+		width: 100%;
+		font-size: 15px;
+		margin-bottom: 3px;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-label {
+		width: 50%;
+		line-height: 10px;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-value{
+		width: 50%;
+	}
+	.input .vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-label{
+		width: 50%;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-total-value{
+		width: 50%;
+		float: left;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-total-label{
+		width: 50%;
+		font-size: 17px;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-total-value span{
+		font-size: 17px;
+	}
+	.vd_serviceincenter_wrapper-get_presentation{
+		margin: 50px 0px 0px 0px;
+		padding: 15px;
+	}
+	.vd_serviceincenter_wrapper-get_presentation form{
+		width: 100%;
+	}
+	.vd_serviceincenter_wrapper-get_presentation input.email{
+		width: 100%;
+	}
+	.vd_serviceincenter_wrapper-get_presentation input.get_presentation{
+		width: 100%;
+	}
+	.coworking .vd_service_single_wrapper-header-logo{
+		margin: -125px 0 41px 20px;
+		clear: both;
+		width: 50px;
+		height: 50px;
+	}
+	.vd_serviceincenter_wrapper-get_presentation input.get_presentation.coworking{
+		-webkit-appearance: none;
+		border: 0;
+	}
+
+	/*peregovornaya*/
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-value .coworking_workplaces{
+		-webkit-appearance: none;
+	}
+	.vd_serviceincenter_wrapper-get_presentation input.get_presentation.meeting{
+		-webkit-appearance: none;
+		border: 0;
+	}
+	.meeting .vd_serviceincenter_wrapper-header-logo{
+		margin: -125px 0 41px 20px;
+		clear: both;
+		width: 50px;
+		height: 50px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list{
+		margin-top: 45px;
+		margin-bottom: 10px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item{
+		margin: 10px 0px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-header {
+		height: auto;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-header-photo{
+		width: 50%;
+		border-bottom: 2px solid #ffffff;
+		border-right: none;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-header-photo img{
+		width: 100%;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-header-name{
+		width: 50%;
+		line-height: 100px;
+		border-bottom: 2px solid #ffffff;
+		border-right: none;
+		padding: 0;
+		display: inline-block;
+		text-align: center;
+		text-align: -moz-center;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-header-area{
+		width: 50%;
+		border-bottom: 2px solid #ffffff;
+		border-right: none;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-header-area{
+		padding-left: 45px;
+		background-position: 15px 36px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-header-people{
+		padding-left: 55px;
+		background-position: 15px 36px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-header-people{
+		border-bottom: 2px solid #ffffff;
+		border-right: none;
+		width: 50%;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-header-price{
+		padding: 0;
+		text-align: center;
+		width: 100%;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-header-price span{
+		padding: 0 0 0 30px;
+	}
+
+	.vd_serviceincenter_wrapper-meetingrates-list-item-header-price{
+		width: 100%;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-header-price button{
+		width: 100%;
+		margin: 0;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-left{
+		width: 100%;
+		margin: -920px 0 0 0;
+		padding: 30px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-label{
+		width: 50%;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-value{
+		width: 50%;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-wide{
+		width: 100%;
+		height: auto;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-widecontrols{
+		width: 100%;
+		height: auto;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-left .ui-selectmenu-button .ui-selectmenu-text{
+		background-position: 100% 6px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-left .ui-selectmenu-button:nth-of-type(2n) .ui-selectmenu-text{
+		background-position: 100% 6px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-left .date{
+		width: 100%;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-left .ui-selectmenu-button{
+		width: 100% !important;
+		margin-top: 10px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-left .ui-selectmenu-button:nth-of-type(2n){
+		width: 100% !important;
+		margin-top: 10px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-left-total-label{
+		width: 50%;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-widetall{
+		line-height: 25px;
+		width: 100%;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom-right{
+		width: 100%;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom-right .warning{
+		width: 100%;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom-right .warning{
+		font-size: 14px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom-right .info{
+		margin-top: 15px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom p.subheading{
+		font-size: 14px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom-right .info p + p{
+		font-size: 14px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom-left{
+		width: 100%;
+		margin-top: 15px;
+	}
+	.open .vd_serviceincenter_wrapper-meetingrates-list-item-form{
+		margin-top: 61px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom-left  p + p{
+		font-size: 14px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom-left  p + p + p{
+		font-size: 14px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form h2{
+		font-size: 25px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-right{
+		padding: 0 30px;
+		width: 100%;
+		margin: 455px 0 0 0;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form{
+		overflow: hidden;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-right input.phone{
+		width: 100%;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-right input.email{
+		width: 100%;
+		margin-top: 10px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-right input.name{
+		width: 100%;
+		margin-top: 10px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-right button{
+		width: 100%;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-right button:nth-child(2n){
+		margin: 10px 0 15px;
+	}
+	.meeting .vd_service_single_wrapper-header-logo{
+		margin: -125px 0 41px 20px;
+		clear: both;
+		width: 50px;
+		height: 50px;
+	}
+
+	/*virtualOffice*/
+	.vd_serviceincenter_wrapper-get_presentation input.get_presentation.virtual{
+		-webkit-appearance: none;
+		border: 0;
+	}
+	.virtual .vd_serviceincenter_wrapper-header-logo{
+		margin: -125px 0 41px 20px;
+		clear: both;
+		width: 50px;
+		height: 50px;
+	}
+	.virtual .vd_service_single_wrapper-header-logo{
+		margin: -125px 0 41px 20px;
+		clear: both;
+		width: 50px;
+		height: 60px;
+	}
+	.vd_serviceincenter_wrapper-virtualrates table span.reserve{
+		cursor: pointer;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-list-form-left .ui-selectmenu-button .ui-selectmenu-text{
+		background-position: 135px 6px;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-list-form-left-total-label{
+		width: 50%;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-list-form-left{
+		width: 100%;
+	}
+
+	/*specialOffer*/
+	.vd_specialoffer-header-dates{
+		margin: 0 0 30px 15px;
+	}
+	.vd_specialoffer-header-virtual{
+		background-size: 50px 53px;
+		margin: 0 0 0 10px;
+	}
+	.vd_specialoffer-header h1{
+		width: 70%;
+		font-size: 21px;
+	}
+	.vd_specialoffer-header p{
+		font-size: 16px;
+		margin: 0;
+		padding: 0 10px;
+	}
+	.vd_specialoffer-offers-title{
+		font-size: 25px;
+		padding: 0 15px;
+	}
+	.vd_specialoffer-offers-list-element-header-office img{
+		height: 100px;
+	}
+	.vd_specialoffer-offers-list-element-header-office, .vd_specialoffer-offers-list-element-header-office img{
+		width: 100%;
+	}
+	.vd_specialoffer-offers-list-element-header-office span{
+		padding-top: 10px;
+	}
+	.vd_specialoffer-offers-list-element-header-services{
+		text-align: left;
+		padding: 45px 0 0 25px;
+	}
+	.vd_specialoffer-offers-list-element-header-place span.price{
+		padding-top: 0;
+		margin-top: -105px;
+	}
+	.vd_specialoffer-offers-list-element-header-place .reserve{
+		width: 100%;
+		cursor: pointer;
+	}
+	.vd_specialoffer-offers-list-element.open .vd_specialoffer-offers-list-element-menu{
+		height: 660px;
+	}
+	.vd_specialoffer-offers-list-element-menu-reserveform-left{
+		width: 100%;
+	}
+	.vd_specialoffer-offers-list-element-menu-reserveform-left-text{
+		font-size: 14px;
+	}
+	.vd_specialoffer-offers-list-element-menu-reserveform-left-name{
+		font-size: 17px;	
+	}
+	.vd_specialoffer-offers-list-element-menu-reserveform-left-phone, .vd_specialoffer-offers-list-element-menu-reserveform-left-email{
+		font-size: 16px;
+		background-size: 20px 20px;
+	}
+	.vd_specialoffer-offers-list-element-menu-reserveform-right{
+		width: 100%;
+	}
+	.vd_specialoffer-offers-list-element-menu-reserveform-right input.phone, .vd_specialoffer-offers-list-element-menu-reserveform-right input.email, .vd_specialoffer-offers-list-element-menu-reserveform-right input.name{
+		width: 100%;
+	}
+	.vd_specialoffer-offers-list-element-menu-reserveform-right input.email, .vd_specialoffer-offers-list-element-menu-reserveform-right input.name{
+		margin-top: 10px;
+	}
+	.vd_specialoffer-offers-list-element-menu-reserveform-right button{
+		width: 100%;
+	}
+	.vd_specialoffer-header-meeting{
+		background-size: 60px;
+		margin: 0 0 0 10px;
+		width: 75px;
+	}
+	.vd_specialoffer-header-meeting + h1 + p{
+		margin: 50px 0;
+	}
+	.vd_specialoffer-header-office, .vd_specialoffer-header-coworking{
+		margin: 0 0 0 10px;
+		background-size: 50px;
+	}
+
+	/*arendaOfisov*/
+	.vd_serviceincenter_wrapper-header{
+		height: auto;
+	}
+	.office .vd_serviceincenter_wrapper-header-logo{
+		width: 50px;
+		height: 50px;
+		margin: 41px 0 41px 20px;
+	}
+	.vd_serviceincenter_wrapper-header-price{
+		margin: 130px 0 20px 20px;
+		width: 90%;
+		float: left;
+	}
+	.office .vd_serviceincenter_wrapper-header-logo, .coworking .vd_serviceincenter_wrapper-header-logo{
+		margin: -125px 0 41px 20px;
+		clear: both;
+		width: 50px;
+		height: 50px;
+	}
+	.vd_serviceincenter_wrapper-header h1, .vd_service_single_wrapper-header h1{
+		width: 72%;
+	}
+	.vd_service-gallery > .cycle-slideshow> .cycle-prev, .cycle-next{
+		top: 50%;
+		width: 50px;
+		height: 50px;
+	}
+	.vd_serviceincenter_wrapper-layout-image{
+		width: 100%;
+		padding: 0 15px;
+		height: 300px;
+	}
+	.vd_serviceincenter_wrapper-layout-image img{
+		width: 100%;
+		margin: 0;
+	}
+	.vd_serviceincenter_wrapper-layout-image-zoom{
+		bottom: 30px;
+	}
+	.vd_serviceincenter_wrapper-layout-text {
+		width: 100%;
+		margin-left: 0;
+		padding: 0 15px;
+	}
+	.vd_serviceincenter_wrapper-layout-text p{
+		font-size: 15px;
+		margin-bottom: 30px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices {
+		margin: 50px auto 0px auto;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element{
+		width: 100%;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-header{
+		height: auto
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-header-area{
+		clear: both;
+		width: 50%;
+		border-bottom: 2px solid #ffffff;
+		border-right: none; 
+		background-position: 15px 36px;
+		padding-left: 45px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-header-people{
+		width: 50%;
+		border-bottom: 2px solid #ffffff;
+		border-right: none; 
+		background-position: 15px 36px;
+		padding-left: 53px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-header-office{
+		width: 100%;
+		border-bottom: 2px solid #ffffff;
+		border-right: none; 
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-header-price span.price{
+		margin-top: -145px;
+		text-align: center;
+		width: 100%;
+		margin-left: 0;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-header-price .reserve{
+		width: 100%;
+		margin-top: 80px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-header-price span.special{
+		margin-top: -80px;
+		margin-left: 0;
+		text-align: center;
+		width: 100%;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-title{
+		padding: 25px 0px 0px 30px;
+		font-size: 25px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform{
+		height: 210px;
+		padding: 30px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-left{
+		height: 210px;
+		width: 100%;
+		margin: 0;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-left, td, tr{
+		text-align: left;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element.open .vd_serviceincenter_wrapper-freeoffices-list-element-menu{
+		height: auto;
+		padding-bottom: 15px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-left table{
+		font-size: 15px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-left table tr.total{
+		font-size: 17px;
+		line-height: 2.2em;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-left table tr.total td span{
+		font-size: 17px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right{
+		width: 100%;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right input.phone{
+		width: 100%;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right input.email{
+		width: 100%;
+		margin-top: 10px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right input.name{
+		width: 100%;
+		margin-top: 10px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right .warning{
+		width: 100%;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right button {
+		width: 100%;
+		margin-top: 15px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform{
+		margin-top: 490px;
+		width: 100%;
+		padding: 10px 30px;
+		height: auto;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-left {
+		width: 100%;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-left p{
+		font-size: 15px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right {
+		width: 100%;
+		margin-top: 20px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-datetime .date{
+		margin: 0;
+		display: block;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-datetime .time_label{
+		margin-left: 0;
+		float: left;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-datetime .ui-selectmenu-button{
+		margin: 0;
+		float: none;
+		display: block;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-submit{
+		margin-top: 140px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-submit.disabled{
+		width: 100%;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-submit{
+		width: 100%;
+	}
+	.vd_service_single_wrapper-header{
+		height: auto;
+	}
+	.office .vd_service_single_wrapper-header-logo{
+		margin: -125px 0 41px 20px;
+		clear: both;
+		width: 50px;
+		height: 50px;
+	}
+	.vd_service_single_wrapper-menu{
+		height: auto;
+	}
+	.vd_service_single_wrapper-menu ul{
+		text-align: center;
+		height: auto;
+	}
+	.vd_service_single_wrapper-menu ul li{
+		line-height: 30px;
+		width: 100%;
+		vertical-align: middle;
+		font-size: 15px;
+		text-align: center;
+		padding-bottom: 8px;
+	}
+	.vd_service_single_wrapper-menu ul li.helper{
+		display: none;
+	}
+	.vd_service_single_wrapper-menu ul li:first-child{
+		padding-top: 8px;
+	}
+	.vd_service_single_wrapper-about{
+		margin: 50px auto 0px auto;
+	}
+	.vd_service_single_wrapper-about-list-sublist{
+		width: 100%;
+		padding: 0 15px;
+	}
+	.included .vd_service_single_wrapper-about-list-sublist-header{
+		background-size: 25px 25px;
+		font-size: 18px;
+		margin-bottom: 35px;
+	}
+	.vd_service_single_wrapper-about-list-block-image{
+		width: 55px;
+		height: 55px;
+	}
+	.vd_service_single_wrapper-about-list-block-title{
+		padding-left: 75px;
+		font-size: 17px;
+	}
+	.vd_service_single_wrapper-about-list-block-desc{
+		padding-left: 75px;
+		font-size: 14px;
+	}
+	.vd_service_single_wrapper-about-list-sublist.payed {
+		margin-left: 0;
+	}
+	.payed .vd_service_single_wrapper-about-list-sublist-header{
+		font-size: 18px;
+		background-size: 25px 25px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-left table tr td:nth-child(2n+1){
+		float: left;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-left table tr td:nth-child(2n+2){
+		width: 60%;
+		display: block;
+		float: left;
+	}
+	.virtualrates_main_table_cell{
+		display: block;
+	}
+
+	/*blog*/
+	.vd_blog_wrapper{
+		padding-bottom: 0;
+	}
+	.vd_blog_wrapper-main-postlist{
+		width: 100%;
+		margin-top: -1710px;
+	}
+	.vd_blog_post{
+		width: 100%;
+		margin: 10px 0px;
+	}
+	.vd_blog_post-image{
+		width: 100%;
+	}
+	.vd_blog_post-image img{
+		width: 100%;
+	}
+	.vd_blog_post-date{
+		padding: 270px 10px 15px;
+	}
+	.vd_blog_post-title{
+		font-size: 25px;
+		padding: 10px 15px;
+	}
+	.vd_blog_post-desc{
+		font-size: 17px;
+		padding: 10px 15px;
+	}
+	.vd_blog_post-tags{
+		line-height: 30px;
+		background-position: 15px 15px;
+		padding: 10px 30px;
+	}
+	.vd_blog_loadmore{
+		width: 100%;
+		margin-top: -325px;
+	}
+	.vd_blog_wrapper-main-sidebar{
+		padding: 1450px 30px 0;
+		width: 100%;
+	}
+	.fb_iframe_widget{
+		top: -35px;
+	}
+
+	/*blogPost*/
+	.vd_blog_post_wrapper-header-date{
+		margin: 20px auto 30px auto;
+		font-size: 18px;
+	}
+	.vd_blog_post_wrapper-header h1{
+		font-size: 38px;
+	}
+	.vd_blog_post_wrapper-header-tags a{
+		font-size: 17px;
+	}
+	.vd_blog_post_wrapper-main-social{
+		width: 100%;
+		margin: 0;
+		padding: 15px;
+	}
+	.vd_blog_post_wrapper-main-social div{
+		float: left;
+	}
+	.vd_blog_post_wrapper-main-content{
+		margin: 0;
+		width: 100%;
+		padding: 25px 15px;
+	}
+	.vd_blog_post_wrapper-main-content h2{
+		font-size: 25px;
+	}
+	.vd_blog_post_wrapper-main-content p{
+		font-size: 17px;
+	}
+	.vd_blog_post_wrapper-main-content-image{
+		width: 100%;
+	}
+	.vd_blog_post_wrapper-main-content-image-parent{
+		width: 100%;
+	}
+	.vd_blog_post_wrapper-main-content-image-parent img{
+		width: 100%;
+	}
+	.vd_blog_post_wrapper-main-content-meta-tags{
+		padding-left: 15px;
+		margin-top: -130px;
+		line-height: 30px;
+		background-position: 0 15px;
+	}
+	.vd_blog_post_wrapper-main-content-meta-rating{
+		margin-top: 25px;
+	}
+	.vd_blog_post_wrapper-other-list{
+		margin: 0;
+	}
+	.vd_blog_post_wrapper-other-list-post{
+		width: 100%;
+	}
+	.vd_blog_post_wrapper-other-list-post .blogpost_title{
+		padding: 0 15px 40px;
+	}
+	.vd_blog_post_wrapper-other-list-post .blogpost_date{
+		padding: 0 15px;
+	}
+	.vd_blog_post_wrapper-main-content-comments{
+		margin-bottom: 0;
+	}
+	input, textarea{
+		-webkit-border-radius: 0;
+	}
+
+}
+
+
+
+
+/*TABLET Landscape*/
+@media (min-width: 1024px) AND (max-width: 1199px) {
+	html {
+		min-width: 1024px;
+		max-width: 1199px;
+	}
+	body {
+		min-width: 1024px;
+		max-width: 1199px;
+	}
+	input, textarea{
+		-webkit-border-radius: 0;
+	}
+
+	/*main*/
+	.g-container{
+		width: 900px;
+	}
+	.header-phone-number{
+		font-size: 25px;
+	}
+	.header-nav-right{
+		width: 79%;
+	}
+	.header-nav-logo{
+		padding-left: 15px;
+	}
+	.header-menu{
+		font-size: 18px;
+	}
+	.header-menu li {
+		margin-left: 30px;
+	}
+	.index-promo-left {
+		float: left;
+		width: 40%;
+		padding: 0 15px;
+	}
+	.index-promo-left-title{
+		font-size: 50px;
+	}
+	.index-promo-links li{
+		padding-left: 65px;
+		background-position: 0 .3em;
+	}
+	.index-promo-right {
+		width: 60%;
+		height: 510px;
+	}
+	.offers-item-title{
+		width: 50%;
+		padding: 0 85px;
+	}
+	.offers-item-link .g-button{
+		text-align: center;
+		padding: 0 30px;
+	}
+	.index-promo2-left{
+		width: 500px;
+	}
+	.index-promo2-right{
+		width: 400px;
+	}
+	.index-promo2-text{
+		font-size: 18px;
+	}
+	.index-text-left{
+		padding: 0 30px;
+		width: 350px;
+		margin: 0;
+	}
+	.index-text-right {
+		width: 550px;
+		padding: 0 30px;
+	}
+	.footer-main-left{
+		margin: 0;
+		padding: 0 30px;
+		width: 100%;
+	}
+	.footer-main-right{
+		width: 100%;
+		padding: 0 30px;
+	}
+	.footer-bottom{
+		padding: 0 30px;	
+	}
+
+	/*about*/
+	.header-path{
+		padding: 0 15px;
+	}
+	.vd_about_wrapper-subtitle{
+		padding: 20px 30px;
+	}
+	.vd_about_wrapper p{
+		padding: 20px 30px;	
+	}
+	.vd_about_wrapper-blog-list-post{
+		max-width: 50%;
+	}
+	.vd_about_wrapper-contacts-inner-data{
+		width: 36%;
+		padding: 0 15px 0 0;
+	}
+	#vd_about_wrapper-contacts-inner-map{
+		left: calc(((100% - 100%) / 2) + 40%);
+		width: 60%;
+	}
+	.vd_about_wrapper-clients-list-slide{
+		width: 900px;
+	}
+	.vd_about_wrapper-blog-list-post {
+		width: 282px;
+		margin-right: 25px;
+	}
+	.vd_about_wrapper-blog-list-post img{
+		height: 100% !important;
+		width: 280px !important;
+	}
+	.vd_about_wrapper-clients-list-slide img{
+		height: auto !important;
+	}
+	.vd_about_wrapper-blog-list-post .blogpost_title{
+		font-size: 25px;
+	}
+
+	/*services*/
+	.vd_services_list-item{
+		width: 14%;
+	}
+	table, td, th{
+		padding: 0 0 0 30px;
+	}
+	.vd_services_text p.editor-align-center{
+		padding: 0 30px;
+	}
+	.g-container-row.vd_services2{
+		padding: 0 30px;
+	}
+	.vd_services_list-item.helper{
+		display: none;
+	}
+	
+	/*arendaOfisov*/
+	.vd_serviceincenter_wrapper-header h1, .vd_service_single_wrapper-header h1{
+		width: 70%;
+	}
+	.vd_service_single_wrapper-menu ul li{
+		font-size: 19px;
+	}
+	.vd_service_single_wrapper-about-list-sublist {
+		width: 420px;
+	}
+	.vd_officelistwrapper-office{
+		width: 435px;	
+	}
+	.vd_officelistwrapper-office-photo{
+		width: 435px;	
+	}
+	.vd_serviceincenter_wrapper-special{
+		width: 900px;
+		padding: 0;
+	}
+
+	/*businessCenters*/
+	.vd_officelistwrapper-map::before{
+		width: 100%;
+	}
+	.vd_officelistwrapper{
+		width: 900px;
+	}
+	.vd_officelistdata-block-title {
+		font-size: 19px;
+	}    
+	.vd_officelistdata-block-text {
+		margin-top: 75px;
+		font-size: 15px;
+	}
+
+	/*exact*/
+	.vd_singleofficewrapper-other{
+		margin: 50px auto 0 auto;
+	}
+	.vd_singleofficewrapper-menu ul li{
+		font-size: 18px;
+	}
+	.vd_singleofficewrapper-content-about{
+		width: 900px;
+		padding:0;
+	}
+	.vd_singleofficewrapper-content-about-column{
+		width: 435px;
+	}
+	.vd_singleofficewrapper-content-about-block {
+		width: 435px;
+	}
+	.vd_singleofficewrapper-content-about-block-text{
+		font-size: 18px;
+	}
+	.vd_singleofficewrapper-content-about-block:nth-child(2n){
+		margin-right: 0;
+	}
+	.vd_singleofficewrapper-content-services{
+		margin: 0;
+		padding: 0;
+	}
+	.vd_singleofficewrapper-content-services-table{
+		padding: 0;
+	}
+	.service_details_in_table > .g-button{
+		padding: 0 10px 0 20px;
+	}
+	.service_header_content_block span.title{
+		padding-top: 18px;
+		margin-left: 26px;
+	}
+	.vd_singleofficewrapper-content-services-table .service_header_label_block{
+		padding: 0;
+		font-size: 15px;
+	}
+	.vd_singleofficewrapper-content-services-table .service_header_content_block{
+		padding: 0;
+	}
+	.service_header_content_block.office{
+		background-size: 35px 35px;
+	}
+	.service_header_content_block.coworking{
+		background-size: 40px 40px;	
+	}
+	.service_header_content_block.meeting{
+		background-size: 45px 28px;	
+	}
+	.service_header_content_block.virtual{
+		background-size: 30px 38px;	
+	}
+	.service_header_content_block span{
+		font-size: 15px;
+	}
+	.additional_services_row td{
+		padding: 0;
+		line-height: 22px;
+	}
+	.vd_singleofficewrapper-other{
+		width: 900px;
+	}
+	.vd_singleofficewrapper-other-list{
+		padding: 0;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-left .ui-selectmenu-button{
+		margin-top: 5px;
+	}
+	#ui-id-1-button, #ui-id-2-button{
+		width: 46% !important;
+		float: left;
+	}
+	#ui-id-1-button > .ui-selectmenu-text{
+		background-position: 85px 6px;
+	}
+	#ui-id-2-button > .ui-selectmenu-text{
+		background-position: 85px 6px;
+	}
+	.vd_serviceincenter_wrapper-about-list-sublist{
+		width: 48%;
+	}
+	.vd_serviceincenter_wrapper-layout-image{
+		width: 50%;
+	}
+	.vd_serviceincenter_wrapper-layout-image img{
+		width: 430px;
+		margin: 20px 10px;
+	}
+	.vd_serviceincenter_wrapper-layout-text {
+		width: 50%;
+		margin-left: 0;
+		padding: 18px 15px;
+	}
+	.vd_serviceincenter_wrapper-layout-text p{
+		font-size: 18px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-header-office{
+		width: 295px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-header-office span{
+		font-size: 18px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-header-area{
+		background-position: 10px 36px;
+		padding-left: 40px;
+		width: 110px;
+		font-size: 15px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-header-people{
+		font-size: 15px;
+		background-position: 10px 36px;
+		padding-left: 50px;
+		width: 150px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-header-price span.price{
+		width: 130px;
+		font-size: 15px;
+		padding-top: 18px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-header-price .reserve{
+		width: 180px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-header-price span.special{
+		font-size: 14px;
+		margin-left: 3px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform{
+		padding: 15px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-left{
+		width: 33%;
+		margin-right: 17px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-left table tr td{
+		padding: 0;
+		font-size: 15px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right {
+		width: 65%;
+	}    
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right input{
+		margin-right: 5px;
+		width: 185px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right .warning{
+		width: 245px;
+		font-size: 14px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right button{
+		width: 285px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-left{
+		width: 260px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-left p{
+		font-size: 15px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right{
+		width: 550px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-preview{
+		font-size: 15px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-preview .preview_label{
+		padding-left: 30px;
+	}
+	.date_label{
+		font-size: 15px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-datetime label input{
+		margin-left: 0;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-datetime .date{
+		width: 175px;
+		background-position: 10px 7px;
+		padding-left: 40px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-datetime .time_label{
+		margin-left: 0;
+		display: block;
+		font-size: 15px;
+		margin-top: 10px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-datetime .ui-selectmenu-button#ui-id-1-button{
+		width: 177px !important;
+		float: none;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-datetime .ui-selectmenu-button#ui-id-2-button{
+		width: 177px !important;
+		float: none;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-datetime .ui-selectmenu-button#ui-id-1-button > .ui-selectmenu-text{
+		background-position: 135px 6px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-datetime .ui-selectmenu-button#ui-id-2-button > .ui-selectmenu-text{
+		background-position: 135px 6px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-datetime .ui-selectmenu-button{
+		margin-left: 60px;
+		width: 177px !important;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-submit{
+		width: 369px;
+		margin-top: 60px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform{
+		height: 260px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element.open .vd_serviceincenter_wrapper-freeoffices-list-element-menu{
+		height: 660px;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-form-left{
+		width: 33%;
+		margin-left: 15px;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item{
+		font-size: 15px;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-form-right {
+		width: 61%;
+		margin-right: 15px;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-form-right input{
+		margin-right: 5px;
+		width: 179px;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-form-right button{
+		width: 269px;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-label {
+		width: 49%;
+		line-height: 10px;
+		margin-top: 4px;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-value {
+		width: 51%;
+		line-height: 10px;
+		margin-top: 4px;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-total-value{
+		width: 110%;
+	}
+	.input .vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-label{
+		width: 49%;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-total-label{
+		width: 49%;
+	}
+	.vd_serviceincenter_wrapper-get_presentation input.get_presentation.coworking{
+		-webkit-appearance: none;
+		border: 0;
+	}
+	.vd_serviceincenter_wrapper-virtualrates table tr.reverse_buttons td{
+		cursor: pointer;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-header-name{
+		width: 125px;
+		font-size: 16px;
+		padding: 0 5px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-header-area{
+		width: 130px;
+		padding-left: 40px;
+		background-position: 10px 36px;
+		font-size: 15px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-header-people{
+		width: 155px;
+		font-size: 15px;
+		padding-left: 50px;
+		background-position: 10px 36px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-header-price{
+		width: 283px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-header-price{
+		padding: 0;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-header-price button{
+		width: 180px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-right{
+		width: 63%;
+		margin-right: 15px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-left {
+		width: 33%;
+		margin-left: 15px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-right input{
+		margin-right: 5px;
+		width: 185px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item {
+		width: 100%;    
+		font-size: 14px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-left .vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item:nth-of-type(3){
+		width: 150px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-widecontrols {
+		width: 250px;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-list-form-left-item-value > #ui-id-1-button{
+		width: 140px !important;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-list-form-left-item-value > #ui-id-1-button > .ui-selectmenu-text{
+		background-position: 110px 6px !important;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-list-form-left-item-value > #ui-id-2-button > .ui-selectmenu-text{
+		background-position: 110px 6px !important;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-list-form-left-item-value > #ui-id-2-button{
+		width: 140px !important;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-left .date{
+		width: 100%;
+	}    
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-left .ui-selectmenu-button{
+		width: 100% !important;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-left .ui-selectmenu-button:nth-of-type(2n){
+		width: 100% !important;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item:nth-of-type(5){
+		margin-top: 55px;
+		width: 100%;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-left .ui-selectmenu-button .ui-selectmenu-text{
+		background-position: 215px 6px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-left .ui-selectmenu-button:nth-of-type(2n) .ui-selectmenu-text{
+		background-position: 215px 6px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-label{
+		width: 50%;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-value {
+		width: 50%;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-right button{
+		width: 278px;
+		margin-top: 62px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom-right{
+		width: 100%;
+	}
+	.vd_serviceincenter_wrapper-get_presentation input.get_presentation.meeting{
+		-webkit-appearance: none;
+		border: 0;
+	}
+	.vd_serviceincenter_wrapper-virtualrates table tr td.virtualrates_main_table_cell:first-child{
+		width: 16%;
+	}
+	.virtualrates_main_table_cell{
+		padding: 0;
+		width: 21%;
+	}
+	.vd_serviceincenter_wrapper-virtualrates table th{
+		font-size: 16px;
+	}
+	.vd_serviceincenter_wrapper-virtualrates table th.label{
+		background-position: 15px 15px;
+		padding-top: 14px;
+		width: 100%;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-list-header .icons img:first-of-type{
+		width: 30px;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-list-header .icons img{
+		width: 30px;
+	}
+	.virtualrates_main_table .virtualrates_main_table_cell:nth-of-type(2) .icons{
+		padding: 35px 0px;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-list-header table tr.details td{
+		font-size: 14px;
+	}
+	.vd_serviceincenter_wrapper-virtualrates table tr.prices td{
+		padding: 0;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td.label{
+		padding: 0;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table{
+		padding: 0;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td span{
+		font-size: 13px;
+	}
+	.vd_serviceincenter_wrapper-get_presentation input.get_presentation.virtual{
+		-webkit-appearance: none;
+		border: 0;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-list-form-left-item-label{
+		width: 50%;
+		font-size: 14px;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-list-form-left-item-value {
+	    width: 50%;
+		line-height: 25px;
+		font-size: 14px;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-list-form-left .ui-selectmenu-button {
+	    width: 140px !important;
+    }
+    .vd_serviceincenter_wrapper-virtualrates-list-form-left .ui-selectmenu-button .ui-selectmenu-text {
+	    font-size: 14px;
+	    background-position: 110px 6px;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-list-form-rigth input {
+	    margin-right: 5px;
+	    width: 173px;
+    }
+    .vd_serviceincenter_wrapper-virtualrates-list-form-rigth{
+	    width: 63%;
+    }
+    .vd_serviceincenter_wrapper-virtualrates-list-form-left {
+    	width: 34%;
+    }
+    .vd_serviceincenter_wrapper-virtualrates-list-form-rigth button{
+	    width: 259px;
+	    font-size: 12px;
+    }
+    .vd_serviceincenter_wrapper-virtualrates-list-form-left-total-label{
+	    width: 145px;
+    }
+    .vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-value .coworking_workplaces{
+		-webkit-appearance: none;
+	}
+
+	/*specialOffer*/
+	.vd_specialoffer-offers-list-element-header-office{
+		width: 370px;
+	}
+	.vd_specialoffer-offers-list-element-header-office span{
+		font-size: 17px;
+		padding-left: 15px;
+	}
+	.vd_specialoffer-offers-list-element-header-services {
+		width: 175px;
+	}
+	.vd_specialoffer-offers-list-element-header-place span.price{
+		width: 146px;
+		margin-left: 15px;
+		padding-top: 32px;
+	}
+	.vd_specialoffer-offers-list-element-header-place .reserve{
+		width: 190px;
+		cursor: pointer;
+	}
+	.vd_specialoffer-offers-list-element-menu-reserveform-left {
+		width: 34%;
+		height: auto;
+		margin-right: 15px;
+	}
+	.vd_specialoffer-offers-list-element-menu-reserveform-right {
+		width: 64%;
+		height: auto;
+	}
+	.vd_specialoffer-offers-list-element-menu-reserveform-left-text {
+		font-size: 15px;
+	}            
+	.vd_specialoffer-offers-list-element-menu-reserveform-right input {
+		margin-right: 5px;
+		width: 175px;
+	}    
+
+	/*blog*/
+	.vd_blog_wrapper-main-postlist{
+		width: 750px;
+	}
+	.vd_blog_wrapper-main-sidebar{
+		width: 150px;
+		margin-left: 0;
+	}
+	.vd_blog_wrapper-main-sidebar-title {
+		font-size: 14px;
+	}    
+	.vd_blog_wrapper-main-sidebar-title span{
+		font-size: 18px;
+	}
+	.vd_blog_post-image{
+		width: 310px;
+		margin-right: 0;
+	}
+	.vd_blog_post-image img{
+		width: 300px;
+	}
+	.vd_blog_post-title{
+		font-size: 25px;
+	}
+	.vd_blog_post-desc{
+		font-size: 16px;
+		padding: 10px 15px;
+	}
+	.vd_blog_post-tags{
+		font-size: 14px;
+		padding-left: 14px;
+		background-size: 13px;
+	}
+
+	/*blogPost*/
+	.vd_blog_post_wrapper-main-social{
+		width: 50px;
+		position: absolute;
+		left: -60px;
+	}
+	.vd_blog_post_wrapper-main-content{
+		margin: 0;
+		width: 900px;
+		padding: 70px 20px 0;
+	}
+	.vd_blog_post_wrapper-other-list-post{
+		width: 200px;
+	}
+	.vd_blog_post_wrapper-other-list-post .blogpost_date{
+		font-size: 14px;
+	}
+	.vd_blog_post_wrapper-other-list-post .blogpost_title{
+		font-size: 17px;
+	}	
+}
+
+
+
+
+/*TABLET Portrait*/
+@media (min-width: 768px) AND (max-width: 1023px) {
+	html {
+		min-width: 768px;
+		max-width: 1023px;
+	}
+	body {
+		min-width: 768px;
+		max-width: 1023px;
+	}
+
+	/*main*/
+	.g-container{
+		width: 700px;
+	}
+	.header{
+		height: 380px;
+	}
+	.header-nav-right{
+		width: 79%;
+	}
+	.header-phone-number{
+		font-size: 22px;
+	}
+	.header-phone-button{
+		padding: 0px 25px;
+	}
+	.header-menu {
+		font-size: 15px;
+	}
+	.header-menu li {
+		margin-left: 30px;
+	}
+	.index-promo-right{
+		width: 700px;
+		margin-top: -1000px;
+	}	
+	.index-promo-left {
+		width: 700px;
+		margin-top: 480px;
+	}
+	.index-promo-left-title{
+		font-size: 40px;
+	}
+	.offers-item{
+		width: 100%;
+	}
+	.offers-item-title.c-icon.c-virtual{
+		width: 100%;
+		min-height: auto;
+		height: 100px;
+		float: left;
+		border-bottom: 2px solid #fff;
+		line-height: 100px;
+	}
+	.offers-item-date {
+		padding: 0 30px;
+		width: 50%;
+		float: left;
+		height: auto;
+		line-height: 60px;
+		border-right: 2px solid #fff;
+	}
+	.offers-item-link{
+		margin-top: 0;
+		height: 60px;
+		float: left;
+		margin-left: 0;
+		width: 350px;
+	}
+	.offers-item-link .g-button.c-virtual{
+		width: 350px;
+		padding: 0;
+		text-align: center;
+	}
+	.offers-item-link .g-button.c-meeting{
+		width: 350px;
+		padding: 0;
+		text-align: center;
+	}
+	.offers-item-link .g-button.c-office{
+		width: 350px;
+		padding: 0;
+		text-align: center;
+	}
+	.offers-item-link .g-button.c-coworking{
+		width: 350px;
+		padding: 0;
+		text-align: center;
+	}
+	.offers-item-title.c-icon.c-meeting{
+		width: 100%;
+		min-height: auto;
+		height: 100px;
+		float: left;
+		border-bottom: 2px solid #fff;
+		padding-top: 25px;
+	}
+	.offers-item-title.c-icon.c-office{
+		width: 100%;
+		min-height: auto;
+		height: 100px;
+		float: left;
+		border-bottom: 2px solid #fff;
+		line-height: 100px;
+	}
+	.offers-item-title.c-icon.c-coworking{
+		width: 100%;
+		min-height: auto;
+		height: 100px;
+		float: left;
+		border-bottom: 2px solid #fff;
+		line-height: 100px;
+	}
+	.index-promo2-left{
+		width: 700px;
+	}
+	.index-promo2-right {
+		float: right;
+		width: 700px;
+		padding-left: 31px;
+		padding-top: 30px;
+	}
+	.index-text-left{
+		width: 700px;
+	}
+	.footer-main-left{
+		margin-right: 0;
+	}
+
+	/*about*/
+	.vd_about_wrapper-clients-list-slide{
+		width: 700px;
+	}
+	.vd_about_wrapper-contacts-inner{
+		height: 1035px;
+	}
+	.vd_about_wrapper-contacts-inner-data {
+		width: 700px;
+	}
+	#vd_about_wrapper-contacts-inner-map{
+		margin-top: 585px;
+		width: 700px;
+		height: 450px;
+		left: calc(((100% - 700px) / 2));
+	}
+	.vd_about_wrapper-menu ul li{
+		font-size: 16px;
+	}
+	.vd_about_wrapper-subtitle{
+		font-size: 25px;
+	}
+	.vd_about_wrapper-clients-list-slide img{
+		max-width: 130px;
+	}
+	.vd_about_wrapper-clients-list-slide-element img{
+		height: auto !important;
+	}
+	.vd_about_wrapper-blog-list-post .blogpost_title{
+		width: 320px;
+	}
+	.vd_about_wrapper-blog-list-post img{
+		width: 320px !important;
+	}
+	.vd_about_wrapper-blog-list-post {
+    width: 350px;
+    margin-right: 5px;
+}
+
+	/*services*/
+	.g-container-row.vd_services_text table tr td{
+		width: 100%;
+		display: block;
+	}
+	.vd_services_text p.editor-align-center big {
+		font-size: 25px;
+	}
+	.vd_services_list-item.helper{
+		display: none;
+	}
+	.vd_services2_list-item-wrapper{
+		width: 100%;
+	}
+	.vd_subservice_list-item{
+		font-size: 16px;
+		background-position: 550px 14px;
+	}
+	.vd_subservice_list-item-sublist-item-name{
+		font-size: 15px;
+	}
+	.vd_services_list-item.meeting{
+		margin-top: 20px;
+	}
+	.vd_services_list-item.virtual{
+		margin-top: 40px;
+	}
+
+	/*arendaOfissov*/
+	.vd_serviceincenter_wrapper-header h1, .vd_service_single_wrapper-header h1{
+		width: 360px;
+	}
+	.vd_officelistwrapper-office-photo img{
+		width: 700px;
+	}
+	.vd_officelistwrapper-office-photo{
+		width: 700px;
+	}
+	.vd_officelistwrapper-office{
+		width: 700px;
+	}
+	.vd_serviceincenter_wrapper-special{
+		width: 700px;
+		margin: 0 auto;
+		padding: 0;
+	}
+	.vd_service_single_wrapper-menu ul li{
+		font-size: 14px;
+	}
+
+	/*business-centers*/
+	.vd_officelistwrapper{
+		width: 700px;
+		margin: 30px auto;
+	}
+	.vd_officelistdata-block{
+		width: 100%;
+	}
+	.vd_officelistdata-block-text {
+		margin-top: 50px;
+		margin-bottom: 70px;
+	}
+	.vd_officelistwrapper-map::before{
+		width: 100%;
+	}
+	
+	/*exact*/
+	.vd_singleofficewrapper-footer{
+		margin: 0 auto;
+	}
+	.vd_singleofficewrapper-header-body{
+		padding: 0 15px;
+	}
+	.vd_singleofficewrapper-menu ul li{
+		font-size: 14px;
+	}
+	.vd_singleofficewrapper-content-about{
+		margin: 30px auto;
+		padding: 0 15px;
+	}
+	.vd_singleofficewrapper-content-about-block {
+	    width: 100%;
+	}
+	.vd_singleofficewrapper-content-about-block-image {
+	    height: 50px;
+	    width: 50px;
+	}
+	.vd_singleofficewrapper-content-about-block-text {
+	    padding-left: 65px;
+	    font-size: 15px;
+	}
+	.vd_singleofficewrapper-content-services{
+		padding: 0;
+	}
+	.vd_singleofficewrapper-content-services-table{
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+	.vd_singleofficewrapper-content-services-table .service_header_label_block{
+		display: none;
+	}
+	.vd_singleofficewrapper-content-services-table tr{
+		width: 100%;
+		display: inline-block;
+		height: auto;
+	}
+	.vd_singleofficewrapper-content-services-table .service_header_content_block{
+		width: 100%;
+		height: auto;
+		display: block;
+		float: left;
+		text-align: center;
+	}
+	.service_header_content_block span.title{
+		padding-top: 10px;
+		display: inline-block;
+	}
+	.vd_singleofficewrapper-content-services-table .service_price{
+		text-align: center;
+		margin-top: -15px;
+		text-align: center;
+		width: 100%;
+		height: 55px;
+	}
+	.service_details_in_table{
+		margin-top: -25px;
+	}
+	.vd_singleofficewrapper-content-services-table tr:last-child td{
+		border-bottom: none;
+	}
+	.service_header_content_block span{
+		font-size: 18px;
+		line-height: 25px;
+	}
+	.vd_singleofficewrapper-content-services-table .service_price{
+		text-align: center;
+		display: block;
+	}
+	.vd_singleofficewrapper-content-services-table .service_label_block{
+		padding: 20px 0;
+		text-align: center;
+		width: 700px;
+	}
+	.vd_singleofficewrapper-content-services-table .office_block{
+		width: 25%;
+		float: left;
+		padding: 15px 0 25px;
+	
+	}
+	.vd_singleofficewrapper-content-services-table .coworking_block{
+		width: 25%;
+		float: left;
+		padding: 15px 0 25px;
+	
+	}
+	.vd_singleofficewrapper-content-services-table .meeting_block{
+		width: 25%;
+		float: left;
+		padding: 15px 0 25px;
+	
+	}
+	.vd_singleofficewrapper-content-services-table .virtual_block{
+		width: 25%;
+		float: left;
+		padding: 15px 0 25px;
+	}
+	.vd_singleofficewrapper-content-services-table .services_subtitle{
+		padding-top: 15px;
+		width: 700px;
+	}
+	.vd_singleofficewrapper-content-contacts-details{
+		padding: 0 0 15px;
+	}
+	.vd_singleofficewrapper-content-contacts-details-right{
+		padding-left: 0;
+		font-size: 16px;
+		width: 48%;
+	}
+	.vd_singleofficewrapper-content-contacts-details-right-contactstable {
+		width: 100%;
+	}
+	
+	.vd_singleofficewrapper-other-list{
+		padding: 0;
+	}
+	.vd_singleofficewrapper-other {
+	    width: 100%;
+	    overflow: auto;
+	    margin: 50px auto 0px auto;
+	    padding: 0 30px;
+	}
+	.vd_singleofficewrapper-content-contacts-details-right-contactstable tr td{
+		float: left;
+		width: 50%;
+	}
+	.vd_singleofficewrapper-content-contacts-details-left{
+		font-size: 16px;
+		width: 48%;
+	}
+	.vd_serviceincenter_wrapper-menu ul li{
+		font-size: 14px;
+	}
+	.vd_serviceincenter_wrapper-layout-image{
+		width: 700px;
+	}
+	.vd_serviceincenter_wrapper-layout-image img{
+		width: 72%;
+	    margin: 25px 0 0 100px;
+	}
+	.vd_serviceincenter_wrapper-layout-text{
+		width: 700px;
+		margin-left: 0;
+	}
+	.vd_serviceincenter_wrapper-layout-text p {
+	    font-size: 16px;
+	    margin-bottom: 0;
+	    padding: 30px 15px 0;
+	}
+	.vd_serviceincenter_wrapper-freeoffices{
+		width: 700px;
+		margin-bottom: 80px;
+	}
+	h2.g-section-title{
+		font-size: 25px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element{
+		width: 700px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-header{
+		height: 200px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-header-office {
+	    width: 350px;
+	    border-bottom: 2px solid #ffffff;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-header-area {
+	    width: 155px;
+	    border-bottom: 2px solid #ffffff;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-header-people {
+	    width: 195px;
+	    border-bottom: 2px solid #ffffff;
+	}    
+	.vd_serviceincenter_wrapper-freeoffices-list-element-header-price .reserve{
+		width: 350px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-header-price span.price{
+		width: 350px;
+		padding: 34px 0 0 34px;
+		margin-left: 0;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-header-price span.special {
+	    margin-left: 0;
+	    padding-left: 34px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-title{
+		font-size: 27px;
+		height: auto;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-left {
+	    width: 700px;
+	    height: auto;
+	    margin-right: 0;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform{
+		height: 510px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-left{
+		width: 100%;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-left table tr td:nth-child(2n+1){
+		width: 178px;
+		float: left;
+		text-align: left;
+		font-size: 16px;
+		height: 24px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-left table tr td{
+		width: 216px;
+		text-align: left;
+		font-size: 16px;
+		height: 24px;
+		float: left;
+	}
+	.total td{
+		margin-top: 1px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right{
+		width: 100%;
+		margin-top: 30px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right input{
+		margin-right: 5px;
+		width: 210px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right .warning{
+		width: 286px;
+		font-size: 14px;
+		padding-left: 30px;
+		margin-left: 30px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right button {
+	    width: 320px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-left{
+		width: 100%;
+		margin-right: 0;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-left p{
+		font-size: 14px;
+	}    
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right {
+	    width: 100%;
+		padding: 15px 0;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-preview{
+		font-size: 15px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-datetime .time_label {
+	    margin-left: 0;
+	    float: left;
+	    margin-top: 10px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-datetime .ui-selectmenu-button {
+	    margin-left: 76px;
+	}  
+	.vd_serviceincenter_wrapper-freeoffices-list-element.open .vd_serviceincenter_wrapper-freeoffices-list-element-menu{
+		height: 930px;
+	}  
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform{
+		height: 350px;
+	}
+	.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-submit{
+		width: 320px;
+		margin-top: 85px;
+	}    
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-header-name{
+		width: 700px;
+		border-bottom: 2px solid #ffffff;
+		font-size: 18px;
+		float: left;
+		text-align: center;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-header-features{
+		width: 700px;
+		font-size: 15px;
+		padding: 20px 0 20px 90px;
+		float: left;
+		border-bottom: 2px solid #ffffff;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-header-price{
+		font-size: 18px;
+		width: 700px;
+		float: left;	
+		padding: 0;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-header-price span{
+		font-size: 25px;
+		padding-left: 90px;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-header-price button{
+		background-position: 240px center;
+		width: 350px;
+	}
+	.vd_serviceincenter_wrapper-get_presentation input.get_presentation.coworking{
+		-webkit-appearance: none;
+		border: 0;
+	}
+	.vd_serviceincenter_wrapper-get_presentation{
+		margin-bottom: 80px;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-form h2{
+		font-size: 27px;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-form-right {
+	    width: 700px;
+	    margin-right: 0;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-form-left {
+	    width: 700px;
+	    margin-left: 0;
+	    margin-top: -510px;
+	    padding: 30px;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-form-right {
+	    width: 700px;
+	    margin-right: 0;
+	    margin-top: 230px;
+	    padding: 0 30px;
+	}
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-form-right input {
+	    margin-right: 5px;
+		width: 210px;
+	}    
+	.vd_serviceincenter_wrapper-coworkingrates-list-item-form-right button {
+	    width: 315px;
+	}    
+	.vd_serviceincenter_wrapper-about-list-sublist.payed {
+	    margin-left: 0;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-header{
+		height: 200px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-header-name{
+		width: 175px;
+		text-align: center;
+		padding: 0;
+		border-bottom: 2px solid #ffffff;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-header-area{
+		padding-left: 50px;
+		background-position: 17px 36px;
+		border-bottom: 2px solid #ffffff;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-header-people{
+		border-bottom: 2px solid #ffffff;
+		width: 195px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-header-price{
+		width: 700px;
+		padding-left: 0;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-header-price span{
+		padding-left: 35px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-header-price button{
+		width: 350px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form h2{
+		font-size: 27px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-right {
+	    width: 100%;
+	    margin-right: 0;
+	    padding: 30px;
+	    margin-top: 290px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-right input {
+	    margin-right: 5px;
+	    width: 210px;
+    }
+    .vd_serviceincenter_wrapper-meetingrates-list-item-form-right button {
+	    width: 315px;
+    }
+    .vd_serviceincenter_wrapper-meetingrates-list-item-form-left{
+	    width: auto;
+	    margin-top: -590px;
+	    padding-right: 30px;
+    }
+    .vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom-right {
+	    width: 100%;
+	    margin-top: 100px;
+	}
+	.vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom-right .warning {
+	    width: 410px;
+	    font-size: 15px;
+    }
+    .vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom-right .info{
+	    font-size: 15px;
+    }
+    .vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom-left{
+	    width: 100%;
+		margin-top: -195px;
+		font-size: 15px;
+    }
+    .vd_serviceincenter_wrapper-get_presentation input.get_presentation.meeting{
+	    -webkit-appearance: none;
+		border: 0;
+    }
+    .table_header_main{
+	    display: none;
+    }
+    .vd_serviceincenter_wrapper-virtualrates-list-header tr.details{
+	    display: table-row;
+    }
+    .details td{
+	    text-align: left;
+    }
+    .prices td{
+	    text-align: left;
+	    padding: 10px 5px;
+    }
+    .vd_serviceincenter_wrapper-virtualrates table span.reserve{
+	    width: 350px;
+		margin: auto;
+		cursor: pointer;
+    }
+    .virtualrates_main_table_cell{
+	    margin-top: 15px;
+	    display: block;
+    }
+    .vd_serviceincenter_wrapper-virtualrates table th{
+	    padding-top: 30px;
+		height: auto;
+		width: 100%;
+    }
+    .vd_serviceincenter_wrapper-virtualrates-list-form{
+	    overflow: hidden;
+    }
+    .vd_serviceincenter_wrapper-virtualrates-list-form h2{
+	    font-size: 27px;
+    }
+    .vd_serviceincenter_wrapper-virtualrates-list-form-rigth {
+	    width: 100%;
+	    margin-top: 280px;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-list-form-rigth input {
+	    margin-right: 5px;
+	    width: 210px;
+    }
+    .vd_serviceincenter_wrapper-virtualrates-list-form-left-item-value{
+	    width: 340px;
+    }
+    .vd_serviceincenter_wrapper-virtualrates-list-form-rigth button {
+	    width: 315px;
+    }
+    .vd_serviceincenter_wrapper-virtualrates-list-form-left {
+    	width: 100%;
+    	margin-top: -535px;
+    }
+	.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td.label {
+	    width: 100%;
+	    text-align: center;
+	    font-size: 17px;
+	}   
+	.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td {
+	    text-align: left;
+	    width: 100%;
+	} 
+	.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td span {
+    	padding-left: 0;
+    	display: inline-block;
+		text-align: left;
+		width: 50%;
+		margin-left: 0;
+	}
+	.vd_serviceincenter_wrapper-virtualrates{
+		width: 700px;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td span.additional_options{
+		display: block;
+		color: red;
+		padding-left: 31px;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td span.additional_options_exact{
+		display: none;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td span.additional_options_exact_last .additional_options{
+		padding: 0px;
+		float: left;
+		width: 15px;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td span.additional_options_exact_last{
+		display: block;
+		color: red;
+	}
+	.vd_serviceincenter_wrapper-get_presentation input.get_presentation.virtual{
+		-webkit-appearance: none;
+		border: 0;
+	}
+	.vd_singleofficewrapper-other{
+		width: 700px;
+		padding: 0;
+	}
+	.vd_singleofficewrapper-other-list{
+		width: 700px;
+	}
+	.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td{
+		display: block;
+	}
+
+	/*spesialOffers*/
+	.vd_specialoffer-offers-list-element-header{
+		height: 200px;
+	}
+	.vd_specialoffer-offers-list-element-header-office {
+    	width: 100%;
+    }
+	.vd_specialoffer-offers-list-element-header-office span{
+		padding-left: 0;
+		text-align: center;
+		width: 74%;
+		border-bottom: 2px solid #ffffff;
+		height: 100px;
+	}
+	.vd_specialoffer-offers-list-element-header-services {
+    	width: 235px;
+    }
+    .vd_specialoffer-offers-list-element.open .vd_specialoffer-offers-list-element-menu{
+	    height: 485px;
+    }
+    .vd_specialoffer-offers-list-element-menu-reserveform-left {
+    	width: 100%;
+    	height: 180px;
+    }
+    .vd_specialoffer-offers-list-element-menu-reserveform-right {
+    	width: 100%;
+    }
+    .vd_specialoffer-offers-list-element-menu-reserveform-right input {
+	    margin-right: 5px;
+	    width: 210px;
+    }
+    .vd_specialoffer-offers-list-element.open .vd_specialoffer-offers-list-element-header-place .reserve{
+	    cursor: pointer;
+    }
+    .vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-left table tr.total{
+	    line-height: 40px;
+	    margin-top: 15px;
+		display: block;
+    }
+    .vd_specialoffer-offers-list-element-header-place .reserve{
+	    cursor: pointer;
+    }
+    .vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-value .coworking_workplaces{
+		-webkit-appearance: none;
+	}
+    
+	/*blog*/
+	.vd_blog_wrapper-main-postlist{
+		width: 100%;
+		margin-top: -1080px;
+	}
+	.vd_blog_post-image{
+		width: 300px;
+		margin-right: 20px;
+	}
+	.vd_blog_post-image img{
+		width: 300px;
+	}
+	.vd_blog_post-date {
+    	font-size: 15px;
+    }
+	.vd_blog_post-title {
+    	font-size: 25px;
+    }
+	.vd_blog_post-desc {
+	    font-size: 16px;
+    }
+    .vd_blog_wrapper{
+	    padding-bottom: 30px;
+    }
+    .vd_blog_wrapper-main-sidebar {
+    	width: 50%;
+		margin: 710px 200px 0;
+	}
+    .vd_blog_loadmore {
+	    margin-top: -360px;
+	}
+	
+	/*blogPost*/
+	.vd_blog_post_wrapper-main-content {
+	    width: 625px;
+	}
+	.vd_blog_post_wrapper-main-content h2{
+		font-size: 27px;
+	}
+	.vd_blog_post_wrapper-main-content p{
+		font-size: 17px;
+	}
+	.vd_blog_post_wrapper-main-content-image-parent img{
+		width: 100%;
+	}
+	.vd_blog_post_wrapper-other-list-post {
+    	width: 310px;
+    	margin-top: 20px;
+    }
+    input, textarea{
+		-webkit-border-radius: 0;
+	}
+	.vd_blog_post_wrapper-main-social{
+		position: absolute;
+		left: -45px;
+	}
+	.vd_blog_post_wrapper-other .g-section-title{
+		margin-top: 35px;
+		margin-bottom: 0;
+	}
+	.vd_blog_post_wrapper-other-list{
+		margin-bottom: 50px;
+	}
+}	

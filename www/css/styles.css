@@ -115,14 +115,12 @@ h2 {font-size: 29px; margin-bottom: .8em; line-height: 1.5; font-weight: 700; co
 .index-text-right {float: left; width: 724px;}
 
 /* offers */
-.offers-item {display: table; width: 100%; height: 100px; margin-bottom: 20px; background-color: #fbfbfc; line-height: normal;}
-.offers-item-title, .offers-item-date, .offers-item-center, .offers-item-link {display: table-cell; vertical-align: middle;}
-.offers-item-title {width: 450px; padding: 0 30px 0 100px; font-size: 19px; background-position: 23px 30px;}
-.offers-item-title, .offers-item-date {border-right: 2px solid #fff; font-weight: 600;}
-.offers-item-date {width: 250px;}
-.offers-item-center, .offers-item-date {padding: 0 20px; font-size: 16px;}
+.offers-item {display: table; width: 100%; height: 100px; margin-bottom: 20px; font-size: 19px; font-weight: 600; background-color: #fbfbfc; line-height: normal;}
+.offers-item-title, .offers-item-date, .offers-item-link {display: table-cell; vertical-align: middle;}
+.offers-item-title {width: 637px; padding: 0 100px; border-right: 2px solid #fff; background-position: 23px 30px;}
+.offers-item-date {padding: 0 30px; font-weight: 700;}
 .offers-item-link {text-align: right;}
-.offers-item-link a {display: inline-block; width: 202px;}
+.offers-item-link a {display: inline-block;}
 
 /* icons */
 .c-icon {background-repeat: no-repeat; background-size: 40px auto; min-height: 45px;}

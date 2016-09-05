@@ -252,72 +252,60 @@
 		<div class="vd_singleofficewrapper-content-services">
 			<div class="g-container">
 			<a name="services"></a>
-			<h2 class="g-section-title">Услуги в бизнес-центре</h2>
+			<h2 class="g-section-title">Услуги</h2>
 			<table class="vd_singleofficewrapper-content-services-table">
-				<tr>
-					<th class="service_header_label_block">Основные услуги</th>
+				<tr class="additional_services_main_row">
+					<th class="service_header_label_block">
+						<span>Основные услуги</span>
+						<span>Стоимость услуг</span>
+					</th>
 				<?
 				
 					/* outputing the service table header, using the service group title and css signature */
 					
 					foreach ($_DATA['office_center2service_group']['items'] as $vd_office_center_service_group) {
-						
+
 						$vd_office_center_service_group_id = $vd_office_center_service_group['service_group_id'];
+
+						$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_office_center_service_group_id]['css_signature'];
+
+						echo '<th class="service_header_content_block ' . $vd_service_group_id_css . '">';
+
+						
 						$vd_office_center_service_group_title = $vd_office_center_service_group['service_group_id_lookup'];
 						$vd_office_center_service_group_published = $vd_office_center_service_group['published'];
 						$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_office_center_service_group_id]['css_signature'];
 						
 						if ($vd_office_center_service_group_published === '1') {
 							
-							echo '<th class="service_header_content_block ' . $vd_service_group_id_css . '"><span>' . $vd_office_center_service_group_title . '</span></th>';
+							echo '<span class="title">' . $vd_office_center_service_group_title . '</span>';
 							
 						}
-						
-					}
-						
-				?>
-					
 
-				</tr>
-				<tr>
-					<td class="service_header_label_block">Стоимость услуг</td>
-				<?
-					
-					/* outputing the service price cells, styling the price to bolden the digits */
-				
-					foreach ($_DATA['office_center2service_group']['items'] as $vd_office_center_service_group) {
-						
 						$vd_office_center_service_group_price = $vd_office_center_service_group['price'];
 						
 						$vd_office_center_service_group_price = preg_replace('/(\d+)/', '<span>$1</span>', $vd_office_center_service_group_price);
 						
 						if ($vd_office_center_service_group['published'] == '1') {
 							
-							echo '<td class="service_price ' . $vd_service_group_id_css . '">' . $vd_office_center_service_group_price . '</td>';
+							echo '<span class="service_price ' . $vd_service_group_id_css . '">' . $vd_office_center_service_group_price . '</span>';
 							
 						}
-						
-					}
-						
-				?>
-				</tr>
-				<tr>
-					<td></td>
-				<?
-					/* outputing the service detail links, using the service group ids and office center ids */
-				
-					foreach ($_DATA['office_center2service_group']['items'] as $vd_office_center_service_group) {
-						
+
 						$vd_office_center_service_group_id = $vd_office_center_service_group['service_group_id'];
 						$vd_office_center_service_group_published = $vd_office_center_service_group['published'];
-						$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_office_center_service_group_id]['css_signature'];
+						
 						$vd_office_center_service_group_center_id = $vd_office_center_service_group['office_center_id'];
 						
 						if ($vd_office_center_service_group_published === '1') {
 							
-							echo '<td><a class="g-button c-' . $vd_service_group_id_css . '"href="?center=' . $vd_office_center_service_group_center_id . '&service=' . $vd_office_center_service_group_id . '">Подробнее</a></td>';
+							echo '<span class="service_details_in_table"><a class="g-button c-' . $vd_service_group_id_css . '"href="?center=' . $vd_office_center_service_group_center_id . '&service=' . $vd_office_center_service_group_id . '">Подробнее</a></span>';
 							
 						}
+
+						echo '</th>';
+						
+						
 						
 					}
 						
@@ -351,7 +339,7 @@
 						// 1 - included, 0 - included for a fee, -1 - not included
 						$is_inclusive_in_first_column = null; // nuke it before getting into the loop by columns
 
-						echo '<tr>';
+						echo '<tr class="additional_services_row">';
 
 						echo '<td class="service_label_block"><span>' . $service_single_title . '</span></td>';
 						
@@ -479,7 +467,6 @@
 			<a name="special"></a>
 			<div class="g-container">
 				<div class="g-container-row">
-					<h2 class="g-section-title">Cпецпредложения в бизнес-центре</h2>
 				<?  out_special_offers($_DATA['special_offer']['items']); ?>
 				</div>
 			</div>

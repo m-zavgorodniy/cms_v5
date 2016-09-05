@@ -3,7 +3,6 @@ table, td, th {border-collapse: collapse; border-spacing: 0;}
 .text-content h1 {font-size: 32px; margin-bottom: 30px; color: #242021; line-height: normal; text-transform: uppercase;}
 .text-content h2 {font-size: 21px; margin-bottom: 15px; color: #242021; line-height: normal; text-transform: uppercase;}
 .text-content h3, .text-content h4, .text-content h5, .text-content h6 {font-size: 100%; font-size: 16px; margin-bottom: 15px; color: #242021; line-height: 1.3em;}
-.text-content strong {font-weight: 700;}
 
 .text-content sup {font-size: 0.6em;}
 

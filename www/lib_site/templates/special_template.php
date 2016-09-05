@@ -46,9 +46,7 @@
 	<div class="vd_specialoffer-header">
 		<div class="g-container">
 			<div class="vd_specialoffer-header-dates"><?=text_date_str($special_offer['date_from'], 'ru_RU', 'j M')?><?=$special_offer['date_to']?' – ' . text_date_str($special_offer['date_to'], 'ru_RU', 'j M'):''?></div>
-		<?	foreach (explode(',', $special_offer['service_group_css_class']) as $special_offer_css) { ?>
-				<div class="vd_specialoffer-header-<?=$special_offer_css?>"></div>
-		<?	} ?>
+			<div class="vd_specialoffer-header-<?=$special_offer['service_group_css_class']?>"></div>
 			<h1><?=$special_offer['title']?></h1>
 			<p><?=$special_offer['annotation']?></p>
 		</div>
@@ -149,19 +147,15 @@
 		</div>
 	</div>
 
-<?	// count($_DATA['special_offer']['items']) == 1 meens that we've got one and only special offer and we are on its page
- 	// but we want OTHER special offers to be here
-	if (isset($_DATA['special_offer']) && count($_DATA['special_offer']['items']) > 1) { ?>
 		<div class="vd_singleofficewrapper-content-special">
 			<a name="special"></a>
 			<div class="g-container">
 				<div class="g-container-row">
-					<h2 class="g-section-title">Другие спецпредложения</h2>
 
-				<?	out_special_offers($_DATA['special_offer']['items'], (int)$_GET['special']); ?>
+				<?	out_special_offers($_DATA['special_offer']['items']); ?>
 
 				</div>
 			</div>
 		</div>
-<?	} ?>	
+	
 </div>
