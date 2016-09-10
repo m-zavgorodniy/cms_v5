@@ -17,7 +17,7 @@
 	
 	if ($about_contacts_email && $about_contacts_name && $about_contacts_message) {
 	
-		mail('e.izmalkova@gmail.com', 'Новое сообщение со страницы «О компании»', $about_contacts_manager_message_text);
+		mail($_SITE['settings']['email_feedback'], 'Новое сообщение с сайта «Деловой»', $about_contacts_manager_message_text);
 		
 		//mail('yojmm@yandex.ru', 'Новое сообщение со страницы «О компании»', $about_contacts_manager_message_text);
 		

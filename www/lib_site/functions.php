@@ -60,7 +60,7 @@ function out_special_offers($special_offers, $exclude_offer_id = 0) {
                     <div class="offers-item-center">
                         <p><?=str_replace('/', '&nbsp;/ ', str_replace(' ', '&nbsp;', str_replace(', ', '/', $special_offer['office_center_id_lookup'])))?></p>
                     </div>
-                    <div class="offers-item-link"><a href="<?=$_SITE['section_paths']['special']['path']?>?special=<?=$special_offer['id']?>" class="g-button c-<?=$special_offer['service_group_css_class']?>">ПОДРОБНЕЕ</a></div>
+                    <div class="offers-item-link"><a href="<?=$_SITE['section_paths']['special']['path']?>?special=<?=$special_offer['id']?>" class="g-button c-<?=$service_group_css_class?>">ПОДРОБНЕЕ</a></div>
                 </div>
             </li>
     <?  }

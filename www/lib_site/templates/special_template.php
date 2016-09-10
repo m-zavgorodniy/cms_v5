@@ -1,12 +1,17 @@
 <?
-	$special_offer = $_DATA['special_offer']['items'][$_GET['special']];
+require $_SERVER['DOCUMENT_ROOT'] . '/lib/mail.php';
 
-	$special_offer_center = $_POST['special_offer_center'];
-	$special_offer_phone = $_POST['special_offer_phone'];
-	$special_offer_email = $_POST['special_offer_email'];
-	$special_offer_name = $_POST['special_offer_name'];
-	$special_offer_details = $_POST['special_offer_details'];
-	$special_offer_message = $_POST['special_offer_message'];
+$special_offer = $_DATA['special_offer']['items'][$_GET['special']];
+
+if ('POST' == $_SERVER['REQUEST_METHOD']) {
+	$MY_POST = get_post();
+
+	$special_offer_center = $MY_POST['special_offer_center'];
+	$special_offer_phone = $MY_POST['special_offer_phone'];
+	$special_offer_email = $MY_POST['special_offer_email'];
+	$special_offer_name = $MY_POST['special_offer_name'];
+	$special_offer_details = $MY_POST['special_offer_details'];
+	$special_offer_message = $MY_POST['special_offer_message'];
 	
 	$special_offer_manager_message_text .= "Здравствуйте,\r\nНа сайте была оставлена заявка в разделе «Спецпредложения».";
 		
@@ -34,14 +39,16 @@
 	
 	if ($special_offer_center && $special_offer_phone && $special_offer_email && $special_offer_name && $special_offer_message && $special_offer_details) {
 	
-		mail('e.izmalkova@gmail.com', 'Новое сообщение со страницы «О компании»', $about_contacts_manager_message_text);
-		
-		//mail('yojmm@yandex.ru', 'Новая заявка по спецпредложению', $special_offer_manager_message_text);
-		
-		mail($special_offer_email, 'Ваша заявка по спецпредложению принята', $special_offer_customer_message_text);
-		
-	}
+		if (mail_send($_SITE['settings']['email_request'], 'Новая заявка по спецпредложению', $about_contacts_manager_message_text)) {
+			mail_send($special_offer_email, 'Ваша заявка по спецпредложению принята', $special_offer_customer_message_text);
+			echo 'Спасибо, ваша заявка принята';
+		} else {
+			echo 'Ошибка при приеме заявки. Пожалуйста, попробуйте еще раз чуть позже';
+		}
 
+	}
+	exit;
+}
 ?>
 <div class="vd_specialoffer">
 	<div class="vd_specialoffer-header">

@@ -86,8 +86,7 @@
 		z-index: 400;
 		top: 8px;
 	}
-	.header-nav-logo a:after {
-		content: 'Деловой';
+	.header-nav-logo-after {
 		display: block;
 		position: relative;
 		width: 100px;
@@ -128,6 +127,9 @@
 	}
 	.inner {
 	margin-top: 30px;
+	}
+	.page-index .inner {
+	margin-top: 0;
 	}
 	.header-phone{
 		display: block;
@@ -176,20 +178,18 @@
 		display: inline-block;
 	}
 	.offers-item-title{
-		padding: 0 0 0 100px;
+		padding: 15px 100px 0 20px;
 		width: 100%;
-		font-size: 14px;
-		background-position:24px 6px;
+		font-size: 18px;
+		background-position: 95% 20px;
 	}
 	.offers-item-date {
-		font-size: 14px;
-		padding:0;
+		padding: 10px 20px;
 		width: 100%;
-		text-align: center;
 	}
 	.offers-item-center + .offers-item-link{
 		width: 100%;
-		padding: 10px;
+		padding: 20px;
 	}
 	.offers-item-link, .g-button{
 		text-align: center;
@@ -221,6 +221,11 @@
 	li > .g-button{
 		width: 70%
 	}
+	.index-promo2-link .g-button{
+		width: 100%;
+		height: 50px;
+		line-height: 50px;
+	}
 	.g-button {
 		padding: 0px 6px 0px 6px;
 		height: 32px;
@@ -230,6 +235,7 @@
 	}
 	.c-icon {
 		background-size: 30px auto;
+		min-height: 50px;
 	}
 	.mobile{
 		height: 100%;
@@ -258,7 +264,7 @@
 	.footer-main-left{
 		margin-right: 0;
 		width: 100%;
-		padding: 0 10px 0 10px;
+		padding: 0 10px 70px 10px;
 		display: block;
 	}
 	.footer-main-left-col {
@@ -380,11 +386,12 @@
 	.vd_about_wrapper-clients-list-slide{
 		display: inline-block; 
 		width: 100vw;
-		height: 360px;
+		height: 500px;
 		max-width: 414px;
 	}
 	.vd_about_wrapper-clients-list-slide-element {
 		display: block;
+		margin-bottom: 30px;
 	}
 	.vd_about_wrapper-clients-list-slide-element {
 		display: block;
@@ -1297,6 +1304,8 @@
 	}
 
 	/*specialOffer*/
+	.offers-items {margin-bottom: 70px;}
+
 	.vd_specialoffer-header-dates{
 		margin: 0 0 30px 15px;
 	}
@@ -1749,7 +1758,9 @@
 	input, textarea{
 		-webkit-border-radius: 0;
 	}
-
+	.footer-main{
+		padding-top: 30px;
+	}
 }
 
 
@@ -2527,7 +2538,7 @@
 		width: 50%;
 		float: left;
 		height: auto;
-		line-height: 60px;
+		line-height: 100px;
 		border-right: 2px solid #fff;
 	}
 	.offers-item-center {
@@ -2535,6 +2546,9 @@
 		height: 60px;
 		width: 50%;
 		position: relative;		
+	}
+	.offers-item-date, .offers-item-center {
+		height: 100px;
 	}
 	.offers-item-center p {
 		position: absolute;
@@ -2549,23 +2563,8 @@
 		width: 100%;
 		text-align: center;
 	}
-	.offers-item-link .g-button.c-virtual{
-		width: 350px;
-		padding: 0;
-		text-align: center;
-	}
-	.offers-item-link .g-button.c-meeting{
-		width: 350px;
-		padding: 0;
-		text-align: center;
-	}
-	.offers-item-link .g-button.c-office{
-		width: 350px;
-		padding: 0;
-		text-align: center;
-	}
-	.offers-item-link .g-button.c-coworking{
-		width: 350px;
+	.offers-item-link .g-button{
+		width: 100%;
 		padding: 0;
 		text-align: center;
 	}
@@ -2575,7 +2574,7 @@
 		height: 100px;
 		float: left;
 		border-bottom: 2px solid #fff;
-		padding-top: 25px;
+		line-height: 100px;
 	}
 	.offers-item-title.c-icon.c-office{
 		width: 100%;
@@ -2646,6 +2645,7 @@
 	.vd_about_wrapper-blog-list-post {
     width: 350px;
     margin-right: 5px;
+
 }
 
 	/*services*/
@@ -3344,5 +3344,8 @@
 	}
 	.vd_blog_post_wrapper-other-list{
 		margin-bottom: 50px;
+	}
+	.vd_service_single_wrapper-about-list-sublist.payed{
+		margin: 30px 0 0 0;
 	}
 }	

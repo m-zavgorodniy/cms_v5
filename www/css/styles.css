@@ -49,6 +49,7 @@ h2 {font-size: 29px; margin-bottom: .8em; line-height: 1.5; font-weight: 700; co
 
 .header-nav {margin-top: 45px;}
 .header-nav-logo {float: left;}
+.header-nav-logo-after {display: none;}
 .header-nav-right {float: right; width: 80%;}
 .header-phone {float: right; margin-bottom: 60px; line-height: 60px;}
 .header-phone-number {float: left; padding-right: 30px; font-size: 30px; font-weight: 700; color: #262626; letter-spacing: 2px;}
@@ -115,6 +116,8 @@ h2 {font-size: 29px; margin-bottom: .8em; line-height: 1.5; font-weight: 700; co
 .index-text-right {float: left; width: 724px;}
 
 /* offers */
+.offers-items {margin-bottom: 150px;}
+.page-index .offers-items {margin-bottom: 0;}
 .offers-item {display: table; width: 100%; height: 100px; margin-bottom: 20px; background-color: #fbfbfc; line-height: normal;}
 .offers-item-title, .offers-item-date, .offers-item-center, .offers-item-link {display: table-cell; vertical-align: middle;}
 .offers-item-title {width: 450px; padding: 0 30px 0 100px; font-size: 19px; background-position: 23px 30px;}

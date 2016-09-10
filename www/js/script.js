@@ -438,41 +438,48 @@ jQuery(document).on('submit', '.vd_about_wrapper-contacts-inner-data-form form',
 jQuery(document).on('submit', '.vd_specialoffer-offers-list-element-menu form', function(e) {
 
 	var send = true;
+
+	var $form = jQuery(this);
 	
-	if (jQuery('input.phone', jQuery(this)).val().length < 18) {
+	if (jQuery('input.phone', $form).val().length < 18) {
 		send = false;
-		jQuery('input.phone', jQuery(this)).addClass('error');
+		jQuery('input.phone', $form).addClass('error');
 	}
 	
-	if (validateEmail(jQuery('input.email', jQuery(this)).val()) == false) {
+	if (validateEmail(jQuery('input.email', $form).val()) == false) {
 		send = false;
-		jQuery('input.email', jQuery(this)).addClass('error');
+		jQuery('input.email', $form).addClass('error');
 	}
 	
-	if (jQuery('input.email', jQuery(this)).val().length == 0) {
+	if (jQuery('input.email', $form).val().length == 0) {
 		send = false;
-		jQuery('input.email', jQuery(this)).addClass('error');
+		jQuery('input.email', $form).addClass('error');
 	}
 	
-	if (jQuery('input.name', jQuery(this)).val().length < 2) {
+	if (jQuery('input.name', $form).val().length < 2) {
 		send = false;
-		jQuery('input.name', jQuery(this)).addClass('error');
+		jQuery('input.name', $form).addClass('error');
 	}
 	
-	if (jQuery('textarea.message', jQuery(this)).val().length == 0) {
+	if (jQuery('textarea.message', $form).val().length == 0) {
 		send = false;
-		jQuery('textarea.message', jQuery(this)).addClass('error');
+		jQuery('textarea.message', $form).addClass('error');
 	}
 	
 	if (send == true) {
-		
-		jQuery(this).submit();
-		
-	} else {
-		
-		return false;
+		var $button = jQuery("button", $form);
+		loader_add($button);
+
+		var url_ajax = document.location.href + '?ajax_inner=1';
+		var form_data = $form.serialize();
+		jQuery.post(url_ajax, form_data, function(message) {
+			loader_remove($button);
+			alert(message);
+		});
 		
 	}
+
+	return false;
 	
 });
 
@@ -695,3 +702,15 @@ jQuery(document).ready(function(){
 $(function() {
 	// your javascript here
 });
+
+function loader_add(obj) {
+	obj.prop("disabled", true);
+	obj.attr("data-label", obj.html());
+	obj.html('');
+	obj.addClass("g-loader");
+}
+function loader_remove(obj) {
+	obj.prop("disabled", false);
+	obj.html(obj.attr("data-label"));
+	obj.removeClass("g-loader");
+}

@@ -64,7 +64,7 @@
 		$vd_send_form_customer_message_text .= "\r\nДата просмотра: " . $vd_send_form_date;
 		$vd_send_form_customer_message_text .= "\r\nВремя просмотра: " . $vd_send_form_time;
 		
-		mail('e.izmalkova@gmail.com', 'Заявка на просмотр офиса', $vd_send_form_manager_message_text);
+		mail($_SITE['settings']['email_request'], 'Заявка на просмотр офиса', $vd_send_form_manager_message_text);
 		
 		//mail('yojmm@yandex.ru', 'Заявка на просмотр офиса', $vd_send_form_manager_message_text);
 		
@@ -144,7 +144,7 @@
 			$vd_send_form_customer_message_text .= "\r\nСообщение: $vd_send_form_message";
 		}
 		
-		mail('e.izmalkova@gmail.com', 'Заявка на бронирование офиса', $vd_send_form_manager_message_text);
+		mail($_SITE['settings']['email_request'], 'Заявка на бронирование офиса', $vd_send_form_manager_message_text);
 		
 		//mail('yojmm@yandex.ru', 'Заявка на бронирование офиса', $vd_send_form_manager_message_text);
 		
@@ -207,7 +207,7 @@
 			$vd_send_form_customer_message_text .= "\r\nСообщение: " . $_POST['message'];
 		}
 		
-		mail('e.izmalkova@gmail.com', 'Заявка на виртуальный офис', $vd_send_form_manager_message_text);
+		mail($_SITE['settings']['email_request'], 'Заявка на виртуальный офис', $vd_send_form_manager_message_text);
 		
 		//mail('yojmm@yandex.ru', 'Заявка на виртуальный офис', $vd_send_form_manager_message_text);
 		
@@ -270,7 +270,7 @@
 			$vd_send_form_customer_message_text .= "\r\nСообщение: " . $_POST['message'];
 		}
 		
-		mail('e.izmalkova@gmail.com', 'Заявка на переговорную', $vd_send_form_manager_message_text);
+		mail($_SITE['settings']['email_request'], 'Заявка на переговорную', $vd_send_form_manager_message_text);
 		
 		//mail('yojmm@yandex.ru', 'Заявка на переговорную', $vd_send_form_manager_message_text);
 		
@@ -335,7 +335,7 @@
 			$vd_send_form_customer_message_text .= "\r\nСообщение: " . $_POST['message'];
 		}
 		
-		mail('e.izmalkova@gmail.com', 'Заявка на коворкинг', $vd_send_form_manager_message_text);
+		mail($_SITE['settings']['email_request'], 'Заявка на коворкинг', $vd_send_form_manager_message_text);
 		
 		//mail('yojmm@yandex.ru', 'Заявка на коворкинг', $vd_send_form_manager_message_text);
 		

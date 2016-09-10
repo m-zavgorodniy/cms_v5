@@ -56,6 +56,7 @@ define('UPD', '?upd=8');
                     <div class="header-nav-logo">
                     <a<?=!$_SITE['is_index_page']?' href="/"':''?>>
                         <img src="/images/svg/logo_ru.svg" alt="Деловой - сеть офисных центров">
+                        <span class="header-nav-logo-after">Деловой</span>
                     </a>
                     </div>
                     <div class="header-nav-right">
@@ -143,7 +144,7 @@ define('UPD', '?upd=8');
         </div></div>
         <div class="footer-bottom">
             <div class="g-container"><div class="g-container-row">
-                © 2016 КЦ «Деловой». Аренда офисов без посредников.
+                © <?=date('Y')?> <?=$_SITE['settings']['copyright']?>
             </div></div>
         </div>
     </footer>
