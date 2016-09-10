@@ -1232,6 +1232,11 @@ if (isset($_DATA['tariff_includes']['items']) && isset($_DATA['office_center_roo
 					
 					$single_coworking_price = number_format($single_coworking['price'], 0, '', ' ');
 					
+					$single_coworking_center_room_service_item_value = reset($_DATA['office_center2service_group']['items']);
+					
+					$single_coworking_center_room_price_for_lookup = $single_coworking_center_room_service_item_value['price_for_lookup'];
+					
+					$single_coworking_center_room_price_term_lookup = ($single_coworking['price_term']?$single_coworking['price_term_lookup']:$single_coworking_center_room_service_item_value['price_term_lookup']);
 				?>
 				
 				<div class="vd_serviceincenter_wrapper-coworkingrates-list-item">
@@ -1251,8 +1256,14 @@ if (isset($_DATA['tariff_includes']['items']) && isset($_DATA['office_center_roo
 								<? echo $single_coworking['annotation']; ?>
 							</div>
 							<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-header-price">
-								<span><? echo $single_coworking_price; ?></span> руб./мес
+								<span><? echo $single_coworking_price; ?></span> руб.<? echo $single_coworking_center_room_price_term_lookup?'/'.$single_coworking_center_room_price_term_lookup:'' ;?>
 								<button>Забронировать</button>
+							<? 	if ($single_coworking['price_bonus']) {
+								
+									echo '<span class="special">' . $single_coworking['price_bonus'] . '</span>';
+								
+								}
+							?>
 							</div>
 						</div>
 						<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form">

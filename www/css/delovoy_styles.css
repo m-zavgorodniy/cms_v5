@@ -139,6 +139,10 @@
 	padding-top: 10px;
 }
 
+.vd_officelistwrapper-office-price.no-term {
+	padding-top: 20px;
+}
+
 .vd_officelistwrapper-office-price span {
 	font-weight: bold;
 }
@@ -1327,7 +1331,7 @@ display: block;
 }
 
 .vd_serviceincenter_wrapper-coworkingrates-list-item-header-features {
-    width: 582px;
+    width: 540px;
     border-right: 2px solid #ffffff;
     /* font-family: Lato-Regular; */
     font-size: 20px;
@@ -1588,6 +1592,14 @@ display: block;
 .vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-total-value span {
     font-weight: 700;
     font-size: 20px;
+}
+
+.vd_serviceincenter_wrapper-coworkingrates-list-item-header-price span.special {
+	font-size: 16px;
+	font-weight: 400;
+	color: #e62e66;
+	display: block;
+	margin-top: -15px;
 }
 
 /* get presentation block styles */
@@ -4888,10 +4900,13 @@ display: block;
     text-align: left;
 }
 
-.vd_specialoffer-offers-list-element-header-office img {
+.vd_specialoffer-offers-list-element-header-office-img {
 	width: 175px;
 	height: 100px;
 	float: left;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: auto 100%;
 }
 
 .vd_specialoffer-offers-list-element-header-office span {

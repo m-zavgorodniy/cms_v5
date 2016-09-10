@@ -1,4 +1,5 @@
 <?
+	$special_offer = $_DATA['special_offer']['items'][$_GET['special']];
 
 	$special_offer_center = $_POST['special_offer_center'];
 	$special_offer_phone = $_POST['special_offer_phone'];
@@ -70,7 +71,7 @@
 				<div class="vd_specialoffer-offers-list-element">
 					<div class="vd_specialoffer-offers-list-element-header">
 						<div class="vd_specialoffer-offers-list-element-header-office">
-							<img src="<? echo $special_offer_office_center['ext_img_src']; ?>" />
+							<div class="vd_specialoffer-offers-list-element-header-office-img" style="background-image: url('<? echo $special_offer_office_center['ext_img_src']; ?>')"></div>
 							<span><? echo $special_offer_office_center['title']; ?></span>
 						</div>
 						<div class="vd_specialoffer-offers-list-element-header-services">

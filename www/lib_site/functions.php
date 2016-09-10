@@ -45,7 +45,13 @@ function out_special_offers($special_offers, $exclude_offer_id = 0) {
             if ($exclude_offer_id == $special_offer['id']) continue; ?>
             <li>
                 <div class="offers-item">
-                    <div class="offers-item-title c-icon c-<?=current(explode(',', $special_offer['service_group_css_class']))?>">
+                <?  // todo! select "main" service to use icon from or something, in replacement of 'end(explode(..'
+                    if (false === strpos($special_offer['service_group_css_class'], ',')) {
+                        $service_group_css_class = $special_offer['service_group_css_class'];
+                    } else {
+                        $service_group_css_class = end(explode(',', $special_offer['service_group_css_class']));
+                    } ?>
+                    <div class="offers-item-title c-icon c-<?=$service_group_css_class?>">
                         <?=$special_offer['title']?>
                     </div>
                     <div class="offers-item-date">
@@ -54,7 +60,7 @@ function out_special_offers($special_offers, $exclude_offer_id = 0) {
                     <div class="offers-item-center">
                         <p><?=str_replace('/', '&nbsp;/ ', str_replace(' ', '&nbsp;', str_replace(', ', '/', $special_offer['office_center_id_lookup'])))?></p>
                     </div>
-                    <div class="offers-item-link"><a href="<?=$_SITE['section_paths']['services']['path']?>?service=<?=$special_offer['service_group_id']?>&special=<?=$special_offer['id']?>" class="g-button c-<?=$special_offer['service_group_css_class']?>">ПОДРОБНЕЕ</a></div>
+                    <div class="offers-item-link"><a href="<?=$_SITE['section_paths']['special']['path']?>?special=<?=$special_offer['id']?>" class="g-button c-<?=$special_offer['service_group_css_class']?>">ПОДРОБНЕЕ</a></div>
                 </div>
             </li>
     <?  }

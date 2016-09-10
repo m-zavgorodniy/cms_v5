@@ -7,7 +7,6 @@ if ($_GET['azaza'] == 'true') {
 }
 
 if ($_GET['special']) {
-	$special_offer = $_DATA['special_offer']['items'][$_GET['special']];
 		
 	include('special_template.php');
 
@@ -421,11 +420,13 @@ if ($_GET['special']) {
 			<div class="vd_officelistwrapper-office">
 				<a href="/business-centers/?center=<? echo $office_center2service_group_item_center_id; ?>&service=<? echo $_GET['service']; ?>">
 					<div class="vd_officelistwrapper-office-photo">
-						<img src="http://<? echo $_SERVER['HTTP_HOST'] . $office_center2service_group_item_center_img_int; ?>" />
-						<div class="vd_officelistwrapper-office-price <? echo $vd_service_group_id_css; ?>">
+						<img src="<? echo $office_center2service_group_item_center_img_int; ?>" />
+						<div class="vd_officelistwrapper-office-price <? echo $vd_service_group_id_css; ?><? echo !$office_center2service_group_item_price_for_lookup?' no-term':''?>">
 							<? echo $office_center2service_group_item_price; ?>
-							<br />
-							за <? echo $office_center2service_group_item_price_for_lookup; ?>
+						<?	if ($office_center2service_group_item_price_for_lookup) { ?>
+								<br />
+								за <? echo $office_center2service_group_item_price_for_lookup; ?>
+						<?	} ?>
 						</div>
 					</div>
 				</a>
