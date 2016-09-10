@@ -39,7 +39,7 @@ if ('POST' == $_SERVER['REQUEST_METHOD']) {
 	
 	if ($special_offer_center && $special_offer_phone && $special_offer_email && $special_offer_name && $special_offer_message && $special_offer_details) {
 	
-		if (mail_send($_SITE['settings']['email_request'], 'Новая заявка по спецпредложению', $about_contacts_manager_message_text)) {
+		if (true === mail_send($_SITE['settings']['email_request'], 'Новая заявка по спецпредложению', $about_contacts_manager_message_text)) {
 			mail_send($special_offer_email, 'Ваша заявка по спецпредложению принята', $special_offer_customer_message_text);
 			echo 'Спасибо, ваша заявка принята';
 		} else {
