@@ -58,7 +58,7 @@ function out_special_offers($special_offers, $exclude_offer_id = 0) {
                         <span class="g-nobr"><?=text_date_str($special_offer['date_from'], 'ru_RU', 'j M')?><?=$special_offer['date_to']?' – ' . text_date_str($special_offer['date_to'], 'ru_RU', 'j M'):''?></span>
                     </div>
                     <div class="offers-item-center">
-                        <p><?=str_replace('/', '&nbsp;/ ', str_replace(' ', '&nbsp;', str_replace(', ', '/', $special_offer['office_center_id_lookup'])))?></p>
+                        <?=str_replace('/', '&nbsp;/ ', str_replace(' ', '&nbsp;', str_replace(', ', '/', $special_offer['office_center_id_lookup'])))?>
                     </div>
                     <div class="offers-item-link"><a href="<?=$_SITE['section_paths']['special']['path']?>?special=<?=$special_offer['id']?>" class="g-button c-<?=$service_group_css_class?>">ПОДРОБНЕЕ</a></div>
                 </div>

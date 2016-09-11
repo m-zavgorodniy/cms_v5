@@ -2,7 +2,7 @@
 define('MOBILE_BREAKPOINT_PX', '1000'); // 568px - iPhone 5, 768px - tablet
 define('MOBILE_MEDIA', 'screen and (max-width:' . MOBILE_BREAKPOINT_PX . 'px)');
 
-define('UPD', '?upd=8');
+define('UPD', '?upd=9');
 
 ?><!DOCTYPE html>
 <html lang="<?=$_SITE['html_lang']?>" xmlns:og="http://ogp.me/ns#">
@@ -26,8 +26,7 @@ define('UPD', '?upd=8');
 	<link rel="stylesheet" type="text/css" href="/css/jquery.jscrollpane.css" />
 	<link rel="stylesheet" type="text/css" href="/css/tooltipster.bundle.min.css" />
 	<link rel="stylesheet" type="text/css" href="/css/tooltipster-sideTip-shadow.min.css" />	
-	<link rel="stylesheet" type="text/css" href="/css/mobile.css<?=UPD?>" media="<?=MOBILE_MEDIA?>" />
-    <!--[if lte IE 9]><script src="/respond.min.js"></script><![endif]-->
+
     <script type="text/javascript" src="/js/jquery-1.12.3.min.js"></script>
     <script type="text/javascript" src="/js/script.js<?=UPD?>"></script>
 	<script type="text/javascript" src="/js/jquery-ui.min.js"></script>
