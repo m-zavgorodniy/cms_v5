@@ -108,7 +108,7 @@ h2 {font-size: 29px; margin-bottom: .8em; line-height: 1.5; font-weight: 700; co
 .index-promo2 {margin-bottom: 100px;}
 .index-promo2-left {float: left; width: 688px; height: 458px;}
 .index-promo2-right {float: right; width: 509px; padding-left: 31px;}
-.index-promo2-text {margin-bottom: 1.5em; font-size: 19px; color: #000;}
+.index-promo2-text {margin-bottom: 1.5em; font-size: 19px; color: #000; line-height: 1.7em !important;}
 .index-promo2-link {text-align: right;}
 
 .index-text {padding: 60px 0 100px; background-color: #f0f2f5;}

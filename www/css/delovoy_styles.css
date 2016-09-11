@@ -188,44 +188,18 @@ button.g-loader {background: #ababc6 url(/images/ajax_loader.gif) no-repeat cent
     overflow: auto;
 }
 
-.vd_officelistdata-block {
-	width: 30%;
-	margin: 0px 15px;
-/* 	font-family: Lato-Regular; */
-	font-size: 16px;
-	line-height: 1.5;
-	color: #010101;
-    float: left;
-    position: relative;
-}
-
-.vd_officelistdata-block-title {
-/* 	font-family: Lato-Black; */
+.vd_officelistdata h1,
+.vd_officelistdata h2,
+.vd_officelistdata h3,
+.vd_officelistdata h4,
+.vd_officelistdata h5,
+.vd_officelistdata h6 {
 	font-weight: 700;
 	font-size: 20px;
 	line-height: 1.5;
 	color: #000000;
-	position: absolute;
+	text-transform: none;
 }	
-
-.vd_officelistdata-block-text {
-	margin-top: 90px;	
-}
-
-.vd_officelistdata-block-text p {
-	margin-bottom: 10px;
-}
-
-.vd_officelistdata-block-text ul {
-	list-style: disc;
-	padding-left: 20px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
-
-.vd_officelistdata-block-text ul li {
-	padding: 1px 0px;
-}
 
 .vd_officeinfowindow .vd_officelistwrapper-office-services {
 	height: 40px;
@@ -981,7 +955,7 @@ display: block;
 	margin-bottom: 41px;
 }
 
-.vd_serviceincenter_wrapper-header h1, .vd_service_single_wrapper-header h1 {
+.vd_serviceincenter_wrapper-header .g-title, .vd_service_single_wrapper-header .g-title {
 /* 	float: left; */
 /* 	font-family: Lato-Black; */
 	font-size: 30px;
@@ -1001,7 +975,7 @@ display: block;
 /* 	font-family: Lato-Medium; */
 	font-size: 20px;
 	color: #ffffff;
-	margin-top: 70px;
+	margin-top: 65px;
 }
 
 .vd_serviceincenter_wrapper-header-price span {
@@ -1168,7 +1142,7 @@ display: block;
 .vd_serviceincenter_wrapper-layout {
 	margin: 80px auto 0px auto;
     width: 100%;
-	overflow: auto;
+	overflow: visible;
 }
 
 .vd_serviceincenter_wrapper-layout-title {

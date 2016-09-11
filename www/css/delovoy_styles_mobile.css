@@ -528,6 +528,11 @@
 	.vd_officelistdata{
 		padding: 30px 0px;
 	}
+	.vd_officelistdata td{
+		display: block;
+		width: 100%;
+		padding: 0 10px;
+	}
 	.vd_officelistdata-block{
 		width: 100%;
 		margin: 0;
@@ -2703,6 +2708,10 @@
 	.vd_officelistwrapper{
 		width: 700px;
 		margin: 30px auto;
+	}
+	.vd_officelistdata td{
+		display: block;
+		width: 100%;
 	}
 	.vd_officelistdata-block{
 		width: 100%;

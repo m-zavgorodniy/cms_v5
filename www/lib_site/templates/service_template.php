@@ -412,10 +412,8 @@
 					<? echo $vd_service_in_center_price; ?>
 				</div>
 				<div class="vd_serviceincenter_wrapper-header-logo"></div>
-				<h1>
-					<? echo $vd_service_in_center_title; ?><br />
-					в бизнес-центре «<? echo $vd_service_in_center_office_title; ?>»
-				</h1>
+				<h1><? echo $vd_service_in_center_title; ?><br />
+					в бизнес-центре «<? echo $vd_service_in_center_office_title; ?>»</h1>
 			</div>
 		</div>		
 	</div>

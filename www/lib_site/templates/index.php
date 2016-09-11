@@ -46,14 +46,3 @@ if (isset($_DATA['special_offer'])) { ?>
         <div class="index-promo2-link"><a href="<?=$_SITE['section_paths']['office_centers']['path']?>?center=<?=$_SITE['config']['GDC_OFFICE_CENTER_ID']?>" class="g-button">ПОДРОБНЕЕ</a></div>
     </div>
 </div></div>
-<div class="index-text">
-	<div class="g-container"><div class="g-container-row">
-    <?  list($seo_left, $seo_right) = $articles['seo']; ?>
-    	<div class="index-text-left text-content">
-    		<?=$seo_left['body']?>
-        </div>
-        <div class="index-text-right text-content">
-        	<?=$seo_right['body']?>
-        </div>
-	</div></div>
-</div>

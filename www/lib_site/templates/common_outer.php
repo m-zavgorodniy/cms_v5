@@ -2,7 +2,7 @@
 define('MOBILE_BREAKPOINT_PX', '1000'); // 568px - iPhone 5, 768px - tablet
 define('MOBILE_MEDIA', 'screen and (max-width:' . MOBILE_BREAKPOINT_PX . 'px)');
 
-define('UPD', '?upd=9');
+define('UPD', '?upd=10');
 
 ?><!DOCTYPE html>
 <html lang="<?=$_SITE['html_lang']?>" xmlns:og="http://ogp.me/ns#">
@@ -10,10 +10,10 @@ define('UPD', '?upd=9');
 	<title><?=$_SITE['page_title']?></title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?	if (defined('SHARING_PICTURE')) { ?>
-    	<meta property="og:image" content="http://<?=$_SERVER['HTTP_HOST']?><?=SHARING_PICTURE?>" />
+    <meta property="og:image" content="http://<?=$_SERVER['HTTP_HOST']?><?=SHARING_PICTURE?>" />
 <?	}
 	if ($_SITE['seo_description']) { ?>
-    	<meta name="description" content="<?=$_SITE['seo_description']?>" />
+    <meta name="description" content="<?=$_SITE['seo_description']?>" />
 <?	} ?>
 	<meta name="format-detection" content="telephone=no" />
 	<link rel="stylesheet" type="text/css" href="/css/styles.css<?=UPD?>" />
@@ -88,6 +88,13 @@ define('UPD', '?upd=9');
         </header>
         <div class="inner">
             <?=$__CMS__INNER_TEMPLATE_CONTENTS?>
+        <?  if ($_SITE['seo_text']) { ?>
+            <div class="vd_officelistdata text-content">
+                <div class="g-container"><div class="g-container-row">
+                    <p><?=$_SITE['seo_text']?></p>
+                </div></div>
+            </div>
+        <?  } ?>
         </div>
     </div>
     <footer class="footer">

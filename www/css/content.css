@@ -17,7 +17,7 @@ table, td, th {border-collapse: collapse; border-spacing: 0;}
 .text-content table.g-bordered td, .text-content table.g-bordered th {padding: 3px 5px 5px;}
 
 /* from FCK Editor */
-big {font-size: 16px; line-height: 1.3em;} 
+big {font-size: 19px; line-height: 1.7em;}
 small {font-size: 11px; line-height: 1.4em;}
 .editor-red, .editor-red a {color: #cf004c;}
 .editor-indent1 {margin-left: 40px;}
