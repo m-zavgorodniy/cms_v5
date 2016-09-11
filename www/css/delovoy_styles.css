@@ -955,7 +955,7 @@ display: block;
 	margin-bottom: 41px;
 }
 
-.vd_serviceincenter_wrapper-header .g-title, .vd_service_single_wrapper-header .g-title {
+.vd_serviceincenter_wrapper-header h1, .vd_service_single_wrapper-header h1 {
 /* 	float: left; */
 /* 	font-family: Lato-Black; */
 	font-size: 30px;
