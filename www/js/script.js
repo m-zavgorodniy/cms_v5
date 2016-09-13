@@ -373,6 +373,9 @@ jQuery(document).on('click', '.vd_serviceincenter_wrapper-freeoffices-list-eleme
 jQuery(document).on('click', '.vd_services2_list-item', function() {
 	jQuery('.vd_services2_list-item-wrapper').hide();
 	jQuery(this).children('.vd_services2_list-item-wrapper').show();
+	jQuery('html, body').animate({
+        scrollTop: jQuery(this).children('.vd_services2_list-item-wrapper').offset().top - 50
+    }, 600);
 });
 
 jQuery(document).on('click', '.vd_services2_list-item-wrapper-close', function() {
@@ -489,6 +492,9 @@ jQuery(document).on('click', '.vd_serviceincenter_wrapper-virtualrates-list-head
 	var virtual_form_id = jQuery(this).data('virtual-form-id');
 	jQuery('.vd_serviceincenter_wrapper-virtualrates-list-form').removeClass('open');
 	jQuery('.vd_serviceincenter_wrapper-virtualrates-list-form[data-virtual-form="' + virtual_form_id + '"]').addClass('open');
+	jQuery('html, body').animate({
+        scrollTop: jQuery('.vd_serviceincenter_wrapper-virtualrates-list-form.open').offset().top
+    }, 600);
 });
 
 jQuery(document).on('click', '.vd_serviceincenter_wrapper-virtualrates-list-form button', function(e){

@@ -1017,7 +1017,7 @@ if (isset($_DATA['tariff_includes']['items']) && isset($_DATA['office_center_roo
 						</td>
 					<?	foreach ($_DATA['office_center_room']['items'] as $tariff_id => &$tariff) {
 							$is_included = isset($tariff['tariff_includes_id'][$tariff_service_id]); ?>
-							<td><div class="<?=!$is_included?'not_':''?>included" title="<?=$is_included?'Входит в стоимость услуги':'Не предоставляется'?>"></div></td>
+							<td><span class="tariff_name_in_cell"><?=$tariff['title']?></span><div class="<?=!$is_included?'not_':''?>included" title="<?=$is_included?'Входит в стоимость услуги':'Не предоставляется'?>"></div></td>
 					<?	}
 						unset($tariff); ?>
 					</tr>

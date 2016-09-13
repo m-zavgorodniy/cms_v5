@@ -845,7 +845,8 @@
 	}
 	.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td{
 		width: 100%;
-		height: 40px;
+		min-height: 40px;
+		overflow: auto;
 	}
 	.tariff_name_in_cell{
 		display: block;
@@ -856,17 +857,17 @@
 		font-size: 14px;
 		float: left;
 		line-height: 40px;
-		width: 70%;
+		width: calc(100% - 40px);
 	}
 	.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td:last-child .tariff_name_in_cell{
-		line-height: 20px;
+/* 		line-height: 20px; */
 	}
 	.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td .included{
-		width: 30%;
+		width: 40px;
 		background-repeat: no-repeat;
 	}
 	.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td .not_included{
-		width: 30%;
+		width: 40px;
 		background-repeat: no-repeat;
 	}
 	.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td span.additional_options{
@@ -1029,7 +1030,7 @@
 		margin-left: 0;
 		margin-top: -780px;
 	}
-	vd_serviceincenter_wrapper-coworkingrates-list-item open{
+	.vd_serviceincenter_wrapper-coworkingrates-list-item open{
 		overflow: hidden;
 	}
 	.vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item {
