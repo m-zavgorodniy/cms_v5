@@ -3567,6 +3567,7 @@ display: block;
     left: 50%;
     transform: translateX(-50%);
     box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.3);
+    z-index: 2;
 }
 
 .vd_services2_list-item-wrapper-close {
