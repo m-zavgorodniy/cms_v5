@@ -390,7 +390,7 @@ jQuery(document).on('focus', 'input.phone, input.email, input.name, textarea.mes
 /* opening the subservice menu when clicking on the service icon */
 /* initializing the fake scrollbar for the subservice list, if it wasn't already */
 
-jQuery(document).on('click', '.vd_subservice_list-item', function() {
+jQuery(document).on('click', '.vd_subservice_list-item-with-sublist', function() {
 	jQuery(this).toggleClass('open');
 	console.log(jQuery(this).next('.vd_subservice_list-item-sublist'));
 	jQuery(this).next('.vd_subservice_list-item-sublist').toggleClass('closed');

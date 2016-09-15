@@ -3623,6 +3623,9 @@ display: block;
 	background-color: #ffffff;
 	padding: 0 30px;
     width: 100%;
+}
+
+.vd_subservice_list-item-with-sublist {
     background-image: url('../images/fake-time-icon.png');
     background-repeat: no-repeat;
 	background-position: 755px 14px;

@@ -56,90 +56,68 @@ if ($_GET['special']) {
 		<div class="vd_services2_subtitle">Об условиях предоставления услуг уточняйте на странице конкретной услуги</div>
 		<ul class="vd_services2_list">
 		<?
-		
-		foreach ($_DATA['service']['items'] as $service_group_item) {
+		// group all the items by services
+		$service_includes = array();
+		if (isset($_DATA['service_includes'])) {
+			foreach ($_DATA['service_includes']['items'] as &$subservice) {
+				$service_includes[$subservice['service_id']][] = $subservice;
+			}
+			unset($subservice);
+		}
+		foreach ($_DATA['service']['items'] as $service_item) {
 			
 			?>
 			
 			<li class="vd_services2_list-item">
 				<span class="vd_service2_list-item-image">
-					<img src="<? echo $service_group_item['icon_img_src']; ?>" />
+					<img src="<? echo $service_item['icon_img_src']; ?>" />
 				</span>
 				<span class="vd_service2_list-item-title">
-					<? echo $service_group_item['title']; ?>
+					<? echo $service_item['title']; ?>
 				</span>
 				<div class="vd_services2_list-item-wrapper">
 					<div class="vd_services2_list-item-wrapper-close">Закрыть</div>
 					<div class="vd_services2_list-item-wrapper-title">
-						<img src="<? echo $service_group_item['icon_img_src']; ?>" />
-						<? echo $service_group_item['title']; ?>
+						<img src="<? echo $service_item['icon_img_src']; ?>" />
+						<? echo $service_item['title']; ?>
 					</div>
 					<div class="vd_services2_list-item-wrapper-desc">
-						<? echo $service_group_item['headline']; ?>
+						<? echo $service_item['headline']; ?>
 					</div>
 					<div class="vd_subservice_list">
-						<div class="vd_subservice_list-item">
-							Установка операционной системы (с дистрибутива заказчика)
-						</div>
-						<div class="vd_subservice_list-item">
-							Настройка операционной системы (оптимизация работы)
-						</div>
-						<div class="vd_subservice_list-item">
-							Установка программ (с дистрибутива заказчика)
-						</div>
-							<div class="vd_subservice_list-item-sublist closed">
-								<div class="vd_subservice_list-item-sublist-item">
-									<div class="vd_subservice_list-item-sublist-item-price">
-										390
+					<?	if (isset($service_includes[$service_item['id']])) {
+							$previous_is_group = false;
+							$sublist_is_open = false;
+							foreach ($service_includes[$service_item['id']] as &$subservice) {
+								if ($subservice['is_group_title'] and $sublist_is_open) { // end sublist ?>
 									</div>
-									<div class="vd_subservice_list-item-sublist-item-name">
-										Драйвер устройства (за один компонент)
+								<?	$sublist_is_open = false;
+								}
+								if (!$subservice['is_group_title'] and $previous_is_group) { ?>
+									<div class="vd_subservice_list-item-sublist closed">
+								<?	$sublist_is_open = true;
+								}
+								if ($subservice['is_group_title']) { ?>
+									<div class="vd_subservice_list-item">
+										<?=$subservice['title']?>
 									</div>
+							<?	} else { ?>
+									<div class="vd_subservice_list-item-sublist-item">
+										<div class="vd_subservice_list-item-sublist-item-price">
+											<?=$subservice['price']?>
+										</div>
+										<div class="vd_subservice_list-item-sublist-item-name">
+											<?=$subservice['title']?>
+										</div>
+									</div>
+							<?	}
+								$previous_is_group = $subservice['is_group_title'];
+							}
+							unset($subservice);
+							if ($sublist_is_open) { ?>
 								</div>
-								<div class="vd_subservice_list-item-sublist-item">
-									<div class="vd_subservice_list-item-sublist-item-price">
-										790 / 990 / 1290
-									</div>
-									<div class="vd_subservice_list-item-sublist-item-name">
-										Microsoft Office 2003 / 2007 / 2010
-									</div>
-								</div>
-								<div class="vd_subservice_list-item-sublist-item">
-									<div class="vd_subservice_list-item-sublist-item-price">
-										390
-									</div>
-									<div class="vd_subservice_list-item-sublist-item-name">
-										Архиватор
-									</div>
-								</div>
-								<div class="vd_subservice_list-item-sublist-item">
-									<div class="vd_subservice_list-item-sublist-item-price">
-										900
-									</div>
-									<div class="vd_subservice_list-item-sublist-item-name">
-										Антивирус (лицензия на 1 год)
-									</div>
-								</div>
-								<div class="vd_subservice_list-item-sublist-item">
-									<div class="vd_subservice_list-item-sublist-item-price">
-										490
-									</div>
-									<div class="vd_subservice_list-item-sublist-item-name">
-										Кодеки
-									</div>
-								</div>
-								<div class="vd_subservice_list-item-sublist-item">
-									<div class="vd_subservice_list-item-sublist-item-price">
-										1490
-									</div>
-									<div class="vd_subservice_list-item-sublist-item-name">
-										ПО для восстановления системы Windows
-									</div>
-								</div>
-							</div>
-						<div class="vd_subservice_list-item">
-							Настройка программ
-						</div>
+						<?	}
+						} ?>
 					</div>
 				</div>
 			</li>
@@ -150,6 +128,15 @@ if ($_GET['special']) {
 			
 		?>
 		</ul>
+		<script>
+			$(function() {
+				$(".vd_subservice_list-item").each(function() {
+					if ($(this).next().is(".vd_subservice_list-item-sublist")) {
+						$(this).addClass("vd_subservice_list-item-with-sublist")
+					}
+				});
+			});
+		</script>
 	</div>
 <?	if (isset($_DATA['special_offer'])) { ?>
 	<div class="g-container"><div class="g-container-row">
