@@ -63,7 +63,7 @@ define('UPD', '?upd=10');
                             <div class="header-phone-number">
                                 +7 495 988-07-36
                             </div>
-                            <a href="#" class="header-phone-button g-button">позвоните мне</a>
+                            <a href="<?=$_SITE['section_paths']['callback']['path']?>" class="header-phone-button g-button">позвоните мне</a>
                         </div>
                         <?	if ($_SITE['menu']['main']) { ?>
                             <nav class="header-menu">
@@ -129,7 +129,7 @@ define('UPD', '?upd=10');
                     <ul>
                         <li><a href="#">Бизнес-центры в Москве</a><li>
                         <li><a href="#">Горный деловой центр в Роза Хутор</a><li>
-                        <li><a href="#" class="g-button">ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ</a></li>
+                        <li><a href="<?=$_SITE['section_paths']['request']['path']?>" class="g-button">ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ</a></li>
                     </ul>
                 </div>              
             </div>
