@@ -4401,12 +4401,13 @@ display: block;
 .vd_about_wrapper p {
 /* 	font-family: Lato-Regular; */
 	font-size: 20px;
-	line-height: 1.5;
+	line-height: 1.7;
 	color: #000000;
 	padding: 20px 0px;
 }
 
-.vd_about_wrapper-subtitle {
+.vd_about_wrapper-subtitle,
+.vd_about_wrapper big {
 /* 	font-family: Lato-Semibold; */
 	font-size: 30px;
 	line-height: 1.3;

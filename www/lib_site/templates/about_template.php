@@ -24,7 +24,10 @@
 		mail($about_contacts_email, 'Ваше сообщение принято', $about_contacts_customer_message_text);
 		
 	}
-	
+if (isset($_DATA['article']['items'])) {
+	$article1 = current($_DATA['article']['items']);
+	$article2 = next($_DATA['article']['items']);
+}
 ?>
 <div class="vd_about_wrapper">
 	<div class="vd_about_wrapper-header">
@@ -33,15 +36,19 @@
 	<div class="vd_about_wrapper-menu">
 		<div class="g-container">
 		<ul>
+		<?	if ($article1) { ?>
 			<li>
-				<a href="#about">О нас</a>
+				<a href="#about"><?=$article1['title']?></a>
 			</li>
+		<?	} ?>
 			<li>
 				<a href="#blog">Блог</a>
 			</li>
+		<?	if ($article2) { ?>
 			<li>
-				<a href="#agents">Агентам</a>
+				<a href="#agents"><?=$article2['title']?></a>
 			</li>
+		<?	} ?>
 			<li>
 				<a href="#clients">Наши клиенты</a>
 			</li>
@@ -52,22 +59,17 @@
 		</ul>
 		</div>
 	</div>
+<?	if ($article1) { ?>
 	<div class="vd_about_wrapper-about">
 		<div class="g-container">
 			<a name="about"></a>
-			<h2 class="g-section-title">О нас</h2>
-			<div class="vd_about_wrapper-subtitle">
-				Сеть офисных центров «Деловой» — единственная в России компания, деятельность которой заключается в создании благоприятных условий работы для малого и среднего бизнеса.
+			<h2 class="g-section-title"><?=$article1['title']?></h2>
+			<div class="text-content">
+				<?=$article1['body']?>
 			</div>
-			<p>В Москве каждый год появляются новые офисные центры, аренда площадей в которых считается престижным и выгодным капиталовложением. В каждом из таких центров доступны сотни самых разных помещений со всеми коммуникациями и современным дизайном. Однако зачастую представители малого бизнеса обходят их стороной, опасаясь высоких расценок и кабальных условий договоров аренды.
-	Натыкаясь на объявления в Интернете: «офисные центры аренда», мелкие предприниматели даже не пытаются узнать условия у арендодателя. Не торопятся идти навстречу мелким арендаторам и сами владельцы бизнес-центров, ведь гораздо выгодней сдавать в аренду большие объемы площадей на длительные сроки.</p>
-			<div class="vd_about_wrapper-subtitle">
-				Аренда в офисном центре – оптимальное решение
-			</div>
-			<p>Сеть офисных центров «Деловой» создана именно для того, что бы решить эту проблему и сделать аренду в офисных центрах доступной для небольших компаний. Это первая сеть в России, цель которой создать достойную инфраструктуру для малого бизнеса.</p>
-			<p>Теперь к услугам малых предпринимателей аренда в офисных центрах, которой можно пользоваться и оплачивать понедельно. Иными словами, есть возможность забронировать офис как столик в ресторане или билет в кинотеатр. Арендатору будет доступно помещение площадью от 12 до 60 кв. метров либо переговорная комната от 19 кв. метров. Такие малые офисы сдаются в четырех бизнес-центрах класса B+ и А: «Омега-плаза», «Алексеевская башня», «Гостиный двор» и «Арма», которые расположены в самых престижных районах города.</p>
 		</div>
 	</div>
+<?	} ?>
 	<div class="vd_about_wrapper-blog">
 		<a name="blog"></a>
 		<h2 class="g-section-title">Блог</h2>
@@ -143,16 +145,17 @@
 			</div>
 		</div>
 	</div>
+<?	if ($article2) { ?>
 	<div class="vd_about_wrapper-agents">
 		<a name="agents"></a>
-		<h2 class="g-section-title">Агентам</h2>
+		<h2 class="g-section-title"><?=$article2['title']?></h2>
 		<div class="g-container">
-			<p>
-				В Москве каждый год появляются новые офисные центры, аренда площадей в которых считается престижным и выгодным капиталовложением. В каждом из таких центров доступны сотни самых разных помещений со всеми коммуникациями и современным дизайном. Однако зачастую представители малого бизнеса обходят их стороной, опасаясь высоких расценок и кабальных условий договоров аренды.
-Натыкаясь на объявления в Интернете: «офисные центры аренда», мелкие предприниматели даже не пытаются узнать условия у арендодателя. Не торопятся идти навстречу мелким арендаторам и сами владельцы бизнес-центров, ведь гораздо выгодней сдавать в аренду большие объемы площадей на длительные сроки.
-			</p>
+			<div class="text-content">
+				<?=$article2['body']?>
+			</div>
 		</div>
 	</div>
+<?	} ?>
 	<div class="vd_about_wrapper-clients">
 		<a name="clients"></a>
 		<h2 class="g-section-title">Наши клиенты</h2>
@@ -202,14 +205,12 @@
 				<div class="azaza">
 					<div class="vd_about_wrapper-contacts-inner-data">
 						<div class="vd_about_wrapper-contacts-inner-data-block">
-							145464, Москва<br />
-							ул. Ленинская Слобода, 19<br />
-							этаж 4/5<br />
-							<span class="metro">Автозаводская</span>
+							<?=nl2br($_SITE['settings']['contacts_address'])?>
+							<span class="metro"><?=$_SITE['settings']['contacts_metro']?></span>
 						</div>
 						<div class="vd_about_wrapper-contacts-inner-data-block">
-							<span class="phone">+7 (495) 765-78-76</span>
-							<span class="email"><a href="mailto:info@delovoy.su">info@delovoy.su</a></span>
+							<span class="phone"><?=$_SITE['settings']['contacts_phone']?></span>
+							<span class="email"><a href="mailto:<?=$_SITE['settings']['contacts_email']?>"><?=$_SITE['settings']['contacts_email']?></a></span>
 						</div>
 						<div class="vd_about_wrapper-contacts-inner-data-form">
 							<span class="title">Оставить сообщение</span>
