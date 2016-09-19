@@ -206,6 +206,12 @@ function vd_get_pin(color) {
 	};
 }
 
+jQuery(document).on('click', 'button.consultation', function(e) {
+	e.preventDefault();
+	var url = jQuery(this).data('url');
+	window.location.href = url;
+});
+
 jQuery(document).on('click', '.vd_serviceincenter_wrapper-layout-image-zoom', function() {
 	jQuery.fancybox( jQuery('.vd_serviceincenter_wrapper-layout-image img').data('src-big'), { helpers: {
 		overlay: {

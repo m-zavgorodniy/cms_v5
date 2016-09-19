@@ -5236,3 +5236,98 @@ display: block;
 .service_group_name_in_cell {
 	display: none;
 }
+
+.vd_request_wrapper-content {
+    width: 100%;
+    float: left;	
+}
+
+.vd_request_wrapper-form {
+    width: 100%;
+    float: left;
+    margin: 10px 0px;	
+}
+
+.vd_request_wrapper-form input {
+	margin-right: 2%;
+    width: 32%;
+    float: left;
+    height: 40px;
+    border-radius: 1px;
+    background-color: #ffffff;
+    border: solid 2px #dadae6;
+    padding-right: 10px;
+    background-repeat: no-repeat;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #595964;
+}
+
+.vd_request_wrapper-form input:focus {
+    box-shadow: 0px 0px 0px 2px #4ea6fe;
+}
+
+.vd_request_wrapper-form input.phone {
+	background-image: url(../images/input_phone.png);
+	padding-left: 40px;
+	background-position: 17px 8px;
+}
+
+.vd_request_wrapper-form input.email {
+	background-image: url(../images/input_email.png);
+	padding-left: 40px;
+	background-position: 17px 8px;
+}
+
+.vd_request_wrapper-form input.name {
+	background-image: url(../images/svg/input_name.svg);
+	padding-left: 40px;
+	background-position: 18px 11px;
+	margin-right: 0px;
+}
+
+.vd_request_wrapper-form textarea {
+	height: 100px;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 5px 5px 5px 50px;
+    float: left;
+    border-radius: 1px;
+    background-color: #ffffff;
+    border: solid 2px #dadae6;
+    background-image: url(../images/fake_message_icon.png);
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    background-position: 11px 6px;
+    resize: none;
+}
+
+.vd_request_wrapper-form textarea:focus {
+	box-shadow: 0px 0px 0px 2px #4ea6fe;
+}
+
+.vd_request_wrapper-button {
+	width: 100%;
+	float: left;
+	text-align: center;
+}
+
+.vd_request_wrapper-form button {
+	margin: 0 auto;
+	width: 380px;
+    height: 60px;
+    text-align: center;
+    border: none;
+    line-height: 60px;
+    background-color: #e62e66;
+    font-weight: 600;
+    font-size: 14px;
+    color: #ffffff;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+button.consultation {
+	cursor: pointer;
+}

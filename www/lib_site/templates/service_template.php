@@ -887,7 +887,7 @@
 								<input type="text" class="name" name="name" placeholder="Имя">
 								<textarea class="message" name="message" placeholder="Ваше сообщение"></textarea>
 								<button>Забронировать виртуальный офис</button>
-								<button class="disabled">Получить консультацию</button>
+								<button class="disabled consultation" data-url="<?=$_SITE['section_paths']['request']['path']?>">Получить консультацию</button>
 							</div>
 							<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left">
 								<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left-item">
@@ -1108,7 +1108,7 @@ if (isset($_DATA['tariff_includes']['items']) && isset($_DATA['office_center_roo
 								<input type="text" class="name" name="name" placeholder="Имя">
 								<textarea class="message" name="message" placeholder="Ваше сообщение"></textarea>
 								<button class="meeting_submit">Забронировать</button>
-								<button class="disabled">Получить консультацию</button>
+								<button class="disabled consultation" data-url="<?=$_SITE['section_paths']['request']['path']?>">Получить консультацию</button>
 							</div>
 							<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left">
 								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item">
@@ -1272,7 +1272,7 @@ if (isset($_DATA['tariff_includes']['items']) && isset($_DATA['office_center_roo
 								<input type="text" class="name" name="name" placeholder="Имя">
 								<textarea class="message" name="message" placeholder="Ваше сообщение"></textarea>
 								<button class="coworking_submit">Забронировать коворкинг</button>
-								<button class="disabled">Получить консультацию</button>
+								<button class="disabled consultation" data-url="<?=$_SITE['section_paths']['request']['path']?>">Получить консультацию</button>
 							</div>
 							<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left">
 								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item">

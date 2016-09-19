@@ -1787,6 +1787,30 @@
 	.footer-main{
 		padding-top: 30px;
 	}
+	
+	.vd_request_wrapper-content {
+		padding: 0 5%;
+	}
+	
+	.vd_request_wrapper-form {
+		text-align: center;
+	}
+	
+	.vd_request_wrapper-form input {
+		width: 90%;
+		margin: 6px 0px;
+		float: none;
+	}
+	
+	.vd_request_wrapper-form textarea {
+		width: 90%;
+		float: none;
+	}
+	
+	.vd_request_wrapper-form button {
+		width: 90%;
+	}
+	
 }
 
 
