@@ -352,6 +352,8 @@
 							
 							echo '<td class="' . $vd_service_group_id_css . '_block">';
 							
+							echo '<span class="service_group_name_in_cell">' . $vd_office_center_service_group['service_group_id_lookup'] . '</span>';
+							
 							$service_was_displayed = false;
 							
 							/* loop over all services to find out those, that should go here */

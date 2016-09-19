@@ -348,10 +348,12 @@ button.g-loader {background: #ababc6 url(/images/ajax_loader.gif) no-repeat cent
 
 .vd_singleofficewrapper-content-about {
 	width: 100%;
-	overflow: auto;
+	overflow: hidden;
 	margin: 80px auto 0px auto;
+/*
 	padding-left: 120px;
 	padding-right: 120px;
+*/
 }
 
 .vd_singleofficewrapper-content-about-title {
@@ -459,10 +461,12 @@ button.g-loader {background: #ababc6 url(/images/ajax_loader.gif) no-repeat cent
 
 .vd_singleofficewrapper-content-services {
 	width: 100%;
-    overflow: auto;
+    overflow: hidden;
     margin: 80px auto 0px auto;
+/*
 	padding-left: 120px;
 	padding-right: 120px;
+*/
 }
 
 .vd_singleofficewrapper-content-services-title {
@@ -569,19 +573,26 @@ button.g-loader {background: #ababc6 url(/images/ajax_loader.gif) no-repeat cent
 	color: #000000;
 	text-align: center;
 	display: block;
-	height: 35px;
+/* 	height: 35px; */
+	padding-top: 0px;
+	margin-top: 48px;
 }
 
 .vd_singleofficewrapper-content-services-table .service_price span {
 	font-weight: 700;
 }
+
+.vd_singleofficewrapper-content-services-table .service_header_label_block {
+	vertical-align: top;
+}
+
 .vd_singleofficewrapper-content-services-table .service_header_label_block span{
 	display: block;
-	margin-top: -60px;
+	margin-top: 0px;
 }
 .vd_singleofficewrapper-content-services-table .service_header_label_block span + span{
 	display: block;
-	margin-top: 30px;
+	margin-top: 20px;
 }
 .vd_singleofficewrapper-content-services-table .service_header_label_block {
 	text-align: left;
@@ -610,7 +621,7 @@ button.g-loader {background: #ababc6 url(/images/ajax_loader.gif) no-repeat cent
 	background-image: url('../images/svg/icon-office.svg');
 	background-size: 40px 40px;
     background-repeat: no-repeat;
-	background-position: 0px 10px;
+	background-position: 0px 4px;
 	padding-left: 55px;
 	text-align: center;
 }
@@ -619,7 +630,7 @@ button.g-loader {background: #ababc6 url(/images/ajax_loader.gif) no-repeat cent
 	background-image: url('../images/svg/icon-coworking.svg');
 	background-size: 44px 44px;
     background-repeat: no-repeat;
-	background-position: 0px 8px;
+	background-position: 0px 4px;
 	padding-left: 55px;
 	text-align: center;
 }
@@ -628,7 +639,7 @@ button.g-loader {background: #ababc6 url(/images/ajax_loader.gif) no-repeat cent
 	background-image: url('../images/svg/icon-meeting.svg');
 	background-size: 53px 32px;
     background-repeat: no-repeat;
-	background-position: 0px 14px;
+	background-position: 0px 10px;
 	padding-left: 60px;
 	text-align: center;
 }
@@ -637,7 +648,7 @@ button.g-loader {background: #ababc6 url(/images/ajax_loader.gif) no-repeat cent
 	background-image: url('../images/svg/icon-virtual.svg');
 	background-size: 38px 44px;
     background-repeat: no-repeat;
-	background-position: 0px 8px;
+	background-position: 0px 4px;
 	padding-left: 45px;
 	text-align: center;
 }
@@ -651,7 +662,7 @@ button.g-loader {background: #ababc6 url(/images/ajax_loader.gif) no-repeat cent
 
 .service_header_content_block span.title{
 	border-bottom: 2px solid #000000;
-	padding-top: 25px;
+	padding-top: 12px;
 	display: inline-block;
 	
 }
@@ -662,7 +673,7 @@ display: block;
 
 .vd_singleofficewrapper-content-contacts {
 	width: 100%;
-    overflow: auto;
+    overflow: hidden;
     margin: 100px auto 0px auto;
 }
 
@@ -708,7 +719,7 @@ display: block;
 
 .vd_singleofficewrapper-content-special {
     width: 100%;
-    overflow: auto;
+    overflow: hidden;
     margin: 100px auto 30px auto;
 }
 
@@ -846,8 +857,8 @@ display: block;
 }
 
 .vd_singleofficewrapper-other {
-	width: 1440px;
-    overflow: auto;
+	width: 100%;
+    overflow: hidden;
     margin: 100px auto 0px auto;
 }
 
@@ -860,14 +871,15 @@ display: block;
 }
 
 .vd_singleofficewrapper-other-list {
+	width: 1200px;
 	margin: 40px auto 0 auto;
-	padding: 0 120px;
-	float: left;
+/* 	padding: 0 120px; */
+/* 	float: left; */
 }
 
 .vd_singleofficewrapper-footer {
 	width: 100%;
-    overflow: auto;
+    overflow: hidden;
 	padding: 60px 0px 80px 0px;
 	margin: 100px auto 0px auto;
 	background-color: #f7f8f9;
@@ -1030,7 +1042,7 @@ display: block;
 .vd_serviceincenter_wrapper-about {
 	margin: 80px auto 0px auto;
     width: 100%;
-	overflow: auto;
+	overflow: hidden;
 }
 
 .vd_serviceincenter_wrapper-about-title {
@@ -1205,7 +1217,7 @@ display: block;
 .vd_serviceincenter_wrapper-coworkingrates {
 	margin: 80px auto 0px auto;
     width: 100%;
-    overflow: auto;
+    overflow: hidden;
 }
 
 .vd_serviceincenter_wrapper-coworkingrates-list-item {
@@ -1529,7 +1541,7 @@ display: block;
 
 .vd_serviceincenter_wrapper-get_presentation {
 	width: 100%;
-	overflow: auto;
+	overflow: hidden;
 	margin: 80px 0px 0px 0px;
 	background-color: #f6f7f8;
 	padding: 60px;
@@ -2090,7 +2102,7 @@ display: block;
 .vd_serviceincenter_wrapper-virtualrates {
 	margin: 80px auto 0px auto;
     width: 100%;
-    overflow: auto;
+    overflow: hidden;
 }
 
 .vd_serviceincenter_wrapper-virtualrates-list-header {
@@ -2440,7 +2452,7 @@ display: block;
 .vd_serviceincenter_wrapper-virtualrates-details {
 	margin: 40px auto 0px auto;
     width: 100%;
-    overflow: auto;
+    overflow: hidden;
 }
 
 .vd_serviceincenter_wrapper-virtualrates-details-list-item {
@@ -2575,7 +2587,7 @@ display: block;
 .vd_serviceincenter_wrapper-freeoffices {
 	margin: 80px auto 0px auto;
     width: 100%;
-    overflow: auto;
+    overflow: hidden;
 }
 
 .vd_serviceincenter_wrapper-freeoffices-list {
@@ -3277,9 +3289,9 @@ display: block;
 
 .vd_serviceincenter_wrapper-special {
 	margin: 80px auto 0px auto;
-    width: 1440px;
-	padding: 0px 120px;
-	overflow: auto;
+    width: 100%;
+/* 	padding: 0px 120px; */
+	overflow: hidden;
 }
 
 .vd_serviceincenter_wrapper-special-title {
@@ -5219,4 +5231,8 @@ display: block;
     float: left;
     margin-top: 9px;
     margin-right: 8px;	
+}
+
+.service_group_name_in_cell {
+	display: none;
 }

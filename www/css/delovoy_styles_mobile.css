@@ -480,11 +480,11 @@
 	.vd_subservice_list-item{
 		line-height: 35px;
 		font-size: 16px;
-		background-position: 245px 5px;
+		background-position: 98% 5px;
 		padding: 0 15px;
 	}
 	.vd_subservice_list-item-sublist-item{
-		font-size: 10px;
+		font-size: 11px;
 		padding: 0px 15px;
 		height: auto;
 	}
@@ -654,31 +654,52 @@
 	.vd_singleofficewrapper-content-services-table .service_price{
 		text-align: center;
 		display: block;
+		margin-top: 10px;
+		line-height: 55px;
 	}
 	.vd_singleofficewrapper-content-services-table .service_label_block{
 		padding: 20px 0;
 		text-align: center;
 	}
 	.vd_singleofficewrapper-content-services-table .office_block{
-		width: 25%;
+		width: 100%;
 		float: left;
-		padding: 15px 0 25px;
+		padding: 15px 10px 15px;
+		text-align: right;
+		position: relative;
 	}
 	.vd_singleofficewrapper-content-services-table .coworking_block{
-		width: 25%;
+		width: 100%;
 		float: left;
-		padding: 15px 0 25px;
+		padding: 15px 10px 15px;
+		text-align: right;
+		position: relative;
 	}
 	.vd_singleofficewrapper-content-services-table .meeting_block{
-		width: 25%;
+		width: 100%;
 		float: left;
-		padding: 15px 0 25px;
+		padding: 15px 10px 15px;
+		text-align: right;
+		position: relative;
 	}
 	.vd_singleofficewrapper-content-services-table .virtual_block{
-		width: 25%;
+		width: 100%;
 		float: left;
-		padding: 15px 0 25px;
+		padding: 15px 10px 15px;
+		text-align: right;
+		position: relative;
 	}
+	
+	.service_group_name_in_cell {
+		display: block;
+	    position: absolute;
+	    top: 50%;
+	    transform: translateY(-50%);
+	    left: 10px;
+	    right: 40px;
+	    text-align: left;		
+	}
+	
 	.g-button.c-office{
 		display: block;
 		height: 50px;
@@ -1988,8 +2009,11 @@
 		padding: 0 10px 0 20px;
 	}
 	.service_header_content_block span.title{
-		padding-top: 18px;
+		padding-top: 12px;
 		margin-left: 26px;
+	}
+	.vd_singleofficewrapper-content-services-table .service_price {
+		margin-top: 46px;
 	}
 	.vd_singleofficewrapper-content-services-table .service_header_label_block{
 		padding: 0;
@@ -2777,10 +2801,10 @@
 	}
 	.vd_singleofficewrapper-content-services-table .service_price{
 		text-align: center;
-		margin-top: -15px;
-		text-align: center;
+		margin-top: 10px;
 		width: 100%;
 		height: 55px;
+		line-height: 55px;
 	}
 	.service_details_in_table{
 		margin-top: -25px;
@@ -2804,26 +2828,42 @@
 	.vd_singleofficewrapper-content-services-table .office_block{
 		width: 25%;
 		float: left;
-		padding: 15px 0 25px;
-	
+		padding: 15px 0 15px;
+		position: relative;
+		text-align: right;
 	}
 	.vd_singleofficewrapper-content-services-table .coworking_block{
 		width: 25%;
 		float: left;
-		padding: 15px 0 25px;
-	
+		padding: 15px 0 15px;
+		position: relative;
+		text-align: right;
 	}
 	.vd_singleofficewrapper-content-services-table .meeting_block{
 		width: 25%;
 		float: left;
-		padding: 15px 0 25px;
-	
+		padding: 15px 0 15px;
+		position: relative;
+		text-align: right;
 	}
 	.vd_singleofficewrapper-content-services-table .virtual_block{
 		width: 25%;
 		float: left;
-		padding: 15px 0 25px;
+		padding: 15px 0 15px;
+		position: relative;
+		text-align: right;
 	}
+	
+	.service_group_name_in_cell {
+		display: block;
+	    position: absolute;
+	    top: 50%;
+	    transform: translateY(-50%);
+	    left: 10px;
+	    right: 40px;
+	    text-align: left;		
+	}
+	
 	.vd_singleofficewrapper-content-services-table .services_subtitle{
 		padding-top: 15px;
 		width: 700px;
