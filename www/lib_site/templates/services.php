@@ -467,10 +467,10 @@ if ($_GET['special']) {
 <?	if (isset($_DATA['special_offer'])) { ?>
 	<div class="vd_serviceincenter_wrapper-special">
 		<a name="special" /></a>
-		<div class="g-container-row">
+		<div class="g-container"><div class="g-container-row">
 			<h2 class="g-section-title">Cпецпредложения</h2>
 		<?  out_special_offers($_DATA['special_offer']['items']); ?>	
-		</div>
+		</div></div>
 	</div>
 <?	} ?>
 </div>

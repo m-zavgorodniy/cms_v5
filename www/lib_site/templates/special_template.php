@@ -54,10 +54,12 @@ if ('POST' == $_SERVER['REQUEST_METHOD']) {
 	<div class="vd_specialoffer-header">
 		<div class="g-container">
 			<div class="vd_specialoffer-header-dates"><?=text_date_str($special_offer['date_from'], 'ru_RU', 'j M')?><?=$special_offer['date_to']?' – ' . text_date_str($special_offer['date_to'], 'ru_RU', 'j M'):''?></div>
-		<?	foreach (explode(',', $special_offer['service_group_css_class']) as $special_offer_css) { ?>
-				<div class="vd_specialoffer-header-<?=$special_offer_css?>"></div>
-		<?	} ?>
-			<h1><?=$special_offer['title']?></h1>
+			<div class="vd_specialoffer-header-box g-clearfix">
+			<?	foreach (explode(',', $special_offer['service_group_css_class']) as $special_offer_css) { ?>
+					<div class="vd_specialoffer-header-<?=$special_offer_css?>"></div>
+			<?	} ?>
+				<h1><?=$special_offer['title']?></h1>
+			</div>
 			<p><?=$special_offer['annotation']?></p>
 		</div>
 	</div>

@@ -4769,6 +4769,9 @@ display: block;
 	height: 81.9px;
 	float: left;
 }
+.vd_specialoffer-header-box {
+	margin-bottom: 25px;
+}
 .vd_specialoffer-header h1 {	
 	margin-top: 18px;
 	font-size: 30px;
@@ -4780,7 +4783,7 @@ display: block;
 .vd_specialoffer-header p {
 	width: 100%;
 	float: left;
-	margin: 25px 0 0 0;
+	margin-bottom: 25px;
 	font-size: 20px;
 	line-height: 1.5;
 }
