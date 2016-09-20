@@ -2034,7 +2034,8 @@
 	}
 	.service_header_content_block span.title{
 		padding-top: 12px;
-		margin-left: 26px;
+		margin-left: 42px;
+		font-size: 14px;
 	}
 	.vd_singleofficewrapper-content-services-table .service_price {
 		margin-top: 46px;
@@ -2047,13 +2048,13 @@
 		padding: 0;
 	}
 	.service_header_content_block.office{
-		background-size: 35px 35px;
+		background-size: 31px 31px;
 	}
 	.service_header_content_block.coworking{
-		background-size: 40px 40px;	
+		background-size: 36px 36px;
 	}
 	.service_header_content_block.meeting{
-		background-size: 45px 28px;	
+		background-size: 38px 24px;
 	}
 	.service_header_content_block.virtual{
 		background-size: 30px 38px;	

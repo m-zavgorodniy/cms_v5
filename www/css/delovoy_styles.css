@@ -622,8 +622,6 @@ button.g-loader {background: #ababc6 url(/images/ajax_loader.gif) no-repeat cent
 	background-size: 40px 40px;
     background-repeat: no-repeat;
 	background-position: 0px 4px;
-	padding-left: 55px;
-	text-align: center;
 }
 
 .service_header_content_block.coworking {
@@ -631,17 +629,13 @@ button.g-loader {background: #ababc6 url(/images/ajax_loader.gif) no-repeat cent
 	background-size: 44px 44px;
     background-repeat: no-repeat;
 	background-position: 0px 4px;
-	padding-left: 55px;
-	text-align: center;
 }
 
 .service_header_content_block.meeting {
 	background-image: url('../images/svg/icon-meeting.svg');
-	background-size: 53px 32px;
+	background-size: 45px 32px;
     background-repeat: no-repeat;
 	background-position: 0px 10px;
-	padding-left: 60px;
-	text-align: center;
 }
 
 .service_header_content_block.virtual {
@@ -649,8 +643,6 @@ button.g-loader {background: #ababc6 url(/images/ajax_loader.gif) no-repeat cent
 	background-size: 38px 44px;
     background-repeat: no-repeat;
 	background-position: 0px 4px;
-	padding-left: 45px;
-	text-align: center;
 }
 
 .service_header_content_block span {
@@ -664,7 +656,7 @@ button.g-loader {background: #ababc6 url(/images/ajax_loader.gif) no-repeat cent
 	border-bottom: 2px solid #000000;
 	padding-top: 12px;
 	display: inline-block;
-	
+	margin-left: 50px;
 }
 .service_details_in_table{
 	padding-top: 20px;
