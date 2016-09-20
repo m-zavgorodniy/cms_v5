@@ -297,7 +297,7 @@
 						
 						if ($vd_office_center_service_group_published === '1') {
 							
-							echo '<span class="service_details_in_table"><a class="g-button c-' . $vd_service_group_id_css . '"href="?center=' . $vd_office_center_service_group_center_id . '&service=' . $vd_office_center_service_group_id . '">Подробнее</a></span>';
+							echo '<span class="service_details_in_table"><a class="g-button c-' . $vd_service_group_id_css . '" href="?center=' . $vd_office_center_service_group_center_id . '&service=' . $vd_office_center_service_group_id . '">Подробнее</a></span>';
 							
 						}
 
@@ -434,30 +434,31 @@
 		<div class="vd_singleofficewrapper-content-contacts">
 			<a name="contacts"></a>
 			<div class="g-container">
-			<h2 class="g-section-title">Контакты</h2>
-			<div class="vd_singleofficewrapper-content-contacts-details">
-				<div class="vd_singleofficewrapper-content-contacts-details-left">
-				<?	if ($single_office_center_metro_label) {
-						echo preg_replace('/(' . $single_office_center_metro_label . ')/u', '<div class="vd_officelistwrapper-office-place-marker" style="background-color: ' . $single_office_center_metro_color . '"></div>$1', $single_office_center_address);
-					} else {
-						echo $single_office_center_address;
-					} ?>
+				<h2 class="g-section-title">Контакты</h2>
+				<div class="vd_singleofficewrapper-content-contacts-details">
+					<div class="vd_singleofficewrapper-content-contacts-details-left">
+					<?	if ($single_office_center_metro_label) {
+							echo preg_replace('/(' . $single_office_center_metro_label . ')/u', '<div class="vd_officelistwrapper-office-place-marker" style="background-color: ' . $single_office_center_metro_color . '"></div>$1', $single_office_center_address);
+						} else {
+							echo $single_office_center_address;
+						} ?>
+					</div>
+					<div class="vd_singleofficewrapper-content-contacts-details-right">
+						<table class="vd_singleofficewrapper-content-contacts-details-right-contactstable">
+							<tr>
+								<td>Телефон:</td>
+								<td><? echo $single_office_center_phone; ?></td>
+							</tr>
+							<tr>
+								<td>Е-mail:</td>
+								<td><? echo $single_office_center_email; ?></td>
+							</tr>
+						</table>
+					</div>
 				</div>
-				<div class="vd_singleofficewrapper-content-contacts-details-right">
-					<table class="vd_singleofficewrapper-content-contacts-details-right-contactstable">
-						<tr>
-							<td>Телефон:</td>
-							<td><? echo $single_office_center_phone; ?></td>
-						</tr>
-						<tr>
-							<td>Е-mail:</td>
-							<td><? echo $single_office_center_email; ?></td>
-						</tr>
-					</table>
-				</div>
+				<input type="hidden" class="vd_singleofficewrapper-content-contacts-coordinates" value="<? echo $single_office_center_coordinates; ?>" />
+				<input type="hidden" class="vd_singleofficewrapper-content-contacts-color" value="<? echo $single_office_center_color; ?>" />
 			</div>
-			<input type="hidden" class="vd_singleofficewrapper-content-contacts-coordinates" value="<? echo $single_office_center_coordinates; ?>" />
-			<input type="hidden" class="vd_singleofficewrapper-content-contacts-color" value="<? echo $single_office_center_color; ?>" />
 		</div>
 		<div class="vd_mapwrapper">
 			<div id="vd_mapwrapper-map"></div>
