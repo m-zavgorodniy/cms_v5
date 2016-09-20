@@ -40,11 +40,12 @@ if (isset($_DATA['article']['items'])) {
 			<li>
 				<a href="#about"><?=$article1['title']?></a>
 			</li>
-		<?	} ?>
+		<?	} /*?>
 			<li>
 				<a href="#blog">Блог</a>
 			</li>
-		<?	if ($article2) { ?>
+		<?	*/
+			if ($article2) { ?>
 			<li>
 				<a href="#agents"><?=$article2['title']?></a>
 			</li>
@@ -69,7 +70,7 @@ if (isset($_DATA['article']['items'])) {
 			</div>
 		</div>
 	</div>
-<?	} ?>
+<?	} /* ?>
 	<div class="vd_about_wrapper-blog">
 		<a name="blog"></a>
 		<h2 class="g-section-title">Блог</h2>
@@ -145,17 +146,7 @@ if (isset($_DATA['article']['items'])) {
 			</div>
 		</div>
 	</div>
-<?	if ($article2) { ?>
-	<div class="vd_about_wrapper-agents">
-		<a name="agents"></a>
-		<h2 class="g-section-title"><?=$article2['title']?></h2>
-		<div class="g-container">
-			<div class="text-content">
-				<?=$article2['body']?>
-			</div>
-		</div>
-	</div>
-<?	} ?>
+<?	*/ ?>
 	<div class="vd_about_wrapper-clients">
 		<a name="clients"></a>
 		<h2 class="g-section-title">Наши клиенты</h2>
@@ -197,6 +188,17 @@ if (isset($_DATA['article']['items'])) {
 			</div>
 		</div>
 	</div>
+<?	if ($article2) { ?>
+	<div class="vd_about_wrapper-agents">
+		<a name="agents"></a>
+		<h2 class="g-section-title"><?=$article2['title']?></h2>
+		<div class="g-container">
+			<div class="text-content">
+				<?=$article2['body']?>
+			</div>
+		</div>
+	</div>
+<?	} ?>
 	<div class="vd_about_wrapper-contacts">
 		<a name="contacts"></a>
 		<h2 class="g-section-title">Контакты главного офиса</h2>

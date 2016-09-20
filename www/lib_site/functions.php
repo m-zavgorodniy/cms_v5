@@ -1,10 +1,11 @@
 <?
 // the code in here runs before all
 
+/*
 // a little naughty hack - see SQL-filter in /admin/edit.php?type=meta_table&id=special_offer:
-// [FIND_IN_SET({center}, office_center_id)] AND [service_group_id = {service}] OR [{special} > 0]
-// so this is to not let {special} be empty ('' or null)
+// special_offer.published > 0 AND [FIND_IN_SET({center}, office_center_id)] AND [FIND_IN_SET({service}, service_group_id)] OR [{special} > 0 AND special_offer.published > 0]
 if (!isset($_GET['special'])) $_GET['special'] = 0;
+*/
 
 // this file is auto-included in all the php templates
 // the functions you add here are available to use in the templates
@@ -67,6 +68,42 @@ function out_special_offers($special_offers, $exclude_offer_id = 0) {
         unset($special_offer); ?>
     </ul>
 <?
+}
+
+function out_special_offers_by_center($office_center_id, $office_center_title = '') {
+    global $_DATA;
+    if (isset($_DATA['special_offer'])) {
+        if ($office_center_id) {
+            foreach ($_DATA['special_offer']['items'] as &$special_offer) {
+                $special_offer_ids = explode(',', $special_offer['office_center_id']);
+                if (in_array($office_center_id, $special_offer_ids)) {
+                    $special_offers_center[] = $special_offer;
+                } else {
+                    $special_offers_other[] = $special_offer;
+                }
+            }
+            unset($special_offer);
+        } ?>
+        <div class="vd_singleofficewrapper-content-special">
+            <a name="special"></a>
+        <? if (isset($special_offers_center)) { ?>
+            <div class="g-container">
+                <div class="g-container-row">
+                    <h2 class="g-section-title">Cпецпредложения в бизнес-центре «<?=$office_center_title?>»</h2>
+                <?  out_special_offers($special_offers_center); ?>
+                </div>
+            </div>
+        <?  }
+            if (isset($special_offers_other)) { ?>
+            <div class="g-container">
+                <div class="g-container-row">
+                    <h2 class="g-section-title"><?=isset($special_offers_center)?'Cпецпредложения в других бизнес-центрах':'Cпецпредложения'?></h2>
+                <?  out_special_offers($special_offers_other); ?>
+                </div>
+            </div>
+        <?  } ?>
+        </div>
+<?  }
 }
 
 function gallery_html2array($str) {

@@ -224,7 +224,7 @@ if ($_GET['special']) {
 					?>
 				</div>
 				<div class="vd_service_single_wrapper-header-logo"></div>
-				<h1><? echo $_SITE['seo_h1']?$_SITE['seo_h1']:$vd_service_group_id_title; ?></h1>
+				<h1><? echo $vd_service_group_id_title; ?></h1>
 			</div>
 		</div>		
 	</div>

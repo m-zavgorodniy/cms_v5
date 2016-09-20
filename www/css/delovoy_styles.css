@@ -859,7 +859,7 @@ display: block;
 .vd_singleofficewrapper-other {
 	width: 100%;
     overflow: hidden;
-    margin: 100px auto 0px auto;
+    margin: 0 auto;
 }
 
 .vd_singleofficewrapper-other-title {
@@ -1202,13 +1202,12 @@ display: block;
 	float: left;
 	width: 480px;
 	margin-left: 30px;
-}
-
-.vd_serviceincenter_wrapper-layout-text p {
-/* 	font-family: Lato-Regular; */
 	font-size: 20px;
 	line-height: 1.5;
 	color: #000000;
+}
+
+.vd_serviceincenter_wrapper-layout-text p {
 	margin-bottom: 40px;
 }
 
@@ -1530,7 +1529,7 @@ display: block;
 }
 
 .vd_serviceincenter_wrapper-coworkingrates-list-item-header-price span.special {
-	font-size: 16px;
+	font-size: 1px;
 	font-weight: 400;
 	color: #e62e66;
 	display: block;
@@ -1688,6 +1687,7 @@ display: block;
 
 .vd_serviceincenter_wrapper-meetingrates-list-item-header-price {
 /*     width: 503px; */
+	 font-size: 16px;
 	 padding-top: 35px;
      padding-left: 25px;
      position: relative;
@@ -2085,12 +2085,12 @@ display: block;
 	color: #010101;	
 }
 
-.vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom p span {
+.vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom p strong {
 	font-weight: 700;
 }
 
 .vd_serviceincenter_wrapper-meetingrates-list-item-header-price span.special {
-	font-size: 16px;
+	font-size: 15px;
 	font-weight: 400;
 	color: #e62e66;
 	display: inline-block;
@@ -2720,7 +2720,7 @@ display: block;
 
 .vd_serviceincenter_wrapper-freeoffices-list-element-header-price span.special {
 /* 	font-family: Lato-Semibold; */
-	font-size: 16px;
+	font-size: 15px;
 	line-height: 1;
 	color: #e62e66;
 	float: left;
@@ -4395,7 +4395,7 @@ display: block;
 
 .vd_about_wrapper-about {
 	padding-top: 80px;
-	padding-bottom: 100px;
+	/*padding-bottom: 100px;*/
 }
 
 .vd_about_wrapper p {
@@ -4483,7 +4483,7 @@ display: block;
 }
 
 .vd_about_wrapper-agents {
-	padding-top: 100px;
+	padding-top: 50px;
 	padding-bottom: 50px;
 }
 
@@ -4504,6 +4504,7 @@ display: block;
     z-index: 500;
     top: 10px;
     overflow: hidden;
+    margin-top: 30px;
 }
 
 .cycle-pager span { 
@@ -4934,7 +4935,7 @@ display: block;
 
 .vd_specialoffer-offers-list-element-header-place span.special {
 	/* font-family: Lato-Semibold; */
-	font-size: 16px;
+	font-size: 15px;
 	line-height: 1;
 	color: #e62e66;
 	float: left;

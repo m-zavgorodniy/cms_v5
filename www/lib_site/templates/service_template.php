@@ -1,5 +1,4 @@
 <?
-
 	/* populate reverse array for services in office centers: [service_id] => service_in_office_data */
 
 	if (isset($_DATA['office_center2service_group'])) {
@@ -360,6 +359,8 @@
 		
 	}
 	
+	$g_office_center_id = (int)$_GET['center'];
+
 	$vd_service_in_center_id = $_GET['service'];
 	
 	$vd_service_in_center_title = $service_groups_reverse[$vd_service_in_center_id]['service_group_id_lookup'];
@@ -606,7 +607,7 @@
 						увеличить
 					</div>
 				</div>
-				<div class="vd_serviceincenter_wrapper-layout-text">
+				<div class="vd_serviceincenter_wrapper-layout-text text-content">
 					<? echo $vd_service_group_plan['body']; ?>
 				</div>
 			</div>
@@ -904,7 +905,7 @@
 
 												if (in_array($_GET['service'], $business_center_select_item_services)) {
 
-													if ($business_center_select_item['id'] == $_GET['center']) {
+													if ($business_center_select_item['id'] == $g_office_center_id) {
 
 														echo '<option value="' . $business_center_select_item['id'] . '" selected="selected">' . $business_center_select_item['title'] . '</option>';
 
@@ -1052,7 +1053,7 @@ if (isset($_DATA['tariff_includes']['items']) && isset($_DATA['office_center_roo
 	
 	<div class="vd_serviceincenter_wrapper-meetingrates">
 		<a name="freeoffices" /></a>
-		<h2 class="g-section-title">Переговорные в бизнес-центре «<? echo $_DATA['office_center']['items'][$_GET['center']]['title']; ?>»</h2>
+		<h2 class="g-section-title">Переговорные в бизнес-центре «<? echo $_DATA['office_center']['items'][$g_office_center_id]['title']; ?>»</h2>
 		<div class="g-container">
 			<div class="vd_serviceincenter_wrapper-meetingrates-list">
 				<?
@@ -1173,22 +1174,27 @@ if (isset($_DATA['tariff_includes']['items']) && isset($_DATA['office_center_roo
 									</div>
 								</div>
 							</div>
-							<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom">
-								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom-right">
-									<div class="warning">
-										Возврат ранее оплаченного бронирования переговорной комнаты возможен только при уведомлении об отказе бронирования не менее чем за 3 рабочих дня!
+						<?	if ($single_metting_office['comment1'] || $single_metting_office['comment2'] || $single_metting_office['comment3']) { ?>
+								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom">
+									<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom-right">
+									<?	if ($single_metting_office['comment3']) { ?>
+											<div class="warning">
+												<?=$single_metting_office['comment3']?>
+											</div>
+									<?	}
+										if ($single_metting_office['comment2']) { ?>
+											<div class="info">
+												<?=$single_metting_office['comment2']?>
+											</div>
+									<?	} ?>
 									</div>
-									<div class="info">
-										<p class="subheading">Наценка</p>
-										<p><span>+ 50%</span> к стоимости аренды</p>
+								<?	if ($single_metting_office['comment1']) { ?>
+									<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom-left">
+										<?=$single_metting_office['comment1']?>
 									</div>
+								<?	} ?>
 								</div>
-								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-bottom-left">
-									<p class="subheading">Скидки</p>
-									<p><span>1 400</span> руб/час (при аренде зала от 3 часов)</p>
-									<p><span>1 225</span> руб/час (при аренде от 6 часов)</p>	
-								</div>
-							</div>
+						<?	} ?>
 						</div>
 					</form>
 				</div>
@@ -1356,15 +1362,5 @@ if (isset($_DATA['tariff_includes']['items']) && isset($_DATA['office_center_roo
 		
 	}	
 	
-	if (isset($_DATA['special_offer'])) { ?>
-	<div class="vd_serviceincenter_wrapper-special">
-		<a name="special" /></a>
-		<div class="g-container">
-			<div class="g-container-row">
-				<h2 class="g-section-title">Cпецпредложения</h2>
-			<?  out_special_offers($_DATA['special_offer']['items']); ?>
-			</div>
-		</div>	
-	</div>
-<?	} ?>
+	out_special_offers_by_center($g_office_center_id, $vd_service_in_center_office_title); ?>
 </div>

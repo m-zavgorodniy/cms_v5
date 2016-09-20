@@ -462,18 +462,7 @@
 		<div class="vd_mapwrapper">
 			<div id="vd_mapwrapper-map"></div>
 		</div>
-	<?	if (isset($_DATA['special_offer'])) { ?>
-		<div class="vd_singleofficewrapper-content-special">
-			<a name="special"></a>
-			<div class="g-container">
-				<div class="g-container-row">
-					<h2 class="g-section-title">Cпецпредложения в бизнес-центре</h2>
-				<?  out_special_offers($_DATA['special_offer']['items']); ?>
-				</div>
-			</div>
-			</div>
-		</div>
-	<?	} ?>
+	<?	out_special_offers_by_center($g_office_center_id, $single_office_center_title); ?>
 	</div>
 	<div class="vd_singleofficewrapper-other">
 		<h2 class="g-section-title">Другие бизнес-центры</h2>
