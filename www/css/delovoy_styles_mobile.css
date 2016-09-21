@@ -629,6 +629,7 @@
 		display: block;
 		float: left;
 		text-align: center;
+		padding-bottom: 30px;
 	}
 	.service_header_content_block span.title{
 		padding-top: 10px;
@@ -2527,6 +2528,13 @@
 	.vd_blog_post_wrapper-other-list-post .blogpost_title{
 		font-size: 17px;
 	}	
+
+	.vd_singleofficewrapper-content-services-table .service_header_label_block span{
+		margin-top: 7px;
+	}
+	.vd_singleofficewrapper-content-services-table .service_header_label_block span + span{
+		margin-top: 23px;
+	}
 }
 
 
@@ -2820,6 +2828,7 @@
 		display: block;
 		float: left;
 		text-align: center;
+		padding-bottom: 30px;
 	}
 	.service_header_content_block span.title{
 		padding-top: 10px;
@@ -3424,3 +3433,10 @@
 		margin: 30px 0 0 0;
 	}
 }	
+
+
+@media (max-width: 1023px) {
+	.service_header_content_block span.title {
+		margin-left: 0;
+	}
+}

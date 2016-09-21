@@ -588,11 +588,11 @@ button.g-loader {background: #ababc6 url(/images/ajax_loader.gif) no-repeat cent
 
 .vd_singleofficewrapper-content-services-table .service_header_label_block span{
 	display: block;
-	margin-top: 0px;
+	margin-top: 11px;
 }
 .vd_singleofficewrapper-content-services-table .service_header_label_block span + span{
 	display: block;
-	margin-top: 20px;
+	margin-top: 46px;
 }
 .vd_singleofficewrapper-content-services-table .service_header_label_block {
 	text-align: left;
