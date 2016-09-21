@@ -536,7 +536,7 @@ class Editor extends MetaTable {
 							} else if (false === ($this->input_params[$field] = create_thumbnail(
 								$image_source,
 								$thumbnail_path . '/' . basename($image_source),
-								$w, $h
+								$w, $h, $w == 0?'h':($h == 0?'w':'')
 								))) {
 									$this->alert .= "Ошибка при генерации превью (Error creating thumbnail in ".$thumbnail_path .")\n";
 									return false;
