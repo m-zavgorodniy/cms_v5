@@ -1160,7 +1160,6 @@ display: block;
 .vd_serviceincenter_wrapper-layout-image {
 	background-color: #fbfbfc;
 	width: 670px;
-	height: 400px;
 	float: left;
 	position: relative;
 }
@@ -1169,7 +1168,7 @@ display: block;
 	width: 413px;
 	height: auto;
 	float: left;
-	margin: 20px 0px 0px 80px;
+	margin: 20px 0 20px 80px;
 }
 
 .vd_serviceincenter_wrapper-layout-image-zoom {

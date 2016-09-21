@@ -257,7 +257,8 @@ jQuery(document).ready(function() {
 		firstDay: 1,
 		dateFormat: "dd.mm.yy",
 		monthNames: [ "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь" ],
-		dayNamesMin: [ "вс", "пн", "вт", "ср", "чт", "пт", "сб" ]
+		dayNamesMin: [ "вс", "пн", "вт", "ср", "чт", "пт", "сб" ],
+		beforeShowDay: jQuery.datepicker.noWeekends
 	});
 	
 	$.extend($.datepicker,{_checkOffset:function(inst,offset,isFixed){return { left: offset.left, top: offset.top+12 }}});
