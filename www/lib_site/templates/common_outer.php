@@ -2,7 +2,7 @@
 define('MOBILE_BREAKPOINT_PX', '1000'); // 568px - iPhone 5, 768px - tablet
 define('MOBILE_MEDIA', 'screen and (max-width:' . MOBILE_BREAKPOINT_PX . 'px)');
 
-define('UPD', '?upd=14');
+define('UPD', '?upd=15');
 
 ?><!DOCTYPE html>
 <html lang="<?=$_SITE['html_lang']?>" xmlns:og="http://ogp.me/ns#">
@@ -61,7 +61,7 @@ define('UPD', '?upd=14');
                     <div class="header-nav-right">
                         <div class="header-phone g-clearfix">
                             <div class="header-phone-number">
-                                +7 495 988-07-36
+                                <?=strtr($_SITE['settings']['phone_number'], '()', '  ')?>
                             </div>
                             <a href="<?=$_SITE['section_paths']['callback']['path']?>" class="header-phone-button g-button">позвоните мне</a>
                         </div>

@@ -372,6 +372,8 @@
 	$vd_service_in_center_price = preg_replace('/(\d+)/', '<span>$1</span>', $vd_service_in_center_price);
 	
 	$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_service_in_center_id]['css_signature'];
+
+	$vd_service_presentation_url = $_DATA['service_group']['items'][$vd_service_in_center_id]['presentation_url'];
 	
 	/* check if there's a gallery for this business center */
 		
@@ -1032,20 +1034,7 @@ if (isset($_DATA['tariff_includes']['items']) && isset($_DATA['office_center_roo
 		</div>
 	</div>
 <?
-} ?>
-
-	<div class="vd_serviceincenter_wrapper-get_presentation">
-		<div class="g-container">
-			<h2 class="g-section-title">Узнайте подробности наших услуг в презентации</h2>
-			<p>Оставьте свои контакты, и мы через минуту вышлем на почту подробную презентацию. Без спама.</p>
-			<form>
-				<input type="text" class="email" placeholder="Введите ваш e-mail">
-				<input type="submit" class="get_presentation virtual" value="Получить презентацию" />
-			</form>
-		</div>
-	</div>		
-	
-	<?	
+}
 			
 		} elseif ($_DATA['service_group']['items'][$_GET['service']]['css_signature'] == 'meeting')	{
 		
@@ -1208,17 +1197,6 @@ if (isset($_DATA['tariff_includes']['items']) && isset($_DATA['office_center_roo
 		</div>
 	</div>
 	
-	<div class="vd_serviceincenter_wrapper-get_presentation">
-		<div class="g-container">
-			<h2 class="g-section-title">Узнайте подробности наших услуг в презентации</h2>
-			<p>Оставьте свои контакты, и мы через минуту вышлем на почту подробную презентацию. Без спама.</p>
-			<form>
-				<input type="text" class="email" placeholder="Введите ваш e-mail">
-				<input type="submit" class="get_presentation meeting" value="Получить презентацию" />
-			</form>
-		</div>
-	</div>
-	
 	<?	
 			
 		} elseif ($_DATA['service_group']['items'][$_GET['service']]['css_signature'] == 'coworking')	{
@@ -1343,24 +1321,14 @@ if (isset($_DATA['tariff_includes']['items']) && isset($_DATA['office_center_roo
 			</div>
 		</div>
 	</div>
-	
-	<div class="vd_serviceincenter_wrapper-get_presentation">
-		<div class="g-container">
-			<h2 class="g-section-title">Узнайте подробности наших услуг в презентации</h2>
-			<p>Оставьте свои контакты, и мы через минуту вышлем на почту подробную презентацию. Без спама.</p>
-			<form>
-				<input type="text" class="email" placeholder="Введите ваш e-mail">
-				<input type="submit" class="get_presentation coworking" value="Получить презентацию" />
-			</form>
-		</div>
-	</div>
-	
 	<?	
 			
 		}
 
 		
-	}	
-	
+	} 
+
+	out_presentation($vd_service_presentation_url, $vd_service_group_id_css);
+
 	out_special_offers_by_center($g_office_center_id, $vd_service_in_center_office_title); ?>
 </div>

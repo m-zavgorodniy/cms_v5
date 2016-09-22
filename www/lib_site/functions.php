@@ -39,6 +39,45 @@ function out_sharing() { ?>
 <?
 }
 
+function out_presentation($url, $css_signature) { 
+    if (!$url) return; ?>
+    <script>
+        $(function() {
+            $("#senddeck [type='button']").on("click", function() {
+                var email = $("#senddeck [name='email']").val();
+                if ('' === $.trim(email) || !(/[^\s@]+@[^\s@]+\.[^\s@]+/.test(email))) {
+                    $("#senddeck_error").show();
+                } else {
+                    var data = {email: email, link: $("#senddeck input[name='link']").val()};
+                    $("#senddeck button").prop("disabled", true);
+                    $("#senddeck form").html('<img src="/images/ajax_loader_big.gif" alt="">').show();
+                    var jqxhr = $.post("/ajax/send_deck.php", data, function(data) {
+                        $("#senddeck form").html('<div class="vd_serviceincenter_wrapper-get_presentation-error g-error">Презентация выслана на ваш e-mail.</div>');
+                    });
+                    jqxhr.fail(function() {
+                        $("#senddeck form").html('<div class="vd_serviceincenter_wrapper-get_presentation-error g-error">Ошибка при отправке презентации.</div>');
+                    });
+                }
+            });
+        });
+    </script>
+    <div id="senddeck" class="vd_serviceincenter_wrapper-get_presentation">
+        <div class="g-container">
+            <h2 class="g-section-title">Узнайте подробности наших услуг в презентации</h2>
+            <p>Оставьте свои контакты, и мы через минуту вышлем на почту подробную презентацию. Без спама.</p>
+            <form>
+                <input type="email" name="email" class="email" placeholder="Введите ваш e-mail">
+                <input type="hidden" name="link" value="<?=$url?>">
+                <input type="button" class="get_presentation <?=$css_signature?>" value="Получить презентацию" />
+                <div class="g-clearfix"></div>
+                <div id="senddeck_error" class="vd_serviceincenter_wrapper-get_presentation-error g-error" style="display: none;">Пожалуйста, введите e-mail
+                </div>
+           </form>
+        </div>
+    </div>
+<?
+}
+
 function out_special_offers($special_offers, $exclude_offer_id = 0) {
     global $_SITE, $_DATA; ?>
     <ul class="offers-items">

@@ -138,6 +138,7 @@ if ($_GET['special']) {
 			});
 		</script>
 	</div>
+
 <?	if (isset($_DATA['special_offer'])) { ?>
 	<div class="g-container"><div class="g-container-row">
 		<h2 class="g-section-title">Cпецпредложения</h2>
@@ -152,6 +153,7 @@ if ($_GET['special']) {
 	
 	$vd_service_group_id_title = $_DATA['service_group']['items'][$_GET['service']]['title'];
 	$vd_service_group_id_css = $_DATA['service_group']['items'][$_GET['service']]['css_signature'];
+	$vd_service_presentation_url = $_DATA['service_group']['items'][$_GET['service']]['presentation_url'];
 	
 	/* check if there's a gallery to display and its id, if there's any */
 	if (isset($_DATA['service_group_detail'])) {
@@ -369,7 +371,7 @@ if ($_GET['special']) {
 	<div class="g-container">
 	<div class="g-container-row">
 		<a name="office_centers" /></a>
-		<h2 class="g-section-title">Бизнес-центры, предоставляющие услугу <? echo $vd_service_group_id_title; ?></h2>
+		<h2 class="g-section-title">Бизнес-центры, предоставляющие услугу «<? echo $vd_service_group_id_title; ?>»</h2>
 	<?	
 	
 	foreach ($_DATA['office_center2service_group']['items'] as $office_center2service_group_item) {
@@ -464,7 +466,9 @@ if ($_GET['special']) {
 	</div>
 	</div>
 
-<?	if (isset($_DATA['special_offer'])) { ?>
+<?	out_presentation($vd_service_presentation_url, $vd_service_group_id_css);
+
+	if (isset($_DATA['special_offer'])) { ?>
 	<div class="vd_serviceincenter_wrapper-special">
 		<a name="special" /></a>
 		<div class="g-container"><div class="g-container-row">

@@ -402,10 +402,14 @@ button.g-loader {background: #ababc6 url(/images/ajax_loader.gif) no-repeat cent
 	color: #000000;
 }
 
+.vd_singleofficewrapper-content-about .g-section-title {
+	margin-bottom: 40px;
+}
+
 .vd_singleofficewrapper-content-gallery {
 	width: 100%;
 	overflow: auto;
-	margin: 40px auto 20px auto;
+	margin: 40px auto 100px auto;
 }
 
 .vd_singleofficewrapper-content-gallery-title {
@@ -462,7 +466,7 @@ button.g-loader {background: #ababc6 url(/images/ajax_loader.gif) no-repeat cent
 .vd_singleofficewrapper-content-services {
 	width: 100%;
     overflow: hidden;
-    margin: 80px auto 0px auto;
+    margin: 40px auto 0 auto;
 /*
 	padding-left: 120px;
 	padding-right: 120px;
@@ -851,7 +855,7 @@ display: block;
 .vd_singleofficewrapper-other {
 	width: 100%;
     overflow: hidden;
-    margin: 0 auto;
+    margin: 0 auto 100px auto;
 }
 
 .vd_singleofficewrapper-other-title {
@@ -1047,7 +1051,7 @@ display: block;
 
 .vd_serviceincenter_wrapper-about-list {
 	float: left;
-	margin-top: 40px;
+	margin-top: 20px;
 }
 
 .vd_serviceincenter_wrapper-about-list-sublist {
@@ -1124,7 +1128,7 @@ display: block;
 }
 
 .vd_service-gallery {
-	margin: 80px auto 0px auto;
+	margin: 50px auto 100px auto;
     width: 100%;
 	padding: 0px 120px;
 	padding: 0;
@@ -1532,7 +1536,7 @@ display: block;
 .vd_serviceincenter_wrapper-get_presentation {
 	width: 100%;
 	overflow: hidden;
-	margin: 80px 0px 0px 0px;
+	margin: 40px 0 120px 0;
 	background-color: #f6f7f8;
 	padding: 60px;
 }
@@ -1548,6 +1552,7 @@ display: block;
 .vd_serviceincenter_wrapper-get_presentation form {
 	margin: 30px auto 0px auto;
 	width: 590px;
+	text-align: center;
 }
 
 .vd_serviceincenter_wrapper-get_presentation input.email {
@@ -1583,6 +1588,10 @@ display: block;
 	background-color: #d5d5e2;
 }
 
+.vd_serviceincenter_wrapper-get_presentation input.get_presentation.office {
+	background-color: #e62e66;
+}
+
 .vd_serviceincenter_wrapper-get_presentation input.get_presentation.coworking {
 	background-color: #0092da;
 }
@@ -1593,6 +1602,12 @@ display: block;
 
 .vd_serviceincenter_wrapper-get_presentation input.get_presentation.virtual {
 	background-color: #8f3a92;
+}
+
+.vd_serviceincenter_wrapper-get_presentation-error {
+	padding-top: 30px;
+	font-size: 16px;
+	text-align: center;
 }
 
 /* meeting rooms details styles */
@@ -2576,7 +2591,7 @@ display: block;
 /* */
 
 .vd_serviceincenter_wrapper-freeoffices {
-	margin: 80px auto 0px auto;
+	margin: 80px auto 100px auto;
     width: 100%;
     overflow: hidden;
 }
@@ -3815,7 +3830,7 @@ display: block;
 
 .vd_service_single_wrapper-about-list {
 	float: left;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .vd_service_single_wrapper-about-list-sublist {
@@ -3889,6 +3904,10 @@ display: block;
 
 .vd_service_single_wrapper-centers {
 	margin-top: 80px;
+}
+
+.vd_service_single_wrapper-centers h2{
+	margin: 0 0 40px;
 }
 
 /* blog styles */
