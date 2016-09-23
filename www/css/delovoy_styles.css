@@ -1929,9 +1929,9 @@ display: block;
 
 .vd_serviceincenter_wrapper-meetingrates-list-item-form-left .additionalservice_label span {
 	position: absolute;
-    width: 20px;
+    width: 16px;
     height: 16px;
-    background-image: url('../images/checkbox_blue.png');
+    background-color: #007aff;
     background-size: 16px 16px;
     background-repeat: no-repeat;
     top: 4px;
@@ -1944,7 +1944,7 @@ display: block;
 }
 
 .vd_serviceincenter_wrapper-meetingrates-list-item-form-left .additionalservice:checked + span {
-	content: url(../images/svg/check-white.svg);
+	background-image: url('../images/check-white.png');
 }
 
 .vd_serviceincenter_wrapper-meetingrates-list-item-form-left {
@@ -3004,9 +3004,9 @@ display: block;
 
 .vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-preview .preview_label span {
 	position: absolute;
-    width: 20px;
+    width: 16px;
     height: 16px;
-    background-image: url('../images/checkbox_blue.png');
+    background-color: #007aff;
     background-size: 16px 16px;
     background-repeat: no-repeat;
     top: 4px;
@@ -3015,7 +3015,7 @@ display: block;
 }
 
 .vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-preview .preview:checked + span {
-	content: url(../images/svg/check-white.svg);
+	background-image: url('../images/check-white.png');
 }
 
 .vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-datetime {
@@ -5226,9 +5226,9 @@ display: block;
 
 .vd_specialoffer-offers-list-element-menu-previewform-right-preview .preview_label span {
 	position: absolute;
-    width: 20px;
+    width: 16px;
     height: 16px;
-    background-image: url('../images/checkbox_blue.png');
+    background-color: #007aff;
     background-size: 16px 16px;
     background-repeat: no-repeat;
     top: 4px;
@@ -5236,7 +5236,7 @@ display: block;
 }
 
 .vd_specialoffer-offers-list-element-menu-previewform-right-preview .preview:checked + span {
-	content: url(../images/svg/check-white.svg);
+	background-image: url('../images/check-white.png');
 }	
 
 .vd_specialoffer-offers-list-element-header-place-marker {
