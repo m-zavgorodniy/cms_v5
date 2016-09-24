@@ -1,18 +1,8 @@
 <?
-	
-if ($_GET['azaza'] == 'true') {
-	
-	var_dump($_DATA); die;
-	
-}
-
-if ($_GET['special']) {
-		
-	include('special_template.php');
 
 /* if there's no service requested, then we'll output the service catalog */	
 
-} elseif ($_GET['service'] == false) {
+if ($_GET['service'] == false) {
 	
 ?>
 

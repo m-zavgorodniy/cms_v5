@@ -1,14 +1,8 @@
 <?
 	
-	if ($_GET['azaza'] == 'true') {
-		
-		var_dump($_DATA); die;
-		
-	}
-	
 	/* for development purposes only, remove when moving to the correct templates */
 
-	if ($_GET['display_service']) {
+/*	if ($_GET['display_service']) {
 
 		include('service_template.php'); 
 
@@ -24,7 +18,7 @@
 
 		include('about_template.php'); 
 
-	} else {
+	} else {*/
 	
 
 	// we've got all the office centers in the data even on the single center page (to display the other centers)
@@ -487,6 +481,11 @@
 		<div id="vd_mapwrapper-map"></div>	
 	</div>
 </div>
+<div class="g-container"><div class="g-container-row">
+	<div class="g-section-title-standalone">
+		<h1><?=$_SITE['section_title']?></h1>
+	</div>
+</div></div>
 
 <div class="vd_officelistwrapper">
 <?
@@ -495,8 +494,9 @@
 </div>
 <?
 }
-
+/*
 }
+*/
 
 function out_office_centers($vd_office_centers, $exclude_office_center_id = null) {
 	global $_DATA;

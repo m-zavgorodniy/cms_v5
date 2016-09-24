@@ -40,6 +40,8 @@ h2 {font-size: 29px; margin-bottom: .8em; line-height: 1.5; font-weight: 700; co
 
 .g-error {color: #ff0033;}
 
+.g-section-title-standalone h1 {margin-bottom: 1em; font-size: 30px; font-weight: 700; line-height: 1.5; color: #000000; text-align: center;}
+
 /* header */
 .header {height: 340px;}
 .header-top {height: 60px; padding: 18px 20px 0; color: #fff; background: #41d5e7 url(/images/svg/group.svg) repeat-x bottom;}
@@ -116,6 +118,9 @@ h2 {font-size: 29px; margin-bottom: .8em; line-height: 1.5; font-weight: 700; co
 .index-text {padding: 60px 0 100px; background-color: #f0f2f5;}
 .index-text-left {float: left; width: 379px; margin-right: 30px; font-size: 19px; color: #000;}
 .index-text-right {float: left; width: 724px;}
+
+/* business centers */
+.page-office_centers .g-section-title-standalone {margin: 100px 0 -50px;}
 
 /* offers */
 .offers-items {margin-bottom: 100px;}

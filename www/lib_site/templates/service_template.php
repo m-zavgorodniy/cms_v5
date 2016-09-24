@@ -52,7 +52,7 @@
 		$vd_send_form_customer_message_text .= "\r\nПлощадь: " . $_POST['office_area'];
 		$vd_send_form_customer_message_text .= "\r\nРабочих мест: " . $_POST['office_seats_num'];
 		$vd_send_form_customer_message_text .= "\r\nСтоимость: " . $_POST['office_cost_seat'];
-		$vd_send_form_customer_message_text .= "\r\nИтого: " . $_POST['office_cost_total'];
+/*		$vd_send_form_customer_message_text .= "\r\nИтого: " . $_POST['office_cost_total'];*/
 		
 		$vd_send_form_customer_message_text .= "\r\n";
 		
@@ -104,7 +104,7 @@
 		$vd_send_form_manager_message_text .= "\r\nПлощадь: " . $_POST['office_area'];
 		$vd_send_form_manager_message_text .= "\r\nРабочих мест: " . $_POST['office_seats_num'];
 		$vd_send_form_manager_message_text .= "\r\nСтоимость: " . $_POST['office_cost_seat'];
-		$vd_send_form_manager_message_text .= "\r\nИтого: " . $_POST['office_cost_total'];
+/*		$vd_send_form_manager_message_text .= "\r\nИтого: " . $_POST['office_cost_total'];*/
 		
 		$vd_send_form_manager_message_text .= "\r\n";
 		
@@ -123,7 +123,7 @@
 		$vd_send_form_customer_message_text .= "\r\nПлощадь: " . $_POST['office_area'];
 		$vd_send_form_customer_message_text .= "\r\nРабочих мест: " . $_POST['office_seats_num'];
 		$vd_send_form_customer_message_text .= "\r\nСтоимость: " . $_POST['office_cost_seat'];
-		$vd_send_form_customer_message_text .= "\r\nИтого: " . $_POST['office_cost_total'];
+/*		$vd_send_form_customer_message_text .= "\r\nИтого: " . $_POST['office_cost_total'];*/
 		
 		$vd_send_form_customer_message_text .= "\r\n";
 		
@@ -1125,7 +1125,7 @@ if (isset($_DATA['tariff_includes']['items']) && isset($_DATA['office_center_roo
 								<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item">
 									<div class="vd_serviceincenter_wrapper-meetingrates-list-item-form-left-item-widecontrols">
 										<input type="text" class="date" name="date" placeholder="Выбор даты">
-										<select class="azaza" name="meeting_time">
+										<select name="meeting_time">
 											<option>10.00</option>
 											<option>12.00</option>
 											<option>14.00</option>

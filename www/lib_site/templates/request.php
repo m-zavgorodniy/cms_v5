@@ -1,17 +1,25 @@
+<?
+
+// отправлять заявку на этот адрес, если не один БЦ не отмечен
+$feedback_email_default = $_SITE['settings']['email_feedback'];
+
+?>
 <div class="vd_specialoffer-header">
 	<div class="g-container">
 		<div class="g-container-row">
 			<div class="vd_request_wrapper-content">
-				<h2><?=$_SITE['section_title']?></h2>
-			<?	// текст над формой, меняется в системе управления
-				if (isset($_DATA['article']['items'])) {
-					$article = current($_DATA['article']['items']); 
-					if (trim($article['body'])) { ?>
-						<div class="<?=$_SITE['config']['CONTENT_CSS_CLASS_NAME']?>">
-							<p><?=$article['body']?></p>
-						</div>
-				<?	} 
-				} ?>
+				<h1><?=$_SITE['section_title']?></h1>
+				<div class="<?=$_SITE['config']['CONTENT_CSS_CLASS_NAME']?>">
+					<p>
+				<?	// текст над формой, меняется в системе управления
+					if (isset($_DATA['article']['items'])) {
+						$article = current($_DATA['article']['items']);
+						if (trim($article['body'])) { ?>
+							<?=$article['body']?>
+					<?	}
+					} ?>
+					</p>
+				</div>
 			</div>
 			<div class="vd_request_wrapper-form">
 				<form>

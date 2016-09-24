@@ -204,7 +204,7 @@ if (isset($_DATA['article']['items'])) {
 		<h2 class="g-section-title">Контакты главного офиса</h2>
 		<div class="vd_about_wrapper-contacts-inner">
 			<div class="g-container">
-				<div class="azaza">
+				<div>
 					<div class="vd_about_wrapper-contacts-inner-data">
 						<div class="vd_about_wrapper-contacts-inner-data-block">
 							<?=nl2br($_SITE['settings']['contacts_address'])?>

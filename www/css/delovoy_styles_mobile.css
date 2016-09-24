@@ -1347,7 +1347,10 @@
 	.vd_specialoffer-header p{
 		font-size: 16px;
 		margin: 0;
-		padding: 0 10px;
+	}
+	.vd_specialoffer-header h1, .vd_specialoffer-header p{
+		padding-left: 10px;
+		padding-right: 10px;
 	}
 	.vd_specialoffer-offers-title{
 		font-size: 25px;
