@@ -428,7 +428,7 @@
 	}
 	
 ?>
-
+<a href="#" class="scroll_to_top"></a>
 <div class="vd_serviceincenter_wrapper">
 	<div class="vd_serviceincenter_wrapper-header <? echo $vd_service_group_id_css; ?>">
 		<div class="g-container">

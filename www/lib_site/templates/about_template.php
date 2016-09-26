@@ -41,6 +41,7 @@ if (isset($_DATA['article']['items'])) {
 	$article2 = next($_DATA['article']['items']);
 }
 ?>
+<a href="#" class="scroll_to_top"></a>
 <div class="vd_about_wrapper">
 	<div class="vd_about_wrapper-header">
 		<h1>О компании Деловой</h1>
