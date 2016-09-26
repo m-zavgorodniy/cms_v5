@@ -295,6 +295,8 @@ jQuery(document).on('click', '.vd_serviceincenter_wrapper-freeoffices-list-eleme
 	if (jQuery(this).hasClass('disabled') == false) {
 		
 		var send = true;
+
+		var $form = jQuery(this).parents('form');
 		
 		if (jQuery('input.date', jQuery(this).parents('form')).val().length < 10) {
 			send = false;
@@ -330,7 +332,16 @@ jQuery(document).on('click', '.vd_serviceincenter_wrapper-freeoffices-list-eleme
 		
 		if (send == true) {
 			jQuery('.form_type', jQuery(this).parents('form')).val('previewform');
-			jQuery(this).closest('form').submit();
+			var $button = jQuery(this);
+			loader_add($button);
+	
+			var url_ajax = document.location.href + '?ajax_inner=1';
+			var form_data = $form.serialize();
+			jQuery.post(url_ajax, form_data, function(message) {
+				loader_remove($button);
+				alert(message);
+			});
+			
 		}	
 		
 	}
@@ -347,6 +358,8 @@ jQuery(document).on('click', '.vd_serviceincenter_wrapper-freeoffices-list-eleme
 	}
 	
 	var send = true;
+
+	var $form = jQuery(this).parents('form');
 	
 	if (jQuery('input.phone', jQuery(this).parents('form')).val().length < 18) {
 		send = false;
@@ -372,17 +385,44 @@ jQuery(document).on('click', '.vd_serviceincenter_wrapper-freeoffices-list-eleme
 	
 	if (send == true) {
 		jQuery('.form_type', jQuery(this).parents('form')).val('reserveform');
-		jQuery(this).closest('form').submit();
+		var $button = jQuery(this);
+		loader_add($button);
+
+		var url_ajax = document.location.href + '?ajax_inner=1';
+		var form_data = $form.serialize();
+		jQuery.post(url_ajax, form_data, function(message) {
+			loader_remove($button);
+			alert(message);
+		});
+		
 	}
 	
 });
 
+
+
 jQuery(document).on('click', '.vd_services2_list-item', function() {
+
 	jQuery('.vd_services2_list-item-wrapper').hide();
 	jQuery(this).children('.vd_services2_list-item-wrapper').show();
 	jQuery('html, body').animate({
         scrollTop: jQuery(this).children('.vd_services2_list-item-wrapper').offset().top - 50
     }, 600);
+
+
+	/* close service details pop-ups when clicked outside of them */
+
+	jQuery(document).on('click.hideserviceinfo', function(e){
+
+		if (jQuery(e.target).closest('.vd_services2_list-item-wrapper').length === 0) {
+	
+			jQuery('.vd_services2_list-item-wrapper').hide();
+			jQuery(document).off('click.hideserviceinfo');
+			
+		}
+
+	});
+
 });
 
 jQuery(document).on('click', '.vd_services2_list-item-wrapper-close', function() {
@@ -411,9 +451,11 @@ jQuery(document).on('click', '.vd_subservice_list-item-with-sublist', function()
 
 jQuery(document).on('submit', '.vd_about_wrapper-contacts-inner-data-form form', function(e) {
 	
-// 	e.preventDefault();
+ 	e.preventDefault();
 	
 	var send = true;
+
+	var $form = jQuery(this);
 	
 	if (validateEmail(jQuery('input.email', jQuery(this)).val()) == false) {
 		send = false;
@@ -434,11 +476,18 @@ jQuery(document).on('submit', '.vd_about_wrapper-contacts-inner-data-form form',
 		send = false;
 		jQuery('textarea.message', jQuery(this)).addClass('error');
 	}
-	
+
 	if (send == true) {
-		jQuery(this).submit();
-	} else {
-		return false;
+		var $button = jQuery("button", $form);
+		loader_add($button);
+
+		var url_ajax = document.location.href + '?ajax_inner=1';
+		var form_data = $form.serialize();
+		jQuery.post(url_ajax, form_data, function(message) {
+			loader_remove($button);
+			alert(message);
+		});
+		
 	}
 	
 });
@@ -504,11 +553,13 @@ jQuery(document).on('click', '.vd_serviceincenter_wrapper-virtualrates-list-head
     }, 600);
 });
 
-jQuery(document).on('click', '.vd_serviceincenter_wrapper-virtualrates-list-form button', function(e){
+jQuery(document).on('click', '.vd_serviceincenter_wrapper-virtualrates-list-form button.book', function(e){
 	
 	e.preventDefault();
 	
 	var send = true;
+
+	var $form = jQuery(this).parents('form');
 	
 	if (jQuery('input.phone', jQuery(this).parents('form')).val().length < 18) {
 		send = false;
@@ -531,9 +582,18 @@ jQuery(document).on('click', '.vd_serviceincenter_wrapper-virtualrates-list-form
 		send = false;
 		jQuery('input.name', jQuery(this).parents('form')).addClass('error');
 	}
-	
+
 	if (send == true) {
-		jQuery(this).closest('form').submit();
+		var $button = jQuery(this);
+		loader_add($button);
+
+		var url_ajax = document.location.href + '?ajax_inner=1';
+		var form_data = $form.serialize();
+		jQuery.post(url_ajax, form_data, function(message) {
+			loader_remove($button);
+			alert(message);
+		});
+		
 	}
 	
 });
@@ -548,6 +608,8 @@ jQuery(document).on('click', '.vd_serviceincenter_wrapper-coworkingrates-list-it
 	e.preventDefault();
 	
 	var send = true;
+
+	var $form = jQuery(this).parents('form');
 	
 	if (jQuery('input.phone', jQuery(this).parents('form')).val().length < 18) {
 		send = false;
@@ -570,10 +632,20 @@ jQuery(document).on('click', '.vd_serviceincenter_wrapper-coworkingrates-list-it
 		send = false;
 		jQuery('input.name', jQuery(this).parents('form')).addClass('error');
 	}
-	
+
 	if (send == true) {
-		jQuery(this).closest('form').submit();
+		var $button = jQuery(this);
+		loader_add($button);
+
+		var url_ajax = document.location.href + '?ajax_inner=1';
+		var form_data = $form.serialize();
+		jQuery.post(url_ajax, form_data, function(message) {
+			loader_remove($button);
+			alert(message);
+		});
+		
 	}
+
 });
 
 jQuery(document).on('click', '.vd_serviceincenter_wrapper-virtualrates table th.label', function() {
@@ -598,6 +670,8 @@ jQuery(document).on('click', '.vd_serviceincenter_wrapper-meetingrates-list-item
 	e.preventDefault();
 	
 	var send = true;
+
+	var $form = jQuery(this).parents('form');
 	
 	if (jQuery('input.phone', jQuery(this).parents('form')).val().length < 18) {
 		send = false;
@@ -625,10 +699,20 @@ jQuery(document).on('click', '.vd_serviceincenter_wrapper-meetingrates-list-item
 		send = false;
 		jQuery('input.date', jQuery(this).parents('form')).addClass('error');
 	}
-	
+
 	if (send == true) {
-		jQuery(this).closest('form').submit();
+		var $button = jQuery(this);
+		loader_add($button);
+
+		var url_ajax = document.location.href + '?ajax_inner=1';
+		var form_data = $form.serialize();
+		jQuery.post(url_ajax, form_data, function(message) {
+			loader_remove($button);
+			alert(message);
+		});
+		
 	}
+
 	
 });
 
@@ -710,6 +794,23 @@ jQuery(document).ready(function(){
 	    	jQuery(item).removeClass('active');
     	}
 	});
+});
+
+/* Check to see if the window is top, if not then display button */
+
+jQuery(window).scroll(function(){
+	if (jQuery(this).scrollTop() > 500) {
+		jQuery('.scroll_to_top').fadeIn();
+	} else {
+		jQuery('.scroll_to_top').fadeOut();
+	}
+});
+
+/* Click event to scroll to top */
+
+jQuery('.scroll_to_top').click(function(){
+	jQuery('html, body').scrollTop(0);
+	return false;
 });
 
 $(function() {

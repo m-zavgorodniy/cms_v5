@@ -18,7 +18,7 @@
 
 		include('about_template.php'); 
 
-	} else {*/
+	} else { */
 	
 
 	// we've got all the office centers in the data even on the single center page (to display the other centers)

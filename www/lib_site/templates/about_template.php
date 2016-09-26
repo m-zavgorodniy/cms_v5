@@ -1,8 +1,14 @@
 <?
 
-	$about_contacts_email = $_POST['about_contacts_email'];
-	$about_contacts_name = $_POST['about_contacts_name'];
-	$about_contacts_message = $_POST['about_contacts_message'];
+require $_SERVER['DOCUMENT_ROOT'] . '/lib/mail.php';
+
+if ('POST' == $_SERVER['REQUEST_METHOD']) {
+
+	$MY_POST = get_post();
+
+	$about_contacts_email = $MY_POST['about_contacts_email'];
+	$about_contacts_name = $MY_POST['about_contacts_name'];
+	$about_contacts_message = $MY_POST['about_contacts_message'];
 	
 	$about_contacts_manager_message_text .= "Здравствуйте,\r\nНа сайте было отправлено новое сообщение через форму контактов на странице «О компании».";
 		
@@ -16,14 +22,20 @@
 	$about_contacts_customer_message_text .= "Здравствуйте,\r\nВаше сообщение, отправленное через форму контактов на странице «О компании», было принято.";
 	
 	if ($about_contacts_email && $about_contacts_name && $about_contacts_message) {
-	
-		mail($_SITE['settings']['email_feedback'], 'Новое сообщение с сайта «Деловой»', $about_contacts_manager_message_text);
-		
-		//mail('yojmm@yandex.ru', 'Новое сообщение со страницы «О компании»', $about_contacts_manager_message_text);
-		
-		mail($about_contacts_email, 'Ваше сообщение принято', $about_contacts_customer_message_text);
+
+		if (true === mail_send($_SITE['settings']['email_feedback'], 'Новое сообщение с сайта «Деловой»', $about_contacts_manager_message_text)) {
+			mail_send($about_contacts_email, 'Ваше сообщение принято', $about_contacts_customer_message_text);
+			echo 'Спасибо, ваше сообщение принято';
+		} else {
+			echo 'Ошибка при приеме сообщения. Пожалуйста, попробуйте еще раз чуть позже';
+		}
 		
 	}
+
+	exit;
+
+}
+
 if (isset($_DATA['article']['items'])) {
 	$article1 = current($_DATA['article']['items']);
 	$article2 = next($_DATA['article']['items']);
@@ -220,7 +232,7 @@ if (isset($_DATA['article']['items'])) {
 								<input class="email" name="about_contacts_email" type="text" placeholder="E-mail">
 								<input class="name" name="about_contacts_name" type="text" placeholder="Имя">
 								<textarea class="message" name="about_contacts_message" placeholder="Сообщение"></textarea>
-								<input class="submit" type="submit" value="Отправить">
+								<button class="submit">Отправить</button>
 							</form>
 						</div>
 					</div>

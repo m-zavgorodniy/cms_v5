@@ -13,350 +13,372 @@
 		
 	}
 
-	/* prepare some needed data */
+	require $_SERVER['DOCUMENT_ROOT'] . '/lib/mail.php';
+
+	if ('POST' == $_SERVER['REQUEST_METHOD']) {
+
+		$MY_POST = get_post();
+
+		/* prepare some needed data */
+		
+		if ($MY_POST['form_type'] == 'previewform') {
+			
+			$vd_send_form_date = $MY_POST['date'];
+			$vd_send_form_time = $MY_POST['time'];
+			$vd_send_form_name = $MY_POST['name'];
+			$vd_send_form_email = $MY_POST['email'];
+			$vd_send_form_phone = $MY_POST['phone'];
+			
+			$vd_send_form_manager_message_text .= "Здравствуйте,\r\nНа сайте была оформлена новая заявка на предварительный просмотр офиса.";
+			
+			$vd_send_form_manager_message_text .= "\r\n";
+			
+			$vd_send_form_manager_message_text .= "\r\nДанные объекта";
+			$vd_send_form_manager_message_text .= "\r\nБизнес-центр: " . $MY_POST['business_center'];
+			$vd_send_form_manager_message_text .= "\r\nОфис: " . $MY_POST['office_number'];
+			$vd_send_form_manager_message_text .= "\r\nПлощадь: " . $MY_POST['office_area'];
+			$vd_send_form_manager_message_text .= "\r\nРабочих мест: " . $MY_POST['office_seats_num'];
+			
+			$vd_send_form_manager_message_text .= "\r\n";
+			
+			$vd_send_form_manager_message_text .= "\r\nДанные заявки";
+			$vd_send_form_manager_message_text .= "\r\nДата просмотра: " . $vd_send_form_date;
+			$vd_send_form_manager_message_text .= "\r\nВремя просмотра: " . $vd_send_form_time;
+			$vd_send_form_manager_message_text .= "\r\nИмя: " . $vd_send_form_name;
+			$vd_send_form_manager_message_text .= "\r\nЭлектронная почта: " . $vd_send_form_email;
+			$vd_send_form_manager_message_text .= "\r\nТелефон: " . $vd_send_form_phone;
+			
+			$vd_send_form_customer_message_text .= "Здравствуйте,\r\nВаша заявка на предварительный просмотр офиса была получена.";
+			
+			$vd_send_form_customer_message_text .= "\r\n";
+			
+			$vd_send_form_customer_message_text .= "\r\nДанные объекта";
+			$vd_send_form_customer_message_text .= "\r\nБизнес-центр: " . $MY_POST['business_center'];
+			$vd_send_form_customer_message_text .= "\r\nОфис: " . $MY_POST['office_number'];
+			$vd_send_form_customer_message_text .= "\r\nПлощадь: " . $MY_POST['office_area'];
+			$vd_send_form_customer_message_text .= "\r\nРабочих мест: " . $MY_POST['office_seats_num'];
+			$vd_send_form_customer_message_text .= "\r\nСтоимость: " . $MY_POST['office_cost_seat'];
+/*			$vd_send_form_customer_message_text .= "\r\nИтого: " . $MY_POST['office_cost_total'];*/
+			
+			$vd_send_form_customer_message_text .= "\r\n";
+			
+			$vd_send_form_customer_message_text .= "\r\nВаши данные";
+			$vd_send_form_customer_message_text .= "\r\nИмя: " . $vd_send_form_name;
+			$vd_send_form_customer_message_text .= "\r\nЭлектронная почта: " . $vd_send_form_email;
+			$vd_send_form_customer_message_text .= "\r\nТелефон: " . $vd_send_form_phone;
+			$vd_send_form_customer_message_text .= "\r\nДата просмотра: " . $vd_send_form_date;
+			$vd_send_form_customer_message_text .= "\r\nВремя просмотра: " . $vd_send_form_time;
+			
+			if (true === mail_send($_SITE['settings']['email_request'], 'Заявка на просмотр офиса', $vd_send_form_manager_message_text)) {
+				mail_send($MY_POST['email'], 'Ваша заявка принята', $vd_send_form_customer_message_text);
+				echo 'Спасибо, ваша заявка принята';
+
+				$db_data = array(
+					'office_center_id' => $MY_POST['business_center_id'],
+					'service_group_id' => $MY_POST['business_center_service_group_id'],
+					'office_center_room_id' => $MY_POST['business_center_room_id'],
+					'name' => $vd_send_form_name,
+					'email' => $vd_send_form_email,
+					'phone' => $vd_send_form_phone,
+					'message' => $MY_POST['message'],
+					'office_seat_num' => $MY_POST['office_seats_num'],
+					'office_seat_price' => $MY_POST['office_cost_seat'],
+					'office_price_total' => $MY_POST['office_cost_total'],
+					'viewing_needed' => 1,
+					'viewing_date' => date('Y-m-d', strtotime($vd_send_form_date)),
+					'viewing_time' => $vd_send_form_time
+				);
+				
+				db_insert_booking($db_data);
+
+			} else {
+				echo 'Ошибка при приеме заявки. Пожалуйста, попробуйте еще раз чуть позже';
+			}
 	
-	if ($_POST['form_type'] == 'previewform') {
-		
-		$vd_send_form_date = $_POST['date'];
-		$vd_send_form_time = $_POST['time'];
-		$vd_send_form_name = $_POST['name'];
-		$vd_send_form_email = $_POST['email'];
-		$vd_send_form_phone = $_POST['phone'];
-		
-		$vd_send_form_manager_message_text .= "Здравствуйте,\r\nНа сайте была оформлена новая заявка на предварительный просмотр офиса.";
-		
-		$vd_send_form_manager_message_text .= "\r\n";
-		
-		$vd_send_form_manager_message_text .= "\r\nДанные объекта";
-		$vd_send_form_manager_message_text .= "\r\nБизнес-центр: " . $_POST['business_center'];
-		$vd_send_form_manager_message_text .= "\r\nОфис: " . $_POST['office_number'];
-		$vd_send_form_manager_message_text .= "\r\nПлощадь: " . $_POST['office_area'];
-		$vd_send_form_manager_message_text .= "\r\nРабочих мест: " . $_POST['office_seats_num'];
-		
-		$vd_send_form_manager_message_text .= "\r\n";
-		
-		$vd_send_form_manager_message_text .= "\r\nДанные заявки";
-		$vd_send_form_manager_message_text .= "\r\nДата просмотра: " . $vd_send_form_date;
-		$vd_send_form_manager_message_text .= "\r\nВремя просмотра: " . $vd_send_form_time;
-		$vd_send_form_manager_message_text .= "\r\nИмя: " . $vd_send_form_name;
-		$vd_send_form_manager_message_text .= "\r\nЭлектронная почта: " . $vd_send_form_email;
-		$vd_send_form_manager_message_text .= "\r\nТелефон: " . $vd_send_form_phone;
-		
-		$vd_send_form_customer_message_text .= "Здравствуйте,\r\nВаша заявка на предварительный просмотр офиса была получена.";
-		
-		$vd_send_form_customer_message_text .= "\r\n";
-		
-		$vd_send_form_customer_message_text .= "\r\nДанные объекта";
-		$vd_send_form_customer_message_text .= "\r\nБизнес-центр: " . $_POST['business_center'];
-		$vd_send_form_customer_message_text .= "\r\nОфис: " . $_POST['office_number'];
-		$vd_send_form_customer_message_text .= "\r\nПлощадь: " . $_POST['office_area'];
-		$vd_send_form_customer_message_text .= "\r\nРабочих мест: " . $_POST['office_seats_num'];
-		$vd_send_form_customer_message_text .= "\r\nСтоимость: " . $_POST['office_cost_seat'];
-/*		$vd_send_form_customer_message_text .= "\r\nИтого: " . $_POST['office_cost_total'];*/
-		
-		$vd_send_form_customer_message_text .= "\r\n";
-		
-		$vd_send_form_customer_message_text .= "\r\nВаши данные";
-		$vd_send_form_customer_message_text .= "\r\nИмя: " . $vd_send_form_name;
-		$vd_send_form_customer_message_text .= "\r\nЭлектронная почта: " . $vd_send_form_email;
-		$vd_send_form_customer_message_text .= "\r\nТелефон: " . $vd_send_form_phone;
-		$vd_send_form_customer_message_text .= "\r\nДата просмотра: " . $vd_send_form_date;
-		$vd_send_form_customer_message_text .= "\r\nВремя просмотра: " . $vd_send_form_time;
-		
-		mail($_SITE['settings']['email_request'], 'Заявка на просмотр офиса', $vd_send_form_manager_message_text);
-		
-		//mail('yojmm@yandex.ru', 'Заявка на просмотр офиса', $vd_send_form_manager_message_text);
-		
-		mail($vd_send_form_email, 'Ваша заявка принята', $vd_send_form_customer_message_text);
+			
+			
+		} elseif ($MY_POST['form_type'] == 'reserveform') {
+			
+			$vd_send_form_name = $MY_POST['name'];
+			$vd_send_form_email = $MY_POST['email'];
+			$vd_send_form_phone = $MY_POST['phone'];
+			$vd_send_form_message = $MY_POST['message'];
+			
+			$vd_send_form_manager_message_text .= "Здравствуйте,\r\nНа сайте была оформлена новая заявка на бронирование офиса.";
+			
+			$vd_send_form_manager_message_text .= "\r\n";
+			
+			$vd_send_form_manager_message_text .= "\r\nВы забронировали";
+			$vd_send_form_manager_message_text .= "\r\nБизнес-центр: " . $MY_POST['business_center'];
+			$vd_send_form_manager_message_text .= "\r\nОфис: " . $MY_POST['office_number'];
+			$vd_send_form_manager_message_text .= "\r\nПлощадь: " . $MY_POST['office_area'];
+			$vd_send_form_manager_message_text .= "\r\nРабочих мест: " . $MY_POST['office_seats_num'];
+			$vd_send_form_manager_message_text .= "\r\nСтоимость: " . $MY_POST['office_cost_seat'];
+/*			$vd_send_form_manager_message_text .= "\r\nИтого: " . $MY_POST['office_cost_total'];*/
+			
+			$vd_send_form_manager_message_text .= "\r\n";
+			
+			$vd_send_form_manager_message_text .= "\r\nДанные заявки";
+			$vd_send_form_manager_message_text .= "\r\nИмя: " . $vd_send_form_name;
+			$vd_send_form_manager_message_text .= "\r\nЭлектронная почта: " . $vd_send_form_email;
+			$vd_send_form_manager_message_text .= "\r\nТелефон: " . $vd_send_form_phone;
+			
+			$vd_send_form_customer_message_text .= "Здравствуйте,\r\nВаша заявка на бронирование офиса была получена.";
+			
+			$vd_send_form_customer_message_text .= "\r\n";
+			
+			$vd_send_form_customer_message_text .= "\r\nДанные объекта";
+			$vd_send_form_customer_message_text .= "\r\nБизнес-центр: " . $MY_POST['business_center'];
+			$vd_send_form_customer_message_text .= "\r\nОфис: " . $MY_POST['office_number'];
+			$vd_send_form_customer_message_text .= "\r\nПлощадь: " . $MY_POST['office_area'];
+			$vd_send_form_customer_message_text .= "\r\nРабочих мест: " . $MY_POST['office_seats_num'];
+			$vd_send_form_customer_message_text .= "\r\nСтоимость: " . $MY_POST['office_cost_seat'];
+/*			$vd_send_form_customer_message_text .= "\r\nИтого: " . $MY_POST['office_cost_total'];*/
+			
+			$vd_send_form_customer_message_text .= "\r\n";
+			
+			$vd_send_form_customer_message_tomorrow = new DateTime('tomorrow');
+			
+			$vd_send_form_customer_message_text .= "\r\nБронь сохраняется до вечера " . $vd_send_form_customer_message_tomorrow->format('d.m.Y');
+			
+			$vd_send_form_customer_message_text .= "\r\n";
+			
+			$vd_send_form_customer_message_text .= "\r\nВаши данные";
+			$vd_send_form_customer_message_text .= "\r\nИмя: " . $vd_send_form_name;
+			$vd_send_form_customer_message_text .= "\r\nЭлектронная почта: " . $vd_send_form_email;
+			$vd_send_form_customer_message_text .= "\r\nТелефон: " . $vd_send_form_phone;
+			
+			if ($vd_send_form_message != "") {
+				$vd_send_form_manager_message_text .= "\r\nСообщение: $vd_send_form_message";
+				$vd_send_form_customer_message_text .= "\r\nСообщение: $vd_send_form_message";
+			}
 
-		$db_data = array(
-			'office_center_id' => $_POST['business_center_id'],
-			'service_group_id' => $_POST['business_center_service_group_id'],
-			'office_center_room_id' => $_POST['business_center_room_id'],
-			'name' => $vd_send_form_name,
-			'email' => $vd_send_form_email,
-			'phone' => $vd_send_form_phone,
-			'message' => $_POST['message'],
-			'office_seat_num' => $_POST['office_seats_num'],
-			'office_seat_price' => $_POST['office_cost_seat'],
-			'office_price_total' => $_POST['office_cost_total'],
-			'viewing_needed' => 1,
-			'viewing_date' => date('Y-m-d', strtotime($vd_send_form_date)),
-			'viewing_time' => $vd_send_form_time
-		);
-		
-		db_insert_booking($db_data);
-		
-	} elseif ($_POST['form_type'] == 'reserveform') {
-		
-		$vd_send_form_name = $_POST['name'];
-		$vd_send_form_email = $_POST['email'];
-		$vd_send_form_phone = $_POST['phone'];
-		$vd_send_form_message = $_POST['message'];
-		
-		$vd_send_form_manager_message_text .= "Здравствуйте,\r\nНа сайте была оформлена новая заявка на бронирование офиса.";
-		
-		$vd_send_form_manager_message_text .= "\r\n";
-		
-		$vd_send_form_manager_message_text .= "\r\nВы забронировали";
-		$vd_send_form_manager_message_text .= "\r\nБизнес-центр: " . $_POST['business_center'];
-		$vd_send_form_manager_message_text .= "\r\nОфис: " . $_POST['office_number'];
-		$vd_send_form_manager_message_text .= "\r\nПлощадь: " . $_POST['office_area'];
-		$vd_send_form_manager_message_text .= "\r\nРабочих мест: " . $_POST['office_seats_num'];
-		$vd_send_form_manager_message_text .= "\r\nСтоимость: " . $_POST['office_cost_seat'];
-/*		$vd_send_form_manager_message_text .= "\r\nИтого: " . $_POST['office_cost_total'];*/
-		
-		$vd_send_form_manager_message_text .= "\r\n";
-		
-		$vd_send_form_manager_message_text .= "\r\nДанные заявки";
-		$vd_send_form_manager_message_text .= "\r\nИмя: " . $vd_send_form_name;
-		$vd_send_form_manager_message_text .= "\r\nЭлектронная почта: " . $vd_send_form_email;
-		$vd_send_form_manager_message_text .= "\r\nТелефон: " . $vd_send_form_phone;
-		
-		$vd_send_form_customer_message_text .= "Здравствуйте,\r\nВаша заявка на бронирование офиса была получена.";
-		
-		$vd_send_form_customer_message_text .= "\r\n";
-		
-		$vd_send_form_customer_message_text .= "\r\nДанные объекта";
-		$vd_send_form_customer_message_text .= "\r\nБизнес-центр: " . $_POST['business_center'];
-		$vd_send_form_customer_message_text .= "\r\nОфис: " . $_POST['office_number'];
-		$vd_send_form_customer_message_text .= "\r\nПлощадь: " . $_POST['office_area'];
-		$vd_send_form_customer_message_text .= "\r\nРабочих мест: " . $_POST['office_seats_num'];
-		$vd_send_form_customer_message_text .= "\r\nСтоимость: " . $_POST['office_cost_seat'];
-/*		$vd_send_form_customer_message_text .= "\r\nИтого: " . $_POST['office_cost_total'];*/
-		
-		$vd_send_form_customer_message_text .= "\r\n";
-		
-		$vd_send_form_customer_message_tomorrow = new DateTime('tomorrow');
-		
-		$vd_send_form_customer_message_text .= "\r\nБронь сохраняется до вечера " . $vd_send_form_customer_message_tomorrow->format('d.m.Y');
-		
-		$vd_send_form_customer_message_text .= "\r\n";
-		
-		$vd_send_form_customer_message_text .= "\r\nВаши данные";
-		$vd_send_form_customer_message_text .= "\r\nИмя: " . $vd_send_form_name;
-		$vd_send_form_customer_message_text .= "\r\nЭлектронная почта: " . $vd_send_form_email;
-		$vd_send_form_customer_message_text .= "\r\nТелефон: " . $vd_send_form_phone;
-		
-		if ($vd_send_form_message != "") {
-			$vd_send_form_manager_message_text .= "\r\nСообщение: $vd_send_form_message";
-			$vd_send_form_customer_message_text .= "\r\nСообщение: $vd_send_form_message";
-		}
-		
-		mail($_SITE['settings']['email_request'], 'Заявка на бронирование офиса', $vd_send_form_manager_message_text);
-		
-		//mail('yojmm@yandex.ru', 'Заявка на бронирование офиса', $vd_send_form_manager_message_text);
-		
-		mail($vd_send_form_email, 'Ваша заявка принята', $vd_send_form_customer_message_text);
-		
-		$db_data = array(
-			'office_center_id' => $_POST['business_center_id'],
-			'service_group_id' => $_POST['business_center_service_group_id'],
-			'office_center_room_id' => $_POST['business_center_room_id'],
-			'name' => $vd_send_form_name,
-			'email' => $vd_send_form_email,
-			'phone' => $vd_send_form_phone,
-			'message' => $_POST['message'],
-			'office_seat_num' => $_POST['office_seats_num'],
-			'office_seat_price' => $_POST['office_cost_seat'],
-			'office_price_total' => $_POST['office_cost_total'],
-			'viewing_needed' => 0,
-			'viewing_date' => '',
-			'viewing_time' => ''
-		);
-		
-		db_insert_booking($db_data);
-		
-	} elseif ($_POST['form_type'] == 'book_virtualoffice') {
-		
-		$vd_send_form_manager_message_text .= "Здравствуйте,\r\nНа сайте была оформлена новая заявка на виртуальный офис.";
-		
-		$vd_send_form_manager_message_text .= "\r\n";
-		
-		$vd_send_form_manager_message_text .= "\r\nВы забронировали";
-		$vd_send_form_manager_message_text .= "\r\nБизнес-центр: " . $_POST['business_center'];
-		$vd_send_form_manager_message_text .= "\r\nТариф: " . $_POST['virtual_office_rate'];
-		$vd_send_form_manager_message_text .= "\r\nСтоимость: " . $_POST['virtual_office_price'];
-		
-		$vd_send_form_manager_message_text .= "\r\n";
-		
-		$vd_send_form_manager_message_text .= "\r\nДанные заявки";
-		$vd_send_form_manager_message_text .= "\r\nИмя: " . $_POST['name'];
-		$vd_send_form_manager_message_text .= "\r\nЭлектронная почта: " . $_POST['email'];
-		$vd_send_form_manager_message_text .= "\r\nТелефон: " . $_POST['phone'];
-		
-		$vd_send_form_customer_message_text .= "Здравствуйте,\r\nВаша заявка на виртуальный офис была получена.";
-		
-		$vd_send_form_customer_message_text .= "\r\n";
-		
-		$vd_send_form_customer_message_text .= "\r\nДанные объекта";
-		$vd_send_form_customer_message_text .= "\r\nБизнес-центр: " . $_POST['business_center'];
-		$vd_send_form_customer_message_text .= "\r\nТариф: " . $_POST['virtual_office_rate'];
-		$vd_send_form_customer_message_text .= "\r\nСтоимость: " . $_POST['virtual_office_price'];
-		
-		$vd_send_form_customer_message_text .= "\r\n";
-		
-		$vd_send_form_customer_message_text .= "\r\nВаши данные";
-		$vd_send_form_customer_message_text .= "\r\nИмя: " . $_POST['name'];
-		$vd_send_form_customer_message_text .= "\r\nЭлектронная почта: " . $_POST['email'];
-		$vd_send_form_customer_message_text .= "\r\nТелефон: " . $_POST['phone'];
-		
-		if ($vd_send_form_message != "") {
-			$vd_send_form_manager_message_text .= "\r\nСообщение: " . $_POST['message'];
-			$vd_send_form_customer_message_text .= "\r\nСообщение: " . $_POST['message'];
-		}
-		
-		mail($_SITE['settings']['email_request'], 'Заявка на виртуальный офис', $vd_send_form_manager_message_text);
-		
-		//mail('yojmm@yandex.ru', 'Заявка на виртуальный офис', $vd_send_form_manager_message_text);
-		
-		mail($_POST['email'], 'Ваша заявка принята', $vd_send_form_customer_message_text);
+			if (true === mail_send($_SITE['settings']['email_request'], 'Заявка на бронирование офиса', $vd_send_form_manager_message_text)) {
+				mail_send($MY_POST['email'], 'Ваша заявка принята', $vd_send_form_customer_message_text);
+				echo 'Спасибо, ваша заявка принята';
 
-		$virtual_office_total_price = $_POST['virtual_office_price'] * $_POST['term'];
-		
-		$db_data = array(
-			'office_center_id' => $_POST['business_center_id'],
-			'service_group_id' => $_POST['business_center_service_group_id'],
-			'office_center_room_id' => $_POST['business_center_room_id'],
-			'name' => $_POST['name'],
-			'email' => $_POST['email'],
-			'phone' => $_POST['phone'],
-			'message' => $_POST['message'],
-			'office_seat_num' => $_POST['term'],
-			'office_seat_price' => $_POST['virtual_office_price'],
-			'office_price_total' => $virtual_office_total_price,
-			'viewing_needed' => 0
-		);
-		
-		db_insert_booking($db_data);
-		
-	} elseif ($_POST['form_type'] == 'book_meeting') {
-		
-		$vd_send_form_manager_message_text .= "Здравствуйте,\r\nНа сайте была оформлена новая заявка на переговорную.";
-		
-		$vd_send_form_manager_message_text .= "\r\n";
-		
-		$vd_send_form_manager_message_text .= "\r\nВы забронировали";
-		$vd_send_form_manager_message_text .= "\r\nБизнес-центр: " . $_POST['business_center'];
-		$vd_send_form_manager_message_text .= "\r\nТариф: " . $_POST['meeting_rate'];
-		$vd_send_form_manager_message_text .= "\r\nСтоимость: " . $_POST['meeting_price'];
-		
-		$vd_send_form_manager_message_text .= "\r\n";
-		
-		$vd_send_form_manager_message_text .= "\r\nДанные заявки";
-		$vd_send_form_manager_message_text .= "\r\nИмя: " . $_POST['name'];
-		$vd_send_form_manager_message_text .= "\r\nЭлектронная почта: " . $_POST['email'];
-		$vd_send_form_manager_message_text .= "\r\nТелефон: " . $_POST['phone'];
-		
-		$vd_send_form_customer_message_text .= "Здравствуйте,\r\nВаша заявка на переговорную была получена.";
-		
-		$vd_send_form_customer_message_text .= "\r\n";
-		
-		$vd_send_form_customer_message_text .= "\r\nДанные объекта";
-		$vd_send_form_customer_message_text .= "\r\nБизнес-центр: " . $_POST['business_center'];
-		$vd_send_form_customer_message_text .= "\r\nТариф: " . $_POST['meeting_rate'];
-		$vd_send_form_customer_message_text .= "\r\nСтоимость: " . $_POST['meeting_price'];
-		
-		$vd_send_form_customer_message_text .= "\r\n";
-		
-		$vd_send_form_customer_message_text .= "\r\nВаши данные";
-		$vd_send_form_customer_message_text .= "\r\nИмя: " . $_POST['name'];
-		$vd_send_form_customer_message_text .= "\r\nЭлектронная почта: " . $_POST['email'];
-		$vd_send_form_customer_message_text .= "\r\nТелефон: " . $_POST['phone'];
-		
-		if ($vd_send_form_message != "") {
-			$vd_send_form_manager_message_text .= "\r\nСообщение: " . $_POST['message'];
-			$vd_send_form_customer_message_text .= "\r\nСообщение: " . $_POST['message'];
-		}
-		
-		mail($_SITE['settings']['email_request'], 'Заявка на переговорную', $vd_send_form_manager_message_text);
-		
-		//mail('yojmm@yandex.ru', 'Заявка на переговорную', $vd_send_form_manager_message_text);
-		
-		mail($_POST['email'], 'Ваша заявка принята', $vd_send_form_customer_message_text);
+				$db_data = array(
+					'office_center_id' => $MY_POST['business_center_id'],
+					'service_group_id' => $MY_POST['business_center_service_group_id'],
+					'office_center_room_id' => $MY_POST['business_center_room_id'],
+					'name' => $vd_send_form_name,
+					'email' => $vd_send_form_email,
+					'phone' => $vd_send_form_phone,
+					'message' => $_POST['message'],
+					'office_seat_num' => $MY_POST['office_seats_num'],
+					'office_seat_price' => $MY_POST['office_cost_seat'],
+					'office_price_total' => $MY_POST['office_cost_total'],
+					'viewing_needed' => 0,
+					'viewing_date' => '',
+					'viewing_time' => ''
+				);
+				
+				db_insert_booking($db_data);
 
-		$meeting_price_total = $_POST['meeting_price'] * $_POST['meeting_duration'];
-		
-		$db_data = array(
-			'office_center_id' => $_POST['business_center_id'],
-			'service_group_id' => $_POST['business_center_service_group_id'],
-			'office_center_room_id' => $_POST['business_center_room_id'],
-			'name' => $_POST['name'],
-			'email' => $_POST['email'],
-			'phone' => $_POST['phone'],
-			'message' => $_POST['message'],
-			'office_seat_price' => $_POST['meeting_price'],
-			'office_price_total' => $meeting_price_total,
-			'meeting_date' => date('Y-m-d', strtotime($_POST['date'])),
-			'meeting_time' => $_POST['meeting_time'],
-			'meeting_duration' => $_POST['meeting_duration'],
-			'meeting_needs_service' => $_POST['additionalservice'],
-		);
-		
-		db_insert_booking($db_data);
-		
-	} elseif ($_POST['form_type'] == 'book_coworking') {
-		
-		$vd_send_form_manager_message_text .= "Здравствуйте,\r\nНа сайте была оформлена новая заявка на коворкинг.";
-		
-		$vd_send_form_manager_message_text .= "\r\n";
-		
-		$vd_send_form_manager_message_text .= "\r\nВы забронировали";
-		$vd_send_form_manager_message_text .= "\r\nБизнес-центр: " . $_POST['business_center'];
-		$vd_send_form_manager_message_text .= "\r\nТариф: " . $_POST['coworking_rate'];
-		$vd_send_form_manager_message_text .= "\r\nСтоимость: " . $_POST['coworking_price'];
-		
-		$vd_send_form_manager_message_text .= "\r\n";
-		
-		$vd_send_form_manager_message_text .= "\r\nДанные заявки";
-		$vd_send_form_manager_message_text .= "\r\nИмя: " . $_POST['name'];
-		$vd_send_form_manager_message_text .= "\r\nЭлектронная почта: " . $_POST['email'];
-		$vd_send_form_manager_message_text .= "\r\nТелефон: " . $_POST['phone'];
-		
-		$vd_send_form_customer_message_text .= "Здравствуйте,\r\nВаша заявка на коворкинг была получена.";
-		
-		$vd_send_form_customer_message_text .= "\r\n";
-		
-		$vd_send_form_customer_message_text .= "\r\nДанные объекта";
-		$vd_send_form_customer_message_text .= "\r\nБизнес-центр: " . $_POST['business_center'];
-		$vd_send_form_customer_message_text .= "\r\nТариф: " . $_POST['coworking_rate'];
-		$vd_send_form_customer_message_text .= "\r\nСтоимость: " . $_POST['coworking_price'];
-		
-		$vd_send_form_customer_message_text .= "\r\n";
-		
-		$vd_send_form_customer_message_text .= "\r\nВаши данные";
-		$vd_send_form_customer_message_text .= "\r\nИмя: " . $_POST['name'];
-		$vd_send_form_customer_message_text .= "\r\nЭлектронная почта: " . $_POST['email'];
-		$vd_send_form_customer_message_text .= "\r\nТелефон: " . $_POST['phone'];
-		
-		if ($vd_send_form_message != "") {
-			$vd_send_form_manager_message_text .= "\r\nСообщение: " . $_POST['message'];
-			$vd_send_form_customer_message_text .= "\r\nСообщение: " . $_POST['message'];
-		}
-		
-		mail($_SITE['settings']['email_request'], 'Заявка на коворкинг', $vd_send_form_manager_message_text);
-		
-		//mail('yojmm@yandex.ru', 'Заявка на коворкинг', $vd_send_form_manager_message_text);
-		
-		mail($_POST['email'], 'Ваша заявка принята', $vd_send_form_customer_message_text);
+			} else {
+				echo 'Ошибка при приеме заявки. Пожалуйста, попробуйте еще раз чуть позже';
+			}
+			
+		} elseif ($MY_POST['form_type'] == 'book_virtualoffice') {
+			
+			$vd_send_form_manager_message_text .= "Здравствуйте,\r\nНа сайте была оформлена новая заявка на виртуальный офис.";
+			
+			$vd_send_form_manager_message_text .= "\r\n";
+			
+			$vd_send_form_manager_message_text .= "\r\nВы забронировали";
+			$vd_send_form_manager_message_text .= "\r\nБизнес-центр: " . $MY_POST['business_center'];
+			$vd_send_form_manager_message_text .= "\r\nТариф: " . $MY_POST['virtual_office_rate'];
+			$vd_send_form_manager_message_text .= "\r\nСтоимость: " . $MY_POST['virtual_office_price'];
+			
+			$vd_send_form_manager_message_text .= "\r\n";
+			
+			$vd_send_form_manager_message_text .= "\r\nДанные заявки";
+			$vd_send_form_manager_message_text .= "\r\nИмя: " . $MY_POST['name'];
+			$vd_send_form_manager_message_text .= "\r\nЭлектронная почта: " . $MY_POST['email'];
+			$vd_send_form_manager_message_text .= "\r\nТелефон: " . $MY_POST['phone'];
+			
+			$vd_send_form_customer_message_text .= "Здравствуйте,\r\nВаша заявка на виртуальный офис была получена.";
+			
+			$vd_send_form_customer_message_text .= "\r\n";
+			
+			$vd_send_form_customer_message_text .= "\r\nДанные объекта";
+			$vd_send_form_customer_message_text .= "\r\nБизнес-центр: " . $MY_POST['business_center'];
+			$vd_send_form_customer_message_text .= "\r\nТариф: " . $MY_POST['virtual_office_rate'];
+			$vd_send_form_customer_message_text .= "\r\nСтоимость: " . $MY_POST['virtual_office_price'];
+			
+			$vd_send_form_customer_message_text .= "\r\n";
+			
+			$vd_send_form_customer_message_text .= "\r\nВаши данные";
+			$vd_send_form_customer_message_text .= "\r\nИмя: " . $MY_POST['name'];
+			$vd_send_form_customer_message_text .= "\r\nЭлектронная почта: " . $MY_POST['email'];
+			$vd_send_form_customer_message_text .= "\r\nТелефон: " . $MY_POST['phone'];
+			
+			if ($vd_send_form_message != "") {
+				$vd_send_form_manager_message_text .= "\r\nСообщение: " . $MY_POST['message'];
+				$vd_send_form_customer_message_text .= "\r\nСообщение: " . $MY_POST['message'];
+			}
 
-		$coworking_price_total = $_POST['coworking_price'] * $_POST['coworking_workplaces'];
-		
-		$db_data = array(
-			'office_center_id' => $_POST['business_center_id'],
-			'service_group_id' => $_POST['business_center_service_group_id'],
-			'office_center_room_id' => $_POST['business_center_room_id'],
-			'name' => $_POST['name'],
-			'email' => $_POST['email'],
-			'phone' => $_POST['phone'],
-			'message' => $_POST['message'],
-			'office_seat_num' => $_POST['coworking_workplaces'],
-			'office_seat_price' => $_POST['coworking_price'],
-			'office_price_total' => $coworking_price_total
-		);
-		
-		db_insert_booking($db_data);
-		
+			if (true === mail_send($_SITE['settings']['email_request'], 'Заявка на виртуальный офис', $vd_send_form_manager_message_text)) {
+				mail_send($MY_POST['email'], 'Ваша заявка принята', $vd_send_form_customer_message_text);
+				echo 'Спасибо, ваша заявка принята';
+
+				$virtual_office_total_price = $MY_POST['virtual_office_price'] * $MY_POST['term'];
+				
+				$db_data = array(
+					'office_center_id' => $MY_POST['business_center_id'],
+					'service_group_id' => $MY_POST['business_center_service_group_id'],
+					'office_center_room_id' => $MY_POST['business_center_room_id'],
+					'name' => $MY_POST['name'],
+					'email' => $MY_POST['email'],
+					'phone' => $MY_POST['phone'],
+					'message' => $MY_POST['message'],
+					'office_seat_num' => $MY_POST['term'],
+					'office_seat_price' => $MY_POST['virtual_office_price'],
+					'office_price_total' => $virtual_office_total_price,
+					'viewing_needed' => 0
+				);
+				
+				db_insert_booking($db_data);
+
+			} else {
+				echo 'Ошибка при приеме заявки. Пожалуйста, попробуйте еще раз чуть позже';
+			}		
+			
+		} elseif ($MY_POST['form_type'] == 'book_meeting') {
+			
+			$vd_send_form_manager_message_text .= "Здравствуйте,\r\nНа сайте была оформлена новая заявка на переговорную.";
+			
+			$vd_send_form_manager_message_text .= "\r\n";
+			
+			$vd_send_form_manager_message_text .= "\r\nВы забронировали";
+			$vd_send_form_manager_message_text .= "\r\nБизнес-центр: " . $MY_POST['business_center'];
+			$vd_send_form_manager_message_text .= "\r\nТариф: " . $MY_POST['meeting_rate'];
+			$vd_send_form_manager_message_text .= "\r\nСтоимость: " . $MY_POST['meeting_price'];
+			
+			$vd_send_form_manager_message_text .= "\r\n";
+			
+			$vd_send_form_manager_message_text .= "\r\nДанные заявки";
+			$vd_send_form_manager_message_text .= "\r\nИмя: " . $MY_POST['name'];
+			$vd_send_form_manager_message_text .= "\r\nЭлектронная почта: " . $MY_POST['email'];
+			$vd_send_form_manager_message_text .= "\r\nТелефон: " . $MY_POST['phone'];
+			
+			$vd_send_form_customer_message_text .= "Здравствуйте,\r\nВаша заявка на переговорную была получена.";
+			
+			$vd_send_form_customer_message_text .= "\r\n";
+			
+			$vd_send_form_customer_message_text .= "\r\nДанные объекта";
+			$vd_send_form_customer_message_text .= "\r\nБизнес-центр: " . $MY_POST['business_center'];
+			$vd_send_form_customer_message_text .= "\r\nТариф: " . $MY_POST['meeting_rate'];
+			$vd_send_form_customer_message_text .= "\r\nСтоимость: " . $MY_POST['meeting_price'];
+			
+			$vd_send_form_customer_message_text .= "\r\n";
+			
+			$vd_send_form_customer_message_text .= "\r\nВаши данные";
+			$vd_send_form_customer_message_text .= "\r\nИмя: " . $MY_POST['name'];
+			$vd_send_form_customer_message_text .= "\r\nЭлектронная почта: " . $MY_POST['email'];
+			$vd_send_form_customer_message_text .= "\r\nТелефон: " . $MY_POST['phone'];
+			
+			if ($vd_send_form_message != "") {
+				$vd_send_form_manager_message_text .= "\r\nСообщение: " . $MY_POST['message'];
+				$vd_send_form_customer_message_text .= "\r\nСообщение: " . $MY_POST['message'];
+			}
+
+			if (true === mail_send($_SITE['settings']['email_request'], 'Заявка на переговорную', $vd_send_form_manager_message_text)) {
+				mail_send($MY_POST['email'], 'Ваша заявка принята', $vd_send_form_customer_message_text);
+				echo 'Спасибо, ваша заявка принята';
+
+				$meeting_price_total = $MY_POST['meeting_price'] * $MY_POST['meeting_duration'];
+			
+				$db_data = array(
+					'office_center_id' => $MY_POST['business_center_id'],
+					'service_group_id' => $MY_POST['business_center_service_group_id'],
+					'office_center_room_id' => $MY_POST['business_center_room_id'],
+					'name' => $MY_POST['name'],
+					'email' => $MY_POST['email'],
+					'phone' => $MY_POST['phone'],
+					'message' => $MY_POST['message'],
+					'office_seat_price' => $MY_POST['meeting_price'],
+					'office_price_total' => $meeting_price_total,
+					'meeting_date' => date('Y-m-d', strtotime($MY_POST['date'])),
+					'meeting_time' => $MY_POST['meeting_time'],
+					'meeting_duration' => $MY_POST['meeting_duration'],
+					'meeting_needs_service' => $MY_POST['additionalservice'],
+				);
+				
+				db_insert_booking($db_data);
+
+			} else {
+				echo 'Ошибка при приеме заявки. Пожалуйста, попробуйте еще раз чуть позже';
+			}
+			
+		} elseif ($MY_POST['form_type'] == 'book_coworking') {
+			
+			$vd_send_form_manager_message_text .= "Здравствуйте,\r\nНа сайте была оформлена новая заявка на коворкинг.";
+			
+			$vd_send_form_manager_message_text .= "\r\n";
+			
+			$vd_send_form_manager_message_text .= "\r\nВы забронировали";
+			$vd_send_form_manager_message_text .= "\r\nБизнес-центр: " . $MY_POST['business_center'];
+			$vd_send_form_manager_message_text .= "\r\nТариф: " . $MY_POST['coworking_rate'];
+			$vd_send_form_manager_message_text .= "\r\nСтоимость: " . $MY_POST['coworking_price'];
+			
+			$vd_send_form_manager_message_text .= "\r\n";
+			
+			$vd_send_form_manager_message_text .= "\r\nДанные заявки";
+			$vd_send_form_manager_message_text .= "\r\nИмя: " . $MY_POST['name'];
+			$vd_send_form_manager_message_text .= "\r\nЭлектронная почта: " . $MY_POST['email'];
+			$vd_send_form_manager_message_text .= "\r\nТелефон: " . $MY_POST['phone'];
+			
+			$vd_send_form_customer_message_text .= "Здравствуйте,\r\nВаша заявка на коворкинг была получена.";
+			
+			$vd_send_form_customer_message_text .= "\r\n";
+			
+			$vd_send_form_customer_message_text .= "\r\nДанные объекта";
+			$vd_send_form_customer_message_text .= "\r\nБизнес-центр: " . $MY_POST['business_center'];
+			$vd_send_form_customer_message_text .= "\r\nТариф: " . $MY_POST['coworking_rate'];
+			$vd_send_form_customer_message_text .= "\r\nСтоимость: " . $MY_POST['coworking_price'];
+			
+			$vd_send_form_customer_message_text .= "\r\n";
+			
+			$vd_send_form_customer_message_text .= "\r\nВаши данные";
+			$vd_send_form_customer_message_text .= "\r\nИмя: " . $MY_POST['name'];
+			$vd_send_form_customer_message_text .= "\r\nЭлектронная почта: " . $MY_POST['email'];
+			$vd_send_form_customer_message_text .= "\r\nТелефон: " . $MY_POST['phone'];
+			
+			if ($vd_send_form_message != "") {
+				$vd_send_form_manager_message_text .= "\r\nСообщение: " . $MY_POST['message'];
+				$vd_send_form_customer_message_text .= "\r\nСообщение: " . $MY_POST['message'];
+			}
+
+			if (true === mail_send($_SITE['settings']['email_request'], 'Заявка на коворкинг', $vd_send_form_manager_message_text)) {
+				mail_send($MY_POST['email'], 'Ваша заявка принята', $vd_send_form_customer_message_text);
+				echo 'Спасибо, ваша заявка принята';
+
+				$coworking_price_total = $MY_POST['coworking_price'] * $MY_POST['coworking_workplaces'];
+				
+				$db_data = array(
+					'office_center_id' => $MY_POST['business_center_id'],
+					'service_group_id' => $MY_POST['business_center_service_group_id'],
+					'office_center_room_id' => $MY_POST['business_center_room_id'],
+					'name' => $MY_POST['name'],
+					'email' => $MY_POST['email'],
+					'phone' => $MY_POST['phone'],
+					'message' => $MY_POST['message'],
+					'office_seat_num' => $MY_POST['coworking_workplaces'],
+					'office_seat_price' => $MY_POST['coworking_price'],
+					'office_price_total' => $coworking_price_total
+				);
+				
+				db_insert_booking($db_data);
+
+			} else {
+				echo 'Ошибка при приеме заявки. Пожалуйста, попробуйте еще раз чуть позже';
+			}
+			
+		}
+
+		exit();
+
 	}
 	
 	$g_office_center_id = (int)$_GET['center'];
@@ -889,7 +911,7 @@
 								<input type="text" class="email" name="email" placeholder="E-mail">
 								<input type="text" class="name" name="name" placeholder="Имя">
 								<textarea class="message" name="message" placeholder="Ваше сообщение"></textarea>
-								<button>Забронировать виртуальный офис</button>
+								<button class="book">Забронировать виртуальный офис</button>
 								<button class="disabled consultation" data-url="<?=$_SITE['section_paths']['request']['path']?>">Получить консультацию</button>
 							</div>
 							<div class="vd_serviceincenter_wrapper-virtualrates-list-form-left">

@@ -160,6 +160,7 @@ if ($_GET['service'] == false) {
 	
 ?>
 
+<a href="#" class="scroll_to_top"></a>
 <div class="vd_service_single_wrapper">
 	<div class="vd_service_single_wrapper-header <? echo $vd_service_group_id_css; ?>">
 		<div class="g-container">
