@@ -813,6 +813,54 @@ jQuery('.scroll_to_top').click(function(){
 	return false;
 });
 
+/* request form scripting */
+
+jQuery(document).on('submit', '.vd_request_wrapper-form form', function(e) {
+	
+	e.preventDefault();
+	
+	var send = true;
+
+	var $form = jQuery(this);
+	
+	if (jQuery('input.phone', $form).val().length < 18) {
+		send = false;
+		jQuery('input.phone', $form).addClass('error');
+	}
+	
+	if (validateEmail(jQuery('input.email', $form).val()) == false) {
+		send = false;
+		console.log(validateEmail(jQuery('input.email', $form).val()));
+		jQuery('input.email', $form).addClass('error');
+	}
+	
+	if (jQuery('input.email', $form).val().length == 0) {
+		send = false;
+		console.log(jQuery('input.email', $form).val().length);
+		jQuery('input.email', $form).addClass('error');
+	}
+	
+	if (jQuery('input.name', $form).val().length < 2) {
+		send = false;
+		jQuery('input.name', $form).addClass('error');
+	}
+
+	if (send == true) {
+		var $button = jQuery('button', $form);
+		loader_add($button);
+
+		var url_ajax = document.location.href + '?ajax_inner=1';
+		var form_data = $form.serialize();
+		jQuery.post(url_ajax, form_data, function(message) {
+			loader_remove($button);
+			alert(message);
+		});
+		
+	}
+
+});
+
+
 $(function() {
 	// your javascript here
 });

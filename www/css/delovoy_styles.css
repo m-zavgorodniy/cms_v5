@@ -5277,7 +5277,7 @@ display: block;
     margin: 10px 0px;	
 }
 
-.vd_request_wrapper-form input {
+.vd_request_wrapper-form input.phone, .vd_request_wrapper-form input.email, .vd_request_wrapper-form input.name {
 	margin-right: 2%;
     width: 32%;
     float: left;
@@ -5313,6 +5313,10 @@ display: block;
 	padding-left: 40px;
 	background-position: 18px 11px;
 	margin-right: 0px;
+}
+
+.vd_request_wrapper-form input.error {
+	box-shadow: 0px 0px 0px 2px #cf2553;
 }
 
 .vd_request_wrapper-form textarea {
@@ -5355,6 +5359,41 @@ display: block;
     color: #ffffff;
     cursor: pointer;
     text-transform: uppercase;
+}
+
+.vd_request_center_service {
+	width: 100%;
+	float: left;
+	margin-bottom: 30px;
+}
+
+.vd_request_center_service_list {
+	width: 50%;
+	float: left;
+}
+
+.vd_request_center_service_list:nth-child(odd) {
+	padding-right: 10px;
+}
+
+.vd_request_center_service_list:nth-child(even) {
+	padding-left: 10px;
+}
+
+.vd_request_center_service_list label {
+	display: block;
+	float: left;
+	width: 100%;
+	margin: 2px 0px;
+}
+
+.vd_request_center_service_list span {
+	font-size: 19px;
+	font-weight: 700;
+	color: #000;
+	margin-left: 24px;
+	padding-bottom: 10px;
+	display: inline-block;
 }
 
 button.consultation {

@@ -1298,7 +1298,7 @@ if (isset($_DATA['tariff_includes']['items']) && isset($_DATA['office_center_roo
 										<? echo $single_coworking['title']; ?>
 									</div>
 								</div>
-							<?	if ($single_coworking_center_room_price_term_lookup) { ?>
+						<?	if ($single_coworking_center_room_price_term_lookup) { ?>		
 								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item">
 									<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-label">
 										Минимальный срок
@@ -1307,7 +1307,7 @@ if (isset($_DATA['tariff_includes']['items']) && isset($_DATA['office_center_roo
 										<? echo $single_coworking_center_room_price_term_lookup; ?>
 									</div>
 								</div>
-							<?	} ?>
+						<?	} ?>		
 								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item">
 									<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-label">
 										Стоимость
