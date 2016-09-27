@@ -16,7 +16,7 @@ button.g-loader {background: #ababc6 url(/images/ajax_loader.gif) no-repeat cent
 	content: '';
 	background: url(/images/svg/group.svg) repeat-x top;
 	height: 10px;
-	width: 1440px;
+	width: 100%;
 	position: absolute;
 	top: -10px;
 }
@@ -1257,6 +1257,7 @@ display: block;
 	color: #000000;
 	padding: 30px 20px;
 	display: table-cell;
+	vertical-align: top;
 }
 
 .vd_serviceincenter_wrapper-coworkingrates-list-item-header-features {
@@ -1267,6 +1268,7 @@ display: block;
     color: #010101;
     padding: 30px 20px;
     display: table-cell;
+    vertical-align: top;
 }
 
 .vd_serviceincenter_wrapper-coworkingrates-list-item-header-features li {
@@ -1285,6 +1287,10 @@ display: block;
     font-size: 20px;
     padding: 30px 0px 30px 20px;
     line-height: 50px;
+}
+
+.vd_serviceincenter_wrapper-coworkingrates-list-item-header-price-text {
+	float: left;
 }
 
 .vd_serviceincenter_wrapper-coworkingrates-list-item-header-price span {
@@ -1524,7 +1530,7 @@ display: block;
 }
 
 .vd_serviceincenter_wrapper-coworkingrates-list-item-header-price span.special {
-	font-size: 1px;
+	font-size: 16px;
 	font-weight: 400;
 	color: #e62e66;
 	display: block;

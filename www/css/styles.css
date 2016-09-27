@@ -77,9 +77,9 @@ h2 {font-size: 29px; margin-bottom: .8em; line-height: 1.5; font-weight: 700; co
 .page-index .inner {background: none;}
 
 /* sticky footer */
-.body-wrap {min-height: 100%; margin-bottom: -380px;}
+.body-wrap {min-height: 100%; margin-bottom: -418px;}
 .body-wrap:after {content: ""; display: block;}
-.footer, .body-wrap:after {height: 380px;}
+.footer, .body-wrap:after {height: 418px;}
 
 /* footer */
 .footer {background: url(/images/svg/group.svg) repeat-x top;}
@@ -95,8 +95,12 @@ h2 {font-size: 29px; margin-bottom: .8em; line-height: 1.5; font-weight: 700; co
 .footer-main-title {margin-bottom: 1.25em; font-size: 19px; font-weight: 700; color: #000;}
 .footer-main-right-text {margin-bottom: 1em; line-height: 1.5;}
 
+.footer-subscribe {margin-bottom: 35px;}
 .footer-subscribe input {float: left; width: 280px; height: 60px; line-height: 60px; padding: 0 20px;}
 .footer-subscribe button {display: inline-block; margin-left: -1px; width: 102px; height: 60px; background: #0085ff url(/images/svg/arrow-small.svg) no-repeat center; border: none; cursor: pointer;}
+
+.footer-sm a {display: inline-block; margin-right: 10px;}
+.footer-counter {float: right; height: 50px; overflow: hidden; margin-top: 16px;}
 
 /* index */
 .index-promo {margin-bottom: 80px;}

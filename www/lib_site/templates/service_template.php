@@ -1260,14 +1260,15 @@ if (isset($_DATA['tariff_includes']['items']) && isset($_DATA['office_center_roo
 								<? echo $single_coworking['annotation']; ?>
 							</div>
 							<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-header-price">
-								<span><? echo $single_coworking_price; ?></span> руб.<? echo $single_coworking_center_room_price_term_lookup?'/'.$single_coworking_center_room_price_term_lookup:'' ;?>
+								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-header-price-text">
+									<span><? echo $single_coworking_price; ?></span> руб.<? echo $single_coworking_center_room_price_term_lookup?'/'.$single_coworking_center_room_price_term_lookup:'' ;?>
+								<? 	if ($single_coworking['price_bonus']) {
+									
+										echo '<span class="special">' . $single_coworking['price_bonus'] . '</span>';
+									
+									} ?>
+								</div>
 								<button>Забронировать</button>
-							<? 	if ($single_coworking['price_bonus']) {
-								
-									echo '<span class="special">' . $single_coworking['price_bonus'] . '</span>';
-								
-								}
-							?>
 							</div>
 						</div>
 						<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form">
@@ -1297,20 +1298,22 @@ if (isset($_DATA['tariff_includes']['items']) && isset($_DATA['office_center_roo
 										<? echo $single_coworking['title']; ?>
 									</div>
 								</div>
+							<?	if ($single_coworking_center_room_price_term_lookup) { ?>
 								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item">
 									<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-label">
 										Минимальный срок
 									</div>
 									<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-value">
-										месяц
+										<? echo $single_coworking_center_room_price_term_lookup; ?>
 									</div>
 								</div>
+							<?	} ?>
 								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item">
 									<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-label">
 										Стоимость
 									</div>
 									<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item-value">
-										<? echo $single_coworking_price; ?> руб./мес
+										<? echo $single_coworking_price; ?> руб.<?=$single_coworking_center_room_price_term_lookup?'/'.$single_coworking_center_room_price_term_lookup:''?>
 									</div>
 								</div>
 								<div class="vd_serviceincenter_wrapper-coworkingrates-list-item-form-left-item input">
