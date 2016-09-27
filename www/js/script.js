@@ -339,7 +339,7 @@ jQuery(document).on('click', '.vd_serviceincenter_wrapper-freeoffices-list-eleme
 			var form_data = $form.serialize();
 			jQuery.post(url_ajax, form_data, function(message) {
 				loader_remove($button);
-				alert(message);
+				vd_fake_alert(message);
 			});
 			
 		}	
@@ -392,7 +392,7 @@ jQuery(document).on('click', '.vd_serviceincenter_wrapper-freeoffices-list-eleme
 		var form_data = $form.serialize();
 		jQuery.post(url_ajax, form_data, function(message) {
 			loader_remove($button);
-			alert(message);
+			vd_fake_alert(message);
 		});
 		
 	}
@@ -485,7 +485,7 @@ jQuery(document).on('submit', '.vd_about_wrapper-contacts-inner-data-form form',
 		var form_data = $form.serialize();
 		jQuery.post(url_ajax, form_data, function(message) {
 			loader_remove($button);
-			alert(message);
+			vd_fake_alert(message);
 		});
 		
 	}
@@ -533,7 +533,7 @@ jQuery(document).on('submit', '.vd_specialoffer-offers-list-element-menu form', 
 		var form_data = $form.serialize();
 		jQuery.post(url_ajax, form_data, function(message) {
 			loader_remove($button);
-			alert(message);
+			vd_fake_alert(message);
 		});
 		
 	}
@@ -591,7 +591,7 @@ jQuery(document).on('click', '.vd_serviceincenter_wrapper-virtualrates-list-form
 		var form_data = $form.serialize();
 		jQuery.post(url_ajax, form_data, function(message) {
 			loader_remove($button);
-			alert(message);
+			vd_fake_alert(message);
 		});
 		
 	}
@@ -641,7 +641,7 @@ jQuery(document).on('click', '.vd_serviceincenter_wrapper-coworkingrates-list-it
 		var form_data = $form.serialize();
 		jQuery.post(url_ajax, form_data, function(message) {
 			loader_remove($button);
-			alert(message);
+			vd_fake_alert(message);
 		});
 		
 	}
@@ -708,7 +708,7 @@ jQuery(document).on('click', '.vd_serviceincenter_wrapper-meetingrates-list-item
 		var form_data = $form.serialize();
 		jQuery.post(url_ajax, form_data, function(message) {
 			loader_remove($button);
-			alert(message);
+			vd_fake_alert(message);
 		});
 		
 	}
@@ -853,13 +853,21 @@ jQuery(document).on('submit', '.vd_request_wrapper-form form', function(e) {
 		var form_data = $form.serialize();
 		jQuery.post(url_ajax, form_data, function(message) {
 			loader_remove($button);
-			alert(message);
+			vd_fake_alert(message);
 		});
 		
 	}
 
 });
 
+function vd_fake_alert(message) {
+	jQuery('.vd_fake_ajax_alert').remove();
+	jQuery('<div class="vd_fake_ajax_alert">' + message + '<div class="vd_fake_ajax_alert-close">Закрыть</div></div>').appendTo('body');
+}
+
+jQuery(document).on('click', '.vd_fake_ajax_alert-close', function(){
+	jQuery(this).parent().remove();
+});
 
 $(function() {
 	// your javascript here
