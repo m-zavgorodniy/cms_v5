@@ -1,6 +1,16 @@
 <?
 // the code in here runs before all
 
+
+// from http://seoprofy.ua/blog/optimizaciya-sajtov/301-redirekt, modified
+// редирект с любого урла на url только в нижнем регистре
+$lowerURI = strtolower($_SERVER['REQUEST_URI']);
+if ($_SERVER['REQUEST_URI'] != $lowerURI) {
+    header("HTTP/1.1 301 Moved Permanently");
+    header("Location: " . $lowerURI);
+    exit();
+}
+
 /*
 // a little naughty hack - see SQL-filter in /admin/edit.php?type=meta_table&id=special_offer:
 // special_offer.published > 0 AND [FIND_IN_SET({center}, office_center_id)] AND [FIND_IN_SET({service}, service_group_id)] OR [{special} > 0 AND special_offer.published > 0]
