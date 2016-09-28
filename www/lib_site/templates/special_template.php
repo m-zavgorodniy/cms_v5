@@ -124,12 +124,12 @@ if ('POST' == $_SERVER['REQUEST_METHOD']) {
 									<div class="vd_specialoffer-offers-list-element-menu-reserveform-left-text">
 										Если вас заинтересовало наше предложение – оставьте свои данные и наш менеджер свяжется с вами.
 									</div>
-									<div class="vd_specialoffer-offers-list-element-menu-reserveform-left-photo">
+								<? /*	<div class="vd_specialoffer-offers-list-element-menu-reserveform-left-photo">
 										<img src="" />
 									</div>
 									<div class="vd_specialoffer-offers-list-element-menu-reserveform-left-name">
 										Ник Гевин
-									</div>
+									</div> */ ?>
 									<div class="vd_specialoffer-offers-list-element-menu-reserveform-left-phone">
 										<? echo $special_offer_office_center['phone']; ?>
 									</div>

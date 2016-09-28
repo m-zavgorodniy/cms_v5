@@ -4740,7 +4740,7 @@ display: block;
     top: 0;
     bottom: 0;
     right: 0;
-    background-color: bisque;
+    background-color: #f7f7f7;
     left: calc(((100% - 1200px) / 2) + 410px);
 }
 
@@ -5043,11 +5043,11 @@ display: block;
 	font-size: 16px;
 	line-height: 1.5;
 	color: #000000;
-	padding-left: 50px;
+/*	padding-left: 50px;*/
 	background-image: url('../images/fake-phone-special-icon.png');
 	background-size: 24px 24px;
 	background-repeat: no-repeat;
-	margin-left: 92px;
+/*	margin-left: 92px;*/
     padding-left: 30px;
 }
 
@@ -5056,11 +5056,11 @@ display: block;
 	font-size: 16px;
 	line-height: 1.5;
 	color: #000000;
-	padding-left: 50px;
+/*	padding-left: 50px;*/
 	background-image: url('../images/fake-email-special-icon.png');
 	background-size: 24px 24px;
 	background-repeat: no-repeat;
-	margin-left: 92px;
+/*	margin-left: 92px;*/
     padding-left: 30px;
 }
 

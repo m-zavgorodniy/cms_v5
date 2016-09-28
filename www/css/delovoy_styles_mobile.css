@@ -1388,6 +1388,8 @@
 	}
 	.vd_specialoffer-offers-list-element-menu-reserveform-left{
 		width: 100%;
+		height: auto;
+		margin-bottom: 30px;
 	}
 	.vd_specialoffer-offers-list-element-menu-reserveform-left-text{
 		font-size: 14px;
