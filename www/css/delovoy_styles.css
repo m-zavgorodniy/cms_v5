@@ -2131,11 +2131,10 @@ display: block;
 
 .vd_serviceincenter_wrapper-virtualrates-list-header table tr.details td {
 	vertical-align: top;
-/* 	font-family: Lato-Regular; */
 	font-size: 16px;
 	line-height: 1.5;
 	color: #010101;	
-    padding: 0 5px;
+	padding-right: 10px;
 }
 
 .vd_serviceincenter_wrapper-virtualrates-list-header .icons {
@@ -2150,9 +2149,13 @@ display: block;
 .vd_serviceincenter_wrapper-virtualrates-list-header .icons img:first-of-type {
 	margin: 0px 15px 0px 0px;
 }
+.virtualrates_main_table_cell:first-child{
+	width: 12%;
+}
 .virtualrates_main_table_cell{
 	vertical-align: top;
 	height: 100%;
+	width: 22%;
 }
 .vd_serviceincenter_wrapper-virtualrates table {
 	width: 100%;
@@ -2181,11 +2184,11 @@ display: block;
 	cursor: pointer;
 	font-size: 16px;
 	padding-left: 55px;
-	padding-top: 20px;
+	padding-top: 19px;
 	width: auto;
 	background-image: url(../images/delovoy_fake_table_arrow_side.png);
     background-repeat: no-repeat;
-    background-position: 15px 20px;
+    background-position: 15px 19px;
     display: inline-block;
 	background-color: rgb(237, 236, 245);
 	height: 90px;
@@ -2197,9 +2200,7 @@ display: block;
 }
 
 .vd_serviceincenter_wrapper-virtualrates table tr.prices {
-/* 	font-family: Lato-Regular; */
 	font-size: 20px;
-	text-align: center;
 	height: 70px;
 }
 
@@ -2212,10 +2213,13 @@ display: block;
 }
 
 .vd_serviceincenter_wrapper-virtualrates table tr.reverse_buttons td {
-	padding-left: 10px;
 	height: 60px;
 }
-
+.vd_serviceincenter_wrapper-virtualrates table tr.reverse_buttons td,
+.vd_serviceincenter_wrapper-virtualrates table tr.prices td,
+.vd_serviceincenter_wrapper-virtualrates-list-header table tr.details td {
+	padding-left: 10px;
+}
 .vd_serviceincenter_wrapper-virtualrates table span.reserve {
 	display: block;
 	background-color: #812384;
@@ -5445,4 +5449,11 @@ button.consultation {
     right: 25px;
     top: 25px;
     cursor: pointer;
+}
+
+/* IE */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	.vd_serviceincenter_wrapper-virtualrates table {
+		min-height: 100px;
+	}
 }

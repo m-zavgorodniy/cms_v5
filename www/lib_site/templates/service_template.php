@@ -818,7 +818,7 @@
 						<td class="virtualrates_main_table_cell">
 							<table>
 								<tr class="table_header_main">
-									<th class="label">Тарифы</th>
+									<th class="label open">Тарифы</th>
 								</tr>
 								<tr>
 									<td></td>
@@ -833,11 +833,11 @@
 						</td>
 						<?
 
-							$ys_tariff_details = array(
-								'<div class="icons"><img src="/uploads/images/icons/svg/address.svg"></div>Предоставляет для вашей компании почтовый адрес  для приема почтовой корреспонденции в современном БЦ.',
-								'<div class="icons"><img src="/uploads/images/icons/svg/telephone.svg"><img src="/uploads/images/icons/svg/secretary.svg"></div>Это московский телефонный номер для Вашей компании и обработка входящих звонков «живым» секретарем.',
-								'<div class="icons"><img src="/uploads/images/icons/svg/address.svg"><img src="/uploads/images/icons/svg/telephone.svg"><img src="/uploads/images/icons/svg/secretary.svg"></div>Тариф предоставляет Вашей компании почтовый адрес в современном БЦ, московский телефонный номер и обработка входящих звонков «живым» секретарем',
-								'<div class="icons"><img src="/uploads/images/icons/svg/company-address.svg"><img src="/uploads/images/icons/svg/telephone.svg"><img src="/uploads/images/icons/svg/secretary.svg"></div>Это предоставление для Вашей компании единого юридического (для регистрации в ИФНС) и почтового адреса в современном БЦ, московского телефонного номера и обработка входящих звонков «живым» секретарем'
+							$ys_tariff_icons = array(
+								'<img src="/uploads/images/icons/svg/address.svg">',
+								'<img src="/uploads/images/icons/svg/telephone.svg"><img src="/uploads/images/icons/svg/secretary.svg">',
+								'<img src="/uploads/images/icons/svg/address.svg"><img src="/uploads/images/icons/svg/telephone.svg"><img src="/uploads/images/icons/svg/secretary.svg">',
+								'<img src="/uploads/images/icons/svg/company-address.svg"><img src="/uploads/images/icons/svg/telephone.svg"><img src="/uploads/images/icons/svg/secretary.svg">'
 							);
 
 							$ys_tariff_detail_num = 0;
@@ -856,9 +856,9 @@
 
 								echo '</tr>';
 
-								echo '<tr class="details">';
+								echo '<tr class="details open">';
 								
-								echo '<td>' . $ys_tariff_details[$ys_tariff_detail_num] . '</td>';
+								echo '<td><div class="icons">' . $ys_tariff_icons[$ys_tariff_detail_num] . '</div>' . $single_virtual_office['annotation'] . '</td>';
 
 								echo '</tr>';
 

@@ -2391,9 +2391,6 @@
 	.vd_serviceincenter_wrapper-virtualrates-list-header table tr.details td{
 		font-size: 14px;
 	}
-	.vd_serviceincenter_wrapper-virtualrates table tr.prices td{
-		padding: 0;
-	}
 	.vd_serviceincenter_wrapper-virtualrates-details-list-item-table table tr td.label{
 		padding: 0;
 	}
@@ -3229,7 +3226,6 @@
 	    text-align: left;
     }
     .prices td{
-	    text-align: left;
 	    padding: 10px 5px;
     }
     .vd_serviceincenter_wrapper-virtualrates table span.reserve{
@@ -3445,5 +3441,11 @@
 @media (max-width: 1023px) {
 	.service_header_content_block span.title {
 		margin-left: 0;
+	}
+	.virtualrates_main_table_cell {
+		width: auto;
+	}
+	.vd_serviceincenter_wrapper-virtualrates table tr.prices {
+		text-align: center;
 	}
 }
