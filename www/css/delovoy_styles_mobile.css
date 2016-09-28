@@ -499,6 +499,12 @@
 	}
 
 	/*businessCenters*/
+	.vd_officelistwrapper {
+		margin-top: 0;
+	}
+	.vd_officelistwrapper-office {
+		margin-bottom: 100px;
+	}
 	.vd_officelistwrapper-map::before{
 		width: 100%;
 	}
@@ -522,7 +528,7 @@
 	}
 	.vd_officelistwrapper-office-text{
 		font-size: 15px;
-		padding: 0 10px;
+		padding: 0 15px;
 		max-height: 150px;
 	}
 	.vd_officelistdata{
@@ -3447,5 +3453,8 @@
 	}
 	.vd_serviceincenter_wrapper-virtualrates table tr.prices {
 		text-align: center;
+	}
+	.page-office_centers .g-section-title-standalone {
+		margin-bottom: 50px;
 	}
 }
