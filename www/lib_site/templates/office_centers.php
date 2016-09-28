@@ -499,7 +499,7 @@
 */
 
 function out_office_centers($vd_office_centers, $exclude_office_center_id = null) {
-	global $_DATA;
+	global $_SITE, $_DATA;
 
 	foreach ($vd_office_centers as $single_office_center) {
 		
@@ -566,7 +566,7 @@ function out_office_centers($vd_office_centers, $exclude_office_center_id = null
 			
 					echo '<div class="vd_officelistwrapper-office-photo">';
 					
-						echo '<img src="http://' . $_SERVER['HTTP_HOST'] . $single_office_center_img_int . '">';
+						echo '<img src="http://' . $_SERVER['HTTP_HOST'] . $single_office_center_img_int . '" alt="' . $_SITE['section_title'] . ' - ' . $single_office_center_title . '">';
 					
 					echo '</div>';
 					

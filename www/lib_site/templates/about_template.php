@@ -182,7 +182,7 @@ if (isset($_DATA['article']['items'])) {
 							$i = 0;
 							foreach ($_DATA['client']['items'] as &$client) { ?>
 								<div class="vd_about_wrapper-clients-list-slide-element">
-									<?=out_http_link($client['web'], true, '<img src="' . $client['img_src'] . '" title="' . $client['title'] . '">')?>
+									<?=out_http_link($client['web'], true, '<img src="' . $client['img_src'] . '" title="' . $client['title'] . '" alt="' . $client['title'] . '">')?>
 								</div>
 							<?	if (++$i != $logo_count && $i % $logo_per_slide == 0) { ?>
 										<div class="helper"></div>
