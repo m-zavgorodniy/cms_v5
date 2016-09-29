@@ -7,8 +7,8 @@ php_value post_max_size 100M
 php_flag magic_quotes_gpc 0
 php_flag magic_quotes_runtime 0
 
-#ErrorDocument 404 /404.php
-#ErrorDocument 403 /403.php
+ErrorDocument 404 /404/
+ErrorDocument 403 /404/
 
 php_value session.cookie_lifetime 28800
 php_value session.gc_maxlifetime 28800
