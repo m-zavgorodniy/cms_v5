@@ -97,6 +97,7 @@ h2 {font-size: 29px; margin-bottom: .8em; line-height: 1.5; font-weight: 700; co
 
 .footer-subscribe {margin-bottom: 35px;}
 .footer-subscribe input {float: left; width: 280px; height: 60px; line-height: 60px; padding: 0 20px;}
+.footer-subscribe input.error {box-shadow: 0px 0px 0px 2px #cf2553;}
 .footer-subscribe button {display: inline-block; margin-left: -1px; width: 102px; height: 60px; background: #0085ff url(/images/svg/arrow-small.svg) no-repeat center; border: none; cursor: pointer;}
 
 .footer-sm a {display: inline-block; margin-right: 10px;}

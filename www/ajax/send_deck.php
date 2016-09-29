@@ -1,12 +1,19 @@
 <?php
 
+/*
+	used both for subsciption and sending presentation + subscription
+*/
+
 require $_SERVER['DOCUMENT_ROOT'] . "/lib/functions.php";
 require $_SERVER['DOCUMENT_ROOT'] . "/lib/mail.php";
 // lame, I know
-if (false !== strpos($_SERVER['HTTP_HOST'] . '/services/', $_SERVER['HTTP_REFERER'])) {
+if (false !== strpos($_SERVER['HTTP_HOST'] . '/services/', $_SERVER['HTTP_REFERER']) || !$_POST['email']) {
 	header('HTTP/1.1 500 Internal Server Error');
 	exit;
 }
+
+$email = $_POST['email'];
+$link = $_POST['link'];
 
 $subject = 'Презентация Delovoy';
 
@@ -15,7 +22,7 @@ $message = 'Здравствуйте!
 Благодарим Вас за интерес к услугам ОЦ «ДЕЛОВОЙ»!
 
 Вы можете просмотреть презентацию по ссылке:
-' . $_POST['link'] . '
+' . $link . '
 
 
 С уважением к Вам и Вашему делу
@@ -24,9 +31,12 @@ www.delovoy.su
 
 +7 495 988 07 36';
 
-if (true === @mail_send($_POST['email'], $subject, $message)) {
+// if no 'link' in the request send nothing, just add the email to mailchimp
+$no_send = !$link;
 
-	// only on production
+if ($no_send || (true === @mail_send($email, $subject, $message))) {
+
+	// on the production only
 	if ('www.delovoy.su' != $_SERVER['HTTP_HOST']) {
 		exit;
 	}

@@ -662,6 +662,9 @@ button.g-loader {background: #ababc6 url(/images/ajax_loader.gif) no-repeat cent
 	display: inline-block;
 	margin-left: 50px;
 }
+.service_header_content_block .title a{
+	color: #000;
+}
 .service_details_in_table{
 	padding-top: 20px;
 display: block;
@@ -3570,18 +3573,20 @@ display: block;
 
 .vd_service2_list-item-image {
 	display: block;
-    margin: 10px auto;	
-	height: 52px;
+    margin: 0 auto;
+    padding: 10px 0;
+	height: 72px;
 	width: 52px;
+	cursor: pointer;
 }
 
 .vd_service2_list-item-title {
-/* 	font-family: Lato-Regular; */
 	font-size: 20px;
 	line-height: 1.5;
 	color: #000000;
 	display: inline-block;
 	border-bottom: 1px solid #000000;
+	cursor: pointer;
 }
 
 .vd_services2_list-item-wrapper {

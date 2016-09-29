@@ -860,6 +860,31 @@ jQuery(document).on('submit', '.vd_request_wrapper-form form', function(e) {
 
 });
 
+jQuery(document).on('click', 'form[name="subscribe"] button', function(){
+
+	var $input = jQuery('[name="email"]', jQuery(this).parents('form'));
+	var email = $input.val();
+
+	if ('' === $.trim(email) || !(/[^\s@]+@[^\s@]+\.[^\s@]+/.test(email))) {
+		$input.addClass('error');
+	} else {
+		$input.removeClass('error');
+
+		var $button = jQuery(this);
+		loader_add($button);
+
+		var jqxhr = $.post("/ajax/send_deck.php", {email: email}, function() {
+			vd_fake_alert("Спасибо! Ваш адрес добавлен.");
+		});
+		jqxhr.fail(function() {
+			vd_fake_alert("Ошибка! Пожалуйста, попробуйте подписаться чуть позже.");
+		});
+        loader_remove($button);
+	}
+
+	return false;
+});
+
 function vd_fake_alert(message) {
 	jQuery('.vd_fake_ajax_alert').remove();
 	jQuery('<div class="vd_fake_ajax_alert">' + message + '<div class="vd_fake_ajax_alert-close">Закрыть</div></div>').appendTo('body');

@@ -2906,11 +2906,17 @@
 	    position: absolute;
 	    top: 50%;
 	    transform: translateY(-50%);
-	    left: 10px;
-	    right: 40px;
+	    left: 35px;
 	    text-align: left;		
 	}
-	
+	.vd_singleofficewrapper-content-services-table td .included,
+	.vd_singleofficewrapper-content-services-table td .not_included,
+	.vd_singleofficewrapper-content-services-table td .payed {
+		display: block;
+	}
+	.vd_singleofficewrapper-content-services-table td .payed {
+		margin-left: 5px;
+	}
 	.vd_singleofficewrapper-content-services-table .services_subtitle{
 		padding-top: 15px;
 		width: 700px;

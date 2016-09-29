@@ -2,7 +2,7 @@
 define('MOBILE_BREAKPOINT_PX', '1000'); // 568px - iPhone 5, 768px - tablet
 define('MOBILE_MEDIA', 'screen and (max-width:' . MOBILE_BREAKPOINT_PX . 'px)');
 
-define('UPD', '?upd=20');
+define('UPD', '?upd=22');
 
 ?><!DOCTYPE html>
 <html lang="<?=$_SITE['html_lang']?>" xmlns:og="http://ogp.me/ns#">
@@ -165,8 +165,8 @@ define('UPD', '?upd=20');
                     на рассылку спецпредложений наших офисных центров и обновления блога
                 </div>
                 <div class="footer-subscribe">
-                    <form>
-                        <input type="text" placeholder="@ Введите свой e-mail">
+                    <form name="subscribe">
+                        <input type="text" name="email" placeholder="@ Введите e-mail">
                         <button type="submit"></button>
                     </form>
                 </div>

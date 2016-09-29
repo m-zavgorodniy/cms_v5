@@ -57,8 +57,8 @@
 			$vd_send_form_customer_message_text .= "\r\nОфис: " . $MY_POST['office_number'];
 			$vd_send_form_customer_message_text .= "\r\nПлощадь: " . $MY_POST['office_area'];
 			$vd_send_form_customer_message_text .= "\r\nРабочих мест: " . $MY_POST['office_seats_num'];
-			$vd_send_form_customer_message_text .= "\r\nСтоимость: " . $MY_POST['office_cost_seat'];
-/*			$vd_send_form_customer_message_text .= "\r\nИтого: " . $MY_POST['office_cost_total'];*/
+/*			$vd_send_form_customer_message_text .= "\r\nСтоимость: " . $MY_POST['office_cost_seat'];
+			$vd_send_form_customer_message_text .= "\r\nИтого: " . $MY_POST['office_cost_total'];*/
 			
 			$vd_send_form_customer_message_text .= "\r\n";
 			
@@ -113,8 +113,8 @@
 			$vd_send_form_manager_message_text .= "\r\nОфис: " . $MY_POST['office_number'];
 			$vd_send_form_manager_message_text .= "\r\nПлощадь: " . $MY_POST['office_area'];
 			$vd_send_form_manager_message_text .= "\r\nРабочих мест: " . $MY_POST['office_seats_num'];
-			$vd_send_form_manager_message_text .= "\r\nСтоимость: " . $MY_POST['office_cost_seat'];
-/*			$vd_send_form_manager_message_text .= "\r\nИтого: " . $MY_POST['office_cost_total'];*/
+/*			$vd_send_form_manager_message_text .= "\r\nСтоимость: " . $MY_POST['office_cost_seat'];
+			$vd_send_form_manager_message_text .= "\r\nИтого: " . $MY_POST['office_cost_total'];*/
 			
 			$vd_send_form_manager_message_text .= "\r\n";
 			
@@ -132,8 +132,8 @@
 			$vd_send_form_customer_message_text .= "\r\nОфис: " . $MY_POST['office_number'];
 			$vd_send_form_customer_message_text .= "\r\nПлощадь: " . $MY_POST['office_area'];
 			$vd_send_form_customer_message_text .= "\r\nРабочих мест: " . $MY_POST['office_seats_num'];
-			$vd_send_form_customer_message_text .= "\r\nСтоимость: " . $MY_POST['office_cost_seat'];
-/*			$vd_send_form_customer_message_text .= "\r\nИтого: " . $MY_POST['office_cost_total'];*/
+/*			$vd_send_form_customer_message_text .= "\r\nСтоимость: " . $MY_POST['office_cost_seat'];
+			$vd_send_form_customer_message_text .= "\r\nИтого: " . $MY_POST['office_cost_total'];*/
 			
 			$vd_send_form_customer_message_text .= "\r\n";
 			
@@ -188,7 +188,7 @@
 			$vd_send_form_manager_message_text .= "\r\nВы забронировали";
 			$vd_send_form_manager_message_text .= "\r\nБизнес-центр: " . $MY_POST['business_center'];
 			$vd_send_form_manager_message_text .= "\r\nТариф: " . $MY_POST['virtual_office_rate'];
-			$vd_send_form_manager_message_text .= "\r\nСтоимость: " . $MY_POST['virtual_office_price'];
+/*			$vd_send_form_manager_message_text .= "\r\nСтоимость: " . $MY_POST['virtual_office_price'];*/
 			
 			$vd_send_form_manager_message_text .= "\r\n";
 			
@@ -204,7 +204,7 @@
 			$vd_send_form_customer_message_text .= "\r\nДанные объекта";
 			$vd_send_form_customer_message_text .= "\r\nБизнес-центр: " . $MY_POST['business_center'];
 			$vd_send_form_customer_message_text .= "\r\nТариф: " . $MY_POST['virtual_office_rate'];
-			$vd_send_form_customer_message_text .= "\r\nСтоимость: " . $MY_POST['virtual_office_price'];
+/*			$vd_send_form_customer_message_text .= "\r\nСтоимость: " . $MY_POST['virtual_office_price'];*/
 			
 			$vd_send_form_customer_message_text .= "\r\n";
 			
@@ -253,7 +253,7 @@
 			$vd_send_form_manager_message_text .= "\r\nВы забронировали";
 			$vd_send_form_manager_message_text .= "\r\nБизнес-центр: " . $MY_POST['business_center'];
 			$vd_send_form_manager_message_text .= "\r\nТариф: " . $MY_POST['meeting_rate'];
-			$vd_send_form_manager_message_text .= "\r\nСтоимость: " . $MY_POST['meeting_price'];
+/*			$vd_send_form_manager_message_text .= "\r\nСтоимость: " . $MY_POST['meeting_price'];*/
 			
 			$vd_send_form_manager_message_text .= "\r\n";
 			
@@ -269,7 +269,7 @@
 			$vd_send_form_customer_message_text .= "\r\nДанные объекта";
 			$vd_send_form_customer_message_text .= "\r\nБизнес-центр: " . $MY_POST['business_center'];
 			$vd_send_form_customer_message_text .= "\r\nТариф: " . $MY_POST['meeting_rate'];
-			$vd_send_form_customer_message_text .= "\r\nСтоимость: " . $MY_POST['meeting_price'];
+/*			$vd_send_form_customer_message_text .= "\r\nСтоимость: " . $MY_POST['meeting_price'];*/
 			
 			$vd_send_form_customer_message_text .= "\r\n";
 			
@@ -320,7 +320,7 @@
 			$vd_send_form_manager_message_text .= "\r\nВы забронировали";
 			$vd_send_form_manager_message_text .= "\r\nБизнес-центр: " . $MY_POST['business_center'];
 			$vd_send_form_manager_message_text .= "\r\nТариф: " . $MY_POST['coworking_rate'];
-			$vd_send_form_manager_message_text .= "\r\nСтоимость: " . $MY_POST['coworking_price'];
+/*			$vd_send_form_manager_message_text .= "\r\nСтоимость: " . $MY_POST['coworking_price'];*/
 			
 			$vd_send_form_manager_message_text .= "\r\n";
 			
@@ -336,7 +336,7 @@
 			$vd_send_form_customer_message_text .= "\r\nДанные объекта";
 			$vd_send_form_customer_message_text .= "\r\nБизнес-центр: " . $MY_POST['business_center'];
 			$vd_send_form_customer_message_text .= "\r\nТариф: " . $MY_POST['coworking_rate'];
-			$vd_send_form_customer_message_text .= "\r\nСтоимость: " . $MY_POST['coworking_price'];
+/*			$vd_send_form_customer_message_text .= "\r\nСтоимость: " . $MY_POST['coworking_price'];*/
 			
 			$vd_send_form_customer_message_text .= "\r\n";
 			

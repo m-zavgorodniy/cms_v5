@@ -267,10 +267,16 @@
 						$vd_office_center_service_group_title = $vd_office_center_service_group['service_group_id_lookup'];
 						$vd_office_center_service_group_published = $vd_office_center_service_group['published'];
 						$vd_service_group_id_css = $_DATA['service_group']['items'][$vd_office_center_service_group_id]['css_signature'];
+
+						$vd_office_center_service_group_id = $vd_office_center_service_group['service_group_id'];
+						$vd_office_center_service_group_published = $vd_office_center_service_group['published'];
 						
+						$vd_office_center_service_group_center_id = $vd_office_center_service_group['office_center_id'];
+
+						$service_link = '?center=' . $vd_office_center_service_group_center_id . '&service=' . $vd_office_center_service_group_id;
 						if ($vd_office_center_service_group_published === '1') {
 							
-							echo '<span class="title">' . $vd_office_center_service_group_title . '</span>';
+							echo '<span class="title"><a href="' . $service_link . '">' . $vd_office_center_service_group_title . '</a></span>';
 							
 						}
 
@@ -284,14 +290,9 @@
 							
 						}
 
-						$vd_office_center_service_group_id = $vd_office_center_service_group['service_group_id'];
-						$vd_office_center_service_group_published = $vd_office_center_service_group['published'];
-						
-						$vd_office_center_service_group_center_id = $vd_office_center_service_group['office_center_id'];
-						
 						if ($vd_office_center_service_group_published === '1') {
 							
-							echo '<span class="service_details_in_table"><a class="g-button c-' . $vd_service_group_id_css . '" href="?center=' . $vd_office_center_service_group_center_id . '&service=' . $vd_office_center_service_group_id . '">Подробнее</a></span>';
+							echo '<span class="service_details_in_table"><a href="' . $service_link . '" class="g-button c-' . $vd_service_group_id_css . '">Подробнее</a></span>';
 							
 						}
 

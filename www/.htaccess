@@ -19,13 +19,26 @@ php_value error_reporting 7
 
 RewriteEngine on
 
+# site update 29.09.16
+RewriteRule ^services/videokonferentsiya/$ /business-centers/gostinyy-dvor/peregovornaya/ [R=301,L]
+RewriteRule ^services/otdyh-rabota/$ /business-centers/rosa-khutor/ [R=301,L]
+RewriteRule ^services/extra/kovorking/$ /services/coworking/ [R=301,L]
+RewriteRule ^services/extra/ /services/ [R=301,L]
+RewriteRule ^services/ofis-pod-predstavitelstvo-v-moskve/$ /business-centers/ [R=301,L]
+RewriteRule ^services/(.*)/(.*)/$ /business-centers/$2/$1/ [R=301,L]
+
+RewriteRule ^price/$ /services/ [R=302,L]
+RewriteRule ^clients/ /company/ [R=302,L]
+RewriteRule ^partners/ /company/ [R=302,L]
+RewriteRule ^special-offers/ / [R=302,L]
+
 # SCSS: styles.scss (file) -> /scss.php/styles.scss (processing) -> styles.css (browser)
 RewriteRule ^scss\/(.*)\.css$ /scss.php/$1.scss [L]
 
 #RewriteBase /
 
-#RewriteCond %{HTTP_HOST} !^www\.
-#RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
 
 #RewriteCond %{REQUEST_FILENAME} !-f
 #RewriteRule ^en/(.*)$ $1?l=en [L,QSA]
