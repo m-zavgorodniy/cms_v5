@@ -58,7 +58,7 @@ function out_presentation($url, $css_signature) {
                 if ('' === $.trim(email) || !(/[^\s@]+@[^\s@]+\.[^\s@]+/.test(email))) {
                     $("#senddeck_error").show();
                 } else {
-                    var data = {email: email, link: $("#senddeck input[name='link']").val()};
+                    var data = {email: email, link: "<?=$url?>"};
                     $("#senddeck button").prop("disabled", true);
                     $("#senddeck form").html('<img src="/images/ajax_loader_big.gif" alt="">').show();
                     var jqxhr = $.post("/ajax/send_deck.php", data, function(data) {
@@ -77,8 +77,7 @@ function out_presentation($url, $css_signature) {
             <p>Оставьте свои контакты, и мы через минуту вышлем на почту подробную презентацию. Без спама.</p>
             <form>
                 <input type="email" name="email" class="email" placeholder="Введите ваш e-mail">
-                <input type="hidden" name="link" value="<?=$url?>">
-                <input type="button" class="get_presentation <?=$css_signature?>" value="Получить презентацию" />
+                <input type="button" class="get_presentation <?=$css_signature?>" value="Получить презентацию">
                 <div class="g-clearfix"></div>
                 <div id="senddeck_error" class="vd_serviceincenter_wrapper-get_presentation-error g-error" style="display: none;">Пожалуйста, введите e-mail
                 </div>
@@ -172,5 +171,28 @@ function db_insert_booking($data) {
         $res = db_mysql_query("INSERT INTO booking (" . implode(',', array_keys($data)) . ", created) VALUES ('" . implode("','", $data) . "', NOW())", $_SITE['conn']);
     }
     return true === $res;
+}
+
+function catch_spam($time_field_name, $honeypot_field_name, $honeypot_above_field_name) {
+    // consider as spam if the time the form is completed in is less than this
+    define('MIN_TIME_SEC', 5);
+    $is_spam = false;
+    if ($_POST[$time_field_name]) {
+        $time_form_submitted_in = time() - (int)preg_replace('/\D/', '', $_POST[$time_field_name]);
+        if ($time_form_submitted_in < MIN_TIME_SEC) {
+            $is_spam = true;
+        }
+    }
+    // the placeholder in the honeypot field says 'Confirm'
+    // so, if even someone see the field, we are suppose them to confirm the field above
+    if ($_POST[$honeypot_field_name] && trim($_POST[$honeypot_field_name]) != trim($_POST[$honeypot_above_field_name])) {
+        $is_spam = true;
+    }
+    // last chance for human being - a meaningful error message
+    if ($is_spam) {
+        echo '{"code":0,"message":"Ошибка при приеме сообщения. Пожалуйста, попробуйте еще раз чуть позже."}';
+        return false;
+    }
+    return true;
 }
 ?>

@@ -6,15 +6,16 @@ if ($_GET['service'] == false) {
 	
 ?>
 
+<a href="#" class="scroll_to_top"></a>
 <div class="g-container">
 	<div class="g-container-row vd_services_header">
 		<h1>Услуги</h1>
-		<div class="vd_services_header-popular">
+<? /*		<div class="vd_services_header-popular">
 			Популярные услуги: <a href="">почасовая аренда офиса</a>, <a href="">офис под представительство в Москве</a>
-		</div>
+		</div> */ ?>
 	</div>
 	<div class="g-container-row">
-		<h2 class="g-section-title">Основные услуги</h2>
+<? /*		<h2 class="g-section-title">Основные услуги</h2> */ ?>
 		<ul class="vd_services_list">
 		<?
 		
@@ -251,8 +252,16 @@ if ($_GET['service'] == false) {
 						<div class="vd_service_single_wrapper-about-list-sublist-header">
 							В услугу входит
 						</div>
+						<div class="g-col2">
 						<?
-						
+						$i = 0;
+						foreach ($_DATA['service2service_group']['items'] as $service2service_group_item) {
+							if ($service2service_group_item['is_inclusive'] === '1') {
+								$i++;
+							}
+						}
+						$items_half_num = ceil($i / 2);
+						$i = 0;
 						foreach ($_DATA['service2service_group']['items'] as $service2service_group_item) {
 							
 							if ($service2service_group_item['is_inclusive'] === '1') {
@@ -270,24 +279,36 @@ if ($_GET['service'] == false) {
 									<div class="vd_service_single_wrapper-about-list-block-title">
 										<span><? echo $service2service_group_item_title; ?></span>
 									</div>
-									<div class="vd_service_single_wrapper-about-list-block-desc">
+								<? /*	<div class="vd_service_single_wrapper-about-list-block-desc">
 										<?echo $service2service_group_item_desc; ?>
-									</div>
+									</div> */ ?>
 								</div>
 								<?
 								
+								if (++$i == $items_half_num) { ?>
+									</div><div class="g-col2">
+							<?	}
 							}
 							
 						}		
 						
 						?>
+						</div>
 					</div>
 					<div class="vd_service_single_wrapper-about-list-sublist payed">
 						<div class="vd_service_single_wrapper-about-list-sublist-header">
 							За дополнительную плату
 						</div>
+						<div class="g-col2">
 						<?
-						
+						$i = 0;
+						foreach ($_DATA['service2service_group']['items'] as $service2service_group_item) {
+							if ($service2service_group_item['is_inclusive'] === '0') {
+								$i++;
+							}
+						}
+						$items_half_num = ceil($i / 2);
+						$i = 0;
 						foreach ($_DATA['service2service_group']['items'] as $service2service_group_item) {
 							
 							if ($service2service_group_item['is_inclusive'] === '0') {
@@ -295,7 +316,7 @@ if ($_GET['service'] == false) {
 								$service2service_group_item_service_id = $service2service_group_item['service_id'];
 								$service2service_group_item_icon = $_DATA['service']['items'][$service2service_group_item_service_id]['icon_img_src'];
 								$service2service_group_item_title = $service2service_group_item['service_id_lookup'];
-								$service2service_group_item_desc = $_DATA['service']['items'][$service2service_group_item_id]['headline'];
+								$service2service_group_item_desc = $_DATA['service']['items'][$service2service_group_item_service_id]['headline'];
 								
 								?>
 								<div class="vd_service_single_wrapper-about-list-block">
@@ -305,17 +326,21 @@ if ($_GET['service'] == false) {
 									<div class="vd_service_single_wrapper-about-list-block-title">
 										<span><? echo $service2service_group_item_title; ?></span>
 									</div>
-									<div class="vd_service_single_wrapper-about-list-block-desc">
+								<? /*	<div class="vd_service_single_wrapper-about-list-block-desc">
 										<?echo $service2service_group_item_desc; ?>
-									</div>
+									</div> */ ?>
 								</div>
 								<?
 								
+								if (++$i == $items_half_num) { ?>
+									</div><div class="g-col2">
+						<?		}
 							}
 							
 						}		
 						
 						?>
+						</div>
 					</div>
 				</div>
 			</div>

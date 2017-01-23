@@ -1,8 +1,29 @@
 <?
-define('MOBILE_BREAKPOINT_PX', '1000'); // 568px - iPhone 5, 768px - tablet
-define('MOBILE_MEDIA', 'screen and (max-width:' . MOBILE_BREAKPOINT_PX . 'px)');
+//define('MOBILE_BREAKPOINT_PX', '1000'); // 568px - iPhone 5, 768px - tablet
+//define('MOBILE_MEDIA', 'screen and (max-width:' . MOBILE_BREAKPOINT_PX . 'px)');
+define('UPD', '?upd=72');
 
-define('UPD', '?upd=22');
+// 2016/10 - absolutely not sure about all this browser detection - remove these lines in a couple of years
+// something to embrace Android 4 native browser and iPhone 5
+$matches = array();
+if (preg_match("/WebKit\/(\d+)/i", $_SERVER['HTTP_USER_AGENT'], $matches)) {
+        $UA_webkit_version = (int)$matches[1];
+}
+if (preg_match("/Version\/(\d+)/i", $_SERVER['HTTP_USER_AGENT'], $matches)) {
+        $UA_browser_version = (int)$matches[1];
+}
+if (preg_match("/Chrome\/(\d+)/i", $_SERVER['HTTP_USER_AGENT'], $matches)) {
+        $UA_chrome_version = (int)$matches[1];
+}
+
+$is_android = (stripos($_SERVER['HTTP_USER_AGENT'], 'Android') !== false);
+$is_iphone = (stripos($_SERVER['HTTP_USER_AGENT'], 'iPhone') !== false || stripos($_SERVER['HTTP_USER_AGENT'], 'iPad') !== false || stripos($_SERVER['HTTP_USER_AGENT'], 'iPod') !== false);
+$is_mobile = ($is_android || $is_iphone);
+
+$old_mobile = $is_mobile && (
+        $is_android && isset($UA_webkit_version) && $UA_webkit_version <= 536 ||
+        $is_iphone && isset($UA_browser_version) && $UA_browser_version <= 8 ||
+        isset($UA_chrome_version) && $UA_chrome_version <= 30);
 
 ?><!DOCTYPE html>
 <html lang="<?=$_SITE['html_lang']?>" xmlns:og="http://ogp.me/ns#">
@@ -14,8 +35,8 @@ define('UPD', '?upd=22');
 <?	}
 	if ($_SITE['seo_description']) { ?>
     <meta name="description" content="<?=$_SITE['seo_description']?>" />
-<?	} ?>
-	<meta name="format-detection" content="telephone=no" />
+<?	} /*?>
+	<meta name="format-detection" content="telephone=no" /> */ ?>
 	<link rel="stylesheet" type="text/css" href="/css/styles.css<?=UPD?>" />
 	<link rel="stylesheet" type="text/css" href="/css/content.css<?=UPD?>" />
 	<link rel="stylesheet" type="text/css" href="/css/delovoy_styles.css<?=UPD?>" />
@@ -42,7 +63,15 @@ define('UPD', '?upd=22');
 	<script type="text/javascript" src="/js/tooltipster.bundle.min.js"></script>    
 	<script type="text/javascript" src="/js/tooltipster-SVG.min.js"></script>    
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
+<? /* call tracking - disabled for another call tracking below (??)
+    <script type="text/javascript">
+    (function ct_load_script() {
+    var ct = document.createElement('script'); ct.type = 'text/javascript';
+    ct.src = document.location.protocol+'//cc.calltracking.ru/phone.557f9.4217.async.js?nc='+Math.floor(new Date().getTime()/300000);
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ct, s);
+    })();
+    </script> */ ?>
+
 	<!-- Facebook Pixel Code -->
 	<script>
 	!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -57,8 +86,12 @@ define('UPD', '?upd=22');
 	src="https://www.facebook.com/tr?id=1726395320911824&ev=PageView&noscript=1"
 	/></noscript>
 	<!-- End Facebook Pixel Code -->
+    <!-- start Omniconvert.com code -->
+    <link rel="dns-prefetch" href="//app.omniconvert.com"/>    
+    <script type="text/javascript" src="//d2tgfbvjf3q6hn.cloudfront.net/js/t25d057.js"></script>
+    <!-- end Omniconvert.com code -->
 </head>
-<body class="page-<?=$_SITE['section_type']?>">
+<body class="page-<?=$_SITE['section_type']?><?=$old_mobile?' mobile-old':''?>">
 	<!-- Google Tag Manager -->
 	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5DMZKZ"
 	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -68,6 +101,24 @@ define('UPD', '?upd=22');
 	'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 	})(window,document,'script','dataLayer','GTM-5DMZKZ');</script>
 	<!-- End Google Tag Manager -->	
+<!-- phone call tracking -->
+<script type="text/javascript">
+function ct(w,d,e,c){
+var a='all',b='tou',src=b+'c'+'h';src='m'+'o'+'d.c'+a+src;
+var jsHost="https://"+src,s=d.createElement(e),p=d.getElementsByTagName(e)[0];
+s.async=1;s.src=jsHost+"."+"r"+"u/d_client.js?param;"+(c?"client_id"+c+";":"")+"ref"+escape(d.referrer)+";url"+escape(d.URL)+";cook"+escape(d.cookie)+";";
+if(!w.jQuery){var jq=d.createElement(e);
+jq.src=jsHost+"."+"r"+'u/js/jquery-1.7.min.js';
+jq.onload=function(){
+p.parentNode.insertBefore(s,p);};
+p.parentNode.insertBefore(jq,p);}else{
+p.parentNode.insertBefore(s,p);}}
+if(!!window.GoogleAnalyticsObject){window[window.GoogleAnalyticsObject](function(tracker){ 
+if (!!window[window.GoogleAnalyticsObject].getAll()[0])
+{ct(window,document,'script', window[window.GoogleAnalyticsObject].getAll()[0].get('clientId'))}
+else{ct(window,document,'script', null);}});
+}else{ct(window,document,'script', null);}
+</script>
     <div class="body-wrap">
         <header class="header">
             <div class="header-top">
@@ -85,7 +136,8 @@ define('UPD', '?upd=22');
                     <div class="header-nav-right">
                         <div class="header-phone g-clearfix">
                             <div class="header-phone-number">
-                                <?=strtr($_SITE['settings']['phone_number'], '()', '  ')?>
+                            <?  $tel_formatted = strtr($_SITE['settings']['phone_number'], '()', '  '); ?>
+                                <a href="tel:<?=preg_replace("/[^0-9\+]/", '', $tel_formatted)?>"><?=$tel_formatted?></a>
                             </div>
                             <a href="<?=$_SITE['section_paths']['callback']['path']?>" class="header-phone-button g-button">позвоните мне</a>
                         </div>
@@ -211,7 +263,7 @@ var google_remarketing_only = true;
             </div></div>
         </div>
     </footer>
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?language=ru&callback=initMap" async defer></script>
 	<div id="fb-root"></div>
 		<script>(function(d, s, id) {
 		  var js, fjs = d.getElementsByTagName(s)[0];
@@ -220,5 +272,6 @@ var google_remarketing_only = true;
 		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
 		  fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));</script>
+        <script>setTimeout("console.log(window.call_value)", 1000);</script>
 </body>
 </html>

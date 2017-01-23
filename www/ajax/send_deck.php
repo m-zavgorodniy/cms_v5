@@ -14,6 +14,8 @@ if (false !== strpos($_SERVER['HTTP_HOST'] . '/services/', $_SERVER['HTTP_REFERE
 
 $email = $_POST['email'];
 $link = $_POST['link'];
+// if no 'link' in the request send nothing, just add the email to mailchimp
+$no_send = !$link;
 
 $subject = 'Презентация Delovoy';
 
@@ -21,8 +23,8 @@ $message = 'Здравствуйте!
 
 Благодарим Вас за интерес к услугам ОЦ «ДЕЛОВОЙ»!
 
-Вы можете просмотреть презентацию по ссылке:
-' . $link . '
+Презентация находится в приложении к этому письму.
+
 
 
 С уважением к Вам и Вашему делу
@@ -31,10 +33,7 @@ www.delovoy.su
 
 +7 495 988 07 36';
 
-// if no 'link' in the request send nothing, just add the email to mailchimp
-$no_send = !$link;
-
-if ($no_send || (true === @mail_send($email, $subject, $message))) {
+if ($no_send || (true === @mail_send($email, $subject, $message, false, $_SERVER['DOCUMENT_ROOT'] . $link))) {
 
 	// on the production only
 	if ('www.delovoy.su' != $_SERVER['HTTP_HOST']) {

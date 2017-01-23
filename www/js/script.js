@@ -1,3 +1,5 @@
+var MOBILE_WIDTH = 767;
+
 $( document ).ready(function() {
 	$('.header-menu').click(function(e) {
 		$('.header-menu').toggleClass('open_menu');
@@ -20,7 +22,27 @@ $( document ).ready(function() {
 		e.stopPropagation();
 	});
 
+	// scroll to ancors
+	$('a[href*="#"]:not([href="#"])').click(function() {
+		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+			var target = $(this.hash);
+			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+			if (target.length) {
+				$('html, body').animate({
+					scrollTop: target.offset().top
+				}, 1000);
+				return false;
+			}
+		}
+	});
+	$('.scroll_to_top').click(function(){
+		$('html, body').animate({
+			scrollTop: 0
+		}, 1000);
+		return false;
+	});
 });
+
 jQuery.fn.outerHTML = function(s) {
     return this[0].outerHTML ? this[0].outerHTML :
            s ? this.before(s).remove()
@@ -33,28 +55,33 @@ function initMap() {
 	if (jQuery('#vd_about_wrapper-contacts-inner-map').length > 0) {
 		
 		map = new google.maps.Map(document.getElementById('vd_about_wrapper-contacts-inner-map'), {
-			center: {lat: 55.7086573, lng: 37.6530437},
+			center: {lat: 55.754364, lng: 37.62511},
 			zoom: 17,
 			scrollwheel: false,
-			styles: [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"saturation":-100},{"lightness":51},{"visibility":"simplified"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}]
+			//styles: [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"saturation":-100},{"lightness":51},{"visibility":"simplified"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}]
 		});
 		
 		var marker = new google.maps.Marker({
-			position: {lat: 55.7086573, lng: 37.6530437},
-			title: 'xynta',
-			icon: vd_get_pin(),
+			position: {lat: 55.754364, lng: 37.62511},
+			title: '',
+			icon: vd_get_pin("#578f0b"),
 			map: map
 		});
-		
+
+		calculateAndDisplayRoute(3, map);
+
 	}
 	
 	if (jQuery('#vd_mapwrapper-map').length > 0) {
 
+		isDraggable = ($(document.body).width() > MOBILE_WIDTH);
+
 		map = new google.maps.Map(document.getElementById('vd_mapwrapper-map'), {
-			center: {lat: 51.000, lng: 45.496},
-			zoom: 5,
+			center: {lat: 55.757761, lng: 37.644837},
+			zoom: 11,
 			scrollwheel: false,
-			styles: [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"saturation":-100},{"lightness":51},{"visibility":"simplified"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}]
+			draggable: isDraggable,
+//			styles: [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"saturation":-100},{"lightness":51},{"visibility":"simplified"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}]
 		});
 	
 		/* filling up the map on the office center list page */
@@ -133,7 +160,7 @@ function initMap() {
 				var coordinates_array = coordinates.split(',');
 				var marker = new google.maps.Marker({
 					position: {lat: parseFloat(coordinates_array[0]), lng: parseFloat(coordinates_array[1])},
-					title: 'xynta',
+					title: '',
 					icon: vd_get_pin(color)
 				});
 				
@@ -165,9 +192,9 @@ function initMap() {
 			var markerCluster = new MarkerClusterer(map, markers, options);
 	
 		} else if (jQuery('.vd_singleofficewrapper-content-contacts-coordinates').length == 1) {
-	
-			map.setZoom(17);
-	
+
+			map.setZoom(19);
+
 			var coordinates = jQuery('.vd_singleofficewrapper-content-contacts-coordinates').val();
 			
 			var color = jQuery('.vd_singleofficewrapper-content-contacts-color').val();
@@ -178,10 +205,12 @@ function initMap() {
 	
 			var marker = new google.maps.Marker({
 				position: {lat: parseFloat(coordinates_array[0]), lng: parseFloat(coordinates_array[1])},
-				title: 'xynta',
+				title: '',
 				icon: vd_get_pin(color),
 				map: map
 			});
+
+			calculateAndDisplayRoute(jQuery('#vd_mapwrapper-map').attr("data-id"), map);
 	
 		}
 		
@@ -189,6 +218,76 @@ function initMap() {
 	
 }
 
+function calculateAndDisplayRoute(id, map) {
+  var directionsService = new google.maps.DirectionsService;
+  var directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
+  var routes = {};
+  var markers = {};
+  routes[1] = {
+    origin: {"lat": 55.819665, "lng": 37.640518},
+    destination: {"lat": 55.817326, "lng": 37.655099}
+  };
+  markers[1] = {
+    origin: {
+    	position: {lat: 55.819665, lng: 37.640518},
+    	icon:'/images/maps/or-3-3.png'
+    }
+  };
+
+  routes[2] = {
+    origin: {"lat": 55.708573, "lng": 37.657297},
+    destination: {"lat": 55.7090415, "lng": 37.6532068}
+  };
+  markers[2] = {
+    origin: {
+    	position: {lat: 55.708611, lng: 37.657331},
+    	icon:'/images/maps/or-1-2.png'
+    }/*,
+    destination: {
+    	position: {lat: 55.708689, lng: 37.653165},
+    	icon:'/images/maps/de-1.png'
+    }*/
+  };
+
+  routes[3] = {
+    origin: {"lat": 55.756376, "lng": 37.623248},
+    destination: {"lat": 55.754386, "lng": 37.625434}
+  };
+  routes[5] = {
+    origin: {"lat": 55.760205, "lng": 37.661732},
+    destination: {"lat": 55.759550, "lng": 37.665019}
+  };
+  markers[5] = {
+    origin: {
+    	position: {lat: 55.760005, lng: 37.661732},
+    	icon:'/images/maps/or-4-4.png'
+    }
+  };
+
+  jQuery.extend(routes[id], {travelMode: google.maps.TravelMode.WALKING})
+  if (undefined !== routes[id]) {
+	  directionsService.route(
+	  	routes[id],
+	  	function(response, status) {
+	      if (status === google.maps.DirectionsStatus.OK) {
+	        directionsDisplay.setDirections(response);
+	      } else {
+	      }
+	    });
+	  if (undefined !== markers[id]) {
+	  	if (undefined !== markers[id].origin) {
+	  		var marker=new google.maps.Marker(markers[id].origin);
+	  		marker.setMap(map);
+	  	}
+	  	if (undefined !== markers[id].destination) {
+	  		var marker2=new google.maps.Marker(markers[id].destination);
+	  		marker2.setMap(map);
+	    }
+	  }
+	  directionsDisplay.setMap(map);
+  }
+}
+  
 function vd_get_pin(color) {
 	
 	if (typeof color !== 'undefined') {
@@ -213,7 +312,8 @@ jQuery(document).on('click', 'button.consultation', function(e) {
 });
 
 jQuery(document).on('click', '.vd_serviceincenter_wrapper-layout-image-zoom', function() {
-	jQuery.fancybox( jQuery('.vd_serviceincenter_wrapper-layout-image img').data('src-big'), { helpers: {
+	var $imgContainer = jQuery(this).closest('.vd_serviceincenter_wrapper-layout-image');
+	jQuery.fancybox( jQuery('img', $imgContainer).data('src-big'), { helpers: {
 		overlay: {
 			locked: false
 		}
@@ -221,8 +321,23 @@ jQuery(document).on('click', '.vd_serviceincenter_wrapper-layout-image-zoom', fu
 	});
 });
 
+jQuery(document).on('click',
+	'.vd_serviceincenter_wrapper-freeoffices-list-element-header-office, .vd_serviceincenter_wrapper-meetingrates-list-item-header-photo',
+	function() {
+	jQuery.fancybox( $(this).attr("href"), { helpers: {
+		overlay: {
+			locked: false
+		}
+	}
+	});
+	return false;
+});
+
 jQuery(document).on('click', '.vd_serviceincenter_wrapper-freeoffices-list-element-header-price .reserve', function() {
-	jQuery(this).parents('.vd_serviceincenter_wrapper-freeoffices-list-element').toggleClass('open');
+	//jQuery(this).parents('.vd_serviceincenter_wrapper-freeoffices-list-element').toggleClass('open');
+    var $block = jQuery(this).closest(".vd_serviceincenter_wrapper-freeoffices-list-element");
+    $block.toggleClass('open');
+	//jQuery(".preview_label", $block).click();   
 });
 
 jQuery(document).on('click', '.vd_specialoffer-offers-list-element-header-place .reserve', function() {
@@ -232,10 +347,10 @@ jQuery(document).on('click', '.vd_specialoffer-offers-list-element-header-place 
 jQuery(document).on('change', '.preview', function() {
 	if (jQuery(this).is(":checked")) {
 		jQuery('.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-submit').removeClass('disabled');
-		jQuery('.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right button').addClass('disabled');
+		jQuery('.serviceincente-book button').addClass('disabled');
 	} else {
 		jQuery('.vd_serviceincenter_wrapper-freeoffices-list-element-menu-previewform-right-submit').addClass('disabled');
-		jQuery('.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right button').removeClass('disabled');
+		jQuery('.serviceincente-book button').removeClass('disabled');
 	}
 });
 
@@ -342,14 +457,16 @@ jQuery(document).on('click', '.vd_serviceincenter_wrapper-freeoffices-list-eleme
 				vd_fake_alert(message);
 			});
 			
-		}	
+		} else {
+			return false;
+		}
 		
 	}
 });
 
 /* enable the reverse office form */
 
-jQuery(document).on('click', '.vd_serviceincenter_wrapper-freeoffices-list-element-menu-reserveform-right button', function(e){
+jQuery(document).on('click', '.serviceincente-book button', function(e){
 	
 	e.preventDefault();
 	
@@ -414,11 +531,10 @@ jQuery(document).on('click', '.vd_services2_list-item', function() {
 
 	jQuery(document).on('click.hideserviceinfo', function(e){
 
-		if (jQuery(e.target).closest('.vd_services2_list-item-wrapper').length === 0) {
+		if (jQuery('.vd_services2_list-item-wrapper:visible').length &&
+			jQuery(e.target).closest('.vd_services2_list-item-wrapper').length === 0) {
 	
-			jQuery('.vd_services2_list-item-wrapper').hide();
-			jQuery(document).off('click.hideserviceinfo');
-			
+			jQuery('.vd_services2_list-item-wrapper:visible .vd_services2_list-item-wrapper-close').click();
 		}
 
 	});
@@ -427,6 +543,8 @@ jQuery(document).on('click', '.vd_services2_list-item', function() {
 
 jQuery(document).on('click', '.vd_services2_list-item-wrapper-close', function() {
 	jQuery(this).parents('.vd_services2_list-item-wrapper').hide();
+	jQuery(document).off('click.hideserviceinfo');
+
 	return false;
 });
 
@@ -457,24 +575,27 @@ jQuery(document).on('submit', '.vd_about_wrapper-contacts-inner-data-form form',
 
 	var $form = jQuery(this);
 	
-	if (validateEmail(jQuery('input.email', jQuery(this)).val()) == false) {
+	var $email = jQuery('[name="about_contacts_email"]', jQuery(this));
+	var $name = jQuery('[name="about_contacts_name"]', jQuery(this));
+	var $message = jQuery('[name="about_contacts_message"]', jQuery(this));
+	if (validateEmail($email.val()) == false) {
 		send = false;
-		jQuery('input.email', jQuery(this)).addClass('error');
+		$email.addClass('error');
 	}
 	
-	if (jQuery('input.email', jQuery(this)).val().length == 0) {
+	if ($email.val().length == 0) {
 		send = false;
-		jQuery('input.email', jQuery(this)).addClass('error');
+		$email.addClass('error');
 	}
 	
-	if (jQuery('input.name', jQuery(this)).val().length < 2) {
+	if ($name.val().length < 2) {
 		send = false;
-		jQuery('input.name', jQuery(this)).addClass('error');
+		$name.addClass('error');
 	}
 	
-	if (jQuery('textarea.message', jQuery(this)).val().length == 0) {
+	if ($message.val().length == 0) {
 		send = false;
-		jQuery('textarea.message', jQuery(this)).addClass('error');
+		$message.addClass('error');
 	}
 
 	if (send == true) {
@@ -483,9 +604,14 @@ jQuery(document).on('submit', '.vd_about_wrapper-contacts-inner-data-form form',
 
 		var url_ajax = document.location.href + '?ajax_inner=1';
 		var form_data = $form.serialize();
-		jQuery.post(url_ajax, form_data, function(message) {
+		jQuery.post(url_ajax, form_data, function(data) {
+			var r = $.parseJSON(data);
 			loader_remove($button);
-			vd_fake_alert(message);
+			vd_fake_alert(r.message);
+			if (0 === r.code) {
+				dataLayer = window.dataLayer || [];
+				dataLayer.push({"event": "form_contacts"});
+			}
 		});
 		
 	}
@@ -531,9 +657,14 @@ jQuery(document).on('submit', '.vd_specialoffer-offers-list-element-menu form', 
 
 		var url_ajax = document.location.href + '?ajax_inner=1';
 		var form_data = $form.serialize();
-		jQuery.post(url_ajax, form_data, function(message) {
+		jQuery.post(url_ajax, form_data, function(data) {
+			var r = $.parseJSON(data);
 			loader_remove($button);
-			vd_fake_alert(message);
+			vd_fake_alert(r.message);
+			if (0 === r.code) {
+				dataLayer = window.dataLayer || [];
+				dataLayer.push({"event": "form_skidka_" + r.data.bc_gtm_id});
+			}
 		});
 		
 	}
@@ -806,13 +937,6 @@ jQuery(window).scroll(function(){
 	}
 });
 
-/* Click event to scroll to top */
-
-jQuery('.scroll_to_top').click(function(){
-	jQuery('html, body').scrollTop(0);
-	return false;
-});
-
 /* request form scripting */
 
 jQuery(document).on('submit', '.vd_request_wrapper-form form', function(e) {
@@ -851,9 +975,14 @@ jQuery(document).on('submit', '.vd_request_wrapper-form form', function(e) {
 
 		var url_ajax = document.location.href + '?ajax_inner=1';
 		var form_data = $form.serialize();
-		jQuery.post(url_ajax, form_data, function(message) {
+		jQuery.post(url_ajax, form_data, function(data) {
+			var r = $.parseJSON(data);
 			loader_remove($button);
-			vd_fake_alert(message);
+			vd_fake_alert(r.message);
+			if (0 === r.code) {
+				dataLayer = window.dataLayer || [];
+				dataLayer.push({"event": r.data.mode});
+			}
 		});
 		
 	}
@@ -883,6 +1012,15 @@ jQuery(document).on('click', 'form[name="subscribe"] button', function(){
 	}
 
 	return false;
+});
+
+jQuery(document).on("change", "[name='additionalservice']", function() {
+	var $options = $(".additionalservice-options", $(this.form)); 
+	if ($(this).is(":checked")) {
+		$options.fadeIn();
+	} else {
+		$options.fadeOut();
+	}
 });
 
 function vd_fake_alert(message) {

@@ -1,3 +1,4 @@
+<a href="#" class="scroll_to_top"></a>
 <div class="<?=$_SITE['config']['CONTENT_CSS_CLASS_NAME']?>">
 <?	if (isset($_DATA['article']['items'])) { 
 		$article = current($_DATA['article']['items']); ?>

@@ -1,4 +1,33 @@
 <?
+	if (isset($_GET['printmap'])) { ?>
+		<style>
+			html, body {width: 800px; min-width: 0; max-width: none; padding: 20px;}
+			@media print {
+				html, body {height: 90%; padding: 20px 0 0 0;}
+			}
+			.g-container {width: 100% !important;}
+			.vd_singleofficewrapper-content-contacts-details {padding: 0 !important;}
+			header, footer, h2,
+			.vd_singleofficewrapper-menu,
+			.vd_singleofficewrapper-content-about,
+			.vd_singleofficewrapper-content-gallery,
+			.vd_singleofficewrapper-content-services,
+			.vd_singleofficewrapper-content-special,
+			.vd_singleofficewrapper-other,
+			.vd_singleofficewrapper-header-body,
+			.vd_singleofficewrapper:before,
+			.body-wrap:after,
+			.vd_officelistwrapper-office-place-marker,
+			.map-print {display: none;}
+			.vd_singleofficewrapper-header {height: auto; overflow: visible; background: none !important;}
+			.vd_singleofficewrapper-header h1, .vd_singleofficewrapper-header-subtitle {display: inline-block; font-size: 18px; margin-top: 0; color: inherit; text-shadow: none;}
+			.inner {margin-top: 0; background: none !important;}
+			.vd_singleofficewrapper-content-contacts {margin-top: 1em;}
+			.vd_mapwrapper {height: 800px; margin-bottom: 0;}
+			.vd_singleofficewrapper-content-contacts-details-right-contactstable tr td:first-child {width: 80px;}
+			.vd_singleofficewrapper-content-contacts-details-left, .vd_singleofficewrapper-content-contacts-details-right {float: none; padding: 10px 0 !important;}
+		</style>
+<?	}
 	
 	/* for development purposes only, remove when moving to the correct templates */
 
@@ -94,7 +123,7 @@
 ?>
 <a href="#" class="scroll_to_top"></a>
 <div class="vd_singleofficewrapper">
-	<div class="vd_singleofficewrapper-header" style="background-image: url(<?php echo $single_office_center_img_ext; ?>); background-size: cover;">
+	<div class="vd_singleofficewrapper-header" style="background-image: url(<?php echo $single_office_center_img_ext; ?>);">
 		<div class="vd_singleofficewrapper-header-subtitle">
 			Бизнес-центр
 		</div>
@@ -124,123 +153,8 @@
 		</div>
 	</div>
 	<div class="vd_singleofficewrapper-content">
-		<div class="vd_singleofficewrapper-content-about">
-			<div class="g-container">
-			<a name="about"></a>
-			<h2 class="g-section-title">О бизнес-центре</h2>
-			<?
-				
-			/* count the number of text detail items */
-				
-			$office_center_details_count = 0;
-			
-			foreach ($_DATA['office_center_detail']['items'] as $office_center_detail) {
-				if ($office_center_detail['office_center_detail_type_id'] == 'text') {
-					$office_center_details_count++;
-				}
-			}
-			
-			/* count the number of items in the columns */
-			
-			$office_center_details_column_count = (int) ceil($office_center_details_count / 2);
-			
-			$office_center_details_number = 1;
-			
-			foreach ($_DATA['office_center_detail']['items'] as $office_center_detail) {
-				
-				if ($office_center_detail['office_center_detail_type_id'] == 'text') {
-					
-					/* open the column if the item is first or we are after half of them */
-					
-					if ($office_center_details_number == 1 || $office_center_details_number == ($office_center_details_column_count + 1)) {
-						
-						echo '<div class="vd_singleofficewrapper-content-about-column">';
-						
-					}
-					
-					?>
-					
-					<div class="vd_singleofficewrapper-content-about-block">
-						<div class="vd_singleofficewrapper-content-about-block-image">
-							<?
-							
-							if ($office_center_detail['img_src'] != "") {
-								echo '<img src="' . $office_center_detail['img_src'] . '" />';
-							} else {
-								echo '<img src="/uploads/images/icons/svg/infrastructure.svg" />';
-							}
-								
-							?>
-						</div>
-						<div class="vd_singleofficewrapper-content-about-block-text">
-							<? echo $office_center_detail['body']; ?>
-						</div>
-					</div>		
-					
-					<?
-						
-					/* close the column if the item is last or we are at half of them */
-						
-					if ($office_center_details_number == $office_center_details_column_count || $office_center_details_number == $office_center_details_count) {
-						
-						echo '</div>';
-						
-					}
-					
-					$office_center_details_number++;
-					
-				}
-				
-			}	
-				
-			?>
-			</div>
-		</div>
-		<?
-		
-		if ($vd_show_gallery == true) {
-			
-		?>
-		<div class="vd_singleofficewrapper-content-gallery">
-			<a name="gallery"></a>
-			<h2 class="g-section-title">Галерея</h2>
-			<div class="cycle-slideshow"
-				data-cycle-timeout="0"
-				data-cycle-allow-wrap="false"	
-				data-cycle-fx="carousel"
-				data-cycle-carousel-fluid="false"
-				data-cycle-slides="> a"
-			>
-			    <div class="cycle-prev"></div>
-				<div class="cycle-next"></div>
-			<?
-			
-			foreach ($_DATA['office_center_detail']['items'] as $office_center_detail) {
-				
-				if ($office_center_detail['office_center_detail_type_id'] == 'gallery') {
-					
-					$office_center_detail_body = $office_center_detail['body'];
-					
-					$office_center_detail_gallery = gallery_html2array($office_center_detail_body);
-					
-					foreach ($office_center_detail_gallery as $office_center_detail_gallery_item) {
-						
-						echo '<a href="' . $office_center_detail_gallery_item[1] . '" class="fancybox-thumb" rel="fancybox-thumb"><img src="' . $office_center_detail_gallery_item[2] . '" data-original-src="' . $office_center_detail_gallery_item[1] . '" /></a>';
-						
-					}
-					
-				}
-				
-			}	
-				
-			?>
-			</div>
-		</div>
-		<?
-		
-		}	
-			
-		?>
+	<?	$content_services = '';
+		IS_MOBILE || ob_start(); ?>
 		<div class="vd_singleofficewrapper-content-services">
 			<div class="g-container">
 			<a name="services"></a>
@@ -426,6 +340,125 @@
 			</table>
 			</div>
 		</div>
+	<?	IS_MOBILE || $content_services = ob_get_clean(); ?>
+		<div class="vd_singleofficewrapper-content-about">
+			<div class="g-container">
+			<a name="about"></a>
+			<h2 class="g-section-title">О бизнес-центре</h2>
+			<?
+				
+			/* count the number of text detail items */
+				
+			$office_center_details_count = 0;
+			
+			foreach ($_DATA['office_center_detail']['items'] as $office_center_detail) {
+				if ($office_center_detail['office_center_detail_type_id'] == 'text') {
+					$office_center_details_count++;
+				}
+			}
+			
+			/* count the number of items in the columns */
+			
+			$office_center_details_column_count = (int) ceil($office_center_details_count / 2);
+			
+			$office_center_details_number = 1;
+			
+			foreach ($_DATA['office_center_detail']['items'] as $office_center_detail) {
+				
+				if ($office_center_detail['office_center_detail_type_id'] == 'text') {
+					
+					/* open the column if the item is first or we are after half of them */
+					
+					if ($office_center_details_number == 1 || $office_center_details_number == ($office_center_details_column_count + 1)) {
+						
+						echo '<div class="vd_singleofficewrapper-content-about-column">';
+						
+					}
+					
+					?>
+					
+					<div class="vd_singleofficewrapper-content-about-block">
+						<div class="vd_singleofficewrapper-content-about-block-image">
+							<?
+							
+							if ($office_center_detail['img_src'] != "") {
+								echo '<img src="' . $office_center_detail['img_src'] . '" />';
+							} else {
+								echo '<img src="/uploads/images/icons/svg/infrastructure.svg" />';
+							}
+								
+							?>
+						</div>
+						<div class="vd_singleofficewrapper-content-about-block-text">
+							<? echo $office_center_detail['body']; ?>
+						</div>
+					</div>		
+					
+					<?
+						
+					/* close the column if the item is last or we are at half of them */
+						
+					if ($office_center_details_number == $office_center_details_column_count || $office_center_details_number == $office_center_details_count) {
+						
+						echo '</div>';
+						
+					}
+					
+					$office_center_details_number++;
+					
+				}
+				
+			}	
+				
+			?>
+			</div>
+		</div>
+		<?
+		
+		if ($vd_show_gallery == true) {
+			
+		?>
+		<div class="vd_singleofficewrapper-content-gallery">
+			<a name="gallery"></a>
+			<h2 class="g-section-title">Галерея</h2>
+			<div class="cycle-slideshow"
+				data-cycle-timeout="0"
+				data-cycle-allow-wrap="false"	
+				data-cycle-fx="carousel"
+				data-cycle-carousel-fluid="false"
+				data-cycle-slides="> a"
+			>
+			    <div class="cycle-prev"></div>
+				<div class="cycle-next"></div>
+			<?
+			
+			foreach ($_DATA['office_center_detail']['items'] as $office_center_detail) {
+				
+				if ($office_center_detail['office_center_detail_type_id'] == 'gallery') {
+					
+					$office_center_detail_body = $office_center_detail['body'];
+					
+					$office_center_detail_gallery = gallery_html2array($office_center_detail_body);
+					
+					foreach ($office_center_detail_gallery as $office_center_detail_gallery_item) {
+						
+						echo '<a href="' . $office_center_detail_gallery_item[1] . '" class="fancybox-thumb" rel="fancybox-thumb"><img src="' . $office_center_detail_gallery_item[2] . '" data-original-src="' . $office_center_detail_gallery_item[1] . '" /></a>';
+						
+					}
+					
+				}
+				
+			}	
+				
+			?>
+			</div>
+		</div>
+		<?
+		
+		}	
+		
+		echo $content_services;
+		?>
 		<div class="vd_singleofficewrapper-content-contacts">
 			<a name="contacts"></a>
 			<div class="g-container">
@@ -436,17 +469,22 @@
 							echo preg_replace('/(' . $single_office_center_metro_label . ')/u', '<div class="vd_officelistwrapper-office-place-marker" style="background-color: ' . $single_office_center_metro_color . '"></div>$1', $single_office_center_address);
 						} else {
 							echo $single_office_center_address;
-						} ?>
+						}
+						if (!IS_MOBILE) { ?>
+							<div class="map-print">
+								<a href="./?printmap=1" target="_blank">Распечатать схему проезда</a>
+							</div>
+					<?	} ?>
 					</div>
 					<div class="vd_singleofficewrapper-content-contacts-details-right">
 						<table class="vd_singleofficewrapper-content-contacts-details-right-contactstable">
 							<tr>
 								<td>Телефон:</td>
-								<td><? echo $single_office_center_phone; ?></td>
+								<td><a href="tel:<?=preg_replace("/[^0-9\+]/", '', $single_office_center_phone)?>"><?=$single_office_center_phone?></a></td>
 							</tr>
 							<tr>
 								<td>Е-mail:</td>
-								<td><? echo $single_office_center_email; ?></td>
+								<td><a href="mailto:<?=$single_office_center_email?>"><?=$single_office_center_email?></a></td>
 							</tr>
 						</table>
 					</div>
@@ -456,7 +494,7 @@
 			</div>
 		</div>
 		<div class="vd_mapwrapper">
-			<div id="vd_mapwrapper-map"></div>
+			<div id="vd_mapwrapper-map" data-id="<?=$g_office_center_id?>"></div>
 		</div>
 	<?	out_special_offers_by_center($g_office_center_id, $single_office_center_title); ?>
 	</div>
@@ -476,7 +514,7 @@
 	} else {
 
 ?>
-
+<a href="#" class="scroll_to_top"></a>
 <div class="vd_officelistwrapper-map">
 	<div class="vd_mapwrapper">
 		<div id="vd_mapwrapper-map"></div>	

@@ -13,10 +13,11 @@ iframe {border:0;}
 
 /* basics */
 html, body {height: 100%;}
-body, input, textarea, button {font-size: 15px; font-family: 'Open Sans', Arial, sans-serif;}
+body, input, textarea, button {font-size: 15px; font-family: 'Open Sans', Arial, Helvetica, sans-serif;}
 body, input, textarea {color: #010101;}
 
 a {color: #0085ff; text-decoration: none; transition: all 0.05s linear 0s;}
+a[href*="tel:"] {cursor: default; color: inherit; pointer-events: none;}
 
 h1 {font-size: 59px;}
 h2 {font-size: 29px; margin-bottom: .8em; line-height: 1.5; font-weight: 700; color: #000;}
@@ -29,7 +30,7 @@ h2 {font-size: 29px; margin-bottom: .8em; line-height: 1.5; font-weight: 700; co
 .g-container-row {position: relative;}
 
 .g-button {display: inline-block; padding: 0 30px 0 40px; height: 60px; overflow: hidden; line-height: 60px; font-size: 14px; font-weight: normal; text-transform: uppercase; color: #fff; background-color: #41d4e6;}
-.g-button:after {content: url(/images/svg/arrow-small.svg); margin-left: 1em; vertical-align: sub;}
+.g-button:after {content: url(/images/svg/arrow-small.svg); margin-left: .9em; vertical-align: sub;}
 
 .g-section-title {text-align: center;}
 
@@ -41,6 +42,8 @@ h2 {font-size: 29px; margin-bottom: .8em; line-height: 1.5; font-weight: 700; co
 .g-error {color: #ff0033;}
 
 .g-section-title-standalone h1 {margin-bottom: 1em; font-size: 30px; font-weight: 700; line-height: 1.5; color: #000000; text-align: center;}
+
+.g-col2 {float: left; width: 50%; margin-bottom: 25px;}
 
 /* header */
 .header {height: 340px;}
@@ -56,7 +59,7 @@ h2 {font-size: 29px; margin-bottom: .8em; line-height: 1.5; font-weight: 700; co
 .header-nav-logo-after {display: none;}
 .header-nav-right {float: right; width: 80%;}
 .header-phone {float: right; margin-bottom: 60px; line-height: 60px;}
-.header-phone-number {float: left; padding-right: 30px; font-size: 30px; font-weight: 700; color: #262626; letter-spacing: 2px;}
+.header-phone-number {float: left; padding-right: 30px; font-size: 30px; font-weight: 700; letter-spacing: 2px;}
 .header-phone-button {display: block; float: left; padding: 0 40px;}
 .header-phone-button:after {content: "";}
 
@@ -70,7 +73,8 @@ h2 {font-size: 29px; margin-bottom: .8em; line-height: 1.5; font-weight: 700; co
 
 .header-path {margin-top: 38px; font-size: 13px; color: #666;}
 .header-path li {display: inline-block;}
-.header-path li + li:before {display: inline-block;	vertical-align: baseline; content: ""; padding-left: 1em; margin-right: 1em; border-right: 1px solid #838383; height: .7em;}
+.header-path li:after {display: inline-block; vertical-align: baseline; content: ""; padding-left: 1em; margin-right: 1em; border-right: 1px solid #838383; height: .7em;}
+.header-path li:last-child:after {border-right: none;}
 
 /* inner */
 .inner {background: url(/images/svg/group.svg) repeat-x top;}

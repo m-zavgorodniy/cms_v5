@@ -4,10 +4,15 @@ require $_SERVER['DOCUMENT_ROOT'] . '/lib/mail.php';
 
 if ('POST' == $_SERVER['REQUEST_METHOD']) {
 
+	if (!catch_spam('jcode', 'about_contacts_position', 'about_contacts_email')) {
+		exit;
+	}
+
 	$MY_POST = get_post();
 
 	$about_contacts_email = $MY_POST['about_contacts_email'];
 	$about_contacts_name = $MY_POST['about_contacts_name'];
+	$about_contacts_phone = $MY_POST['about_contacts_phone'];
 	$about_contacts_message = $MY_POST['about_contacts_message'];
 	
 	$about_contacts_manager_message_text .= "Здравствуйте,\r\nНа сайте было отправлено новое сообщение через форму контактов на странице «О компании».";
@@ -17,19 +22,28 @@ if ('POST' == $_SERVER['REQUEST_METHOD']) {
 	$about_contacts_manager_message_text .= "\r\nДанные сообщения";
 	$about_contacts_manager_message_text .= "\r\nИмя: " . $about_contacts_name;
 	$about_contacts_manager_message_text .= "\r\nE-mail: " . $about_contacts_email;
-	$about_contacts_manager_message_text .= "\r\nСообщение: " . $about_contacts_message;
+	if ($about_contacts_phone) {
+			$about_contacts_manager_message_text .= "\r\nТелефон: " . $about_contacts_phone;
+	}
+	$about_contacts_manager_message_text .= "\r\n\r\nСообщение:\r\n" . $about_contacts_message;
 	
-	$about_contacts_customer_message_text .= "Здравствуйте,\r\nВаше сообщение, отправленное через форму контактов на странице «О компании», было принято.";
+	$about_contacts_customer_message_text .= "Здравствуйте,\r\nВаше сообщение принято на сайте «Деловой».";
+	$about_contacts_customer_message_text .= "\r\n\r\nВаше сообщение:\r\n" . $about_contacts_message;
 	
 	if ($about_contacts_email && $about_contacts_name && $about_contacts_message) {
 
 		if (true === mail_send($_SITE['settings']['email_feedback'], 'Новое сообщение с сайта «Деловой»', $about_contacts_manager_message_text)) {
-			mail_send($about_contacts_email, 'Ваше сообщение принято', $about_contacts_customer_message_text);
-			echo 'Спасибо, ваше сообщение принято';
+			mail_send($about_contacts_email, 'Ваше сообщение принято',
+				strip_tags(htmlspecialchars_decode($about_contacts_customer_message_text)) . "\r\n\r\n\r\n\r\n" . 
+				htmlspecialchars_decode($_SITE['settings']['client_email_footer']));
+			$response['code'] = 0;
+			$response['message'] = 'Спасибо, ваше сообщение принято.';
 		} else {
-			echo 'Ошибка при приеме сообщения. Пожалуйста, попробуйте еще раз чуть позже';
+			$response['code'] = 500;
+			$response['message'] = 'Ошибка при приеме сообщения. Пожалуйста, попробуйте еще раз чуть позже.';
 		}
 		
+		echo '{"code":' . $response['code'] . ',"message":"' . $response['message'] .'"}';
 	}
 
 	exit;
@@ -224,15 +238,26 @@ if (isset($_DATA['article']['items'])) {
 							<span class="metro"><?=$_SITE['settings']['contacts_metro']?></span>
 						</div>
 						<div class="vd_about_wrapper-contacts-inner-data-block">
-							<span class="phone"><?=$_SITE['settings']['contacts_phone']?></span>
+							<a href="tel:<?=preg_replace("/[^0-9\+]/", '', $_SITE['settings']['contacts_phone'])?>"><span class="phone"><?=$_SITE['settings']['contacts_phone']?></span></a>
 							<span class="email"><a href="mailto:<?=$_SITE['settings']['contacts_email']?>"><?=$_SITE['settings']['contacts_email']?></a></span>
 						</div>
+					<?	if (!IS_MOBILE) { ?>
+						<div class="vd_about_wrapper-contacts-inner-data-block">
+							<a href="/business-centers/gostinyy-dvor/?printmap=1" target="_blank">Распечатать схему проезда</a>
+						</div>
+					<?	} 
+						/*	spam catching
+							jcode - the current timestamp
+							about_contacts_position - a honey pot field */ ?>
 						<div class="vd_about_wrapper-contacts-inner-data-form">
 							<span class="title">Оставить сообщение</span>
 							<form method="post">
-								<input class="email" name="about_contacts_email" type="text" placeholder="E-mail">
 								<input class="name" name="about_contacts_name" type="text" placeholder="Имя">
+								<input class="email" name="about_contacts_email" type="text" placeholder="E-mail">
+								<input class="position" name="about_contacts_position" type="text" placeholder="Повторите Е-mаil" autocomplete="off">
+								<input class="phone" name="about_contacts_phone" maxlength="18" placeholder="+7 (___) ___-__-__" autocomplete="off">
 								<textarea class="message" name="about_contacts_message" placeholder="Сообщение"></textarea>
+								<input name="jcode" type="hidden" value="j<?=time()?>">
 								<button class="submit">Отправить</button>
 							</form>
 						</div>

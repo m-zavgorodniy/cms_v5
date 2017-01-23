@@ -4,6 +4,7 @@ foreach($_DATA['article']['items'] as &$article) {
     $articles[$article['article_type_id']][] = $article;
 }
 ?>
+<a href="#" class="scroll_to_top"></a>
 <div class="index-promo g-container"><div class="g-container-row">
     <div class="index-promo-left">
         <div class="index-promo-left-title">

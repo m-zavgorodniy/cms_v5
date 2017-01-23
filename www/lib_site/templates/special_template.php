@@ -6,6 +6,7 @@ $special_offer = $_DATA['special_offer']['items'][$_GET['special']];
 if ('POST' == $_SERVER['REQUEST_METHOD']) {
 	$MY_POST = get_post();
 
+	$special_offer_center_id = $MY_POST['special_offer_center_id'];
 	$special_offer_center = $MY_POST['special_offer_center'];
 	$special_offer_phone = $MY_POST['special_offer_phone'];
 	$special_offer_email = $MY_POST['special_offer_email'];
@@ -13,51 +14,64 @@ if ('POST' == $_SERVER['REQUEST_METHOD']) {
 	$special_offer_details = $MY_POST['special_offer_details'];
 	$special_offer_message = $MY_POST['special_offer_message'];
 	
-	$special_offer_manager_message_text .= "Здравствуйте,\r\nНа сайте была оставлена заявка в разделе «Спецпредложения».";
+	$special_offer_manager_message_text .= "Здравствуйте,\r\nНа сайте была оформлена новая заявка по спецпредложению.";
 		
 	$special_offer_manager_message_text .= "\r\n";
 	
-	$special_offer_manager_message_text .= "\r\nДанные заявки";
-	$special_offer_manager_message_text .= "\r\nОфис-центр: " . $special_offer_center;
-	$special_offer_manager_message_text .= "\r\nСпецпредложеие: " . $special_offer_details;
+	$special_offer_manager_message_text .= "\r\nСпецпредложение: " . $special_offer_details;
+	$special_offer_manager_message_text .= "\r\nВ бизнес-центре: " . $special_offer_center;
+
+	$special_offer_manager_message_text .= "\r\n\r\nДанные клиента";
 	$special_offer_manager_message_text .= "\r\nИмя: " . $special_offer_name;
 	$special_offer_manager_message_text .= "\r\nE-mail: " . $special_offer_email;
 	$special_offer_manager_message_text .= "\r\nТелефон: " . $special_offer_phone;
-	$special_offer_manager_message_text .= "\r\nСообщение: " . $special_offer_message;
+
+	$special_offer_manager_message_text .= "\r\n\r\nСообщение клиента:\r\n" . $special_offer_message;
 	
-	$special_offer_customer_message_text .= "Здравствуйте,\r\nВаше заявка по спецпредложению была принята.";
+	$special_offer_customer_message_text .= "Здравствуйте,\r\nВаша заявка по спецпредложению принята.";
 	
 	$special_offer_customer_message_text .= "\r\n";
 	
-	$special_offer_customer_message_text .= "\r\nДанные заявки";
-	$special_offer_customer_message_text .= "\r\nОфис-центр: " . $special_offer_center;
-	$special_offer_customer_message_text .= "\r\nСпецпредложеие: " . $special_offer_details;
+	$special_offer_customer_message_text .= "\r\nСпецпредложение: " . $special_offer_details;
+	$special_offer_customer_message_text .= "\r\nВ бизнес-центре: " . $special_offer_center;
+
+	$special_offer_customer_message_text .= "\r\n\r\nВаши данные";
 	$special_offer_customer_message_text .= "\r\nИмя: " . $special_offer_name;
 	$special_offer_customer_message_text .= "\r\nE-mail: " . $special_offer_email;
 	$special_offer_customer_message_text .= "\r\nТелефон: " . $special_offer_phone;
-	$special_offer_customer_message_text .= "\r\nСообщение: " . $special_offer_message;
+
+	$special_offer_customer_message_text .= "\r\n\r\nВаше сообщение:\r\n" . $special_offer_message;
 	
 	if ($special_offer_center && $special_offer_phone && $special_offer_email && $special_offer_name && $special_offer_message && $special_offer_details) {
 	
-		if (true === mail_send($_SITE['settings']['email_request'], 'Новая заявка по спецпредложению', $about_contacts_manager_message_text)) {
-			mail_send($special_offer_email, 'Ваша заявка по спецпредложению принята', $special_offer_customer_message_text);
-			echo 'Спасибо, ваша заявка принята';
+		if (true === mail_send($_SITE['settings']['email_request'], 'Новая заявка по спецпредложению', $special_offer_manager_message_text)) {
+			mail_send($special_offer_email, 'Ваша заявка по спецпредложению принята',
+				strip_tags(htmlspecialchars_decode($special_offer_customer_message_text)) . "\r\n\r\n\r\n\r\n" . 
+				htmlspecialchars_decode($_SITE['settings']['client_email_footer']));
+			$response['code'] = 0;
+			$response['message'] = 'Спасибо, ваша заявка принята.';
 		} else {
-			echo 'Ошибка при приеме заявки. Пожалуйста, попробуйте еще раз чуть позже';
+			$response['code'] = 500;
+			$response['message'] = 'Ошибка при приеме заявки. Пожалуйста, попробуйте еще раз чуть позже.';
 		}
+
+		echo '{"code":' . $response['code'] . ',"message":"' . $response['message'] .'","data":{"bc_gtm_id":"' . $_SITE['config']['OFFICE_CENTER_GTM_EVENT_CODE'][$special_offer_center_id] . '"}}';
 
 	}
 	exit;
 }
 ?>
+<a href="#" class="scroll_to_top"></a>
 <div class="vd_specialoffer">
 	<div class="vd_specialoffer-header">
 		<div class="g-container">
 			<div class="vd_specialoffer-header-dates"><?=text_date_str($special_offer['date_from'], 'ru_RU', 'j M')?><?=$special_offer['date_to']?' – ' . text_date_str($special_offer['date_to'], 'ru_RU', 'j M'):''?></div>
 			<div class="vd_specialoffer-header-box g-clearfix">
-			<?	foreach (explode(',', $special_offer['service_group_css_class']) as $special_offer_css) { ?>
+			<?	$i = 0;
+				foreach (explode(',', $special_offer['service_group_css_class']) as $special_offer_css) { ?>
 					<div class="vd_specialoffer-header-<?=$special_offer_css?>"></div>
-			<?	} ?>
+				<?	if (2 == ++$i) break; // нефиг
+				} ?>
 				<h1><?=$special_offer['title']?></h1>
 			</div>
 			<p><?=$special_offer['annotation']?></p>
@@ -79,10 +93,10 @@ if ('POST' == $_SERVER['REQUEST_METHOD']) {
 				?>
 				<div class="vd_specialoffer-offers-list-element">
 					<div class="vd_specialoffer-offers-list-element-header">
-						<div class="vd_specialoffer-offers-list-element-header-office">
-							<div class="vd_specialoffer-offers-list-element-header-office-img" style="background-image: url('<? echo $special_offer_office_center['ext_img_src']; ?>')"></div>
+						<a href="<?=$_SITE['section_paths']['office_centers']['path']?>?center=<?=$special_offer_office_center['id']?>&service=<?=$special_offer['service_group_id']?>" class="vd_specialoffer-offers-list-element-header-office">
+							<span class="vd_specialoffer-offers-list-element-header-office-img" style="background-image: url('<? echo $special_offer_office_center['ext_img_src']; ?>')"></span>
 							<span><? echo $special_offer_office_center['title']; ?></span>
-						</div>
+						</a>
 						<div class="vd_specialoffer-offers-list-element-header-services">
 							<?
 								
@@ -138,8 +152,9 @@ if ('POST' == $_SERVER['REQUEST_METHOD']) {
 									</div>
 								</div>
 								<div class="vd_specialoffer-offers-list-element-menu-reserveform-right">
+									<input type="hidden" name="special_offer_center_id" value="<? echo $special_offer_office_center['id']; ?>">
 									<input type="hidden" name="special_offer_center" value="<? echo $special_offer_office_center['title']; ?>">
-									<input type="hidden" name="special_offer_details" value="Вирутальный офис +4 часа переговорных в подарок">
+									<input type="hidden" name="special_offer_details" value="<?=$special_offer['title']?>">
 									<input type="text" name="special_offer_phone" class="phone" value="" placeholder="+7 (___) ___-__-__">
 									<input type="text" name="special_offer_email" class="email" value="" placeholder="E-mail">
 									<input type="text" name="special_offer_name" class="name" value="" placeholder="Имя">
