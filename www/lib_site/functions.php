@@ -155,7 +155,7 @@ function out_special_offers_by_center($office_center_id, $office_center_title = 
 }
 
 function gallery_html2array($str) {
-    preg_match_all('/<a\s.*?href="([^"]*)".*?<img\s.*?src="([^"]*)"/is', $str, &$matches, PREG_SET_ORDER);
+    preg_match_all('/<a\s.*?href="([^"]*)".*?<img\s.*?src="([^"]*)"/is', $str, $matches, PREG_SET_ORDER);
     return $matches;
 }
 
@@ -165,7 +165,7 @@ function db_insert_booking($data) {
     if (is_array($data)) {
         foreach ($data as $field => &$value) {
             if (null !== $value and '' !== ($value = trim($value))) {
-                $value = mysql_real_escape_string($value, $_SITE['conn']);
+                $value = mysqli_real_escape_string($_SITE['conn'], $value);
             }
         }
         $res = db_mysql_query("INSERT INTO booking (" . implode(',', array_keys($data)) . ", created) VALUES ('" . implode("','", $data) . "', NOW())", $_SITE['conn']);
